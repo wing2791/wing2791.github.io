@@ -8,7 +8,7 @@
     <link href="/2024/07/28/%E5%90%84%E7%A7%8D%E5%8A%9F%E8%83%BD%E6%B5%8B%E8%AF%95/"/>
     <url>/2024/07/28/%E5%90%84%E7%A7%8D%E5%8A%9F%E8%83%BD%E6%B5%8B%E8%AF%95/</url>
     
-    <content type="html"><![CDATA[<h4 id="latex-公式">LaTex 公式</h4><p><span class="math display">\[J_r^{-1}(e_{ij})\approx I +\frac{1}{2}\begin{bmatrix}\phi_e^{\wedge} &amp; \rho_e^{\wedge} \\0 &amp; \phi_e^{\wedge} \\\end{bmatrix}\]</span></p><p><span class="math display">\[E=mc^2\]</span></p>]]></content>
+    <content type="html"><![CDATA[<h4 id="latex-公式">LaTex 公式</h4><p><span class="math display">\[J_r^{-1}(e_{ij})\approx I +\frac { 1 } { 2 }\begin{bmatrix}\phi_e^ { \wedge } &amp; \rho_e^ { \wedge } \\0 &amp; \phi_e^{\wedge} \\\end{bmatrix}\]</span></p><p><span class="math display">\[E=mc^2\]</span></p>]]></content>
     
     
     
