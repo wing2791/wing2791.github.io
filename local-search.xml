@@ -4,6 +4,19 @@
   
   
   <entry>
+    <title></title>
+    <link href="/2024/07/28/github%E9%83%A8%E7%BD%B2%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/"/>
+    <url>/2024/07/28/github%E9%83%A8%E7%BD%B2%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</url>
+    
+    <content type="html"><![CDATA[<h4 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h4><p><a href="https://blog.csdn.net/clearloe/article/details/139879493">参考博客链接</a></p><h4 id="安装Git"><a href="#安装Git" class="headerlink" title="安装Git"></a>安装Git</h4><h4 id="安装nodejs"><a href="#安装nodejs" class="headerlink" title="安装nodejs"></a>安装nodejs</h4><h4 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h4><p><a href="https://www.cnblogs.com/zhujingxiu/articles/7462025.html" title="发布于 2017-09-01 10:34">Win10任意目录下默认快速以管理员身份运行CMD</a><br><a href="https://blog.csdn.net/clearloe/article/details/139879493">安装hexo参考博客链接</a><br><a href="https://blog.csdn.net/qq_42786011/article/details/123895927">运行npm install 不动时</a></p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs shell">//  配置nmp代理来提高速度，如设置淘宝镜像<br>npm config set registry  https://registry.npmmirror.com/<br><br>// 查看配置是否成功<br>npm config get registry <br><br>// 成功后重新npm install安装<br>npm install<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Hello World</title>
     <link href="/2024/07/28/hello-world/"/>
     <url>/2024/07/28/hello-world/</url>
