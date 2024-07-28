@@ -4,19 +4,6 @@
   
   
   <entry>
-    <title>各种功能测试</title>
-    <link href="/2024/07/28/%E5%90%84%E7%A7%8D%E5%8A%9F%E8%83%BD%E6%B5%8B%E8%AF%95/"/>
-    <url>/2024/07/28/%E5%90%84%E7%A7%8D%E5%8A%9F%E8%83%BD%E6%B5%8B%E8%AF%95/</url>
-    
-    <content type="html"><![CDATA[<h4 id="latex-公式">LaTex 公式</h4><p><span class="math display">\[J_r^{-1}(e_{ij})\approx I +\frac{1}{2}\begin{bmatrix}\phi_e^{\wedge} &amp; \rho_e^{\wedge} \\0 &amp; \phi_e^{\wedge} \\\end{bmatrix}\]</span></p>]]></content>
-    
-    
-    
-  </entry>
-  
-  
-  
-  <entry>
     <title>github部署个人博客</title>
     <link href="/2024/07/28/github%E9%83%A8%E7%BD%B2%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/"/>
     <url>/2024/07/28/github%E9%83%A8%E7%BD%B2%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</url>
