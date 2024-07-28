@@ -1,0 +1,711 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="wing2791">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="分布式爬虫  概念：我们需要搭建一个分布式的集群，让其对一组资源进行分布联合爬取 作用：提升爬取数据的效率 如何实现分布式  安装一个scrapy-redis的组件 1pip install scrapy-redis  -i https:&#x2F;&#x2F;pypi.douban.com&#x2F;simple 原生的scrapy是不可以实现分布式爬虫，必须要让scrapy结合着scrapy-redis组件">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Day Day Up!">
+<meta property="og:url" content="https://wing2791.github.io/2024/07/29/%E7%88%AC%E8%99%AB(%E4%B8%83)_%E5%88%86%E5%B8%83%E5%BC%8F%E7%88%AC%E8%99%AB(%E6%9C%AA%E5%AE%8C%E7%BB%93)/index.html">
+<meta property="og:site_name" content="Day Day Up!">
+<meta property="og:description" content="分布式爬虫  概念：我们需要搭建一个分布式的集群，让其对一组资源进行分布联合爬取 作用：提升爬取数据的效率 如何实现分布式  安装一个scrapy-redis的组件 1pip install scrapy-redis  -i https:&#x2F;&#x2F;pypi.douban.com&#x2F;simple 原生的scrapy是不可以实现分布式爬虫，必须要让scrapy结合着scrapy-redis组件">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-07-28T17:04:41.660Z">
+<meta property="article:modified_time" content="2023-05-13T15:08:42.694Z">
+<meta property="article:author" content="wing2791">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>Day Day Up!</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"wing2791.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text=""></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-07-29 01:04" pubdate>
+          2024年7月29日 凌晨
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1.3k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          11 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header"></h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h4 id="分布式爬虫">分布式爬虫</h4>
+<ul>
+<li><p>概念：我们需要搭建一个分布式的集群，让其对一组资源进行分布联合爬取</p></li>
+<li><p>作用：提升爬取数据的效率</p></li>
+<li><p>如何实现分布式</p>
+<ul>
+<li><p>安装一个scrapy-redis的组件</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs stylus">pip install scrapy-redis  -<span class="hljs-selector-tag">i</span> https:<span class="hljs-comment">//pypi.douban.com/simple</span><br></code></pre></td></tr></table></figure></li>
+<li><p>原生的scrapy是不可以实现分布式爬虫，必须要让scrapy结合着scrapy-redis组件一起实现分布式爬虫</p></li>
+<li><p>为什么原生的scrapy不能实现分布式爬取？</p>
+<ul>
+<li>调度器不可以被分布式机群共享</li>
+<li>管道不可以被分布式机群共享</li>
+</ul></li>
+<li><p>scrapy-redis组件作用：</p>
+<ul>
+<li>可以给原生的scrapy框架提供可以被共享的管道和调度器</li>
+</ul></li>
+<li><p>分布式实现流程</p>
+<ul>
+<li><p>创建一个工程</p></li>
+<li><p>创建一个基于CrawlSpider的爬虫文件</p></li>
+<li><p>修改当前的爬虫文件</p>
+<ul>
+<li><p>导包：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> scrapy_redis.spiders <span class="hljs-keyword">import</span> RedisCrawlSpider<br></code></pre></td></tr></table></figure></li>
+<li><p>将start_urls和allowed_domains进行注释</p></li>
+<li><p>添加一个新属性：redis_key = 'sun'
+可以被共享的调度器队列名称</p></li>
+<li><p>编写数据相关的操作</p></li>
+<li><p>将当前爬虫类的父类修改成RedisCrawlSpider</p></li>
+</ul></li>
+<li><p>修改配置文件</p>
+<ul>
+<li><p>指定使用可以被共享的管道</p>
+<ul>
+<li><p>指定可以被共享的管道</p>
+<figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs autoit"><span class="hljs-meta">#4.是否将数据存入Redis数据库的管道：</span><br>ITEM_PIPELINES = &#123;<br>   <span class="hljs-meta"># <span class="hljs-string">&#x27;jd.pipelines.JdPipeline&#x27;</span>: 300,</span><br>    <span class="hljs-meta"># <span class="hljs-string">&#x27;jd.pipelines.JDSqlPipeline&#x27;</span>: 300,</span><br>    <span class="hljs-meta">#当开启此管道，该管道将会把数据存到Redis数据库中</span><br>    <span class="hljs-string">&#x27;scrapy.redis.pipelines.RedisPipeline&#x27;</span>:<span class="hljs-number">400</span>,<br>&#125;<br></code></pre></td></tr></table></figure></li>
+<li><p>指定可以被共享的调度器</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-comment">#1.启用调度将请求存储进redis</span><br><span class="hljs-comment"># 使用scrapy-redis组件自己的调度器</span><br><span class="hljs-comment">#from scrapy_redis.scheduler import Scheduler</span><br><span class="hljs-attr">SCHEDULER</span>=<span class="hljs-string">&quot;scrapy_redis.scheduler.Scheduler&quot;</span><br><br><span class="hljs-comment">#2.确保所有spider通过redis共享相同的重复过滤</span><br><span class="hljs-comment"># 增加了一个去重容器类的配置，作用使用Redis的set集合来存储请求的指纹数据，从而实现请求去重的持久化存储</span><br><span class="hljs-comment"># from scrapy_redis.dupefilter import RFPDupeFilter</span><br><span class="hljs-attr">DUPEFILTER_CLASS</span>=<span class="hljs-string">&quot;scrapy_redis.dupefilter.RFPDupeFilter&quot;</span><br><br><span class="hljs-comment">#3.设置当爬虫结束的时候是否保持redis数据库中的去重集合与任务队列(可以不设置)</span><br><span class="hljs-comment"># 配置调度器是否要持久化，也就是当爬虫结束了，要不要清空Redis中请求队列和去重指纹的set，如果是True，则会继续没有爬过的数据进行爬取</span><br><span class="hljs-attr">SCHEDULER_PERSIST</span>=<span class="hljs-literal">True</span><br><br><span class="hljs-comment">#指定连接到Redis时要使用的主机和端口     目的是连接上redis数据库</span><br><span class="hljs-attr">REDIS_HOST</span>=<span class="hljs-string">&quot;192.168.45.50&quot;</span><br><span class="hljs-attr">REDIS_PORT</span>=<span class="hljs-number">6379</span><br></code></pre></td></tr></table></figure></li>
+</ul></li>
+<li><p>redis相关操作配置</p>
+<ul>
+<li>配置redis的配置文件
+<ul>
+<li>linux或者mac:redis.conf</li>
+<li>windows:redis.windows.conf</li>
+<li>打开配置文件修改：
+<ul>
+<li>将bind 127.0.0.1 进行删除</li>
+<li>关闭保护模式：protected-mode yes 改为no</li>
+</ul></li>
+</ul></li>
+<li>结合配置文件开启redis服务
+<ul>
+<li>redis-server 配置文件位置</li>
+</ul></li>
+<li>启动客户端
+<ul>
+<li>redis-cli</li>
+</ul></li>
+</ul></li>
+<li><p>执行工程</p>
+<ul>
+<li>scrapy runspider xxx.py</li>
+</ul></li>
+<li><p>向调度器的队列中放入一个起始的url</p>
+<ul>
+<li>调度器的队列在redis 的客户端中
+<ul>
+<li>lpush xxx www.xxx.com</li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+<p>fbs.py</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> scrapy_redis.spiders <span class="hljs-keyword">import</span> RedisCrawlSpider<br><br><span class="hljs-keyword">import</span> scrapy<br><span class="hljs-keyword">import</span> sys,os<br>sys.path.append(os.path.dirname(os.path.dirname(__file__)))<br><span class="hljs-keyword">from</span> items <span class="hljs-keyword">import</span> Fbspro2Item<br><span class="hljs-keyword">from</span> scrapy.linkextractors <span class="hljs-keyword">import</span> LinkExtractor<br><span class="hljs-keyword">from</span> scrapy.spiders <span class="hljs-keyword">import</span> Rule<br><br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">FbsSpider</span>(<span class="hljs-title class_ inherited__">RedisCrawlSpider</span>):<br>    name = <span class="hljs-string">&#x27;fbs&#x27;</span><br>    <span class="hljs-comment"># allowed_domains = [&#x27;www.xxx.com&#x27;]</span><br>    <span class="hljs-comment"># start_urls = [&#x27;http://www.xxx.com/&#x27;]</span><br>    <span class="hljs-comment"># 可以被共享的调度器队列的名称</span><br>    redis_key = <span class="hljs-string">&#x27;boke&#x27;</span><br><br>    rules = (<br>        Rule(LinkExtractor(allow=<span class="hljs-string">r&#x27;http://www.wing2791.cn/page/\d+/&#x27;</span>), callback=<span class="hljs-string">&#x27;parse_item&#x27;</span>, follow=<span class="hljs-literal">True</span>),<br>    )<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">parse_item</span>(<span class="hljs-params">self, response</span>):<br>        <span class="hljs-comment"># 注意：xpath表达式中不可以出现tbody标签，因为tbody标签是浏览器添加的，不是实际代码中出现的</span><br>        article_list = response.xpath(<span class="hljs-string">&#x27;//*[@id=&quot;content&quot;]/main/article&#x27;</span>)<br>        <span class="hljs-keyword">for</span> article <span class="hljs-keyword">in</span> article_list:<br>            new_title = article.xpath(<span class="hljs-string">&#x27;./header/h2/a/text()&#x27;</span>).extract_first()<br>            new_time = article.xpath(<span class="hljs-string">&#x27;./div/div/span[1]/a/time/text()&#x27;</span>).extract_first()<br>            new_author = article.xpath(<span class="hljs-string">&#x27;./div/div/span[2]/span/a/text()&#x27;</span>).extract_first()<br><br>            item = Fbspro2Item()<br>            item[<span class="hljs-string">&#x27;new_title&#x27;</span>] = new_title<br>            item[<span class="hljs-string">&#x27;new_time&#x27;</span>] = new_time<br>            item[<span class="hljs-string">&#x27;new_author&#x27;</span>] = new_author<br><br>            <span class="hljs-keyword">yield</span> item<br><br></code></pre></td></tr></table></figure>
+<p>items.py</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># Define here the models for your scraped items</span><br><span class="hljs-comment">#</span><br><span class="hljs-comment"># See documentation in:</span><br><span class="hljs-comment"># https://docs.scrapy.org/en/latest/topics/items.html</span><br><br><span class="hljs-keyword">import</span> scrapy<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Fbspro2Item</span>(scrapy.Item):<br>    <span class="hljs-comment"># define the fields for your item here like:</span><br>    <span class="hljs-comment"># name = scrapy.Field()</span><br>    new_title = scrapy.Field()<br>    new_time = scrapy.Field()<br>    new_author = scrapy.Field()<br></code></pre></td></tr></table></figure>
+<p>setting.py</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># Scrapy settings for fbsPro2 project</span><br><span class="hljs-comment">#</span><br><span class="hljs-comment"># For simplicity, this file contains only settings considered important or</span><br><span class="hljs-comment"># commonly used. You can find more settings consulting the documentation:</span><br><span class="hljs-comment">#</span><br><span class="hljs-comment">#     https://docs.scrapy.org/en/latest/topics/settings.html</span><br><span class="hljs-comment">#     https://docs.scrapy.org/en/latest/topics/downloader-middleware.html</span><br><span class="hljs-comment">#     https://docs.scrapy.org/en/latest/topics/spider-middleware.html</span><br><br>BOT_NAME = <span class="hljs-string">&#x27;fbsPro2&#x27;</span><br><br>SPIDER_MODULES = [<span class="hljs-string">&#x27;fbsPro2.spiders&#x27;</span>]<br>NEWSPIDER_MODULE = <span class="hljs-string">&#x27;fbsPro2.spiders&#x27;</span><br><br><br><span class="hljs-comment"># Crawl responsibly by identifying yourself (and your website) on the user-agent</span><br>USER_AGENT = <span class="hljs-string">&#x27;Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.71 Safari/537.36 Core/1.94.176.400 QQBrowser/11.2.5166.400&#x27;</span><br>LOG_LEVEL = <span class="hljs-string">&#x27;ERROR&#x27;</span><br><br><span class="hljs-comment"># Obey robots.txt rules</span><br>ROBOTSTXT_OBEY = <span class="hljs-literal">False</span><br><br><span class="hljs-comment"># Configure maximum concurrent requests performed by Scrapy (default: 16)</span><br><span class="hljs-comment">#CONCURRENT_REQUESTS = 32</span><br><br><span class="hljs-comment"># Configure a delay for requests for the same website (default: 0)</span><br><span class="hljs-comment"># See https://docs.scrapy.org/en/latest/topics/settings.html#download-delay</span><br><span class="hljs-comment"># See also autothrottle settings and docs</span><br><span class="hljs-comment">#DOWNLOAD_DELAY = 3</span><br><span class="hljs-comment"># The download delay setting will honor only one of:</span><br><span class="hljs-comment">#CONCURRENT_REQUESTS_PER_DOMAIN = 16</span><br><span class="hljs-comment">#CONCURRENT_REQUESTS_PER_IP = 16</span><br><br><span class="hljs-comment"># Disable cookies (enabled by default)</span><br><span class="hljs-comment">#COOKIES_ENABLED = False</span><br><br><span class="hljs-comment"># Disable Telnet Console (enabled by default)</span><br><span class="hljs-comment">#TELNETCONSOLE_ENABLED = False</span><br><br><span class="hljs-comment"># Override the default request headers:</span><br><span class="hljs-comment">#DEFAULT_REQUEST_HEADERS = &#123;</span><br><span class="hljs-comment">#   &#x27;Accept&#x27;: &#x27;text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8&#x27;,</span><br><span class="hljs-comment">#   &#x27;Accept-Language&#x27;: &#x27;en&#x27;,</span><br><span class="hljs-comment">#&#125;</span><br><br><span class="hljs-comment"># Enable or disable spider middlewares</span><br><span class="hljs-comment"># See https://docs.scrapy.org/en/latest/topics/spider-middleware.html</span><br><span class="hljs-comment">#SPIDER_MIDDLEWARES = &#123;</span><br><span class="hljs-comment">#    &#x27;fbsPro2.middlewares.Fbspro2SpiderMiddleware&#x27;: 543,</span><br><span class="hljs-comment">#&#125;</span><br><br><span class="hljs-comment"># Enable or disable downloader middlewares</span><br><span class="hljs-comment"># See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html</span><br><span class="hljs-comment">#DOWNLOADER_MIDDLEWARES = &#123;</span><br><span class="hljs-comment">#    &#x27;fbsPro2.middlewares.Fbspro2DownloaderMiddleware&#x27;: 543,</span><br><span class="hljs-comment">#&#125;</span><br><br><span class="hljs-comment"># Enable or disable extensions</span><br><span class="hljs-comment"># See https://docs.scrapy.org/en/latest/topics/extensions.html</span><br><span class="hljs-comment">#EXTENSIONS = &#123;</span><br><span class="hljs-comment">#    &#x27;scrapy.extensions.telnet.TelnetConsole&#x27;: None,</span><br><span class="hljs-comment">#&#125;</span><br><br><span class="hljs-comment"># Configure item pipelines</span><br><span class="hljs-comment"># See https://docs.scrapy.org/en/latest/topics/item-pipeline.html</span><br><span class="hljs-comment">#ITEM_PIPELINES = &#123;</span><br><span class="hljs-comment">#    &#x27;fbsPro2.pipelines.Fbspro2Pipeline&#x27;: 300,</span><br><span class="hljs-comment">#&#125;</span><br><br><span class="hljs-comment"># Enable and configure the AutoThrottle extension (disabled by default)</span><br><span class="hljs-comment"># See https://docs.scrapy.org/en/latest/topics/autothrottle.html</span><br><span class="hljs-comment">#AUTOTHROTTLE_ENABLED = True</span><br><span class="hljs-comment"># The initial download delay</span><br><span class="hljs-comment">#AUTOTHROTTLE_START_DELAY = 5</span><br><span class="hljs-comment"># The maximum download delay to be set in case of high latencies</span><br><span class="hljs-comment">#AUTOTHROTTLE_MAX_DELAY = 60</span><br><span class="hljs-comment"># The average number of requests Scrapy should be sending in parallel to</span><br><span class="hljs-comment"># each remote server</span><br><span class="hljs-comment">#AUTOTHROTTLE_TARGET_CONCURRENCY = 1.0</span><br><span class="hljs-comment"># Enable showing throttling stats for every response received:</span><br><span class="hljs-comment">#AUTOTHROTTLE_DEBUG = False</span><br><br><span class="hljs-comment"># Enable and configure HTTP caching (disabled by default)</span><br><span class="hljs-comment"># See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html#httpcache-middleware-settings</span><br><span class="hljs-comment">#HTTPCACHE_ENABLED = True</span><br><span class="hljs-comment">#HTTPCACHE_EXPIRATION_SECS = 0</span><br><span class="hljs-comment">#HTTPCACHE_DIR = &#x27;httpcache&#x27;</span><br><span class="hljs-comment">#HTTPCACHE_IGNORE_HTTP_CODES = []</span><br><span class="hljs-comment">#HTTPCACHE_STORAGE = &#x27;scrapy.extensions.httpcache.FilesystemCacheStorage&#x27;</span><br><br><span class="hljs-comment"># 指定管道</span><br>ITEM_PIPELINES = &#123;<br>   <span class="hljs-comment"># &#x27;jd.pipelines.JdPipeline&#x27;: 300,</span><br>    <span class="hljs-comment"># &#x27;jd.pipelines.JDSqlPipeline&#x27;: 300,</span><br>    <span class="hljs-comment">#当开启此管道，该管道将会把数据存到Redis数据库中</span><br>    <span class="hljs-string">&#x27;scrapy_redis.pipelines.RedisPipeline&#x27;</span>:<span class="hljs-number">400</span>,<br>&#125;<br><br><span class="hljs-comment"># 指定调度器</span><br>DUPEFILTER_CLASS = <span class="hljs-string">&quot;scrapy_redis.dupefilter.RFPDupeFilter&quot;</span><br>SCHEDULER=<span class="hljs-string">&quot;scrapy_redis.scheduler.Scheduler&quot;</span><br>SCHEDULER_PERSIST=<span class="hljs-literal">True</span><br><br>REDIS_HOST=<span class="hljs-string">&quot;192.168.45.50&quot;</span><br>REDIS_PORT=<span class="hljs-number">6379</span><br>REDIS_PARAMS = &#123;<br>    <span class="hljs-string">&#x27;password&#x27;</span>: <span class="hljs-string">&#x27;redispassword&#x27;</span>,<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>在虚拟机的redis中输入</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs redis">redis-server /etc/redis.conf<br>redis-cli<br>auth redispassword<br>keys *<br>lpush boke http://www.wing2791.cn<br>keys *<br></code></pre></td></tr></table></figure>
+<h4 id="快捷键">快捷键</h4>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs">无<br></code></pre></td></tr></table></figure>
+<h4 id="语言">语言</h4>
+<p>Python 3.6</p>
+<h4 id="编译器">编译器</h4>
+<p>Pycharm</p>
+<h4 id="参考视频">参考视频</h4>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Yh411o7Sz" title="参考B站‘路飞学城IT’视频">参考视频链接</a></p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div></div>
+      <div>https://wing2791.github.io/2024/07/29/爬虫(七)_分布式爬虫(未完结)/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>wing2791</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2024年7月29日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2024/07/29/%E7%88%AC%E8%99%AB(%E4%B8%89)_%E8%AF%86%E5%88%AB%E7%AE%80%E5%8D%95%E6%95%B0%E5%AD%97%E9%AA%8C%E8%AF%81%E7%A0%81/" title="">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile"></span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2024/07/29/%E7%88%AC%E8%99%AB(%E5%85%AD)_scrapy%E6%A1%86%E6%9E%B6/" title="">
+                        <span class="hidden-mobile"></span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
