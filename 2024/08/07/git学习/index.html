@@ -26,15 +26,15 @@
 <meta property="og:site_name" content="Day Day Up!">
 <meta property="og:description" content="Git 干嘛的  分布式版本控制系统  命令汇总 查看 git 版本 1git -v 初始化配置 123456789101112# 配置用户名git config --global user.name &quot;wing2791&quot;# 上述的用户名可以省略双引号,如果用户名有空格，则无法省略# 省略(local):本地配置,只对本地仓库有效# --global: 全局配置">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://wing2791.github.io/2024/08/07/git%E5%AD%A6%E4%B9%A0/assets/202408062358199.png">
-<meta property="og:image" content="https://wing2791.github.io/2024/08/07/git%E5%AD%A6%E4%B9%A0/assets/imgs/202408070024207.png">
-<meta property="og:image" content="https://wing2791.github.io/2024/08/07/git%E5%AD%A6%E4%B9%A0/assets/imgs/202408070026443.png">
-<meta property="og:image" content="https://wing2791.github.io/2024/08/07/git%E5%AD%A6%E4%B9%A0/assets/imgs/202408070026771.png">
+<meta property="og:image" content="https://wing2791.github.io/2024/08/07/git%E5%AD%A6%E4%B9%A0/202408062358199.png">
+<meta property="og:image" content="https://wing2791.github.io/2024/08/07/git%E5%AD%A6%E4%B9%A0/202408070024207.png">
+<meta property="og:image" content="https://wing2791.github.io/2024/08/07/git%E5%AD%A6%E4%B9%A0/202408070026443.png">
+<meta property="og:image" content="https://wing2791.github.io/2024/08/07/git%E5%AD%A6%E4%B9%A0/202408070026771.png">
 <meta property="article:published_time" content="2024-08-07T03:09:55.413Z">
-<meta property="article:modified_time" content="2024-08-07T04:16:07.146Z">
+<meta property="article:modified_time" content="2024-08-07T04:29:27.786Z">
 <meta property="article:author" content="wing2791">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://wing2791.github.io/2024/08/07/git%E5%AD%A6%E4%B9%A0/assets/202408062358199.png">
+<meta name="twitter:image" content="https://wing2791.github.io/2024/08/07/git%E5%AD%A6%E4%B9%A0/202408062358199.png">
   
   
   
@@ -320,10 +320,7 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs shell">git commit -a -m &quot;commit content&quot; # -a参数会直接添加到暂存区，然后提交到仓库，完成两个步骤，这个只对已经添加过的文件生效，新文件无法使用，-a -m 可以写成-am<br>git status # 可以查看冲突文件的列表<br>git diff # 可以查看冲突的具体内容<br><span class="hljs-meta prompt_"># </span><span class="language-bash">然后直接查看原文件，可以手动修改冲突内容，重新添加，提交即可</span><br>git add .<br>git commit -m &quot;commit cotent&quot;<br>git merge --abort # 中止合并<br></code></pre></td></tr></table></figure>
 <h5 id="回退和-rebase">回退和 rebase</h5>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell">git rebase branch-name<br>git checkout -b dev ID # 恢复到dev分支的ID的时刻，看来checkout很多功能啊<br>alias graph=&quot;git log --graph --oneline --decorate --all&quot; # 可以把查看图形化的提交记录命令改为graph<br></code></pre></td></tr></table></figure>
-<figure>
-<img src="assets/202408062358199.png" srcset="/img/loading.gif" lazyload alt="202408062358199" />
-<figcaption aria-hidden="true">202408062358199</figcaption>
-</figure>
+<img src="/2024/08/07/git%E5%AD%A6%E4%B9%A0/202408062358199.png" srcset="/img/loading.gif" lazyload class width="202408062358199">
 <p>merge</p>
 <ul>
 <li>优点
@@ -345,18 +342,9 @@
 </ul></li>
 </ul>
 <h5 id="分支管理和工作流模型">分支管理和工作流模型</h5>
-<figure>
-<img src="./assets/imgs/202408070024207.png" srcset="/img/loading.gif" lazyload alt="202408070024207" />
-<figcaption aria-hidden="true">202408070024207</figcaption>
-</figure>
-<figure>
-<img src="./assets/imgs/202408070026443.png" srcset="/img/loading.gif" lazyload alt="202408070026443" />
-<figcaption aria-hidden="true">202408070026443</figcaption>
-</figure>
-<figure>
-<img src="./assets/imgs/202408070026771.png" srcset="/img/loading.gif" lazyload alt="202408070026771" />
-<figcaption aria-hidden="true">202408070026771</figcaption>
-</figure>
+<img src="/2024/08/07/git%E5%AD%A6%E4%B9%A0/202408070024207.png" srcset="/img/loading.gif" lazyload class width="202408070024207">
+<img src="/2024/08/07/git%E5%AD%A6%E4%B9%A0/202408070026443.png" srcset="/img/loading.gif" lazyload class width="202408070026443">
+<img src="/2024/08/07/git%E5%AD%A6%E4%B9%A0/202408070026771.png" srcset="/img/loading.gif" lazyload class width="202408070026771">
 <h4 id="其他待补充">其他待补充</h4>
 <ul>
 <li>git 的权限管理</li>
@@ -365,8 +353,7 @@
 <li>实际使用的例子</li>
 </ul>
 <h4 id="参考视频">参考视频</h4>
-<p><a
-target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1HM411377j">【GeekHour】一小时
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1HM411377j">【GeekHour】一小时
 Git 教程</a></p>
 
                 
