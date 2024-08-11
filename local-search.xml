@@ -4,6 +4,19 @@
   
   
   <entry>
+    <title>LaTex表示数学符号</title>
+    <link href="/2024/08/11/LaTex%E8%A1%A8%E7%A4%BA%E6%95%B0%E5%AD%A6%E7%AC%A6%E5%8F%B7/"/>
+    <url>/2024/08/11/LaTex%E8%A1%A8%E7%A4%BA%E6%95%B0%E5%AD%A6%E7%AC%A6%E5%8F%B7/</url>
+    
+    <content type="html"><![CDATA[<h4 id="长期更新慢慢添加">长期更新,慢慢添加</h4><ul><li>因为自己有时候会学一些数学相关的东西,会用公式表示,用 LaTex的好看啊</li><li>目录在右边,可以导航用</li></ul><h4 id="上标下标">上标,下标</h4><p><span class="math display">\[a^b\]</span></p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">a^b<br></code></pre></td></tr></table></figure><p><span class="math display">\[a_b\]</span></p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">a_b<br></code></pre></td></tr></table></figure><p><span class="math display">\[a^{ab}\]</span></p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">a^&#123;ab&#125;<br></code></pre></td></tr></table></figure><p><span class="math display">\[a_{ab}\]</span></p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">a_&#123;ab&#125;<br></code></pre></td></tr></table></figure><p><span class="math display">\[\overset{B}{\rightarrow}\]</span></p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">\overset&#123;B&#125;&#123;\rightarrow&#125;<br></code></pre></td></tr></table></figure><p><span class="math display">\[\underset{B}{\rightarrow}\]</span></p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">\underset&#123;B&#125;&#123;\rightarrow&#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Git的使用记录</title>
     <link href="/2024/08/07/git%E5%AD%A6%E4%B9%A0/"/>
     <url>/2024/08/07/git%E5%AD%A6%E4%B9%A0/</url>
@@ -73,7 +86,7 @@
     <link href="/2024/07/28/%E5%90%84%E7%A7%8D%E5%8A%9F%E8%83%BD%E6%B5%8B%E8%AF%95/"/>
     <url>/2024/07/28/%E5%90%84%E7%A7%8D%E5%8A%9F%E8%83%BD%E6%B5%8B%E8%AF%95/</url>
     
-    <content type="html"><![CDATA[<h4 id="latex-公式">LaTex 公式</h4><p><span class="math display">\[J_r^{-1}(e_{ij})\approx I +\frac { 1 } { 2 }\begin{bmatrix}\phi_e^ { \wedge } &amp; \rho_e^ { \wedge } \\0 &amp; \phi_e^{\wedge} \\\end{bmatrix}\]</span></p><p><span class="math display">\[E=mc^2\]</span></p>]]></content>
+    <content type="html"><![CDATA[<h4 id="latex-公式">LaTex 公式</h4><p><span class="math display">\[J_r^{-1}(e_{ij})\approx I +\frac { 1 } { 2 }\begin{bmatrix}\phi_e^ { \wedge } &amp; \rho_e^ { \wedge } \\0 &amp; \phi_e^{\wedge} \\\end{bmatrix}\]</span></p><p><span class="math display">\[E=mc^2\]</span></p><h4 id="提交并更新博客">提交并更新博客</h4><ul><li>提交仓库并更新</li></ul><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">hexo c &amp;&amp; hexo g &amp;&amp; hexo d<br></code></pre></td></tr></table></figure><ul><li>本地更新</li></ul><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">hexo c &amp;&amp; hexo g &amp;&amp; hexo s<br></code></pre></td></tr></table></figure>]]></content>
     
     
     
