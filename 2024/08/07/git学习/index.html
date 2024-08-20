@@ -31,7 +31,7 @@
 <meta property="og:image" content="https://wing2791.github.io/2024/08/07/git%E5%AD%A6%E4%B9%A0/202408070026443.png">
 <meta property="og:image" content="https://wing2791.github.io/2024/08/07/git%E5%AD%A6%E4%B9%A0/202408070026771.png">
 <meta property="article:published_time" content="2024-08-07T03:09:55.413Z">
-<meta property="article:modified_time" content="2024-08-07T04:29:27.786Z">
+<meta property="article:modified_time" content="2024-08-20T03:32:53.360Z">
 <meta property="article:author" content="wing2791">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://wing2791.github.io/2024/08/07/git%E5%AD%A6%E4%B9%A0/202408062358199.png">
@@ -293,7 +293,7 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs shell">mkdir learn-git<br>cd learn-git<br><span class="hljs-meta prompt_"># </span><span class="language-bash">初始化空仓库,会以learn-git为仓库</span><br>git init<br><span class="hljs-meta prompt_"># </span><span class="language-bash">会在learn-git文件夹下创建一个my-repo文件夹,以my-repo文件夹为仓库</span><br>git init my-repo<br></code></pre></td></tr></table></figure>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">加仓库地址，克隆仓库到本地</span><br>git clone https//....git<br></code></pre></td></tr></table></figure>
 <h5 id="添加和提交文件">添加和提交文件</h5>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">查看状态</span><br>git status<br><span class="hljs-meta prompt_"># </span><span class="language-bash">查看状态的简略模式,??表示为跟踪，M表示修改</span><br>git status -s<br><span class="hljs-meta prompt_"># </span><span class="language-bash">将文件添加到暂存区</span><br>git add filename.suffix<br><span class="hljs-meta prompt_"># </span><span class="language-bash">git add 支持使用通配符,只添加.txt结尾的文件</span><br>git add *.txt<br><span class="hljs-meta prompt_"># </span><span class="language-bash">可以提交文件夹，提交当前文件夹</span><br>git add .<br><span class="hljs-meta prompt_"># </span><span class="language-bash">提交文件,-m表示提交时对文件信息的描述,只提交暂存区中的文件</span><br>git commit -m &quot;the first commit&quot;<br><span class="hljs-meta prompt_"># </span><span class="language-bash">查看提交记录</span><br>git log<br><span class="hljs-meta prompt_"># </span><span class="language-bash">查看简洁嘻嘻</span><br>git log --oneline<br></code></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">查看状态</span><br>git status<br><span class="hljs-meta prompt_"># </span><span class="language-bash">查看状态的简略模式,??表示为跟踪，M表示修改</span><br>git status -s<br><span class="hljs-meta prompt_"># </span><span class="language-bash">将文件添加到暂存区</span><br>git add filename.suffix<br><span class="hljs-meta prompt_"># </span><span class="language-bash">git add 支持使用通配符,只添加.txt结尾的文件</span><br>git add *.txt<br><span class="hljs-meta prompt_"># </span><span class="language-bash">可以提交文件夹，提交当前文件夹</span><br>git add .<br><span class="hljs-meta prompt_"># </span><span class="language-bash">提交文件,-m表示提交时对文件信息的描述,只提交暂存区中的文件</span><br>git commit -m &quot;the first commit&quot;<br><span class="hljs-meta prompt_"># </span><span class="language-bash">查看提交记录</span><br>git log<br><span class="hljs-meta prompt_"># </span><span class="language-bash">查看简洁信息</span><br>git log --oneline<br></code></pre></td></tr></table></figure>
 <h5 id="git-reset-回退版本">git reset 回退版本</h5>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs shell">git reset --soft # 回退到某个版本,并且保留工作区和暂存区中的所有修改内容<br>git reset --hard # 回退到某个版本,并且丢弃工作区和暂存区的所有修改内容<br>git reset --mixed # 回退到某个版本,并且只保留工作区的修改内容，而丢弃暂存区中的内容（reset默认参数）<br>git reset --soft ID # 需要添加回退版本ID,这个需要用git log查看<br>git ls-files # 查看暂存区内容<br>git reset HEAD^ # 使用--mixed模式，HEAD^指当前 HEAD 的前一个提交<br>git reflog # 查看操作历史记录，可以查看操作的ID号，用于回退<br></code></pre></td></tr></table></figure>
 <h5 id="git-diff-查看差异">git diff 查看差异</h5>
@@ -329,8 +329,11 @@
 </ul></li>
 <li>缺点
 <ul>
-<li>会产生额外的提交节点，分支图比较复杂 rebase</li>
+<li>会产生额外的提交节点，分支图比较复杂</li>
 </ul></li>
+</ul>
+<p>rebase</p>
+<ul>
 <li>优点
 <ul>
 <li>不会新增额外的提交记录，形成线性历史，比较直观和干净</li>
