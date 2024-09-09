@@ -21,32 +21,32 @@
   
     <meta name="description" content="本 Demo 来自 B 站课程学习的改进 作为自己的整理和找工作的项目 Demo 添加了自己的想法，记录在做这个 Demo 过程中比较重要的内容，可能会贴出部分源码  导入 SDL 相关的包SDL2 API 文档总览 cJSON 仓库链接SDL2 仓库链接SDL_ttf 仓库链接SDL_mixer 仓库链接SDL_image 仓库链接SDL2_gfx 官网链接 下载 SDL2 的时候的 rele">
 <meta property="og:type" content="article">
-<meta property="og:title" content="TowerDemo">
+<meta property="og:title" content="本地双人塔防游戏Demo">
 <meta property="og:url" content="http://example.com/2024/09/10/%E6%9C%AC%E5%9C%B0%E5%8F%8C%E4%BA%BA%E5%A1%94%E9%98%B2%E6%B8%B8%E6%88%8FDemo/index.html">
 <meta property="og:site_name" content="Day Day Up!">
 <meta property="og:description" content="本 Demo 来自 B 站课程学习的改进 作为自己的整理和找工作的项目 Demo 添加了自己的想法，记录在做这个 Demo 过程中比较重要的内容，可能会贴出部分源码  导入 SDL 相关的包SDL2 API 文档总览 cJSON 仓库链接SDL2 仓库链接SDL_ttf 仓库链接SDL_mixer 仓库链接SDL_image 仓库链接SDL2_gfx 官网链接 下载 SDL2 的时候的 rele">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/TowerDemo/image-20240909230926905.png">
-<meta property="og:image" content="http://example.com/TowerDemo/image-20240909233156816.png">
-<meta property="og:image" content="http://example.com/TowerDemo/image-20240909233309479.png">
-<meta property="og:image" content="http://example.com/TowerDemo/image-20240909233333704.png">
-<meta property="og:image" content="http://example.com/TowerDemo/image-20240909233954841.png">
-<meta property="og:image" content="http://example.com/TowerDemo/image-20240909234021144.png">
-<meta property="og:image" content="http://example.com/TowerDemo/image-20240909234813783.png">
-<meta property="og:image" content="http://example.com/TowerDemo/image-20240909235154768.png">
-<meta property="og:image" content="http://example.com/TowerDemo/image-20240909235827283.png">
-<meta property="og:image" content="http://example.com/TowerDemo/image-20240910000249147.png">
-<meta property="og:image" content="http://example.com/TowerDemo/image-20240910000425931.png">
-<meta property="og:image" content="http://example.com/TowerDemo/image-20240910000502340.png">
+<meta property="og:image" content="http://example.com/BlogImg/image-20240909230926905.png">
+<meta property="og:image" content="http://example.com/BlogImg/image-20240909233156816.png">
+<meta property="og:image" content="http://example.com/BlogImg/image-20240909233309479.png">
+<meta property="og:image" content="http://example.com/BlogImg/image-20240909233333704.png">
+<meta property="og:image" content="http://example.com/BlogImg/image-20240909233954841.png">
+<meta property="og:image" content="http://example.com/BlogImg/image-20240909234021144.png">
+<meta property="og:image" content="http://example.com/BlogImg/image-20240909234813783.png">
+<meta property="og:image" content="http://example.com/BlogImg/image-20240909235154768.png">
+<meta property="og:image" content="http://example.com/BlogImg/image-20240909235827283.png">
+<meta property="og:image" content="http://example.com/BlogImg/image-20240910000249147.png">
+<meta property="og:image" content="http://example.com/BlogImg/image-20240910000425931.png">
+<meta property="og:image" content="http://example.com/BlogImg/image-20240910000502340.png">
 <meta property="article:published_time" content="2024-09-09T17:20:03.909Z">
-<meta property="article:modified_time" content="2024-09-09T17:19:49.638Z">
+<meta property="article:modified_time" content="2024-09-09T17:52:08.528Z">
 <meta property="article:author" content="wing2791">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://example.com/TowerDemo/image-20240909230926905.png">
+<meta name="twitter:image" content="http://example.com/BlogImg/image-20240909230926905.png">
   
   
   
-  <title>TowerDemo - Day Day Up!</title>
+  <title>本地双人塔防游戏Demo - Day Day Up!</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -212,7 +212,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="TowerDemo"></span>
+            <span id="subtitle" data-typed-text="本地双人塔防游戏Demo"></span>
           
         </div>
 
@@ -283,7 +283,7 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">TowerDemo</h1>
+            <h1 id="seo-header">本地双人塔防游戏Demo</h1>
             
             
               <div class="markdown-body">
@@ -295,7 +295,7 @@
 </blockquote>
 <h1 id="导入-SDL-相关的包"><a href="#导入-SDL-相关的包" class="headerlink" title="导入 SDL 相关的包"></a>导入 SDL 相关的包</h1><p><a target="_blank" rel="noopener" href="https://wiki.libsdl.org/SDL2/CategoryAPI">SDL2 API 文档总览</a></p>
 <p><a target="_blank" rel="noopener" href="https://github.com/DaveGamble/cJSON">cJSON 仓库链接</a><br><a target="_blank" rel="noopener" href="https://github.com/libsdl-org/SDL">SDL2 仓库链接</a><br><a target="_blank" rel="noopener" href="https://github.com/libsdl-org/SDL_ttf">SDL_ttf 仓库链接</a><br><a target="_blank" rel="noopener" href="https://github.com/libsdl-org/SDL_mixer">SDL_mixer 仓库链接</a><br><a target="_blank" rel="noopener" href="https://github.com/libsdl-org/SDL_image">SDL_image 仓库链接</a><br><a target="_blank" rel="noopener" href="https://www.ferzkopp.net/wordpress/2016/01/02/sdl_gfx-sdl2_gfx/">SDL2_gfx 官网链接</a></p>
-<h2 id="下载-SDL2-的时候的-release-版本的信息解读"><a href="#下载-SDL2-的时候的-release-版本的信息解读" class="headerlink" title="下载 SDL2 的时候的 release 版本的信息解读"></a>下载 SDL2 的时候的 release 版本的信息解读</h2><p><img src="/TowerDemo/image-20240909230926905.png" srcset="/img/loading.gif" lazyload alt="image-20240909230926905"></p>
+<h2 id="下载-SDL2-的时候的-release-版本的信息解读"><a href="#下载-SDL2-的时候的-release-版本的信息解读" class="headerlink" title="下载 SDL2 的时候的 release 版本的信息解读"></a>下载 SDL2 的时候的 release 版本的信息解读</h2><p><img src="/BlogImg/image-20240909230926905.png" srcset="/img/loading.gif" lazyload alt="image-20240909230926905"></p>
 <p>文件名 <code>SDL2-devel-2.30.7-VC.zip</code> 中的各个部分通常遵循一定的命名规则，以下是对其命名含义的解释：</p>
 <ol>
 <li><p><strong><code>SDL2</code></strong>:</p>
@@ -340,9 +340,9 @@
 <li>专门为 Visual C++ 编译器准备，</li>
 <li>文件被打包为 ZIP 格式的压缩包。</li>
 </ul>
-<h2 id="VS-Studio-的一些设置"><a href="#VS-Studio-的一些设置" class="headerlink" title="VS Studio 的一些设置"></a>VS Studio 的一些设置</h2><h3 id="运行库设置"><a href="#运行库设置" class="headerlink" title="运行库设置"></a>运行库设置</h3><p><img src="/TowerDemo/image-20240909233156816.png" srcset="/img/loading.gif" lazyload alt="属性页操作"></p>
-<p><img src="/TowerDemo/image-20240909233309479.png" srcset="/img/loading.gif" lazyload alt="右键项目最下面能看到属性"></p>
-<p><img src="/TowerDemo/image-20240909233333704.png" srcset="/img/loading.gif" lazyload alt="找到属性中的运行库"></p>
+<h2 id="VS-Studio-的一些设置"><a href="#VS-Studio-的一些设置" class="headerlink" title="VS Studio 的一些设置"></a>VS Studio 的一些设置</h2><h3 id="运行库设置"><a href="#运行库设置" class="headerlink" title="运行库设置"></a>运行库设置</h3><p><img src="/BlogImg/image-20240909233156816.png" srcset="/img/loading.gif" lazyload alt="属性页操作"></p>
+<p><img src="/BlogImg/image-20240909233309479.png" srcset="/img/loading.gif" lazyload alt="右键项目最下面能看到属性"></p>
+<p><img src="/BlogImg/image-20240909233333704.png" srcset="/img/loading.gif" lazyload alt="找到属性中的运行库"></p>
 <h3 id="不同选项的解释，来自-chatgpt-4o"><a href="#不同选项的解释，来自-chatgpt-4o" class="headerlink" title="不同选项的解释，来自 chatgpt-4o"></a>不同选项的解释，来自 chatgpt-4o</h3><p>在 Visual Studio 中，当你编译一个 C&#x2F;C++ 程序时，可以选择不同的运行库（Runtime Library）选项。每个选项都有不同的特性，主要影响程序在运行时如何链接到 C&#x2F;C++ 标准库以及线程安全性。以下是常见的运行库选项及其区别：</p>
 <h3 id="1-多线程-单线程"><a href="#1-多线程-单线程" class="headerlink" title="1. 多线程&#x2F;单线程"></a>1. <strong>多线程&#x2F;单线程</strong></h3><ul>
 <li><strong>&#x2F;MT</strong> (Multithreaded): 编译器使用多线程的、静态链接的运行库。这意味着标准库的代码将被编译进生成的二进制文件中，不依赖外部的 DLL 文件。此选项适用于编译需要多线程支持的独立可执行文件。</li>
@@ -384,12 +384,12 @@
 <h2 id="第三方库的导入"><a href="#第三方库的导入" class="headerlink" title="第三方库的导入"></a>第三方库的导入</h2><ul>
 <li>导入头文件(include 文件夹)和静态(lib)或者动态链接库(dll)</li>
 </ul>
-<p><img src="/TowerDemo/image-20240909233954841.png" srcset="/img/loading.gif" lazyload alt="导入头文件和库文件"></p>
+<p><img src="/BlogImg/image-20240909233954841.png" srcset="/img/loading.gif" lazyload alt="导入头文件和库文件"></p>
 <ul>
 <li>导入头文件(include 文件夹)和源文件</li>
 </ul>
-<p><img src="/TowerDemo/image-20240909234021144.png" srcset="/img/loading.gif" lazyload alt="导入头文件和源文件"></p>
-<h2 id="头文件目录设置"><a href="#头文件目录设置" class="headerlink" title="头文件目录设置"></a>头文件目录设置</h2><p><img src="/TowerDemo/image-20240909234813783.png" srcset="/img/loading.gif" lazyload alt="附加包含目录"></p>
+<p><img src="/BlogImg/image-20240909234021144.png" srcset="/img/loading.gif" lazyload alt="导入头文件和源文件"></p>
+<h2 id="头文件目录设置"><a href="#头文件目录设置" class="headerlink" title="头文件目录设置"></a>头文件目录设置</h2><p><img src="/BlogImg/image-20240909234813783.png" srcset="/img/loading.gif" lazyload alt="附加包含目录"></p>
 <p>在 Visual Studio 中，“附加包含目录”（Additional Include Directories）是一个项目属性设置项，用于指定编译器在编译项目时需要查找的头文件目录。</p>
 <h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>当你在代码中使用 <code>#include</code> 指令引用头文件时，编译器需要知道这些头文件的位置。编译器默认会在以下地方查找头文件：</p>
 <ol>
@@ -407,7 +407,7 @@
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;MyLibrary.h&gt;</span></span><br></code></pre></td></tr></table></figure>
 
 <p>为了让编译器找到 <code>MyLibrary.h</code> 文件，你需要将 <code>C:\Libraries\MyLibrary\include</code> 路径添加到“附加包含目录”中。</p>
-<h2 id="库文件目录设置"><a href="#库文件目录设置" class="headerlink" title="库文件目录设置"></a>库文件目录设置</h2><p><img src="/TowerDemo/image-20240909235154768.png" srcset="/img/loading.gif" lazyload alt="库文件目录设置"></p>
+<h2 id="库文件目录设置"><a href="#库文件目录设置" class="headerlink" title="库文件目录设置"></a>库文件目录设置</h2><p><img src="/BlogImg/image-20240909235154768.png" srcset="/img/loading.gif" lazyload alt="库文件目录设置"></p>
 <p>在 Visual Studio 中，“附加库目录”（Additional Library Directories）是项目属性设置中的一项，用于指定链接器在链接阶段需要查找库文件（如 <code>.lib</code> 文件）的目录。</p>
 <h3 id="作用-1"><a href="#作用-1" class="headerlink" title="作用"></a>作用</h3><p>当你编写的程序需要链接到外部库（如第三方库或自己编写的库）时，链接器需要知道这些库文件的位置。库文件通常包含了程序中使用的函数、类等的预编译代码，而链接器的任务就是将这些库与您的代码结合，生成最终的可执行文件。</p>
 <p>默认情况下，链接器会在以下地方查找库文件：</p>
@@ -479,7 +479,7 @@
 <li><strong>动态链接库（.dll）</strong>: 运行时链接，可执行文件依赖于外部的 DLL 文件。</li>
 <li><strong>导入库（.lib）</strong>: 用于编译时链接到 DLL，提供符号信息，但不包含实际代码。</li>
 </ul>
-<h2 id="链接库文件"><a href="#链接库文件" class="headerlink" title="链接库文件"></a>链接库文件</h2><p><img src="/TowerDemo/image-20240909235827283.png" srcset="/img/loading.gif" lazyload alt="链接库文件"></p>
+<h2 id="链接库文件"><a href="#链接库文件" class="headerlink" title="链接库文件"></a>链接库文件</h2><p><img src="/BlogImg/image-20240909235827283.png" srcset="/img/loading.gif" lazyload alt="链接库文件"></p>
 <p>在 Visual Studio 中，“附加依赖项”（Additional Dependencies）是一个链接器设置项，用于指定在编译和链接过程中，程序需要链接的库文件（通常是 <code>.lib</code> 文件）。</p>
 <h3 id="作用-2"><a href="#作用-2" class="headerlink" title="作用"></a>作用</h3><p>“附加依赖项”告诉链接器，除了默认的系统库外，还需要链接哪些特定的库文件。库文件包含预编译的代码或数据，程序在编译和链接时将这些库中的内容整合到最终生成的可执行文件或动态链接库中。</p>
 <h3 id="如何设置-2"><a href="#如何设置-2" class="headerlink" title="如何设置"></a>如何设置</h3><p>你可以通过以下步骤在 Visual Studio 中设置“附加依赖项”：</p>
@@ -499,12 +499,12 @@
 <h2 id="DLL-的文件设置"><a href="#DLL-的文件设置" class="headerlink" title="DLL 的文件设置"></a>DLL 的文件设置</h2><blockquote>
 <p>就放在 main.cpp 同级目录下，具体怎么加载还不知道</p>
 </blockquote>
-<p><img src="/TowerDemo/image-20240910000249147.png" srcset="/img/loading.gif" lazyload alt="dll文件缩放位置的参考"></p>
-<h2 id="其他源文件的导入"><a href="#其他源文件的导入" class="headerlink" title="其他源文件的导入"></a>其他源文件的导入</h2><p><img src="/TowerDemo/image-20240910000425931.png" srcset="/img/loading.gif" lazyload alt="新建筛选器"></p>
+<p><img src="/BlogImg/image-20240910000249147.png" srcset="/img/loading.gif" lazyload alt="dll文件缩放位置的参考"></p>
+<h2 id="其他源文件的导入"><a href="#其他源文件的导入" class="headerlink" title="其他源文件的导入"></a>其他源文件的导入</h2><p><img src="/BlogImg/image-20240910000425931.png" srcset="/img/loading.gif" lazyload alt="新建筛选器"></p>
 <ul>
 <li>源文件拖拽到新建筛选器下方，导入的时候会自己找到这个源文件的，不是复制</li>
 </ul>
-<p><img src="/TowerDemo/image-20240910000502340.png" srcset="/img/loading.gif" lazyload alt="源文件拖拽到新建筛选器下方"></p>
+<p><img src="/BlogImg/image-20240910000502340.png" srcset="/img/loading.gif" lazyload alt="源文件拖拽到新建筛选器下方"></p>
 
                 
               </div>
@@ -522,7 +522,7 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>TowerDemo</div>
+      <div>本地双人塔防游戏Demo</div>
       <div>http://example.com/2024/09/10/本地双人塔防游戏Demo/</div>
     </div>
     <div class="license-meta">
@@ -681,7 +681,7 @@
     <div class="footer-inner">
   
     <div class="footer-content">
-       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+       <i class="iconfont icon-bilibili-fill"></i> <a href="https://space.bilibili.com/384847565" target="_blank" rel="nofollow noopener"><span>B站主页</span></a> 
     </div>
   
   
