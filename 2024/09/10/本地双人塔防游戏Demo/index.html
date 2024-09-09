@@ -1,0 +1,848 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="wing2791">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="本 Demo 来自 B 站课程学习的改进 作为自己的整理和找工作的项目 Demo 添加了自己的想法，记录在做这个 Demo 过程中比较重要的内容，可能会贴出部分源码  导入 SDL 相关的包SDL2 API 文档总览 cJSON 仓库链接SDL2 仓库链接SDL_ttf 仓库链接SDL_mixer 仓库链接SDL_image 仓库链接SDL2_gfx 官网链接 下载 SDL2 的时候的 rele">
+<meta property="og:type" content="article">
+<meta property="og:title" content="TowerDemo">
+<meta property="og:url" content="http://example.com/2024/09/10/%E6%9C%AC%E5%9C%B0%E5%8F%8C%E4%BA%BA%E5%A1%94%E9%98%B2%E6%B8%B8%E6%88%8FDemo/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="本 Demo 来自 B 站课程学习的改进 作为自己的整理和找工作的项目 Demo 添加了自己的想法，记录在做这个 Demo 过程中比较重要的内容，可能会贴出部分源码  导入 SDL 相关的包SDL2 API 文档总览 cJSON 仓库链接SDL2 仓库链接SDL_ttf 仓库链接SDL_mixer 仓库链接SDL_image 仓库链接SDL2_gfx 官网链接 下载 SDL2 的时候的 rele">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/TowerDemo/image-20240909230926905.png">
+<meta property="og:image" content="http://example.com/TowerDemo/image-20240909233156816.png">
+<meta property="og:image" content="http://example.com/TowerDemo/image-20240909233309479.png">
+<meta property="og:image" content="http://example.com/TowerDemo/image-20240909233333704.png">
+<meta property="og:image" content="http://example.com/TowerDemo/image-20240909233954841.png">
+<meta property="og:image" content="http://example.com/TowerDemo/image-20240909234021144.png">
+<meta property="og:image" content="http://example.com/TowerDemo/image-20240909234813783.png">
+<meta property="og:image" content="http://example.com/TowerDemo/image-20240909235154768.png">
+<meta property="og:image" content="http://example.com/TowerDemo/image-20240909235827283.png">
+<meta property="og:image" content="http://example.com/TowerDemo/image-20240910000249147.png">
+<meta property="og:image" content="http://example.com/TowerDemo/image-20240910000425931.png">
+<meta property="og:image" content="http://example.com/TowerDemo/image-20240910000502340.png">
+<meta property="article:published_time" content="2024-09-09T17:20:03.909Z">
+<meta property="article:modified_time" content="2024-09-09T17:19:49.638Z">
+<meta property="article:author" content="wing2791">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/TowerDemo/image-20240909230926905.png">
+  
+  
+  
+  <title>TowerDemo - Hexo</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="TowerDemo"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-09-10 01:20" pubdate>
+          2024年9月10日 凌晨
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          3.5k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          30 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">TowerDemo</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <blockquote>
+<p>本 Demo 来自 B 站课程学习的改进</p>
+<p>作为自己的整理和找工作的项目 Demo</p>
+<p>添加了自己的想法，记录在做这个 Demo 过程中比较重要的内容，可能会贴出部分源码</p>
+</blockquote>
+<h1 id="导入-SDL-相关的包"><a href="#导入-SDL-相关的包" class="headerlink" title="导入 SDL 相关的包"></a>导入 SDL 相关的包</h1><p><a target="_blank" rel="noopener" href="https://wiki.libsdl.org/SDL2/CategoryAPI">SDL2 API 文档总览</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/DaveGamble/cJSON">cJSON 仓库链接</a><br><a target="_blank" rel="noopener" href="https://github.com/libsdl-org/SDL">SDL2 仓库链接</a><br><a target="_blank" rel="noopener" href="https://github.com/libsdl-org/SDL_ttf">SDL_ttf 仓库链接</a><br><a target="_blank" rel="noopener" href="https://github.com/libsdl-org/SDL_mixer">SDL_mixer 仓库链接</a><br><a target="_blank" rel="noopener" href="https://github.com/libsdl-org/SDL_image">SDL_image 仓库链接</a><br><a target="_blank" rel="noopener" href="https://www.ferzkopp.net/wordpress/2016/01/02/sdl_gfx-sdl2_gfx/">SDL2_gfx 官网链接</a></p>
+<h2 id="下载-SDL2-的时候的-release-版本的信息解读"><a href="#下载-SDL2-的时候的-release-版本的信息解读" class="headerlink" title="下载 SDL2 的时候的 release 版本的信息解读"></a>下载 SDL2 的时候的 release 版本的信息解读</h2><p><img src="/TowerDemo/image-20240909230926905.png" srcset="/img/loading.gif" lazyload alt="image-20240909230926905"></p>
+<p>文件名 <code>SDL2-devel-2.30.7-VC.zip</code> 中的各个部分通常遵循一定的命名规则，以下是对其命名含义的解释：</p>
+<ol>
+<li><p><strong><code>SDL2</code></strong>:</p>
+<ul>
+<li>代表 Simple DirectMedia Layer 2.0，即 SDL2，这是一个跨平台的多媒体开发库，广泛用于游戏开发、图形渲染和音频处理等领域。</li>
+</ul>
+</li>
+<li><p><strong><code>devel</code></strong>:</p>
+<ul>
+<li><code>devel</code> 是 <code>development</code> 的缩写，表示这是一个开发版本的文件包，通常包含开发库、头文件和相关的工具，用于软件开发而不是仅仅用于运行时。这意味着你可以使用它来编译和开发依赖于 SDL2 的应用程序。</li>
+</ul>
+</li>
+<li><p><strong><code>2.30.2</code></strong>:</p>
+<ul>
+<li><p>这是 SDL2 的版本号，表示这是 2.30.7 版本。版本号通常以</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs">主版本号.次版本号.修订号<br></code></pre></td></tr></table></figure>
+
+<p>的形式表示，例如在此例中：</p>
+<ul>
+<li><code>2</code> 是主版本号，表示这是 SDL2 的第二个大版本。</li>
+<li><code>30</code> 是次版本号，表示自主版本 2 以来进行了 30 次功能更新或改进。</li>
+<li><code>7</code> 是修订号，表示这个版本在 <code>2.30</code> 基础上进行了七次小的修复或改进。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong><code>VC</code></strong>:</p>
+<ul>
+<li><code>VC</code> 代表 Visual C++，表示这个文件包是为 Microsoft Visual C++ 编译器和开发环境准备的。这通常意味着它包含了适用于 Visual Studio 的动态链接库（DLLs）、静态库（LIBs）、头文件（headers）等。</li>
+</ul>
+</li>
+<li><p><strong><code>.zip</code></strong>:</p>
+<ul>
+<li>这是文件的扩展名，表示该文件是一个压缩包，使用 ZIP 压缩格式。你需要解压缩它以访问其中的内容。</li>
+</ul>
+</li>
+</ol>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>文件名 <code>SDL2-devel-2.30.2-VC.zip</code> 可以理解为：</p>
+<ul>
+<li>这是 SDL2 库的开发版（包含开发所需的文件），</li>
+<li>版本号是 2.30.2，</li>
+<li>专门为 Visual C++ 编译器准备，</li>
+<li>文件被打包为 ZIP 格式的压缩包。</li>
+</ul>
+<h2 id="VS-Studio-的一些设置"><a href="#VS-Studio-的一些设置" class="headerlink" title="VS Studio 的一些设置"></a>VS Studio 的一些设置</h2><h3 id="运行库设置"><a href="#运行库设置" class="headerlink" title="运行库设置"></a>运行库设置</h3><p><img src="/TowerDemo/image-20240909233156816.png" srcset="/img/loading.gif" lazyload alt="属性页操作"></p>
+<p><img src="/TowerDemo/image-20240909233309479.png" srcset="/img/loading.gif" lazyload alt="右键项目最下面能看到属性"></p>
+<p><img src="/TowerDemo/image-20240909233333704.png" srcset="/img/loading.gif" lazyload alt="找到属性中的运行库"></p>
+<h3 id="不同选项的解释，来自-chatgpt-4o"><a href="#不同选项的解释，来自-chatgpt-4o" class="headerlink" title="不同选项的解释，来自 chatgpt-4o"></a>不同选项的解释，来自 chatgpt-4o</h3><p>在 Visual Studio 中，当你编译一个 C&#x2F;C++ 程序时，可以选择不同的运行库（Runtime Library）选项。每个选项都有不同的特性，主要影响程序在运行时如何链接到 C&#x2F;C++ 标准库以及线程安全性。以下是常见的运行库选项及其区别：</p>
+<h3 id="1-多线程-单线程"><a href="#1-多线程-单线程" class="headerlink" title="1. 多线程&#x2F;单线程"></a>1. <strong>多线程&#x2F;单线程</strong></h3><ul>
+<li><strong>&#x2F;MT</strong> (Multithreaded): 编译器使用多线程的、静态链接的运行库。这意味着标准库的代码将被编译进生成的二进制文件中，不依赖外部的 DLL 文件。此选项适用于编译需要多线程支持的独立可执行文件。</li>
+<li><strong>&#x2F;MTd</strong> (Multithreaded Debug): 和 <code>/MT</code> 类似，但用于调试版本，包含调试信息。</li>
+<li><strong>&#x2F;MD</strong> (Multithreaded DLL): 编译器使用多线程的、动态链接的运行库。这意味着标准库的代码不会被编译进生成的二进制文件中，而是依赖外部的 <code>msvcrt.dll</code>（或调试版本的 <code>msvcrtd.dll</code>）。这是默认的运行库选项，适用于需要分发较小的可执行文件并且使用了动态链接库的项目。</li>
+<li><strong>&#x2F;MDd</strong> (Multithreaded DLL Debug): 和 <code>/MD</code> 类似，但用于调试版本，包含调试信息。</li>
+</ul>
+<h3 id="2-静态链接-vs-动态链接"><a href="#2-静态链接-vs-动态链接" class="headerlink" title="2. 静态链接 vs 动态链接"></a>2. <strong>静态链接 vs 动态链接</strong></h3><ul>
+<li><strong>静态链接</strong> (<code>/MT</code>, <code>/MTd</code>):<ul>
+<li>所有的运行时库代码都被嵌入到最终的可执行文件或库文件中。</li>
+<li>不依赖任何外部 DLL 文件。</li>
+<li>生成的文件较大，但在部署时不需要依赖额外的库文件。</li>
+</ul>
+</li>
+<li><strong>动态链接</strong> (<code>/MD</code>, <code>/MDd</code>):<ul>
+<li>运行时库代码保存在外部的 DLL 文件中，最终的可执行文件中只包含对这些 DLL 的引用。</li>
+<li>生成的可执行文件较小，但在运行时必须确保相关的 DLL 文件可用。</li>
+<li>如果不同的模块使用不同的运行时库（比如一个模块用 <code>/MD</code>，另一个用 <code>/MT</code>），可能会导致内存管理问题（如内存分配与释放的不一致）。</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-调试版-vs-发布版"><a href="#3-调试版-vs-发布版" class="headerlink" title="3. 调试版 vs 发布版"></a>3. <strong>调试版 vs 发布版</strong></h3><ul>
+<li><strong>调试版</strong> (<code>/MTd</code>, <code>/MDd</code>):<ul>
+<li>包含调试信息，便于在调试器中运行程序。</li>
+<li>使用了调试版本的运行库，运行时性能可能较低，但提供了更多的错误检查机制。</li>
+</ul>
+</li>
+<li><strong>发布版</strong> (<code>/MT</code>, <code>/MD</code>):<ul>
+<li>不包含调试信息，优化后的代码适用于发布版本。</li>
+<li>使用了非调试版本的运行库，运行时性能更好。</li>
+</ul>
+</li>
+</ul>
+<h3 id="选择哪个运行库？"><a href="#选择哪个运行库？" class="headerlink" title="选择哪个运行库？"></a>选择哪个运行库？</h3><ul>
+<li><strong>单独的可执行文件</strong>: <font color="red">如果你需要一个不依赖外部 DLL 的独立可执行文件，可以选择 <code>/MT</code> 或 <code>/MTd</code>。</font></li>
+<li><strong>使用动态链接库</strong>: 如果你希望通过动态链接库减小可执行文件的大小并共享库代码，使用 <code>/MD</code> 或 <code>/MDd</code> 是更好的选择。</li>
+<li><strong>调试 vs 发布</strong>: 在开发和调试阶段，选择调试版运行库（如 <code>/MDd</code>），在发布时切换到发布版运行库（如 <code>/MD</code>）。</li>
+</ul>
+<h2 id="第三方库的导入"><a href="#第三方库的导入" class="headerlink" title="第三方库的导入"></a>第三方库的导入</h2><ul>
+<li>导入头文件(include 文件夹)和静态(lib)或者动态链接库(dll)</li>
+</ul>
+<p><img src="/TowerDemo/image-20240909233954841.png" srcset="/img/loading.gif" lazyload alt="导入头文件和库文件"></p>
+<ul>
+<li>导入头文件(include 文件夹)和源文件</li>
+</ul>
+<p><img src="/TowerDemo/image-20240909234021144.png" srcset="/img/loading.gif" lazyload alt="导入头文件和源文件"></p>
+<h2 id="头文件目录设置"><a href="#头文件目录设置" class="headerlink" title="头文件目录设置"></a>头文件目录设置</h2><p><img src="/TowerDemo/image-20240909234813783.png" srcset="/img/loading.gif" lazyload alt="附加包含目录"></p>
+<p>在 Visual Studio 中，“附加包含目录”（Additional Include Directories）是一个项目属性设置项，用于指定编译器在编译项目时需要查找的头文件目录。</p>
+<h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>当你在代码中使用 <code>#include</code> 指令引用头文件时，编译器需要知道这些头文件的位置。编译器默认会在以下地方查找头文件：</p>
+<ol>
+<li><strong>当前源文件所在的目录</strong>。</li>
+<li><strong>系统默认的包含目录</strong>（如 C++ 标准库的头文件目录）。</li>
+</ol>
+<p>如果你的项目中使用了自定义的头文件，或者你依赖于外部库的头文件，这些头文件可能位于编译器默认查找路径之外。此时，你需要通过“附加包含目录”将这些头文件所在的路径告诉编译器。</p>
+<h3 id="如何设置"><a href="#如何设置" class="headerlink" title="如何设置"></a>如何设置</h3><p>在 Visual Studio 中，你可以通过以下步骤设置“附加包含目录”：</p>
+<ol>
+<li>右键点击你的项目，选择“属性”（Properties）。</li>
+<li>在项目属性窗口中，导航到“配置属性”（Configuration Properties） -&gt; “C&#x2F;C++” -&gt; “常规”（General）。</li>
+<li>在右侧的“附加包含目录”一栏中，添加需要包含的头文件目录路径。可以手动输入路径，或点击旁边的按钮选择目录。</li>
+</ol>
+<h3 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h3><p>假设你正在编译一个 C++ 项目，并且你使用了一个外部库 <code>MyLibrary</code>，它的头文件存放在 <code>C:\Libraries\MyLibrary\include</code> 目录下。在你的代码中，你可能会有这样的包含语句：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;MyLibrary.h&gt;</span></span><br></code></pre></td></tr></table></figure>
+
+<p>为了让编译器找到 <code>MyLibrary.h</code> 文件，你需要将 <code>C:\Libraries\MyLibrary\include</code> 路径添加到“附加包含目录”中。</p>
+<h2 id="库文件目录设置"><a href="#库文件目录设置" class="headerlink" title="库文件目录设置"></a>库文件目录设置</h2><p><img src="/TowerDemo/image-20240909235154768.png" srcset="/img/loading.gif" lazyload alt="库文件目录设置"></p>
+<p>在 Visual Studio 中，“附加库目录”（Additional Library Directories）是项目属性设置中的一项，用于指定链接器在链接阶段需要查找库文件（如 <code>.lib</code> 文件）的目录。</p>
+<h3 id="作用-1"><a href="#作用-1" class="headerlink" title="作用"></a>作用</h3><p>当你编写的程序需要链接到外部库（如第三方库或自己编写的库）时，链接器需要知道这些库文件的位置。库文件通常包含了程序中使用的函数、类等的预编译代码，而链接器的任务就是将这些库与您的代码结合，生成最终的可执行文件。</p>
+<p>默认情况下，链接器会在以下地方查找库文件：</p>
+<ol>
+<li><strong>系统默认的库目录</strong>（例如，Windows SDK 中的库目录）。</li>
+<li><strong>项目文件所在的目录</strong>。</li>
+</ol>
+<p>如果你的项目使用的库文件不在这些默认目录中，你就需要通过“附加库目录”告诉链接器这些库文件所在的位置。</p>
+<h3 id="如何设置-1"><a href="#如何设置-1" class="headerlink" title="如何设置"></a>如何设置</h3><p>在 Visual Studio 中，你可以通过以下步骤设置“附加库目录”：</p>
+<ol>
+<li>右键点击你的项目，选择“属性”（Properties）。</li>
+<li>在项目属性窗口中，导航到“配置属性”（Configuration Properties） -&gt; “链接器”（Linker） -&gt; “常规”（General）。</li>
+<li>在右侧的“附加库目录”一栏中，添加需要包含的库文件目录路径。你可以手动输入路径，也可以点击旁边的按钮来选择目录。</li>
+</ol>
+<h3 id="例子-1"><a href="#例子-1" class="headerlink" title="例子"></a>例子</h3><p>假设你正在编译一个 C++ 项目，并且使用了一个外部库 <code>MyLibrary</code>，其库文件存放在 <code>C:\Libraries\MyLibrary\lib</code> 目录下。在你的代码中，你可能需要链接到这个库的 <code>.lib</code> 文件。</p>
+<p>为了让链接器找到这些库文件，你需要将 <code>C:\Libraries\MyLibrary\lib</code> 路径添加到“附加库目录”中。</p>
+<h3 id="关联设置：附加依赖项"><a href="#关联设置：附加依赖项" class="headerlink" title="关联设置：附加依赖项"></a>关联设置：附加依赖项</h3><p>在设置了“附加库目录”后，你还需要在“附加依赖项”（Additional Dependencies）中指定要链接的具体库文件名（如 <code>MyLibrary.lib</code>），这个选项也位于链接器的属性设置中。设置路径后，链接器会在指定的“附加库目录”中查找这些库文件。</p>
+<h3 id="lib-和-dll-的区别"><a href="#lib-和-dll-的区别" class="headerlink" title="lib 和 dll 的区别"></a>lib 和 dll 的区别</h3><h4 id="1-lib-文件"><a href="#1-lib-文件" class="headerlink" title="1. lib 文件"></a>1. <strong><code>lib</code> 文件</strong></h4><p><code>lib</code> 文件通常有两种形式，分别用于不同的目的：</p>
+<ul>
+<li><strong>静态库（Static Library）</strong>:<ul>
+<li><strong>作用</strong>: 在编译时将库代码直接嵌入到可执行文件中。</li>
+<li><strong>链接</strong>: 编译器将静态库中的代码与应用程序的代码结合，生成一个包含所有必要代码的独立可执行文件。</li>
+<li><strong>部署</strong>: 生成的可执行文件不依赖外部库，体积会比较大，但运行时不需要额外的库文件。</li>
+<li><strong>扩展名</strong>: <code>.lib</code></li>
+</ul>
+</li>
+<li><strong>导入库（Import Library）</strong>:<ul>
+<li><strong>作用</strong>: 为动态链接库（DLL）提供链接信息。</li>
+<li><strong>链接</strong>: 导入库不包含实际的代码，只包含 DLL 中函数和变量的符号信息。在编译时使用导入库，告诉链接器将来需要使用特定的 DLL 文件。</li>
+<li><strong>部署</strong>: 可执行文件在运行时依赖 DLL 文件，导入库仅在编译和链接阶段使用。</li>
+<li><strong>扩展名</strong>: <code>.lib</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="2-dll-文件"><a href="#2-dll-文件" class="headerlink" title="2. dll 文件"></a>2. <strong><code>dll</code> 文件</strong></h4><ul>
+<li><p>动态链接库（Dynamic Link Library）:</p>
+<ul>
+<li><strong>作用</strong>: 提供可在运行时加载并使用的库函数和数据。DLL 文件可以被多个程序同时使用，从而节省内存和减少重复代码。</li>
+<li><strong>链接</strong>: 在运行时加载 DLL 文件，应用程序通过动态链接来调用其中的函数。编译时，程序通过导入库（<code>.lib</code> 文件）或使用 <code>LoadLibrary</code> 等 API 函数来引用 DLL 中的函数。</li>
+<li><strong>部署</strong>: DLL 文件需要与可执行文件一起部署。当应用程序运行时，系统会在特定目录中查找并加载 DLL 文件。</li>
+<li><strong>扩展名</strong>: <code>.dll</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="3-主要区别"><a href="#3-主要区别" class="headerlink" title="3. 主要区别"></a>3. <strong>主要区别</strong></h4><ul>
+<li><strong>链接方式</strong>:<ul>
+<li><strong>静态库</strong>: 在编译时链接，生成的可执行文件不需要依赖外部库。</li>
+<li><strong>动态库</strong>: 在运行时链接，可执行文件在运行时需要加载对应的 DLL。</li>
+</ul>
+</li>
+<li><strong>文件扩展名</strong>:<ul>
+<li><strong>静态库&#x2F;导入库</strong>: <code>.lib</code></li>
+<li><strong>动态库</strong>: <code>.dll</code></li>
+</ul>
+</li>
+<li><strong>内存占用</strong>:<ul>
+<li><strong>静态库</strong>: 由于库代码被嵌入到可执行文件中，多个应用程序会各自占用内存。</li>
+<li><strong>动态库</strong>: DLL 可以被多个程序同时加载，节省内存。</li>
+</ul>
+</li>
+<li><strong>更新与维护</strong>:<ul>
+<li><strong>静态库</strong>: 如果库代码需要更新，必须重新编译所有使用该库的程序。</li>
+<li><strong>动态库</strong>: 更新 DLL 文件后，所有使用该 DLL 的程序都能立即受益于更新，无需重新编译。</li>
+</ul>
+</li>
+</ul>
+<h4 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h4><ul>
+<li><strong>静态库（.lib）</strong>: 编译时链接，库代码直接嵌入到可执行文件中。</li>
+<li><strong>动态链接库（.dll）</strong>: 运行时链接，可执行文件依赖于外部的 DLL 文件。</li>
+<li><strong>导入库（.lib）</strong>: 用于编译时链接到 DLL，提供符号信息，但不包含实际代码。</li>
+</ul>
+<h2 id="链接库文件"><a href="#链接库文件" class="headerlink" title="链接库文件"></a>链接库文件</h2><p><img src="/TowerDemo/image-20240909235827283.png" srcset="/img/loading.gif" lazyload alt="链接库文件"></p>
+<p>在 Visual Studio 中，“附加依赖项”（Additional Dependencies）是一个链接器设置项，用于指定在编译和链接过程中，程序需要链接的库文件（通常是 <code>.lib</code> 文件）。</p>
+<h3 id="作用-2"><a href="#作用-2" class="headerlink" title="作用"></a>作用</h3><p>“附加依赖项”告诉链接器，除了默认的系统库外，还需要链接哪些特定的库文件。库文件包含预编译的代码或数据，程序在编译和链接时将这些库中的内容整合到最终生成的可执行文件或动态链接库中。</p>
+<h3 id="如何设置-2"><a href="#如何设置-2" class="headerlink" title="如何设置"></a>如何设置</h3><p>你可以通过以下步骤在 Visual Studio 中设置“附加依赖项”：</p>
+<ol>
+<li>右键点击你的项目，选择“属性”（Properties）。</li>
+<li>在项目属性窗口中，导航到“配置属性”（Configuration Properties） -&gt; “链接器”（Linker） -&gt; “输入”（Input）。</li>
+<li>在右侧的“附加依赖项”一栏中，输入需要链接的库文件名，文件名之间用分号隔开。例如：<code>MyLibrary.lib;AnotherLibrary.lib</code>。</li>
+</ol>
+<h3 id="例子-2"><a href="#例子-2" class="headerlink" title="例子"></a>例子</h3><p>假设你正在编译一个项目，该项目依赖于两个外部库 <code>MyLibrary.lib</code> 和 <code>AnotherLibrary.lib</code>。你需要将这两个库的名称添加到“附加依赖项”中，如下所示：</p>
+<figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs crystal">MyLibrary.<span class="hljs-keyword">lib</span>;AnotherLibrary.<span class="hljs-keyword">lib</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="与“附加库目录”的关系"><a href="#与“附加库目录”的关系" class="headerlink" title="与“附加库目录”的关系"></a>与“附加库目录”的关系</h3><p>“附加依赖项”指定了需要链接的库文件名，而“附加库目录”指定了这些库文件所在的路径。链接器会在“附加库目录”中查找“附加依赖项”中列出的库文件。如果库文件不在默认路径中，你需要在“附加库目录”中指定正确的路径，否则链接器将无法找到并链接这些库文件。</p>
+<h3 id="小结-1"><a href="#小结-1" class="headerlink" title="小结"></a>小结</h3><ul>
+<li><strong>附加依赖项</strong>: 指定在链接阶段需要链接的库文件名（通常是 <code>.lib</code> 文件）。</li>
+<li><strong>附加库目录</strong>: 指定这些库文件所在的路径。</li>
+</ul>
+<h2 id="DLL-的文件设置"><a href="#DLL-的文件设置" class="headerlink" title="DLL 的文件设置"></a>DLL 的文件设置</h2><blockquote>
+<p>就放在 main.cpp 同级目录下，具体怎么加载还不知道</p>
+</blockquote>
+<p><img src="/TowerDemo/image-20240910000249147.png" srcset="/img/loading.gif" lazyload alt="dll文件缩放位置的参考"></p>
+<h2 id="其他源文件的导入"><a href="#其他源文件的导入" class="headerlink" title="其他源文件的导入"></a>其他源文件的导入</h2><p><img src="/TowerDemo/image-20240910000425931.png" srcset="/img/loading.gif" lazyload alt="新建筛选器"></p>
+<ul>
+<li>源文件拖拽到新建筛选器下方，导入的时候会自己找到这个源文件的，不是复制</li>
+</ul>
+<p><img src="/TowerDemo/image-20240910000502340.png" srcset="/img/loading.gif" lazyload alt="源文件拖拽到新建筛选器下方"></p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>TowerDemo</div>
+      <div>http://example.com/2024/09/10/本地双人塔防游戏Demo/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>wing2791</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2024年9月10日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2024/09/10/VSCode%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E5%92%8CEmmet%E8%AF%AD%E6%B3%95/" title="VSCode基本使用和Emmet语法">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">VSCode基本使用和Emmet语法</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2024/09/10/%E5%90%84%E7%A7%8D%E5%8A%9F%E8%83%BD%E6%B5%8B%E8%AF%95/" title="各种功能测试">
+                        <span class="hidden-mobile">各种功能测试</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
