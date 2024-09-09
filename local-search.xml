@@ -4,6 +4,32 @@
   
   
   <entry>
+    <title>本地双人塔防游戏Demo记录</title>
+    <link href="/2024/09/09/%E6%9C%AC%E5%9C%B0%E5%8F%8C%E4%BA%BA%E5%A1%94%E9%98%B2%E6%B8%B8%E6%88%8FDemo%E8%AE%B0%E5%BD%95/"/>
+    <url>/2024/09/09/%E6%9C%AC%E5%9C%B0%E5%8F%8C%E4%BA%BA%E5%A1%94%E9%98%B2%E6%B8%B8%E6%88%8FDemo%E8%AE%B0%E5%BD%95/</url>
+    
+    <content type="html"><![CDATA[<blockquote><p>本Demo来自B站课程学习的改进</p><p>作为自己的整理和找工作的项目Demo</p><p>添加了自己的想法，记录在做这个Demo过程中比较重要的内容，可能会贴出部分源码</p></blockquote><h1 id="导入sdl相关的包">导入SDL相关的包</h1><p><a href="https://wiki.libsdl.org/SDL2/CategoryAPI">SDL2 API文档总览</a></p><p><a href="https://github.com/DaveGamble/cJSON">cJSON 仓库链接</a> <a href="https://github.com/libsdl-org/SDL">SDL2 仓库链接</a> <a href="https://github.com/libsdl-org/SDL_ttf">SDL_ttf 仓库链接</a> <a href="https://github.com/libsdl-org/SDL_mixer">SDL_mixer 仓库链接</a> <a href="https://github.com/libsdl-org/SDL_image">SDL_image 仓库链接</a> <a href="https://www.ferzkopp.net/wordpress/2016/01/02/sdl_gfx-sdl2_gfx/">SDL2_gfx官网链接</a></p><h2 id="下载sdl2的时候的release版本的信息解读">下载SDL2的时候的release版本的信息解读</h2><p>[]</p>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>游戏弈仙牌-杂谈（一）</title>
+    <link href="/2024/09/09/%E6%B8%B8%E6%88%8F%E5%BC%88%E4%BB%99%E7%89%8C-%E6%9D%82%E8%B0%88%EF%BC%88%E4%B8%80%EF%BC%89/"/>
+    <url>/2024/09/09/%E6%B8%B8%E6%88%8F%E5%BC%88%E4%BB%99%E7%89%8C-%E6%9D%82%E8%B0%88%EF%BC%88%E4%B8%80%EF%BC%89/</url>
+    
+    <content type="html"><![CDATA[<blockquote><p>算作是自己往游戏策划上走的第一步吧。坚持玩一款游戏，并尝试分析本人不是公测玩家，是开服双端玩家 主五行道盟，其他得随缘玩</p></blockquote>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>LaTex表示数学符号</title>
     <link href="/2024/08/11/LaTex%E8%A1%A8%E7%A4%BA%E6%95%B0%E5%AD%A6%E7%AC%A6%E5%8F%B7/"/>
     <url>/2024/08/11/LaTex%E8%A1%A8%E7%A4%BA%E6%95%B0%E5%AD%A6%E7%AC%A6%E5%8F%B7/</url>
