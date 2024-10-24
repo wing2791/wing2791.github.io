@@ -21,7 +21,7 @@
   
     <meta name="description" content="inlineC++将内联函数的代码组合到程序中，可以提高程序运行的速度。语法：在函数声明和定义前加上关键字 inline。通常的做法是将函数声明和定义都写在头文件（当然都写在源文件也行）。目的是为了避免函数重定义的问题 正确的 inline 例子 文件结构如图所示  代码示例my_inline.h   123456#include &lt;iostream&gt;using namespace s">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Day Day Up!">
+<meta property="og:title" content="知识点一_inline, const, static">
 <meta property="og:url" content="https://wing2791.github.io/2024/10/24/%E7%9F%A5%E8%AF%86%E7%82%B9%E4%B8%80_inline,%20const,%20static/index.html">
 <meta property="og:site_name" content="Day Day Up!">
 <meta property="og:description" content="inlineC++将内联函数的代码组合到程序中，可以提高程序运行的速度。语法：在函数声明和定义前加上关键字 inline。通常的做法是将函数声明和定义都写在头文件（当然都写在源文件也行）。目的是为了避免函数重定义的问题 正确的 inline 例子 文件结构如图所示  代码示例my_inline.h   123456#include &lt;iostream&gt;using namespace s">
@@ -29,14 +29,14 @@
 <meta property="og:image" content="https://s21.ax1x.com/2024/10/24/pAwMuMq.png">
 <meta property="og:image" content="https://s21.ax1x.com/2024/10/24/pAwMKs0.png">
 <meta property="article:published_time" content="2024-10-24T15:03:13.361Z">
-<meta property="article:modified_time" content="2024-10-24T15:03:20.083Z">
+<meta property="article:modified_time" content="2024-10-24T15:06:01.366Z">
 <meta property="article:author" content="wing2791">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://s21.ax1x.com/2024/10/24/pAwMuMq.png">
   
   
   
-  <title>Day Day Up!</title>
+  <title>知识点一_inline, const, static - Day Day Up!</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -202,7 +202,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text=""></span>
+            <span id="subtitle" data-typed-text="知识点一_inline, const, static"></span>
           
         </div>
 
@@ -273,7 +273,7 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header"></h1>
+            <h1 id="seo-header">知识点一_inline, const, static</h1>
             
             
               <div class="markdown-body">
@@ -498,7 +498,7 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div></div>
+      <div>知识点一_inline, const, static</div>
       <div>https://wing2791.github.io/2024/10/24/知识点一_inline, const, static/</div>
     </div>
     <div class="license-meta">
@@ -605,6 +605,12 @@
 
 
   
+
+
+  
+  
+
+
 
 
 
@@ -797,6 +803,49 @@
 
 
   <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
 
   <script  src="/js/local-search.js" ></script>
 
