@@ -27,7 +27,7 @@
 <meta property="og:description" content="1.基本数据类型   数据类型 占用字节数 数据范围 描述 示例    bool 1 true 或 false 布尔类型，表示真或假 bool isActive &#x3D; true;   byte 1 0 到 255 无符号 8 位整数 byte age &#x3D; 25;   sbyte 1 -128 到 127 有符号 8 位整数 sbyte temperature &#x3D; -10">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-10-19T13:55:50.124Z">
-<meta property="article:modified_time" content="2024-10-25T04:23:34.162Z">
+<meta property="article:modified_time" content="2024-10-25T14:05:48.193Z">
 <meta property="article:author" content="wing2791">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -222,7 +222,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          13k 字
+          17k 字
         
       </span>
     
@@ -233,7 +233,7 @@
         
         
         
-          108 分钟
+          141 分钟
         
       </span>
     
@@ -436,15 +436,13 @@
 </ul>
 <figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-built_in">string</span> result = <span class="hljs-string">&quot;&quot;</span>;<br><span class="hljs-keyword">for</span> (<span class="hljs-built_in">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">1000</span>; i++)<br>&#123;<br>    result += <span class="hljs-string">&quot;Hello &quot;</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
 
-<pre><code class="hljs">每次循环都会创建一个新的 `string`，性能较差。
-</code></pre>
+<p>每次循环都会创建一个新的 <code>string</code>，性能较差。</p>
 <ul>
 <li><strong>使用 <code>StringBuilder</code></strong>:</li>
 </ul>
 <figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs csharp">StringBuilder sb = <span class="hljs-keyword">new</span> StringBuilder();<br><span class="hljs-keyword">for</span> (<span class="hljs-built_in">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">1000</span>; i++)<br>&#123;<br>    sb.Append(<span class="hljs-string">&quot;Hello &quot;</span>);<br>&#125;<br><span class="hljs-built_in">string</span> result = sb.ToString();<br></code></pre></td></tr></table></figure>
 
-<pre><code class="hljs">这种方式性能更好，因为 `StringBuilder` 可以动态地扩展内存，减少不必要的对象创建。
-</code></pre>
+<p>这种方式性能更好，因为 <code>StringBuilder</code> 可以动态地扩展内存，减少不必要的对象创建。</p>
 <h3 id="初始化容量"><a href="#初始化容量" class="headerlink" title="初始化容量"></a>初始化容量</h3><p>可以通过指定初始容量来提高性能：</p>
 <figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs csharp">StringBuilder sb = <span class="hljs-keyword">new</span> StringBuilder(<span class="hljs-number">100</span>); <span class="hljs-comment">// 预分配100个字符的空间</span><br></code></pre></td></tr></table></figure>
 
@@ -496,28 +494,19 @@
 </tr>
 </tbody></table>
 <h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><ul>
-<li>使用 <code>ref</code> 可以在方法中修改传入的参数，并且调用方法之前需要初始化。</li>
-<li>使用 <code>out</code> 适合用于返回多个值的场景，调用前不需要初始化，但必须在方法中赋值。</li>
-<li>ref 和 out 可以作为重载的条件，但是两个不能同时用<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-keyword">using</span> System;<br></code></pre></td></tr></table></figure></li>
+<li><p>使用 <code>ref</code> 可以在方法中修改传入的参数，并且调用方法之前需要初始化。</p>
+</li>
+<li><p>使用 <code>out</code> 适合用于返回多个值的场景，调用前不需要初始化，但必须在方法中赋值。</p>
+</li>
+<li><p>ref 和 out 可以作为重载的条件，但是两个不能同时用</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-keyword">using</span> System;<br><br></code></pre></td></tr></table></figure></li>
 </ul>
 <p>class Program<br>{<br>static void Main()<br>{<br>&#x2F;&#x2F; 调用带有 params 参数的方法<br>float f &#x3D; 1.0f;<br>CalcSum(ref f, 2);<br>}</p>
-<pre><code class="hljs">static void CalcSum(ref float f, int a)
-&#123;
-    Console.WriteLine(f + a);
-    // 确保显示一位小数
-    Console.WriteLine((f + a).ToString(&quot;F1&quot;));//3.0
-
-&#125;
-
-// 两者ref和out不可以同时出现
-//static void CalcSum(out float f, int a)
-//&#123;
-//    Console.WriteLine(f + a);
-
-//&#125;
-</code></pre>
+<p>static void CalcSum(ref float f, int a)<br>{<br>Console.WriteLine(f + a);<br>&#x2F;&#x2F; 确保显示一位小数<br>Console.WriteLine((f + a).ToString(“F1”));&#x2F;&#x2F;3.0</p>
 <p>}</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><br>- C++中&amp;可以作为重载的标准，<span class="hljs-keyword">const</span> <span class="hljs-built_in">int</span>&amp; 指的是常数，<span class="hljs-built_in">int</span> 和 <span class="hljs-built_in">int</span>&amp;都可以指变量，用的时候会报错<br><br>`<span class="hljs-keyword">ref</span>` 和 `<span class="hljs-keyword">out</span>` 是两个英文单词的缩写，具体含义如下：<br><br><span class="hljs-number">1.</span> **`<span class="hljs-keyword">ref</span>`**：是 **<span class="hljs-string">&quot;reference&quot;</span>** 的缩写，表示引用。在参数传递中，`<span class="hljs-keyword">ref</span>` 表示该参数是通过引用传递的，这意味着方法内部对参数的修改会影响到原始变量。<br><span class="hljs-number">2.</span> **`<span class="hljs-keyword">out</span>`**：是 **<span class="hljs-string">&quot;output&quot;</span>** 的缩写，表示输出。`<span class="hljs-keyword">out</span>` 参数用于方法输出结果，表示该参数用于返回值，方法内部必须对其进行赋值。<br><br><span class="hljs-meta"># 7. params</span><br><br>在 C<span class="hljs-meta"># 中，`params` 关键字用于允许方法接受可变数量的参数。这使得可以将多个参数作为数组传递给方法，而无需明确地创建一个数组。这在需要处理不确定数量的参数时非常方便。</span><br><br><span class="hljs-meta">### 使用示例</span><br><br>以下是一个使用 `<span class="hljs-keyword">params</span>` 的示例：<br><br>```csharp<br><span class="hljs-keyword">using</span> System;<br><br><span class="hljs-keyword">class</span> <span class="hljs-title">Program</span><br>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Main</span>()</span><br>    &#123;<br>        <span class="hljs-comment">// 调用带有 params 参数的方法</span><br>        PrintNumbers(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>);<br>        PrintNumbers(<span class="hljs-number">10</span>, <span class="hljs-number">20</span>);<br>        PrintNumbers(); <span class="hljs-comment">// 也可以传入零个参数</span><br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">PrintNumbers</span>(<span class="hljs-params"><span class="hljs-keyword">params</span> <span class="hljs-built_in">int</span>[] numbers</span>)</span><br>    &#123;<br>        Console.WriteLine(<span class="hljs-string">&quot;Numbers received:&quot;</span>);<br>        <span class="hljs-keyword">foreach</span> (<span class="hljs-keyword">var</span> number <span class="hljs-keyword">in</span> numbers)<br>        &#123;<br>            Console.WriteLine(number);<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>&#x2F;&#x2F; 两者 ref 和 out 不可以同时出现<br>&#x2F;&#x2F;static void CalcSum(out float f, int a)<br>&#x2F;&#x2F;{<br>&#x2F;&#x2F; Console.WriteLine(f + a);</p>
+<p>&#x2F;&#x2F;}<br>}</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><br>- C++中&amp;可以作为重载的标准，<span class="hljs-keyword">const</span> <span class="hljs-built_in">int</span>&amp; 指的是常数，<span class="hljs-built_in">int</span> 和<span class="hljs-built_in">int</span>&amp;都可以指变量，用的时候会报错<br><br>`<span class="hljs-keyword">ref</span>` 和 `<span class="hljs-keyword">out</span>` 是两个英文单词的缩写，具体含义如下：<br><br><span class="hljs-number">1.</span> **`<span class="hljs-keyword">ref</span>`**：是 **<span class="hljs-string">&quot;reference&quot;</span>** 的缩写，表示引用。在参数传递中，`<span class="hljs-keyword">ref</span>` 表示该参数是通过引用传递的，这意味着方法内部对参数的修改会影响到原始变量。<br><span class="hljs-number">2.</span> **`<span class="hljs-keyword">out</span>`**：是 **<span class="hljs-string">&quot;output&quot;</span>** 的缩写，表示输出。`<span class="hljs-keyword">out</span>` 参数用于方法输出结果，表示该参数用于返回值，方法内部必须对其进行赋值。<br><br><span class="hljs-meta"># 7. params</span><br><br>在 C<span class="hljs-meta"># 中，`params` 关键字用于允许方法接受可变数量的参数。这使得可以将多个参数作为数组传递给方法，而无需明确地创建一个数组。这在需要处理不确定数量的参数时非常方便。</span><br><br><span class="hljs-meta">### 使用示例</span><br><br>以下是一个使用 `<span class="hljs-keyword">params</span>` 的示例：<br><br>```csharp<br><span class="hljs-keyword">using</span> System;<br><br><span class="hljs-keyword">class</span> <span class="hljs-title">Program</span><br>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Main</span>()</span><br>    &#123;<br>        <span class="hljs-comment">// 调用带有 params 参数的方法</span><br>        PrintNumbers(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>);<br>        PrintNumbers(<span class="hljs-number">10</span>, <span class="hljs-number">20</span>);<br>        PrintNumbers(); <span class="hljs-comment">// 也可以传入零个参数</span><br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">PrintNumbers</span>(<span class="hljs-params"><span class="hljs-keyword">params</span> <span class="hljs-built_in">int</span>[] numbers</span>)</span><br>    &#123;<br>        Console.WriteLine(<span class="hljs-string">&quot;Numbers received:&quot;</span>);<br>        <span class="hljs-keyword">foreach</span> (<span class="hljs-keyword">var</span> number <span class="hljs-keyword">in</span> numbers)<br>        &#123;<br>            Console.WriteLine(number);<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <h3 id="说明-1"><a href="#说明-1" class="headerlink" title="说明"></a>说明</h3><ul>
 <li>在这个示例中，<code>PrintNumbers</code> 方法可以接受任意数量的整数作为参数。</li>
@@ -614,8 +603,8 @@
 </thead>
 <tbody><tr>
 <td>定义</td>
-<td>使用 <code>struct</code> 关键字</td>
-<td>使用 <code>struct</code> 关键字</td>
+<td>使用<code>struct</code> 关键字</td>
+<td>使用<code>struct</code> 关键字</td>
 </tr>
 <tr>
 <td>默认访问修饰符</td>
@@ -707,15 +696,18 @@
 <h3 id="类的定义和使用示例"><a href="#类的定义和使用示例" class="headerlink" title="类的定义和使用示例"></a>类的定义和使用示例</h3><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-keyword">using</span> System;<br><br><span class="hljs-comment">// 定义一个简单的类</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Car</span><br>&#123;<br>    <span class="hljs-comment">// 字段</span><br>    <span class="hljs-keyword">private</span> <span class="hljs-built_in">string</span> make;<br>    <span class="hljs-keyword">private</span> <span class="hljs-built_in">string</span> model;<br>    <span class="hljs-keyword">private</span> <span class="hljs-built_in">int</span> year;<br><br>    <span class="hljs-comment">// 属性</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-built_in">string</span> Make<br>    &#123;<br>        <span class="hljs-keyword">get</span> &#123; <span class="hljs-keyword">return</span> make; &#125;<br>        <span class="hljs-keyword">set</span> &#123; make = <span class="hljs-keyword">value</span>; &#125;<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-built_in">string</span> Model<br>    &#123;<br>        <span class="hljs-keyword">get</span> &#123; <span class="hljs-keyword">return</span> model; &#125;<br>        <span class="hljs-keyword">set</span> &#123; model = <span class="hljs-keyword">value</span>; &#125;<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-built_in">int</span> Year<br>    &#123;<br>        <span class="hljs-keyword">get</span> &#123; <span class="hljs-keyword">return</span> year; &#125;<br>        <span class="hljs-keyword">set</span> &#123; year = <span class="hljs-keyword">value</span>; &#125;<br>    &#125;<br><br>    <span class="hljs-comment">// 构造函数</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Car</span>(<span class="hljs-params"><span class="hljs-built_in">string</span> make, <span class="hljs-built_in">string</span> model, <span class="hljs-built_in">int</span> year</span>)</span><br>    &#123;<br>        <span class="hljs-keyword">this</span>.make = make;<br>        <span class="hljs-keyword">this</span>.model = model;<br>        <span class="hljs-keyword">this</span>.year = year;<br>    &#125;<br><br>    <span class="hljs-comment">// 方法</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">DisplayInfo</span>()</span><br>    &#123;<br>        Console.WriteLine(<span class="hljs-string">$&quot;Car Info: <span class="hljs-subst">&#123;Year&#125;</span> <span class="hljs-subst">&#123;Make&#125;</span> <span class="hljs-subst">&#123;Model&#125;</span>&quot;</span>);<br>    &#125;<br>&#125;<br><br><span class="hljs-keyword">class</span> <span class="hljs-title">Program</span><br>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Main</span>()</span><br>    &#123;<br>        <span class="hljs-comment">// 创建 Car 类的实例</span><br>        Car myCar = <span class="hljs-keyword">new</span> Car(<span class="hljs-string">&quot;Toyota&quot;</span>, <span class="hljs-string">&quot;Camry&quot;</span>, <span class="hljs-number">2021</span>);<br>        myCar.DisplayInfo(); <span class="hljs-comment">// 输出: Car Info: 2021 Toyota Camry</span><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <h3 id="重要概念说明"><a href="#重要概念说明" class="headerlink" title="重要概念说明"></a>重要概念说明</h3><ul>
-<li><strong>构造函数</strong>：<ul>
+<li><p><strong>构造函数</strong>：</p>
+<ul>
 <li>特殊方法，在创建对象时被调用。可以用于初始化对象的状态。</li>
 </ul>
 </li>
-<li><strong>析构函数</strong>：<ul>
+<li><p><strong>析构函数</strong>：</p>
+<ul>
 <li>用于清理资源，类在不再需要时被销毁时调用（在 C# 中，通常使用 <code>IDisposable</code> 接口和 <code>using</code> 语句进行资源管理）。</li>
 </ul>
 </li>
-<li><strong>静态成员</strong>：<ul>
+<li><p><strong>静态成员</strong>：</p>
+<ul>
 <li>使用 <code>static</code> 修饰符定义的成员属于类本身，而不是类的实例。</li>
 </ul>
 </li>
@@ -800,12 +792,12 @@
 <tr>
 <td><strong>默认构造函数</strong></td>
 <td>有默认构造函数</td>
-<td>没有默认构造函数，编译器自动提供一个隐式的默认构造函数，该构造函数会将结构体的所有字段初始化为其类型的默认值（如 <code>0</code>、<code>false</code>、<code>null</code> 等）</td>
+<td>没有默认构造函数，编译器自动提供一个隐式的默认构造函数，该构造函数会将结构体的所有字段初始化为其类型的默认值（如<code>0</code>、<code>false</code>、<code>null</code> 等）</td>
 </tr>
 <tr>
 <td><strong>访问修饰符</strong></td>
-<td>默认是 <code>private</code></td>
-<td>默认是 <code>private</code></td>
+<td>默认是<code>private</code></td>
+<td>默认是<code>private</code></td>
 </tr>
 <tr>
 <td><strong>接口实现</strong></td>
@@ -814,8 +806,8 @@
 </tr>
 <tr>
 <td><strong>实例化</strong></td>
-<td>通过 <code>new</code> 创建</td>
-<td>通过 <code>new</code> 创建</td>
+<td>通过<code>new</code> 创建</td>
+<td>通过<code>new</code> 创建</td>
 </tr>
 <tr>
 <td><strong>赋值行为</strong></td>
@@ -1027,15 +1019,20 @@
 <h3 id="使用示例-1"><a href="#使用示例-1" class="headerlink" title="使用示例"></a>使用示例</h3><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-keyword">class</span> <span class="hljs-title">Program</span><br>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Main</span>()</span><br>    &#123;<br>        Person person = <span class="hljs-keyword">new</span> Person(<span class="hljs-string">&quot;Alice&quot;</span>, <span class="hljs-number">30</span>);<br><br>        <span class="hljs-comment">// 访问Name属性</span><br>        Console.WriteLine(person.Name); <span class="hljs-comment">// 公开的get方法可以访问</span><br><br>        <span class="hljs-comment">// 不能直接设置Name属性，因为set是私有的</span><br>        <span class="hljs-comment">// person.Name = &quot;Bob&quot;; // 这行代码会产生编译错误</span><br><br>        <span class="hljs-comment">// 访问和修改Age属性</span><br>        <span class="hljs-comment">// Console.WriteLine(person.Age); // 编译错误，因为get是私有的</span><br>        person.Age = <span class="hljs-number">35</span>; <span class="hljs-comment">// 公开的set方法可以访问</span><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <h3 id="访问修饰符的规则"><a href="#访问修饰符的规则" class="headerlink" title="访问修饰符的规则"></a>访问修饰符的规则</h3><ul>
-<li><strong>访问修饰符可以单独定义</strong>：<code>get</code> 和 <code>set</code> 访问修饰符可以不同。例如，<code>get</code> 可以是 <code>public</code>，而 <code>set</code> 可以是 <code>private</code>。</li>
-<li><strong>当未指定访问修饰符时</strong>：如果没有明确指定 <code>get</code> 和 <code>set</code> 的访问修饰符，则默认情况下：<ul>
+<li><p><strong>访问修饰符可以单独定义</strong>：<code>get</code> 和 <code>set</code> 访问修饰符可以不同。例如，<code>get</code> 可以是 <code>public</code>，而 <code>set</code> 可以是 <code>private</code>。</p>
+</li>
+<li><p><strong>当未指定访问修饰符时</strong>：如果没有明确指定 <code>get</code> 和 <code>set</code> 的访问修饰符，则默认情况下：</p>
+<ul>
 <li><code>get</code> 默认为 属性声明时的访问权限。</li>
 <li><code>set</code> 默认为 属性声明时的访问权限（如果是自动属性，或类内部没有定义）。</li>
 </ul>
 </li>
-<li><strong>构造函数和方法</strong>：构造函数和其他方法可以访问私有属性的 <code>set</code> 访问器，从而在对象创建时初始化值。</li>
-<li>仅当属性或索引器同时具有  <code>set</code>  和  <code>get</code>  访问器时，才能使用访问器修饰符。 这种情况下，只允许对其中一个访问器使用修饰符。</li>
-<li>访问器的可访问性级别必须比属性或索引器本身的可访问性级别具有更严格的限制。如果属性本身就是 private，get 和 set 均不可以使用访问修饰符。如果是 public 的属性，不可以对 get 或者 set 使用 public，只能更严格</li>
+<li><p><strong>构造函数和方法</strong>：构造函数和其他方法可以访问私有属性的 <code>set</code> 访问器，从而在对象创建时初始化值。</p>
+</li>
+<li><p>仅当属性或索引器同时具有  <code>set</code>  和  <code>get</code>  访问器时，才能使用访问器修饰符。 这种情况下，只允许对其中一个访问器使用修饰符。</p>
+</li>
+<li><p>访问器的可访问性级别必须比属性或索引器本身的可访问性级别具有更严格的限制。如果属性本身就是 private，get 和 set 均不可以使用访问修饰符。如果是 public 的属性，不可以对 get 或者 set 使用 public，只能更严格</p>
+</li>
 </ul>
 <h1 id="16-索引器"><a href="#16-索引器" class="headerlink" title="16. 索引器"></a>16. 索引器</h1><p>C#中的索引器是一种特殊的属性，允许对象像数组一样通过索引访问其元素。索引器使得类的实例能够使用“[]”语法来访问其内部数据，使得代码更加简洁和直观。索引器的定义通常涉及到 <code>this</code> 关键字，后面跟随一个或多个参数。</p>
 <ul>
@@ -1105,12 +1102,14 @@
 </ul>
 <h1 id="18-C-中-const-和-static-的区别"><a href="#18-C-中-const-和-static-的区别" class="headerlink" title="18. C#中 const 和 static 的区别"></a>18. C#中 const 和 static 的区别</h1><p>在 C# 中，<code>const</code> 和 <code>static</code> 都与类的成员有关，但它们有不同的用途和特点。以下是它们的主要区别：</p>
 <h3 id="1-定义与初始化"><a href="#1-定义与初始化" class="headerlink" title="1. 定义与初始化"></a>1. 定义与初始化</h3><ul>
-<li><strong>const</strong>:<ul>
+<li><p><strong>const</strong>:</p>
+<ul>
 <li>用于定义常量，值在编译时确定，并且不可更改。（C++const 也是编译期间确定）</li>
 <li>必须在声明时初始化。<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Example</span><br>&#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">const</span> <span class="hljs-built_in">int</span> MaxValue = <span class="hljs-number">100</span>; <span class="hljs-comment">// 必须初始化</span><br>&#125;<br></code></pre></td></tr></table></figure></li>
 </ul>
 </li>
-<li><strong>static</strong>:<ul>
+<li><p><strong>static</strong>:</p>
+<ul>
 <li><p>用于定义静态成员，属于类本身而不是类的实例。</p>
 </li>
 <li><p>可以在定义时或在类的静态构造函数中初始化。</p>
@@ -1119,11 +1118,13 @@
 </li>
 </ul>
 <h3 id="2-值的可变性"><a href="#2-值的可变性" class="headerlink" title="2. 值的可变性"></a>2. 值的可变性</h3><ul>
-<li><strong>const</strong>:<ul>
+<li><p><strong>const</strong>:</p>
+<ul>
 <li>一旦定义，值无法改变。</li>
 </ul>
 </li>
-<li><strong>static</strong>:<ul>
+<li><p><strong>static</strong>:</p>
+<ul>
 <li><p>可以在程序运行期间修改静态字段的值。</p>
 <figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Counter</span><br>&#123;<br>    <span class="hljs-comment">// 定义静态字段</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-built_in">int</span> Count = <span class="hljs-number">0</span>;<br><br>    <span class="hljs-comment">// 增加计数的方法</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Increment</span>()</span><br>    &#123;<br>        Count++;<br>    &#125;<br>&#125;<br><br><span class="hljs-keyword">class</span> <span class="hljs-title">Program</span><br>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Main</span>()</span><br>    &#123;<br>        <span class="hljs-comment">// 输出初始值</span><br>        Console.WriteLine(<span class="hljs-string">&quot;初始计数: &quot;</span> + Counter.Count); <span class="hljs-comment">// 输出：0</span><br><br>        <span class="hljs-comment">// 调用静态方法增加计数</span><br>        Counter.Increment();<br>        Counter.Increment();<br><br>        <span class="hljs-comment">// 输出修改后的值</span><br>        Console.WriteLine(<span class="hljs-string">&quot;修改后的计数: &quot;</span> + Counter.Count); <span class="hljs-comment">// 输出：2</span><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure></li>
 </ul>
@@ -1171,6 +1172,189 @@
 <li><strong>const</strong> 用于定义不可更改的常量。</li>
 <li><strong>static</strong> 用于定义与类相关的共享成员，值可以在运行时改变。</li>
 </ul>
+<h1 id="19-拓展方法"><a href="#19-拓展方法" class="headerlink" title="19. 拓展方法"></a>19. 拓展方法</h1><blockquote>
+<p>扩展方法（Extension Method）是 C#中的一种功能，允许为现有类型（<code>非静态</code>）添加新的方法，而无需修改类型本身的源代码或创建子类。扩展方法是通过定义<code>一个静态类</code>，其中包含<code>静态方法</code>，并在方法的第一个参数前加上 <code>this</code> 关键字来实现的。这个第一个参数指定了要扩展的类型。</p>
+</blockquote>
+<p><strong>示例</strong>：</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">class</span> <span class="hljs-title">StringExtensions</span><br>&#123;<br>    <span class="hljs-comment">// 扩展方法: 为string类型添加一个ToWordCount方法，统计单词数量</span><br>    <span class="hljs-comment">// 访问修饰符 static 返回值 函数名(this 扩展类名 参数名, 参数类型 参数名, 参数类型 参数名...)</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-built_in">int</span> <span class="hljs-title">ToWordCount</span>(<span class="hljs-params"><span class="hljs-keyword">this</span> <span class="hljs-built_in">string</span> str</span>)</span><br>    &#123;<br>        <span class="hljs-keyword">if</span> (<span class="hljs-built_in">string</span>.IsNullOrEmpty(str))<br>        &#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>        &#125;<br>        <span class="hljs-keyword">return</span> str.Split(<span class="hljs-keyword">new</span> <span class="hljs-built_in">char</span>[] &#123; <span class="hljs-string">&#x27; &#x27;</span>, <span class="hljs-string">&#x27;.&#x27;</span>, <span class="hljs-string">&#x27;?&#x27;</span> &#125;, StringSplitOptions.RemoveEmptyEntries).Length;<br>    &#125;<br>&#125;<br><br><span class="hljs-keyword">class</span> <span class="hljs-title">Program</span><br>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Main</span>()</span><br>    &#123;<br>        <span class="hljs-built_in">string</span> sentence = <span class="hljs-string">&quot;Hello, how many words are in this sentence?&quot;</span>;<br>        <span class="hljs-comment">// 使用扩展方法</span><br>        <span class="hljs-built_in">int</span> wordCount = sentence.ToWordCount();<br>        Console.WriteLine(<span class="hljs-string">$&quot;The sentence has <span class="hljs-subst">&#123;wordCount&#125;</span> words.&quot;</span>);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>在这个示例中，<code>ToWordCount</code> 方法被定义为 <code>string</code> 类型的扩展方法，能够像调用实例方法一样使用扩展方法。扩展方法通常用于增强第三方库或框架中的类，或者在不修改原始类型的情况下添加辅助功能。</p>
+<p>扩展方法可以为以下类型添加新方法：</p>
+<ol>
+<li><strong>普通类和结构体</strong>：可以为任何已存在的类或结构体（包括 .NET 框架中的类型或自定义的类型）添加扩展方法。例如，为 <code>string</code>、<code>int</code>、<code>List&lt;T&gt;</code> 等常见类型添加扩展方法。类只可以是非静态。</li>
+<li><strong>接口</strong>：可以为接口添加扩展方法，这样接口的所有实现类都可以使用该扩展方法。例如，为 <code>IEnumerable&lt;T&gt;</code> 添加扩展方法来简化 LINQ 查询。</li>
+<li><strong>泛型类型</strong>：可以为泛型类型添加扩展方法。例如，为 <code>List&lt;T&gt;</code> 或 <code>Dictionary&lt;TKey, TValue&gt;</code> 添加方法来处理泛型数据。</li>
+<li><strong>枚举</strong>：可以为枚举类型添加扩展方法，以提供一些便捷的功能，如转换或格式化枚举值。<br><strong>注意</strong>：</li>
+</ol>
+<ul>
+<li><p>扩展方法必须定义在一个静态类中。</p>
+</li>
+<li><p>扩展方法不能为静态类添加方法</p>
+</li>
+<li><p>扩展方法本质上是静态方法，但可以像实例方法一样调用。</p>
+</li>
+<li><p>在 C#中，如果扩展方法的名字和已有的方法名字一样，原有方法会优先被调用。这是因为扩展方法的解析规则优先级较低，只有当编译器找不到匹配的实例方法时，才会尝试使用扩展方法。</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-keyword">using</span> System;<br><br><span class="hljs-keyword">namespace</span> <span class="hljs-title">ExtensionMethodDemo</span><br>&#123;<br>    <span class="hljs-comment">// 定义一个普通类</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">MyClass</span><br>    &#123;<br>        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">PrintMessage</span>()</span><br>        &#123;<br>            Console.WriteLine(<span class="hljs-string">&quot;这是原始类中的方法&quot;</span>);<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-comment">// 定义一个扩展类</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">class</span> <span class="hljs-title">MyClassExtensions</span><br>    &#123;<br>        <span class="hljs-comment">// 定义一个扩展方法，与原有方法同名</span><br>        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">PrintMessage</span>(<span class="hljs-params"><span class="hljs-keyword">this</span> MyClass myClass</span>)</span><br>        &#123;<br>            Console.WriteLine(<span class="hljs-string">&quot;这是扩展方法&quot;</span>);<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-keyword">class</span> <span class="hljs-title">Program</span><br>    &#123;<br>        <span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Main</span>(<span class="hljs-params"><span class="hljs-built_in">string</span>[] args</span>)</span><br>        &#123;<br>            MyClass myClass = <span class="hljs-keyword">new</span> MyClass();<br>            myClass.PrintMessage(); <span class="hljs-comment">// 调用原有方法</span><br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>在这个例子中，<code>MyClass</code>的实例方法<code>PrintMessage</code>优先于扩展方法，因此会输出“这是原始类中的方法”。如果要调用扩展方法，就需要给扩展方法取一个不同的名字，或者避免在类中定义相同名称的方法。- 解决方法</p>
+<ol>
+<li><strong>使用不同的名字</strong>：避免扩展方法与原有方法同名。</li>
+<li><strong>显式调用扩展方法</strong>：如果确实需要调用扩展方法，可以通过反射或直接使用静态方法调用的方式：</li>
+</ol>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs csharp">MyClassExtensions.PrintMessage(myClass);<br></code></pre></td></tr></table></figure>
+
+<p>这样可以绕过实例方法的优先级限制，直接调用扩展方法。</p>
+</li>
+</ul>
+<h3 id="扩展方法的第一个参数干嘛的，后面的是参数，那第一个干嘛的"><a href="#扩展方法的第一个参数干嘛的，后面的是参数，那第一个干嘛的" class="headerlink" title="扩展方法的第一个参数干嘛的，后面的是参数，那第一个干嘛的"></a>扩展方法的第一个参数干嘛的，后面的是参数，那第一个干嘛的</h3><p>扩展方法的</p>
+<p>第一个参数通过<code>this</code>关键字来指定要扩展的类型。它定义了该扩展方法应用于哪个类型的对象，<code>this</code>后面跟着类型名称，表示这个方法可以像该类型的实例方法一样被调用。</p>
+<h4 id="解释-2"><a href="#解释-2" class="headerlink" title="解释"></a>解释</h4><ul>
+<li>第一个参数使用<code>this</code>关键字来表示该方法是一个扩展方法，<code>this</code>后面的类型是被扩展的类型。</li>
+<li>扩展方法的第一个参数（<code>this</code>后面的参数）是指向被扩展对象的引用。在调用扩展方法时，这个对象将作为参数传递给方法。</li>
+<li>后面的参数是该方法的其他输入参数，类似于普通方法的参数。</li>
+</ul>
+<h4 id="举例说明"><a href="#举例说明" class="headerlink" title="举例说明"></a>举例说明</h4><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">class</span> <span class="hljs-title">StringExtensions</span><br>&#123;<br>    <span class="hljs-comment">// 扩展方法，第一个参数是要扩展的类型（string），表示这个方法可以用于string类型的对象</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-built_in">int</span> <span class="hljs-title">WordCount</span>(<span class="hljs-params"><span class="hljs-keyword">this</span> <span class="hljs-built_in">string</span> str</span>)</span><br>    &#123;<br>        <span class="hljs-comment">// 使用扩展的字符串对象</span><br>        <span class="hljs-keyword">return</span> str.Split(<span class="hljs-keyword">new</span> <span class="hljs-built_in">char</span>[] &#123; <span class="hljs-string">&#x27; &#x27;</span>, <span class="hljs-string">&#x27;.&#x27;</span>, <span class="hljs-string">&#x27;?&#x27;</span> &#125;, StringSplitOptions.RemoveEmptyEntries).Length;<br>    &#125;<br>&#125;<br><br><span class="hljs-comment">// 使用扩展方法</span><br><span class="hljs-built_in">string</span> sentence = <span class="hljs-string">&quot;Hello world, this is an extension method example.&quot;</span>;<br><span class="hljs-built_in">int</span> count = sentence.WordCount();  <span class="hljs-comment">// 相当于 StringExtensions.WordCount(sentence)</span><br>Console.WriteLine(count);  <span class="hljs-comment">// 输出: 7</span><br></code></pre></td></tr></table></figure>
+
+<p>在这个例子中：</p>
+<ol>
+<li><code>WordCount</code>方法的第一个参数是<code>this string str</code>，表示这个方法是用来扩展<code>string</code>类型的对象的。</li>
+<li>当<code>sentence.WordCount()</code>被调用时，<code>sentence</code>对象被传递给<code>str</code>参数，相当于执行了<code>StringExtensions.WordCount(sentence)</code>。</li>
+</ol>
+<p>因此，扩展方法的第一个参数<code>this</code>后面的类型就是要扩展的类型，指定了这个方法适用于哪些对象，并使其能够像实例方法一样调用。而 str 则表示什么样的对象调用了这个方法，可以对调用的对象进行操作</p>
+<h3 id="为普通类和结构体、接口、泛型类型、枚举类型编写扩展方法的示例"><a href="#为普通类和结构体、接口、泛型类型、枚举类型编写扩展方法的示例" class="headerlink" title="为普通类和结构体、接口、泛型类型、枚举类型编写扩展方法的示例"></a>为普通类和结构体、接口、泛型类型、枚举类型编写扩展方法的示例</h3><h3 id="1-普通类和结构体的扩展方法"><a href="#1-普通类和结构体的扩展方法" class="headerlink" title="1. 普通类和结构体的扩展方法"></a>1. 普通类和结构体的扩展方法</h3><h4 id="扩展普通类"><a href="#扩展普通类" class="headerlink" title="扩展普通类"></a>扩展普通类</h4><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-keyword">using</span> System;<br><br><span class="hljs-comment">// 普通类</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Person</span><br>&#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-built_in">string</span> Name &#123; <span class="hljs-keyword">get</span>; <span class="hljs-keyword">set</span>; &#125;<br>&#125;<br><br><span class="hljs-comment">// 扩展方法类</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">class</span> <span class="hljs-title">PersonExtensions</span><br>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Greet</span>(<span class="hljs-params"><span class="hljs-keyword">this</span> Person person</span>)</span><br>    &#123;<br>        Console.WriteLine(<span class="hljs-string">$&quot;Hello, <span class="hljs-subst">&#123;person.Name&#125;</span>!&quot;</span>);<br>    &#125;<br>&#125;<br><br><span class="hljs-keyword">class</span> <span class="hljs-title">Program</span><br>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Main</span>()</span><br>    &#123;<br>        <span class="hljs-comment">// 使用扩展方法</span><br>        <span class="hljs-keyword">var</span> person = <span class="hljs-keyword">new</span> Person &#123; Name = <span class="hljs-string">&quot;Alice&quot;</span> &#125;;<br>        person.Greet();  <span class="hljs-comment">// 输出: Hello, Alice!</span><br>    &#125;<br>&#125;<br><br></code></pre></td></tr></table></figure>
+
+<h4 id="扩展结构体"><a href="#扩展结构体" class="headerlink" title="扩展结构体"></a>扩展结构体</h4><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-comment">// 结构体</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">struct</span> Point<br>&#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-built_in">int</span> X &#123; <span class="hljs-keyword">get</span>; <span class="hljs-keyword">set</span>; &#125;<br>    <span class="hljs-keyword">public</span> <span class="hljs-built_in">int</span> Y &#123; <span class="hljs-keyword">get</span>; <span class="hljs-keyword">set</span>; &#125;<br>&#125;<br><br><span class="hljs-comment">// 扩展方法类</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">class</span> <span class="hljs-title">PointExtensions</span><br>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-built_in">double</span> <span class="hljs-title">DistanceToOrigin</span>(<span class="hljs-params"><span class="hljs-keyword">this</span> Point point</span>)</span><br>    &#123;<br>        <span class="hljs-keyword">return</span> Math.Sqrt(point.X * point.X + point.Y * point.Y);<br>    &#125;<br>&#125;<br><br><span class="hljs-keyword">class</span> <span class="hljs-title">Program</span><br>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Main</span>()</span><br>    &#123;<br>        <span class="hljs-comment">// 使用扩展方法</span><br>        <span class="hljs-keyword">var</span> point = <span class="hljs-keyword">new</span> Point &#123; X = <span class="hljs-number">3</span>, Y = <span class="hljs-number">4</span> &#125;;<br>        Console.WriteLine(point.DistanceToOrigin());  <span class="hljs-comment">// 输出: 5</span><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="2-接口的扩展方法"><a href="#2-接口的扩展方法" class="headerlink" title="2. 接口的扩展方法"></a>2. 接口的扩展方法</h3><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-comment">// 接口</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">interface</span> <span class="hljs-title">IShape</span><br>&#123;<br>    <span class="hljs-function"><span class="hljs-built_in">double</span> <span class="hljs-title">GetArea</span>()</span>;<br>&#125;<br><br><span class="hljs-comment">// 扩展方法类</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">class</span> <span class="hljs-title">ShapeExtensions</span><br>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">PrintArea</span>(<span class="hljs-params"><span class="hljs-keyword">this</span> IShape shape</span>)</span><br>    &#123;<br>        Console.WriteLine(<span class="hljs-string">$&quot;The area is <span class="hljs-subst">&#123;shape.GetArea()&#125;</span>&quot;</span>);<br>    &#125;<br>&#125;<br><br><span class="hljs-comment">// 实现接口的类，这里扩展方法可以不用重写了</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Circle</span> : <span class="hljs-title">IShape</span><br>&#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-built_in">double</span> Radius &#123; <span class="hljs-keyword">get</span>; <span class="hljs-keyword">set</span>; &#125;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-built_in">double</span> <span class="hljs-title">GetArea</span>()</span><br>    &#123;<br>        <span class="hljs-keyword">return</span> Math.PI * Radius * Radius;<br>    &#125;<br>&#125;<br><br><span class="hljs-keyword">class</span> <span class="hljs-title">Program</span><br>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Main</span>()</span><br>    &#123;<br>        <span class="hljs-comment">// 使用扩展方法</span><br>        IShape circle = <span class="hljs-keyword">new</span> Circle &#123; Radius = <span class="hljs-number">5</span> &#125;;<br>        circle.PrintArea();  <span class="hljs-comment">// 输出: The area is 78.5398163397448</span><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="3-泛型类型的扩展方法"><a href="#3-泛型类型的扩展方法" class="headerlink" title="3. 泛型类型的扩展方法"></a>3. 泛型类型的扩展方法</h3><ul>
+<li>感觉这个泛型很好用了啊</li>
+</ul>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-comment">// 泛型类型的扩展方法</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">class</span> <span class="hljs-title">GenericExtensions</span><br>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">PrintTypeName</span>&lt;<span class="hljs-title">T</span>&gt;(<span class="hljs-params"><span class="hljs-keyword">this</span> T obj</span>)</span><br>    &#123;<br>        Console.WriteLine(<span class="hljs-string">$&quot;The type of the object is <span class="hljs-subst">&#123;<span class="hljs-keyword">typeof</span>(T).Name&#125;</span>&quot;</span>);<br>    &#125;<br>&#125;<br><br><span class="hljs-keyword">class</span> <span class="hljs-title">Program</span><br>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Main</span>()</span><br>    &#123;<br>        <span class="hljs-comment">// 使用扩展方法</span><br>        <span class="hljs-built_in">int</span> number = <span class="hljs-number">42</span>;<br>        number.PrintTypeName();  <span class="hljs-comment">// 输出: The type of the object is Int32</span><br><br>        <span class="hljs-built_in">string</span> text = <span class="hljs-string">&quot;Hello&quot;</span>;<br>        text.PrintTypeName();    <span class="hljs-comment">// 输出: The type of the object is String</span><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="4-枚举的扩展方法"><a href="#4-枚举的扩展方法" class="headerlink" title="4. 枚举的扩展方法"></a>4. 枚举的扩展方法</h3><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-comment">// 枚举</span><br><span class="hljs-keyword">public</span> <span class="hljs-built_in">enum</span> DayOfWeek<br>&#123;<br>    Monday,<br>    Tuesday,<br>    Wednesday,<br>    Thursday,<br>    Friday,<br>    Saturday,<br>    Sunday<br>&#125;<br><br><span class="hljs-comment">// 扩展方法类</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">class</span> <span class="hljs-title">DayOfWeekExtensions</span><br>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-built_in">bool</span> <span class="hljs-title">IsWeekend</span>(<span class="hljs-params"><span class="hljs-keyword">this</span> DayOfWeek day</span>)</span><br>    &#123;<br>        <span class="hljs-keyword">return</span> day == DayOfWeek.Saturday || day == DayOfWeek.Sunday;<br>    &#125;<br>&#125;<br><br><span class="hljs-keyword">class</span> <span class="hljs-title">Program</span><br>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Main</span>()</span><br>    &#123;<br>        <span class="hljs-comment">// 使用扩展方法</span><br>        DayOfWeek today = DayOfWeek.Saturday;<br>        Console.WriteLine(today.IsWeekend());  <span class="hljs-comment">// 输出: True</span><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>这些示例展示了如何为普通类、结构体、接口、泛型类型和枚举编写扩展方法。每种类型的扩展方法通过<code>this</code>关键字为目标类型增加新功能，方便开发和代码的可读性。</p>
+<h1 id="20-C-的泛型和-C-的模板有什么区别呢"><a href="#20-C-的泛型和-C-的模板有什么区别呢" class="headerlink" title="20. C#的泛型和 C++的模板有什么区别呢"></a>20. C#的泛型和 C++的模板有什么区别呢</h1><p>C#的泛型和 C++的模板虽然看起来有些相似，但它们的工作方式和设计初衷存在一些关键区别。</p>
+<h3 id="1-编译机制"><a href="#1-编译机制" class="headerlink" title="1. 编译机制"></a>1. <strong>编译机制</strong></h3><ul>
+<li><strong>C++ 模板</strong><ul>
+<li>C++的模板是在编译期间进行代码的生成，称为模板实例化。模板是基于文本替换的宏机制，编译器会根据使用模板时传递的类型生成特定类型的代码。这种方式导致代码膨胀（代码冗余）。</li>
+<li>模板允许类型参数进行特殊化（模板特化），可以为某些特定类型实现不同的模板行为。</li>
+</ul>
+</li>
+<li><strong>C# 泛型</strong><ul>
+<li>C#的泛型在编译期间会被编译成中间语言（IL），并在运行时通过 JIT（即时编译器）生成类型安全的代码。编译生成的泛型代码只需要一份，所有的具体类型共享相同的代码，这样可以减少代码的膨胀。</li>
+<li>C# 泛型没有模板特化的概念。泛型的类型参数只能在运行时提供，所有类型参数在使用时都必须满足编译时的类型约束。</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-类型安全"><a href="#2-类型安全" class="headerlink" title="2. 类型安全"></a>2. <strong>类型安全</strong></h3><ul>
+<li><strong>C++ 模板</strong><ul>
+<li>由于 C++模板是基于代码替换的宏机制，编译器会根据模板的具体使用来生成代码，在编译期间进行类型检查。因此，如果模板代码不符合类型要求，会在模板实例化时出现编译错误。</li>
+</ul>
+</li>
+<li><strong>C# 泛型</strong><ul>
+<li>C#的泛型提供类型安全的机制，允许在定义泛型时指定类型约束（如<code>where T : class</code>）。编译器在编译期间会检查这些约束，确保类型的安全性。</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-运行时与编译时的行为"><a href="#3-运行时与编译时的行为" class="headerlink" title="3. 运行时与编译时的行为"></a>3. <strong>运行时与编译时的行为</strong></h3><ul>
+<li><strong>C++ 模板</strong><ul>
+<li>模板实例化是在编译时完成的。编译器为每种使用的模板参数生成独立的代码，因此没有额外的运行时开销。</li>
+<li>模板的元编程能力强大，可以实现复杂的编译时计算和类型变换。</li>
+</ul>
+</li>
+<li><strong>C# 泛型</strong><ul>
+<li>C#的泛型是在运行时通过 JIT 进行类型参数化，允许在运行时决定使用的类型。</li>
+<li>泛型无法在编译时进行元编程计算，只能使用运行时的反射等方式来进行类似的操作。</li>
+</ul>
+</li>
+</ul>
+<h3 id="4-模板特化与泛型约束"><a href="#4-模板特化与泛型约束" class="headerlink" title="4. 模板特化与泛型约束"></a>4. <strong>模板特化与泛型约束</strong></h3><ul>
+<li><strong>C++ 模板</strong><ul>
+<li>支持模板特化，可以为某些特定类型定义不同的实现。</li>
+<li>模板特化分为全特化和偏特化，灵活性更高。</li>
+</ul>
+</li>
+<li><strong>C# 泛型</strong><ul>
+<li>不支持模板特化，但支持泛型约束，可以用<code>where</code>关键字为类型参数指定一定的约束条件，如必须实现某接口或继承某基类。</li>
+</ul>
+</li>
+</ul>
+<h3 id="5-编译器错误信息"><a href="#5-编译器错误信息" class="headerlink" title="5. 编译器错误信息"></a>5. <strong>编译器错误信息</strong></h3><ul>
+<li><strong>C++ 模板</strong><ul>
+<li>由于模板的复杂性和模板元编程的灵活性，模板相关的编译器错误通常非常冗长且难以理解。</li>
+</ul>
+</li>
+<li><strong>C# 泛型</strong><ul>
+<li>由于 C#的泛型设计简单，错误信息相对直观。泛型约束的限制也使得类型安全检查更加明确。</li>
+</ul>
+</li>
+</ul>
+<h3 id="总结-4"><a href="#总结-4" class="headerlink" title="总结"></a>总结</h3><ul>
+<li>C++模板是基于编译期的宏替换机制，支持编译期的元编程和模板特化，灵活性高，但可能会带来代码膨胀。</li>
+<li>C#的泛型是类型安全的运行时机制，支持类型约束，减少了代码冗余，更易于使用，但不具备 C++模板的编译期元编程能力。</li>
+</ul>
+<p>两者的设计目的是不同的：C++模板主要为了性能和灵活性，而 C#泛型更注重类型安全和代码重用性。</p>
+<h1 id="21-什么叫元编程"><a href="#21-什么叫元编程" class="headerlink" title="21. 什么叫元编程"></a>21. 什么叫元编程</h1><p>元编程（Metaprogramming）是一种编程技术，在这种技术中，程序可以将其他程序作为数据进行操作、分析或生成。换句话说，<code>元编程的目标是编写能够生成、修改或编译代码的代码</code>。它能够提升代码的灵活性、可重用性和性能。元编程主要体现在以下几个方面：</p>
+<h3 id="1-代码生成"><a href="#1-代码生成" class="headerlink" title="1. 代码生成"></a>1. <strong>代码生成</strong></h3><ul>
+<li>通过编写元程序来自动生成某些重复性较强或复杂的代码，从而减少手工编写的工作量。常见的例子有代码生成器和宏。</li>
+</ul>
+<h3 id="2-编译期计算"><a href="#2-编译期计算" class="headerlink" title="2. 编译期计算"></a>2. <strong>编译期计算</strong></h3><ul>
+<li>元编程允许在编译时执行计算。这使得可以利用编译器在编译阶段执行某些逻辑，从而优化程序运行时的性能。例如，C++的模板元编程可以在编译期计算出一些结果，而不是在运行时执行。</li>
+</ul>
+<h3 id="3-反射和动态类型"><a href="#3-反射和动态类型" class="headerlink" title="3. 反射和动态类型"></a>3. <strong>反射和动态类型</strong></h3><ul>
+<li>一些编程语言（如 Python、Java、C#）支持在运行时检查和操作类型信息，这种机制称为反射。通过反射，程序可以动态地创建和修改对象、调用方法或访问属性。</li>
+</ul>
+<h3 id="4-宏和预处理器"><a href="#4-宏和预处理器" class="headerlink" title="4. 宏和预处理器"></a>4. <strong>宏和预处理器</strong></h3><ul>
+<li>在 C 和 C++等语言中，预处理器宏是一种简单的元编程工具。它们在编译前处理源代码，用于定义常量、条件编译、代码替换等。</li>
+</ul>
+<h3 id="5-泛型编程"><a href="#5-泛型编程" class="headerlink" title="5. 泛型编程"></a>5. <strong>泛型编程</strong></h3><ul>
+<li>泛型编程是一种特殊的元编程形式，允许编写适用于多种数据类型的代码。例如，C++中的模板和 C#中的泛型使得函数和类可以针对任意类型编写。</li>
+</ul>
+<h3 id="6-模板元编程（Template-Metaprogramming）"><a href="#6-模板元编程（Template-Metaprogramming）" class="headerlink" title="6. 模板元编程（Template Metaprogramming）"></a>6. <strong>模板元编程（Template Metaprogramming）</strong></h3><ul>
+<li>C++中广泛应用的元编程技术，允许在编译期通过模板实现复杂的逻辑推导和代码生成。例如，可以利用模板递归计算阶乘或实现编译期类型检查。</li>
+</ul>
+<h3 id="7-编译器插件和自定义编译器"><a href="#7-编译器插件和自定义编译器" class="headerlink" title="7. 编译器插件和自定义编译器"></a>7. <strong>编译器插件和自定义编译器</strong></h3><ul>
+<li>一些语言和编译器允许开发者编写插件或自定义编译器来进行元编程，从而可以在编译过程中自动进行代码优化、生成和修改。</li>
+</ul>
+<h3 id="8-领域特定语言（DSL）"><a href="#8-领域特定语言（DSL）" class="headerlink" title="8. 领域特定语言（DSL）"></a>8. <strong>领域特定语言（DSL）</strong></h3><ul>
+<li>元编程有时还用于创建领域特定语言，这些语言是针对某个特定领域设计的，可以通过扩展已有的语言或创建新的语法来简化编程。</li>
+</ul>
+<h3 id="元编程的优缺点"><a href="#元编程的优缺点" class="headerlink" title="元编程的优缺点"></a>元编程的优缺点</h3><p><strong>优点：</strong></p>
+<ul>
+<li><strong>减少代码重复性</strong>：通过生成代码或编写通用的模板，可以大大减少重复性代码。</li>
+<li><strong>提升性能</strong>：利用编译期计算和优化，可以生成更高效的代码。</li>
+<li><strong>增强灵活性</strong>：程序可以根据不同的条件动态生成或调整代码，增加程序的适应性。<br><strong>缺点：</strong></li>
+<li><strong>复杂性</strong>：元编程的代码往往较为复杂，难以理解和维护。</li>
+<li><strong>编译时间</strong>：编译期元编程可能会显著增加编译时间，尤其是在复杂的模板元编程中。</li>
+<li><strong>调试困难</strong>：由于元编程代码是在编译期生成的，调试错误会更加困难。</li>
+</ul>
+<h3 id="举例：C-模板元编程示例"><a href="#举例：C-模板元编程示例" class="headerlink" title="举例：C++模板元编程示例"></a>举例：C++模板元编程示例</h3><p>在 C++中，可以使用模板元编程来计算编译期的阶乘：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><br><span class="hljs-comment">// 模板结构体，用于计算阶乘</span><br><span class="hljs-keyword">template</span> &lt;<span class="hljs-type">int</span> N&gt;<br><span class="hljs-keyword">struct</span> <span class="hljs-title class_">Factorial</span> &#123;<br>    <span class="hljs-type">static</span> <span class="hljs-type">const</span> <span class="hljs-type">int</span> value = N * Factorial&lt;N - <span class="hljs-number">1</span>&gt;::value; <span class="hljs-comment">// 递归计算阶乘</span><br>&#125;;<br><br><span class="hljs-comment">// 模板特化，用于终止递归</span><br><span class="hljs-keyword">template</span> &lt;&gt;<br><span class="hljs-keyword">struct</span> <span class="hljs-title class_">Factorial</span>&lt;<span class="hljs-number">0</span>&gt; &#123;<br>    <span class="hljs-type">static</span> <span class="hljs-type">const</span> <span class="hljs-type">int</span> value = <span class="hljs-number">1</span>; <span class="hljs-comment">// 0! = 1</span><br>&#125;;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-comment">// 输出5的阶乘</span><br>    std::cout &lt;&lt; <span class="hljs-string">&quot;Factorial of 5: &quot;</span> &lt;&lt; Factorial&lt;<span class="hljs-number">5</span>&gt;::value &lt;&lt; std::endl;<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br><br></code></pre></td></tr></table></figure>
+
+<p>在这个例子中，<code>Factorial&lt;5&gt;::value</code>在编译期被计算为 120，不需要运行时进行计算。</p>
+<h4 id="解释-3"><a href="#解释-3" class="headerlink" title="解释"></a>解释</h4><ol>
+<li><strong>模板递归定义</strong>：<ul>
+<li><code>template &lt;int N&gt; struct Factorial</code> 定义了一个模板结构体，用来计算整数 <code>N</code> 的阶乘。</li>
+<li><code>static const int value = N * Factorial&lt;N - 1&gt;::value;</code> 这一行表示 <code>Factorial&lt;N&gt;::value</code> 等于 <code>N</code> 乘以 <code>Factorial&lt;N - 1&gt;::value</code>。这是一种递归定义，类似于数学上的阶乘定义：<code>N! = N * (N-1)!</code>。</li>
+</ul>
+</li>
+<li><strong>模板特化</strong>：<ul>
+<li><code>template &lt;&gt; struct Factorial&lt;0&gt;</code> 是一个模板特化，用来终止递归计算。它指定当 <code>N</code> 为 0 时，<code>Factorial&lt;0&gt;::value</code> 等于 1。</li>
+</ul>
+</li>
+<li><strong>使用 <code>Factorial&lt;5&gt;::value</code> 进行取值</strong>：<ul>
+<li><code>Factorial&lt;5&gt;::value</code> 的含义是通过模板递归计算 5 的阶乘，即 <code>5 * 4 * 3 * 2 * 1 = 120</code>。</li>
+<li><code>::value</code> 是用来访问 <code>Factorial</code> 结构体中的 <code>value</code> 成员，它保存了计算结果。</li>
+</ul>
+</li>
+</ol>
+<h4 id="运行结果"><a href="#运行结果" class="headerlink" title="运行结果"></a>运行结果</h4><p>输出为：</p>
+<figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mathematica"><span class="hljs-built_in">Factorial</span> <span class="hljs-variable">of</span> <span class="hljs-number">5</span><span class="hljs-operator">:</span> <span class="hljs-number">120</span><br></code></pre></td></tr></table></figure>
+
+<p>这段代码使用模板元编程在编译时计算阶乘，<code>Factorial&lt;5&gt;::value</code> 中的 <code>::value</code> 是访问结构体 <code>Factorial</code> 的静态成员变量，用于获取计算结果。</p>
+<h4 id="总结-5"><a href="#总结-5" class="headerlink" title="总结"></a>总结</h4><p>元编程可以提高代码的灵活性和效率，通过编写“生成代码的代码”，解决某些问题变得更加优雅和高效。然而，由于它增加了程序的复杂性，使用时需要权衡和谨慎。</p>
 <h1 id="占坑，后面再进行填充，主要是笔记，因为还在学，会持续更新"><a href="#占坑，后面再进行填充，主要是笔记，因为还在学，会持续更新" class="headerlink" title="占坑，后面再进行填充，主要是笔记，因为还在学，会持续更新"></a>占坑，后面再进行填充，主要是笔记，因为还在学，会持续更新</h1><p><a target="_blank" rel="noopener" href="https://learn.microsoft.com/zh-cn/">MS-Learning</a></p>
 
                 
