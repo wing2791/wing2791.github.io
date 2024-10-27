@@ -27,7 +27,7 @@
 <meta property="og:description" content="1.基本数据类型   数据类型 占用字节数 数据范围 描述 示例    bool 1 true 或 false 布尔类型，表示真或假 bool isActive &#x3D; true;   byte 1 0 到 255 无符号 8 位整数 byte age &#x3D; 25;   sbyte 1 -128 到 127 有符号 8 位整数 sbyte temperature &#x3D; -10">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-10-19T13:55:50.124Z">
-<meta property="article:modified_time" content="2024-10-26T14:14:35.790Z">
+<meta property="article:modified_time" content="2024-10-27T04:03:50.462Z">
 <meta property="article:author" content="wing2791">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -222,7 +222,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          17k 字
+          18k 字
         
       </span>
     
@@ -233,7 +233,7 @@
         
         
         
-          141 分钟
+          149 分钟
         
       </span>
     
@@ -418,31 +418,63 @@
 <p>在这个例子中，<code>Replace</code> 方法不会修改 <code>original</code>，而是创建一个新的字符串 <code>modified</code>。</p>
 <h1 id="5-StringBuilder"><a href="#5-StringBuilder" class="headerlink" title="5. StringBuilder"></a>5. StringBuilder</h1><p><code>StringBuilder</code> 是 C# 中用于处理可变字符串的类。与 <code>string</code> 不同，<code>StringBuilder</code> 允许在不创建新对象的情况下修改字符串内容，从而在频繁拼接、追加或插入操作时提高性能。</p>
 <h3 id="为什么使用-StringBuilder"><a href="#为什么使用-StringBuilder" class="headerlink" title="为什么使用 StringBuilder"></a>为什么使用 <code>StringBuilder</code></h3><p>由于 <code>string</code> 是不可变的，每次修改字符串都会创建一个新的 <code>string</code> 对象。在大量拼接操作时，这种重复的创建和销毁会导致性能下降和内存浪费。而 <code>StringBuilder</code> 可以动态地修改字符串内容，不会创建多个字符串对象，能够显著提升性能。</p>
+<ul>
+<li>using System.Text;</li>
+</ul>
 <h3 id="使用示例"><a href="#使用示例" class="headerlink" title="使用示例"></a>使用示例</h3><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-keyword">using</span> System;<br><span class="hljs-keyword">using</span> System.Text;<br><br><span class="hljs-keyword">class</span> <span class="hljs-title">Program</span><br>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Main</span>()</span><br>    &#123;<br>        <span class="hljs-comment">// 创建一个 StringBuilder 对象</span><br>        StringBuilder sb = <span class="hljs-keyword">new</span> StringBuilder(<span class="hljs-string">&quot;Hello&quot;</span>);<br>        <br>        <span class="hljs-comment">// 追加字符串</span><br>        sb.Append(<span class="hljs-string">&quot;, World!&quot;</span>);<br>        Console.WriteLine(sb.ToString()); <span class="hljs-comment">// 输出: Hello, World!</span><br><br>        <span class="hljs-comment">// 插入字符串</span><br>        sb.Insert(<span class="hljs-number">5</span>, <span class="hljs-string">&quot; C#&quot;</span>);<br>        Console.WriteLine(sb.ToString()); <span class="hljs-comment">// 输出: Hello C#, World!</span><br><br>        <span class="hljs-comment">// 替换字符串</span><br>        sb.Replace(<span class="hljs-string">&quot;World&quot;</span>, <span class="hljs-string">&quot;StringBuilder&quot;</span>);<br>        Console.WriteLine(sb.ToString()); <span class="hljs-comment">// 输出: Hello C#, StringBuilder!</span><br><br>        <span class="hljs-comment">// 删除字符串</span><br>        sb.Remove(<span class="hljs-number">5</span>, <span class="hljs-number">3</span>); <span class="hljs-comment">// 删除从索引5开始的3个字符</span><br>        Console.WriteLine(sb.ToString()); <span class="hljs-comment">// 输出: Hello, StringBuilder!</span><br><br>        <span class="hljs-comment">// 清空 StringBuilder</span><br>        sb.Clear();<br>        Console.WriteLine(<span class="hljs-string">$&quot;Length after clearing: <span class="hljs-subst">&#123;sb.Length&#125;</span>&quot;</span>); <span class="hljs-comment">// 输出: Length after clearing: 0</span><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
-<h3 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h3><ol>
-<li><strong><code>Append(string value)</code></strong>: 追加字符串到当前 <code>StringBuilder</code> 实例的末尾。</li>
-<li><strong><code>Insert(int index, string value)</code></strong>: 在指定索引处插入字符串。</li>
-<li><strong><code>Replace(string oldValue, string newValue)</code></strong>: 将指定的字符串替换为新的字符串。</li>
-<li><strong><code>Remove(int startIndex, int length)</code></strong>: 删除从指定位置开始的指定长度的字符。</li>
-<li><strong><code>Clear()</code></strong>: 清空 <code>StringBuilder</code> 内容。</li>
-<li><strong><code>ToString()</code></strong>: 将 <code>StringBuilder</code> 对象转换为 <code>string</code>。</li>
-</ol>
+<h3 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h3><p><code>StringBuilder</code> 是 C# 中用于高效构建和修改字符串的类，因为它能避免频繁创建新的字符串实例。以下是 <code>StringBuilder</code> 常用的方法：</p>
+<h4 id="1-Append"><a href="#1-Append" class="headerlink" title="1. Append"></a>1. <strong>Append</strong></h4><ul>
+<li>将指定的字符串或对象附加到当前 <code>StringBuilder</code> 实例的末尾。</li>
+<li>支持多种重载，可以附加字符串、字符、对象、数字等。<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs csharp">StringBuilder sb = <span class="hljs-keyword">new</span> StringBuilder(<span class="hljs-string">&quot;Hello&quot;</span>);<br>sb.Append(<span class="hljs-string">&quot;, World!&quot;</span>);<br>Console.WriteLine(sb); <span class="hljs-comment">// 输出: Hello, World!</span><br></code></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="2-AppendLine"><a href="#2-AppendLine" class="headerlink" title="2. AppendLine"></a>2. <strong>AppendLine</strong></h4><ul>
+<li>在当前 <code>StringBuilder</code> 实例的末尾追加一个字符串，并添加一个换行符。</li>
+<li>可用于追加多行文本。<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs csharp">sb.AppendLine(<span class="hljs-string">&quot;This is the first line.&quot;</span>);<br>sb.AppendLine(<span class="hljs-string">&quot;This is the second line.&quot;</span>);<br>Console.WriteLine(sb);<br><span class="hljs-comment">// 输出:</span><br><span class="hljs-comment">// Hello, World!</span><br><span class="hljs-comment">// This is the first line.</span><br><span class="hljs-comment">// This is the second line.</span><br></code></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="3-Insert"><a href="#3-Insert" class="headerlink" title="3. Insert"></a>3. <strong>Insert</strong></h4><ul>
+<li>在指定位置插入一个字符串或字符。<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs csharp">sb.Insert(<span class="hljs-number">7</span>, <span class="hljs-string">&quot;Beautiful &quot;</span>);<br>Console.WriteLine(sb); <span class="hljs-comment">// 输出: Hello, Beautiful World!</span><br></code></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="4-Remove"><a href="#4-Remove" class="headerlink" title="4. Remove"></a>4. <strong>Remove</strong></h4><ul>
+<li>从 <code>StringBuilder</code> 中删除指定索引处的字符，指定要删除的字符数。<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs csharp">sb.Remove(<span class="hljs-number">7</span>, <span class="hljs-number">10</span>); <span class="hljs-comment">// 从索引 7 开始删除 10 个字符</span><br>Console.WriteLine(sb); <span class="hljs-comment">// 输出: Hello, World!</span><br></code></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="5-Replace"><a href="#5-Replace" class="headerlink" title="5. Replace"></a>5. <strong>Replace</strong></h4><ul>
+<li>将 <code>StringBuilder</code> 实例中的所有匹配的字符串或字符替换为指定的值。<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs csharp">sb[<span class="hljs-number">0</span>] = <span class="hljs-string">&#x27;A&#x27;</span>;<span class="hljs-comment">//也可以直接单个字符改</span><br>sb.Replace(<span class="hljs-string">&quot;World&quot;</span>, <span class="hljs-string">&quot;C#&quot;</span>);<br>Console.WriteLine(sb); <span class="hljs-comment">// 输出: Hello, C#!</span><br></code></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="6-Clear"><a href="#6-Clear" class="headerlink" title="6. Clear"></a>6. <strong>Clear</strong></h4><ul>
+<li>清空 <code>StringBuilder</code> 实例中的所有内容。<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs csharp">sb.Clear();<br>Console.WriteLine(sb.Length); <span class="hljs-comment">// 输出: 0</span><br></code></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="7-ToString"><a href="#7-ToString" class="headerlink" title="7. ToString"></a>7. <strong>ToString</strong></h4><ul>
+<li>将 <code>StringBuilder</code> 实例转换为 <code>string</code>。</li>
+<li>可以指定一个索引和长度，从而将特定范围内的字符转换为字符串。<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs csharp">sb.Append(<span class="hljs-string">&quot;Hello, C#!&quot;</span>);<br><span class="hljs-built_in">string</span> str = sb.ToString();<br>Console.WriteLine(str); <span class="hljs-comment">// 输出: Hello, C#!</span><br></code></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="8-Length"><a href="#8-Length" class="headerlink" title="8. Length"></a>8. <strong>Length</strong></h4><ul>
+<li>获取或设置 <code>StringBuilder</code> 实例中的字符数。<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs csharp">Console.WriteLine(sb.Length); <span class="hljs-comment">// 输出: 10</span><br>sb.Length = <span class="hljs-number">5</span>; <span class="hljs-comment">// 将长度设为 5，多余的字符将被截断</span><br>Console.WriteLine(sb); <span class="hljs-comment">// 输出: Hello</span><br></code></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="9-Capacity"><a href="#9-Capacity" class="headerlink" title="9. Capacity"></a>9. <strong>Capacity</strong></h4><ul>
+<li>获取或设置当前实例能够容纳的字符数。<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-built_in">int</span> capacity = sb.Capacity;<br>sb.Capacity = <span class="hljs-number">50</span>; <span class="hljs-comment">// 设置容量</span><br></code></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="10-EnsureCapacity"><a href="#10-EnsureCapacity" class="headerlink" title="10. EnsureCapacity"></a>10. <strong>EnsureCapacity</strong></h4><ul>
+<li>确保 <code>StringBuilder</code> 的容量至少为指定的值，如果小于该值，则会增加容量。<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs csharp">sb.EnsureCapacity(<span class="hljs-number">100</span>); <span class="hljs-comment">// 确保容量至少为 100</span><br></code></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="11-AppendFormat"><a href="#11-AppendFormat" class="headerlink" title="11. AppendFormat"></a>11. <strong>AppendFormat</strong></h4><ul>
+<li>该方法用于将格式化字符串追加到 <code>StringBuilder</code> 实例的末尾，类似于 <code>string.Format</code> 的功能。</li>
+<li>适用于需要将格式化的内容插入到字符串中的情况。<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs csharp">StringBuilder sb = <span class="hljs-keyword">new</span> StringBuilder();<br>sb.AppendFormat(<span class="hljs-string">&quot;Name: &#123;0&#125;, Age: &#123;1&#125;&quot;</span>, <span class="hljs-string">&quot;Alice&quot;</span>, <span class="hljs-number">25</span>);<br>Console.WriteLine(sb); <span class="hljs-comment">// 输出: Name: Alice, Age: 25</span><br></code></pre></td></tr></table></figure></li>
+<li><code>AppendFormat</code> 支持标准格式化和自定义格式化，因此非常适合在文本拼接时插入动态数据。</li>
+</ul>
+<h4 id="12-Equals"><a href="#12-Equals" class="headerlink" title="12. Equals"></a>12. <strong>Equals</strong></h4><ul>
+<li><code>StringBuilder</code> 的 <code>Equals</code> 方法用于比较当前实例和另一个 <code>StringBuilder</code> 实例是否相等。</li>
+<li>相等的条件是：两个实例的字符内容和长度必须相同。<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs csharp">StringBuilder sb1 = <span class="hljs-keyword">new</span> StringBuilder(<span class="hljs-string">&quot;Hello&quot;</span>);<br>StringBuilder sb2 = <span class="hljs-keyword">new</span> StringBuilder(<span class="hljs-string">&quot;Hello&quot;</span>);<br>StringBuilder sb3 = <span class="hljs-keyword">new</span> StringBuilder(<span class="hljs-string">&quot;World&quot;</span>);<br><br>Console.WriteLine(sb1.Equals(sb2)); <span class="hljs-comment">// 输出: True，因为内容相同</span><br>Console.WriteLine(sb1.Equals(sb3)); <span class="hljs-comment">// 输出: False，因为内容不同</span><br></code></pre></td></tr></table></figure></li>
+<li><code>Equals</code> 方法对 <code>StringBuilder</code> 实例进行引用相等性比较时，效果与默认的引用类型比较不同，<code>StringBuilder</code> 的 <code>Equals</code> 会检查字符内容。</li>
+</ul>
 <h3 id="性能对比"><a href="#性能对比" class="headerlink" title="性能对比"></a>性能对比</h3><ul>
-<li><strong><code>string</code> 拼接</strong>:</li>
+<li><strong><code>string</code> 拼接</strong>:<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-built_in">string</span> result = <span class="hljs-string">&quot;&quot;</span>;<br><span class="hljs-keyword">for</span> (<span class="hljs-built_in">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">1000</span>; i++)<br>&#123;<br>    result += <span class="hljs-string">&quot;Hello &quot;</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+每次循环都会创建一个新的 <code>string</code>，性能较差。</li>
+<li><strong>使用 <code>StringBuilder</code></strong>:<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs csharp">StringBuilder sb = <span class="hljs-keyword">new</span> StringBuilder();<br><span class="hljs-keyword">for</span> (<span class="hljs-built_in">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">1000</span>; i++)<br>&#123;<br>    sb.Append(<span class="hljs-string">&quot;Hello &quot;</span>);<br>&#125;<br><span class="hljs-built_in">string</span> result = sb.ToString();<br></code></pre></td></tr></table></figure>
+这种方式性能更好，因为 <code>StringBuilder</code> 可以动态地扩展内存，减少不必要的对象创建。</li>
 </ul>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-built_in">string</span> result = <span class="hljs-string">&quot;&quot;</span>;<br><span class="hljs-keyword">for</span> (<span class="hljs-built_in">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">1000</span>; i++)<br>&#123;<br>    result += <span class="hljs-string">&quot;Hello &quot;</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
-<pre><code class="hljs">每次循环都会创建一个新的 `string`，性能较差。
-</code></pre>
-<ul>
-<li><strong>使用 <code>StringBuilder</code></strong>:</li>
-</ul>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs csharp">StringBuilder sb = <span class="hljs-keyword">new</span> StringBuilder();<br><span class="hljs-keyword">for</span> (<span class="hljs-built_in">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">1000</span>; i++)<br>&#123;<br>    sb.Append(<span class="hljs-string">&quot;Hello &quot;</span>);<br>&#125;<br><span class="hljs-built_in">string</span> result = sb.ToString();<br></code></pre></td></tr></table></figure>
-<pre><code class="hljs">这种方式性能更好，因为 `StringBuilder` 可以动态地扩展内存，减少不必要的对象创建。
-</code></pre>
 <h3 id="初始化容量"><a href="#初始化容量" class="headerlink" title="初始化容量"></a>初始化容量</h3><p>可以通过指定初始容量来提高性能：</p>
 <figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs csharp">StringBuilder sb = <span class="hljs-keyword">new</span> StringBuilder(<span class="hljs-number">100</span>); <span class="hljs-comment">// 预分配100个字符的空间</span><br></code></pre></td></tr></table></figure>
-
 
 <h1 id="6-ref和out的使用"><a href="#6-ref和out的使用" class="headerlink" title="6. ref和out的使用"></a>6. ref和out的使用</h1><p>在 C# 中，<code>ref</code> 和 <code>out</code> 是两种用于参数传递的关键字，它们允许方法通过引用传递参数，而不是通过值传递。虽然这两者的作用相似，但在使用和语义上有一些重要的区别。</p>
 <h3 id="1-ref-关键字"><a href="#1-ref-关键字" class="headerlink" title="1. ref 关键字"></a>1. <code>ref</code> 关键字</h3><ul>
@@ -549,32 +581,37 @@
 </ul>
 </li>
 </ol>
-<h3 id="C-中的结构体-1"><a href="#C-中的结构体-1" class="headerlink" title="C# 中的结构体"></a>C# 中的结构体</h3><ol>
+<h3 id="C-中的结构体-1"><a href="#C-中的结构体-1" class="headerlink" title="C# 中的结构体"></a>C# 中的结构体</h3><ul>
+<li>结构体可以继承接口interface</li>
+</ul>
+<ol>
 <li><p><strong>定义</strong>：</p>
 <ul>
-<li>使用 <code>struct</code> 关键字定义结构体。结构体是值类型，不能继承自其他结构体或类，但可以实现接口。</li>
+<li>使用 <code>struct</code> 关键字定义结构体。结构体是值类型，不能继承自其他结构体或类，但可以实现接口。<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-keyword">struct</span> Point<br>&#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-built_in">int</span> x;<br>    <span class="hljs-keyword">public</span> <span class="hljs-built_in">int</span> y;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Point</span>(<span class="hljs-params"><span class="hljs-built_in">int</span> xCoord, <span class="hljs-built_in">int</span> yCoord</span>) <span class="hljs-comment">// 可以有参数化构造函数</span></span><br>    &#123;<br>        x = xCoord;<br>        y = yCoord;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Display</span>()</span><br>    &#123;<br>        Console.WriteLine(<span class="hljs-string">$&quot;Point(<span class="hljs-subst">&#123;x&#125;</span>, <span class="hljs-subst">&#123;y&#125;</span>)&quot;</span>);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure></li>
 </ul>
 </li>
-</ol>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-keyword">struct</span> Point<br>&#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-built_in">int</span> x;<br>    <span class="hljs-keyword">public</span> <span class="hljs-built_in">int</span> y;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Point</span>(<span class="hljs-params"><span class="hljs-built_in">int</span> xCoord, <span class="hljs-built_in">int</span> yCoord</span>) <span class="hljs-comment">// 可以有参数化构造函数</span></span><br>    &#123;<br>        x = xCoord;<br>        y = yCoord;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Display</span>()</span><br>    &#123;<br>        Console.WriteLine(<span class="hljs-string">$&quot;Point(<span class="hljs-subst">&#123;x&#125;</span>, <span class="hljs-subst">&#123;y&#125;</span>)&quot;</span>);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-<ol start="2">
-<li><strong>访问控制</strong>：<ul>
+<li><p><strong>访问控制</strong>：</p>
+<ul>
 <li>C# 中结构体的成员默认是 <code>private</code>，需要显式声明为 <code>public</code> 才能从外部访问。</li>
 </ul>
 </li>
-<li><strong>构造函数</strong>：<ul>
+<li><p><strong>构造函数</strong>：</p>
+<ul>
 <li>C# 结构体可以有参数化构造函数，但不能有无参数的构造函数。</li>
 </ul>
 </li>
-<li><strong>继承</strong>：<ul>
+<li><p><strong>继承</strong>：</p>
+<ul>
 <li>C# 中的结构体不能继承其他结构体或类，但可以实现接口。</li>
 </ul>
 </li>
-<li><strong>存储方式</strong>：<ul>
+<li><p><strong>存储方式</strong>：</p>
+<ul>
 <li>C# 中的结构体是值类型，存储在栈上，而引用类型（如类）则存储在堆上。</li>
 </ul>
 </li>
-<li>其他<ul>
+<li><p>其他</p>
+<ul>
 <li>变量的定义不能是自己的结构体</li>
 <li>结构体中的变量不能直接初始化，否则初始化后，调用默认构造函数还是没用</li>
 </ul>
@@ -821,6 +858,7 @@
 </li>
 <li><strong>构造函数</strong>：<ul>
 <li>类可以有无参数构造函数和有参数构造函数，而结构体只能有有参数构造函数，不能有无参数构造函数。结构体会自动提供一个默认构造函数，该构造函数将所有字段设置为其默认值。</li>
+<li>类如果声明了有参构造函数，默认的无参构造函数会消失；结构体声明有参构造函数后，无参构造仍然存在</li>
 </ul>
 </li>
 <li><strong>赋值行为</strong>：<ul>
@@ -828,12 +866,36 @@
 <li>结构体的赋值操作会复制整个数据，因此修改一个结构体不会影响另一个结构体的值。</li>
 </ul>
 </li>
+<li>访问修饰符:<ul>
+<li>结构体成员不可以用protected访问修饰符，类可以</li>
+</ul>
+</li>
+<li>初始值<ul>
+<li>结构体成员变量不能指定初始值，类可以</li>
+<li>但结构体需要在构造函数中初始化所有成员变量，类随意</li>
+</ul>
+</li>
+<li>析构函数<ul>
+<li>结构体不能声明析构函数，类可以</li>
+</ul>
+</li>
+<li>static修饰<ul>
+<li>结构体不能够被静态static修饰（不存在静态结构体），类可以</li>
+</ul>
+</li>
+<li>嵌套包含<ul>
+<li>结构体不能在自己内部声明和自己一样的结构体变量，类可以</li>
+</ul>
+</li>
 </ol>
 <h3 id="示例代码-1"><a href="#示例代码-1" class="headerlink" title="示例代码"></a>示例代码</h3><h4 id="类的示例"><a href="#类的示例" class="headerlink" title="类的示例"></a>类的示例</h4><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-keyword">using</span> System;<br><br><span class="hljs-keyword">class</span> <span class="hljs-title">Person</span><br>&#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-built_in">string</span> Name &#123; <span class="hljs-keyword">get</span>; <span class="hljs-keyword">set</span>; &#125;<br>    <span class="hljs-keyword">public</span> <span class="hljs-built_in">int</span> Age &#123; <span class="hljs-keyword">get</span>; <span class="hljs-keyword">set</span>; &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Person</span>(<span class="hljs-params"><span class="hljs-built_in">string</span> name, <span class="hljs-built_in">int</span> age</span>) <span class="hljs-comment">// 构造函数</span></span><br>    &#123;<br>        Name = name;<br>        Age = age;<br>    &#125;<br>&#125;<br><br><span class="hljs-keyword">class</span> <span class="hljs-title">Program</span><br>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Main</span>()</span><br>    &#123;<br>        Person person1 = <span class="hljs-keyword">new</span> Person(<span class="hljs-string">&quot;Alice&quot;</span>, <span class="hljs-number">30</span>);<br>        Person person2 = person1; <span class="hljs-comment">// 复制引用</span><br>        person2.Name = <span class="hljs-string">&quot;Bob&quot;</span>; <span class="hljs-comment">// 修改 person2 的 Name</span><br><br>        Console.WriteLine(person1.Name); <span class="hljs-comment">// 输出: Bob</span><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <h4 id="结构体的示例"><a href="#结构体的示例" class="headerlink" title="结构体的示例"></a>结构体的示例</h4><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-keyword">using</span> System;<br><br><span class="hljs-keyword">class</span> <span class="hljs-title">Person</span><br>&#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-built_in">string</span> Name &#123; <span class="hljs-keyword">get</span>; <span class="hljs-keyword">set</span>; &#125;<br>    <span class="hljs-keyword">public</span> <span class="hljs-built_in">int</span> Age &#123; <span class="hljs-keyword">get</span>; <span class="hljs-keyword">set</span>; &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Person</span>(<span class="hljs-params"><span class="hljs-built_in">string</span> name, <span class="hljs-built_in">int</span> age</span>) <span class="hljs-comment">// 构造函数</span></span><br>    &#123;<br>        Name = name;<br>        Age = age;<br>    &#125;<br>&#125;<br><br><span class="hljs-keyword">class</span> <span class="hljs-title">Program</span><br>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Main</span>()</span><br>    &#123;<br>        Person person1 = <span class="hljs-keyword">new</span> Person(<span class="hljs-string">&quot;Alice&quot;</span>, <span class="hljs-number">30</span>);<br>        Person person2 = person1; <span class="hljs-comment">// 复制引用</span><br>        person2.Name = <span class="hljs-string">&quot;Bob&quot;</span>; <span class="hljs-comment">// 修改 person2 的 Name</span><br><br>        Console.WriteLine(person1.Name); <span class="hljs-comment">// 输出: Bob</span><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-
+<h3 id="如何选择结构体和类"><a href="#如何选择结构体和类" class="headerlink" title="如何选择结构体和类"></a>如何选择结构体和类</h3><ul>
+<li>想要用继承和多态时，选择类，比如玩家，怪物等</li>
+<li>对象是数据集合时，优先考虑结构体，比如位置，坐标等</li>
+<li>从值类型和引用类型赋值时区别上考虑，如果经常被赋值传递的对象，并且改变赋值对象，原对象不想跟着改变时，使用结构体，比如坐标，向量，旋转等</li>
+</ul>
 <h1 id="12-C-垃圾回收机制"><a href="#12-C-垃圾回收机制" class="headerlink" title="12. C#垃圾回收机制"></a>12. C#垃圾回收机制</h1><p>   C#的垃圾回收机制（Garbage Collection，简称GC）是一种自动内存管理机制，用于释放不再使用的对象和回收内存资源，从而避免手动管理内存。它在.NET框架中由CLR（Common Language Runtime）负责执行，确保应用程序在运行期间高效地使用内存。</p>
 <h3 id="主要特点"><a href="#主要特点" class="headerlink" title="主要特点"></a>主要特点</h3><ol>
 <li><strong>自动内存管理</strong>：不需要开发人员手动释放对象的内存，GC会自动检测并释放不再使用的对象。</li>
@@ -1320,7 +1382,7 @@
 
 <p>这段代码使用模板元编程在编译时计算阶乘，<code>Factorial&lt;5&gt;::value</code> 中的 <code>::value</code> 是访问结构体 <code>Factorial</code> 的静态成员变量，用于获取计算结果。</p>
 <h4 id="总结-5"><a href="#总结-5" class="headerlink" title="总结"></a>总结</h4><p>元编程可以提高代码的灵活性和效率，通过编写“生成代码的代码”，解决某些问题变得更加优雅和高效。然而，由于它增加了程序的复杂性，使用时需要权衡和谨慎。</p>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a target="_blank" rel="noopener" href="https://learn.microsoft.com/zh-cn/">MS-Learning</a></p>
+<p><a target="_blank" rel="noopener" href="https://learn.microsoft.com/zh-cn/">MS-Learning</a></p>
 
                 
               </div>
