@@ -22,12 +22,12 @@
     <meta name="description" content="constexprconstexpr 是 C++11 引入的关键字，主要用于在编译时求值表达式。它允许定义常量表达式，以便在编译阶段进行优化，提高程序的运行效率。随着 C++14 和 C++17 的发展，constexpr 的功能进一步增强，使得它能够处理更复杂的编译时计算逻辑。以下是 constexpr 的一些重要特性和应用场景： 1. 基本用法和作用 定义常量：constexpr 可以定义在编">
 <meta property="og:type" content="article">
 <meta property="og:title" content="知识点二_Cpp实现反射">
-<meta property="og:url" content="https://wing2791.github.io/2024/11/02/%E7%9F%A5%E8%AF%86%E7%82%B9%E4%BA%8C_constexpr_RTTR%E5%AE%89%E8%A3%85/index.html">
+<meta property="og:url" content="https://wing2791.github.io/2024/11/02/%E7%9F%A5%E8%AF%86%E7%82%B9%E4%BA%8C_constexpr_RTTR%E5%AE%89%E8%A3%85_%E5%B1%80%E5%9F%9F%E7%BD%91%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BD%BF%E7%94%A8MAC%E5%9C%B0%E5%9D%80%E9%80%9A%E4%BF%A1/index.html">
 <meta property="og:site_name" content="Day Day Up!">
 <meta property="og:description" content="constexprconstexpr 是 C++11 引入的关键字，主要用于在编译时求值表达式。它允许定义常量表达式，以便在编译阶段进行优化，提高程序的运行效率。随着 C++14 和 C++17 的发展，constexpr 的功能进一步增强，使得它能够处理更复杂的编译时计算逻辑。以下是 constexpr 的一些重要特性和应用场景： 1. 基本用法和作用 定义常量：constexpr 可以定义在编">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-11-02T02:01:24.572Z">
-<meta property="article:modified_time" content="2024-11-02T12:09:18.382Z">
+<meta property="article:modified_time" content="2024-11-04T02:59:55.959Z">
 <meta property="article:author" content="wing2791">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -222,7 +222,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.2k 字
+          3.4k 字
         
       </span>
     
@@ -233,7 +233,7 @@
         
         
         
-          19 分钟
+          29 分钟
         
       </span>
     
@@ -361,7 +361,37 @@
 <li><strong>链接错误</strong>：确保链接了正确的库文件，例如 <code>rttr_core.lib</code>。</li>
 <li><strong>运行时错误</strong>：检查类型注册是否正确，确保使用的类型与注册的一致。</li>
 </ol>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/ruisun09/article/details/108535736">RTTR实现C++反射（1）集成rttr库_可以参考doxygen的安装</a><br><a target="_blank" rel="noopener" href="https://cmake.org/download/">CMake下载地址</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/nanke_yh/article/details/124346308">Windows下Boost库的安装与使用</a></p>
+<h1 id="局域网为什么使用MAC地址通信"><a href="#局域网为什么使用MAC地址通信" class="headerlink" title="局域网为什么使用MAC地址通信"></a>局域网为什么使用MAC地址通信</h1><blockquote>
+<p>如果一个局域网内的主机A想要访问很远的一个局域网内的主机B。这两台主机都是接入了Internet互联网，中间会经过Ip地址和多次的MAC地址的转换，最终将主机A的消息发送到了主机B，Ip地址从始至终没有改变，但是MAC一直在变化。<br>而局域网中的通信只使用MAC地址就行，为什么不用Ip了呢？</p>
+</blockquote>
+<h3 id="ARP协议"><a href="#ARP协议" class="headerlink" title="ARP协议"></a>ARP协议</h3><ul>
+<li>ARP协议，工作在网络层的协议，但是可以产生在数据链路层（网络接口层）传递的帧<ul>
+<li>作用：<code>将Ip地址转换为MAC地址</code></li>
+<li>通过发送MAC地址的广播帧，不断广播，到达目的Ip地址的主机，回复响应的ARP帧，最后返回发送主机，获取到了目标Ip地址的主机的MAC帧。但是实际上并不是一次性获取到目标Ip地址的MAC地址，只是获取到了下一跳主机或者路由器的MAC地址</li>
+</ul>
+</li>
+</ul>
+<h3 id="局域网之间用MAC地址通信，为什么不用Ip呢"><a href="#局域网之间用MAC地址通信，为什么不用Ip呢" class="headerlink" title="局域网之间用MAC地址通信，为什么不用Ip呢"></a>局域网之间用MAC地址通信，为什么不用Ip呢</h3><ul>
+<li>我所理解的局域网，并不是按照地域，距离划分，而是只是工作在物理层，数据链路层的主机间的通信。在局域网中，只是有主机，集线器，二层交换机等只使用到前两层进行消息传递的网络中。但是实际上，有路由器，三层交换机都没事，只要不连接到互联网上，都算是局域网。比如多个局域网通过一个路由器连接等。<ul>
+<li>因此在局域网中，主机连到交换机上，交换机有一个MAC地址表，能够记录对应的MAC地址在交换机的哪个端口上，如果不知道，则广播除了接收消息的端口的其他所有端口</li>
+<li>因此直接使用MAC地址进行通信就可以了</li>
+<li>不使用Ip地址，因为<code>交换机本身是工作在前两层</code>，Ip地址在网络层，他应该是无法解析对应的数据的，所以Ip地址也用不上</li>
+</ul>
+</li>
+<li>MAC地址是设备出厂时就固定了的，<code>每台主机唯一标识了一个MAC地址</code>，两者一一对应。而局域网中，只是简单的局域网通信，DHCP服务器或者路由器分配Ip地址的话，就只能给局域网内的每个主机分配私有Ip地址了，而具体分配到哪个主机，还是需要MAC地址唯一确定。<ul>
+<li>所以在一个独立的局域网中，如果你想要给另一台主机发消息，还是需要知道他的地址，然后会使用ARP协议，获取其MAC地址，通过MAC地址来找到对应的交换机的哪个端口，将消息发送出去</li>
+</ul>
+</li>
+<li>那为什么局域网内部还是要有Ip地址呢？<ul>
+<li>我的理解是如果有多个局域网，通过一个或者多个路由器或者三层交换机相连。<code>不同局域网内的主机通信是需要的</code></li>
+<li>举例就是有两家网吧，他们各自的网吧中的电脑都组成一个小的局域网。现在举办联谊，两个网吧的游戏爱好者进行比赛，那么消息通信就需要使用Ip地址了</li>
+<li>因为Ip地址能够划分不同的区域，假如192.168.1.x是网吧A，192.168.2.x是网吧B，这就涉及到了分割广播域，需要路由器来完成，具体我也不记得了，就不细说了。大概意思就是能够知道192.168.1.x如果发送信息到192.168.2.x，就只是固定的交换机的那几个端口，其他的端口也就不发送消息了，作用也是一定程度上明确了要发送的方向</li>
+</ul>
+</li>
+<li>MAC地址本身是没有区域划分的，而Ip地址是有区域划分的。类似于分层结构，先Ip地址找到主机大致的是属于哪个局域网，局域网内部再直接使用唯一的MAC地址找到对应的主机</li>
+<li><code>历史遗留问题</code>，刚开始使用MAC进行小范围的信息传递没问题，等接入的设备多了，范围广了，就不好快速准确发送消息了，就出来Ip地址大致确定属于哪个区域，再准确投递消息</li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/ruisun09/article/details/108535736">RTTR实现C++反射（1）集成rttr库_可以参考doxygen的安装</a><br><a target="_blank" rel="noopener" href="https://cmake.org/download/">CMake下载地址</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/nanke_yh/article/details/124346308">Windows下Boost库的安装与使用</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/ff900709/article/details/82225288">局域网内和局域网间的通信（交换机和路由器）</a></p>
 
                 
               </div>
@@ -380,7 +410,7 @@
   <div class="license-box my-3">
     <div class="license-title">
       <div>知识点二_Cpp实现反射</div>
-      <div>https://wing2791.github.io/2024/11/02/知识点二_constexpr_RTTR安装/</div>
+      <div>https://wing2791.github.io/2024/11/02/知识点二_constexpr_RTTR安装_局域网为什么使用MAC地址通信/</div>
     </div>
     <div class="license-meta">
       
