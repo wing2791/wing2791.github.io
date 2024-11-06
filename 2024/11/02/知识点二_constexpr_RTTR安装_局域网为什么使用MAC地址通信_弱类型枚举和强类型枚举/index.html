@@ -21,19 +21,19 @@
   
     <meta name="description" content="constexprconstexpr 是 C++11 引入的关键字，主要用于在编译时求值表达式。它允许定义常量表达式，以便在编译阶段进行优化，提高程序的运行效率。随着 C++14 和 C++17 的发展，constexpr 的功能进一步增强，使得它能够处理更复杂的编译时计算逻辑。以下是 constexpr 的一些重要特性和应用场景： 1. 基本用法和作用 定义常量：constexpr 可以定义在编">
 <meta property="og:type" content="article">
-<meta property="og:title" content="知识点二_constexpr_RTTR安装_局域网为什么使用MAC地址通信">
-<meta property="og:url" content="https://wing2791.github.io/2024/11/02/%E7%9F%A5%E8%AF%86%E7%82%B9%E4%BA%8C_constexpr_RTTR%E5%AE%89%E8%A3%85_%E5%B1%80%E5%9F%9F%E7%BD%91%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BD%BF%E7%94%A8MAC%E5%9C%B0%E5%9D%80%E9%80%9A%E4%BF%A1/index.html">
+<meta property="og:title" content="知识点二_constexpr_RTTR安装_局域网为什么使用MAC地址通信_弱类型枚举和强类型枚举">
+<meta property="og:url" content="https://wing2791.github.io/2024/11/02/%E7%9F%A5%E8%AF%86%E7%82%B9%E4%BA%8C_constexpr_RTTR%E5%AE%89%E8%A3%85_%E5%B1%80%E5%9F%9F%E7%BD%91%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BD%BF%E7%94%A8MAC%E5%9C%B0%E5%9D%80%E9%80%9A%E4%BF%A1_%E5%BC%B1%E7%B1%BB%E5%9E%8B%E6%9E%9A%E4%B8%BE%E5%92%8C%E5%BC%BA%E7%B1%BB%E5%9E%8B%E6%9E%9A%E4%B8%BE/index.html">
 <meta property="og:site_name" content="Day Day Up!">
 <meta property="og:description" content="constexprconstexpr 是 C++11 引入的关键字，主要用于在编译时求值表达式。它允许定义常量表达式，以便在编译阶段进行优化，提高程序的运行效率。随着 C++14 和 C++17 的发展，constexpr 的功能进一步增强，使得它能够处理更复杂的编译时计算逻辑。以下是 constexpr 的一些重要特性和应用场景： 1. 基本用法和作用 定义常量：constexpr 可以定义在编">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-11-02T02:01:24.572Z">
-<meta property="article:modified_time" content="2024-11-04T03:24:58.856Z">
+<meta property="article:modified_time" content="2024-11-06T06:44:48.391Z">
 <meta property="article:author" content="wing2791">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>知识点二_constexpr_RTTR安装_局域网为什么使用MAC地址通信 - Day Day Up!</title>
+  <title>知识点二_constexpr_RTTR安装_局域网为什么使用MAC地址通信_弱类型枚举和强类型枚举 - Day Day Up!</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -199,7 +199,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="知识点二_constexpr_RTTR安装_局域网为什么使用MAC地址通信"></span>
+            <span id="subtitle" data-typed-text="知识点二_constexpr_RTTR安装_局域网为什么使用MAC地址通信_弱类型枚举和强类型枚举"></span>
           
         </div>
 
@@ -222,7 +222,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          3.4k 字
+          4.3k 字
         
       </span>
     
@@ -233,7 +233,7 @@
         
         
         
-          29 分钟
+          36 分钟
         
       </span>
     
@@ -270,7 +270,7 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">知识点二_constexpr_RTTR安装_局域网为什么使用MAC地址通信</h1>
+            <h1 id="seo-header">知识点二_constexpr_RTTR安装_局域网为什么使用MAC地址通信_弱类型枚举和强类型枚举</h1>
             
             
               <div class="markdown-body">
@@ -391,6 +391,43 @@
 <li>MAC地址本身是没有区域划分的，而Ip地址是有区域划分的。类似于分层结构，先Ip地址找到主机大致的是属于哪个局域网，局域网内部再直接使用唯一的MAC地址找到对应的主机</li>
 <li><code>历史遗留问题</code>，刚开始使用MAC进行小范围的信息传递没问题，等接入的设备多了，范围广了，就不好快速准确发送消息了，就出来Ip地址大致确定属于哪个区域，再准确投递消息</li>
 </ul>
+<h1 id="弱类型枚举和强类型枚举"><a href="#弱类型枚举和强类型枚举" class="headerlink" title="弱类型枚举和强类型枚举"></a>弱类型枚举和强类型枚举</h1><p>在 C++ 中，枚举类型通常有两种形式：强类型枚举（<code>enum class</code>）和弱类型枚举（传统的 <code>enum</code>）。</p>
+<h3 id="弱类型枚举（传统的-enum）"><a href="#弱类型枚举（传统的-enum）" class="headerlink" title="弱类型枚举（传统的 enum）"></a>弱类型枚举（传统的 <code>enum</code>）</h3><p>弱类型枚举允许 <strong>隐式转换</strong>，即可以将整数值直接赋给枚举类型，反之亦然。这是因为弱类型枚举实际上与整数类型具有兼容性，枚举的底层类型默认是 <code>int</code>，可以直接用整数来赋值。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-keyword">enum</span> <span class="hljs-title class_">Color</span> &#123;<br>    Red = <span class="hljs-number">1</span>,<br>    Green = <span class="hljs-number">2</span>,<br>    Blue = <span class="hljs-number">3</span><br>&#125;;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>    Color color = <span class="hljs-number">2</span>;  <span class="hljs-comment">// int 隐式转换为 Color</span><br>    cout &lt;&lt; color &lt;&lt; endl;  <span class="hljs-comment">// 输出 2</span><br>    <br>    <span class="hljs-type">int</span> x = Red;  <span class="hljs-comment">// Color 隐式转换为 int</span><br>    cout &lt;&lt; x &lt;&lt; endl;  <span class="hljs-comment">// 输出 1</span><br><br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h4 id="解释："><a href="#解释：" class="headerlink" title="解释："></a>解释：</h4><ul>
+<li>在上述代码中，<code>Color color = 2;</code> 允许将一个整数（<code>2</code>）赋值给枚举类型 <code>Color</code>。这就是因为传统的 <code>enum</code> 枚举类型是弱类型枚举，它允许枚举和 <code>int</code> 之间进行隐式转换。</li>
+<li>同样，<code>int x = Red;</code> 也可以成功地将枚举值赋值给整数。</li>
+</ul>
+<h3 id="强类型枚举（enum-class）"><a href="#强类型枚举（enum-class）" class="headerlink" title="强类型枚举（enum class）"></a>强类型枚举（<code>enum class</code>）</h3><p>强类型枚举（<code>enum class</code>）则不同，它不允许与 <code>int</code> 之间进行隐式转换，必须显式进行类型转换。这是为了避免类型混淆和错误。</p>
+<p>例如：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-keyword">enum class</span> <span class="hljs-title class_">Color</span> &#123;<br>    Red = <span class="hljs-number">1</span>,<br>    Green = <span class="hljs-number">2</span>,<br>    Blue = <span class="hljs-number">3</span><br>&#125;;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-comment">// Color color = 2;  // 编译错误：不能将 int 隐式转换为 Color</span><br>    Color color = <span class="hljs-built_in">static_cast</span>&lt;Color&gt;(<span class="hljs-number">2</span>);  <span class="hljs-comment">// 必须显式转换</span><br>    cout &lt;&lt; <span class="hljs-built_in">static_cast</span>&lt;<span class="hljs-type">int</span>&gt;(color) &lt;&lt; endl;  <span class="hljs-comment">// 输出 2</span><br>    <br>    <span class="hljs-comment">// int x = Color::Red;  // 编译错误：不能将 Color 转换为 int</span><br>    <span class="hljs-type">int</span> x = <span class="hljs-built_in">static_cast</span>&lt;<span class="hljs-type">int</span>&gt;(Color::Red);  <span class="hljs-comment">// 显式转换</span><br>    cout &lt;&lt; x &lt;&lt; endl;  <span class="hljs-comment">// 输出 1</span><br><br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="弱类型枚举可能带来的问题"><a href="#弱类型枚举可能带来的问题" class="headerlink" title="弱类型枚举可能带来的问题"></a>弱类型枚举可能带来的问题</h3><p>在C++中，enum class 是一种改进的枚举类型，它相对于传统的 enum 具有一些额外的优点。这个语法是C++11引入的，目的是解决传统 enum 存在的一些问题。<br><strong>1.</strong> 作用域内枚举（Scoped Enums）</p>
+<ul>
+<li><strong>解释</strong>：传统的 enum 是<strong>非作用域</strong>的，意味着它的枚举成员（如 Up, Down）会泄露到外部的作用域中，可能导致命名冲突。而 enum class 是作用域内的，枚举成员只能通过枚举类型的名称访问。</li>
+<li><strong>示例</strong>：  <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp">Direction d = Direction::Up; <span class="hljs-comment">// 使用了作用域限定符 Direction::</span><br></code></pre></td></tr></table></figure>
+这样，Up 不会与其他枚举中的值或全局变量冲突。</li>
+</ul>
+<p><strong>2.</strong> 强类型（Strongly Typed）</p>
+<ul>
+<li><strong>解释</strong>：传统的 enum 是<strong>弱类型</strong>的，可以隐式地转换为整数，导致一些潜在的错误。enum class 是<strong>强类型</strong>的，枚举类型不能隐式转换为整数，必须进行显式转换。</li>
+<li><strong>示例</strong>：  <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs cpp">Direction d = Direction::Up;<br><br><span class="hljs-type">int</span> n = d; <span class="hljs-comment">// 错误，不能隐式转换为int</span><br><br><span class="hljs-type">int</span> n = <span class="hljs-built_in">static_cast</span>&lt;<span class="hljs-type">int</span>&gt;(d); <span class="hljs-comment">// 正确，需要显式转换</span><br></code></pre></td></tr></table></figure></li>
+</ul>
+<p><strong>3.</strong> 底层类型指定</p>
+<ul>
+<li><strong>解释</strong>：在 enum class 中，可以明确指定枚举的底层类型（如 int, unsigned int），默认是 int。这给了开发者更多的控制权，特别是在对内存占用或特定位宽有要求的情况下。</li>
+<li><strong>示例</strong>：  <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">enum class</span> <span class="hljs-title class_">Direction</span> : <span class="hljs-type">unsigned</span> <span class="hljs-type">int</span><br>&#123;<br>    None = <span class="hljs-number">0</span>,<br>    Up,<br>    Down,<br>    Left,<br>    Right<br><br>&#125;;<br></code></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="解释：-1"><a href="#解释：-1" class="headerlink" title="解释："></a>解释：</h4><ul>
+<li>在强类型枚举中，<code>Color color = 2;</code> 是不允许的，因为强类型枚举不允许隐式地将 <code>int</code> 转换为枚举类型。</li>
+<li>需要通过 <code>static_cast&lt;Color&gt;(2)</code> 显式地进行转换，才能将整数 <code>2</code> 转换为 <code>Color</code> 枚举类型。</li>
+<li>同样，若要将枚举值转换为整数，需要使用 <code>static_cast&lt;int&gt;(color)</code>。</li>
+</ul>
+<h3 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h3><ul>
+<li><strong>弱类型枚举（传统的 <code>enum</code>）</strong>：允许隐式地将整数赋给枚举类型，反之亦然。</li>
+<li><strong>强类型枚举（<code>enum class</code>）</strong>：不允许隐式转换，必须显式地进行类型转换。</li>
+</ul>
 <h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/ruisun09/article/details/108535736">RTTR实现C++反射（1）集成rttr库_可以参考doxygen的安装</a><br><a target="_blank" rel="noopener" href="https://cmake.org/download/">CMake下载地址</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/nanke_yh/article/details/124346308">Windows下Boost库的安装与使用</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/ff900709/article/details/82225288">局域网内和局域网间的通信（交换机和路由器）</a></p>
 
                 
@@ -409,8 +446,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>知识点二_constexpr_RTTR安装_局域网为什么使用MAC地址通信</div>
-      <div>https://wing2791.github.io/2024/11/02/知识点二_constexpr_RTTR安装_局域网为什么使用MAC地址通信/</div>
+      <div>知识点二_constexpr_RTTR安装_局域网为什么使用MAC地址通信_弱类型枚举和强类型枚举</div>
+      <div>https://wing2791.github.io/2024/11/02/知识点二_constexpr_RTTR安装_局域网为什么使用MAC地址通信_弱类型枚举和强类型枚举/</div>
     </div>
     <div class="license-meta">
       
@@ -453,6 +490,12 @@
                 <div class="post-prevnext my-3">
                   <article class="post-prev col-6">
                     
+                    
+                      <a href="/2024/11/05/%E7%9F%A5%E8%AF%86%E7%82%B9%E4%B8%89_%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86(Cpp)/" title="知识点三_网络编程相关知识(Cpp)">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">知识点三_网络编程相关知识(Cpp)</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
                     
                   </article>
                   <article class="post-next col-6">

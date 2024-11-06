@@ -1,0 +1,678 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="wing2791">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="网络编程的基础知识，socket的库函数 网络通讯是指两台计算机中的程序进行数据传输的过程  客户程序（端）：指主动发起通讯的程序  服务程序（端&#x2F;器）：指被动的等待，然后为向它发起通讯的客户端提供服务  demo1.cpp  客户端 12345678910111213141516171819202122232425262728293031323334353637383940414243">
+<meta property="og:type" content="article">
+<meta property="og:title" content="知识点三_网络编程相关知识(Cpp)">
+<meta property="og:url" content="https://wing2791.github.io/2024/11/05/%E7%9F%A5%E8%AF%86%E7%82%B9%E4%B8%89_%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86(Cpp)/index.html">
+<meta property="og:site_name" content="Day Day Up!">
+<meta property="og:description" content="网络编程的基础知识，socket的库函数 网络通讯是指两台计算机中的程序进行数据传输的过程  客户程序（端）：指主动发起通讯的程序  服务程序（端&#x2F;器）：指被动的等待，然后为向它发起通讯的客户端提供服务  demo1.cpp  客户端 12345678910111213141516171819202122232425262728293031323334353637383940414243">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-11-05T15:54:11.447Z">
+<meta property="article:modified_time" content="2024-11-06T04:14:46.556Z">
+<meta property="article:author" content="wing2791">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>知识点三_网络编程相关知识(Cpp) - Day Day Up!</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"wing2791.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>wing2791的小窝</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="知识点三_网络编程相关知识(Cpp)"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-11-05 23:54" pubdate>
+          2024年11月5日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1.3k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          11 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">知识点三_网络编程相关知识(Cpp)</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="网络编程的基础知识，socket的库函数"><a href="#网络编程的基础知识，socket的库函数" class="headerlink" title="网络编程的基础知识，socket的库函数"></a>网络编程的基础知识，socket的库函数</h1><ul>
+<li><p>网络通讯是指两台计算机中的程序进行数据传输的过程</p>
+</li>
+<li><p>客户程序（端）：指主动发起通讯的程序</p>
+</li>
+<li><p>服务程序（端&#x2F;器）：指被动的等待，然后为向它发起通讯的客户端提供服务</p>
+</li>
+<li><p>demo1.cpp</p>
+</li>
+<li><p>客户端</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-comment">/*</span><br><span class="hljs-comment"> * 程序名：demo1.cpp，此程序用于演示socket的客户端</span><br><span class="hljs-comment"> */</span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;cstdio&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;cstring&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;cstdlib&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;unistd.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;netdb.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;sys/types.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;sys/socket.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;arpa/inet.h&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-type">int</span> argc, <span class="hljs-type">char</span> *argv[])</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">if</span> (argc != <span class="hljs-number">3</span>)<br>    &#123;<br>        cout &lt;&lt; <span class="hljs-string">&quot;Using:./demo1 服务端的IP 服务端的端口\nExample:./demo1 192.168.101.139 5005\n\n&quot;</span>;<br>        <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;<br>    &#125;<br><br>    <span class="hljs-comment">// 第1步：创建客户端的socket。</span><br>    <span class="hljs-type">int</span> sockfd = <span class="hljs-built_in">socket</span>(AF_INET, SOCK_STREAM, <span class="hljs-number">0</span>);<br>    <span class="hljs-keyword">if</span> (sockfd == <span class="hljs-number">-1</span>)<br>    &#123;<br>        <span class="hljs-built_in">perror</span>(<span class="hljs-string">&quot;socket&quot;</span>);<br>        <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;<br>    &#125;<br><br>    <span class="hljs-comment">// 第2步：向服务器发起连接请求。</span><br>    <span class="hljs-keyword">struct</span> <span class="hljs-title class_">hostent</span> *h;                     <span class="hljs-comment">// 用于存放服务端IP的结构体。</span><br>    <span class="hljs-keyword">if</span> ((h = <span class="hljs-built_in">gethostbyname</span>(argv[<span class="hljs-number">1</span>])) == <span class="hljs-number">0</span>) <span class="hljs-comment">// 把字符串格式的IP转换成结构体。</span><br>    &#123;<br>        cout &lt;&lt; <span class="hljs-string">&quot;gethostbyname failed.\n&quot;</span><br>             &lt;&lt; endl;<br>        <span class="hljs-built_in">close</span>(sockfd);<br>        <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;<br>    &#125;<br>    <span class="hljs-keyword">struct</span> <span class="hljs-title class_">sockaddr_in</span> servaddr; <span class="hljs-comment">// 用于存放服务端IP和端口的结构体。</span><br>    <span class="hljs-built_in">memset</span>(&amp;servaddr, <span class="hljs-number">0</span>, <span class="hljs-built_in">sizeof</span>(servaddr));<br>    servaddr.sin_family = AF_INET;<br>    <span class="hljs-built_in">memcpy</span>(&amp;servaddr.sin_addr, h-&gt;h_addr, h-&gt;h_length); <span class="hljs-comment">// 指定服务端的IP地址。</span><br>    servaddr.sin_port = <span class="hljs-built_in">htons</span>(<span class="hljs-built_in">atoi</span>(argv[<span class="hljs-number">2</span>]));           <span class="hljs-comment">// 指定服务端的通信端口。</span><br><br>    <span class="hljs-keyword">if</span> (<span class="hljs-built_in">connect</span>(sockfd, (<span class="hljs-keyword">struct</span> sockaddr *)&amp;servaddr, <span class="hljs-built_in">sizeof</span>(servaddr)) != <span class="hljs-number">0</span>) <span class="hljs-comment">// 向服务端发起连接清求。</span><br>    &#123;<br>        <span class="hljs-built_in">perror</span>(<span class="hljs-string">&quot;connect&quot;</span>);<br>        <span class="hljs-built_in">close</span>(sockfd);<br>        <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;<br>    &#125;<br><br>    <span class="hljs-comment">// 第3步：与服务端通讯，客户发送一个请求报文后等待服务端的回复，收到回复后，再发下一个请求报文。</span><br>    <span class="hljs-type">char</span> buffer[<span class="hljs-number">1024</span>];<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> ii = <span class="hljs-number">0</span>; ii &lt; <span class="hljs-number">3</span>; ii++) <span class="hljs-comment">// 循环3次，将与服务端进行三次通讯。</span><br>    &#123;<br>        <span class="hljs-type">int</span> iret;<br>        <span class="hljs-built_in">memset</span>(buffer, <span class="hljs-number">0</span>, <span class="hljs-built_in">sizeof</span>(buffer));<br>        <span class="hljs-built_in">sprintf</span>(buffer, <span class="hljs-string">&quot;这是第%d个超级女生，编号%03d。&quot;</span>, ii + <span class="hljs-number">1</span>, ii + <span class="hljs-number">1</span>); <span class="hljs-comment">// 生成请求报文内容。</span><br>        <span class="hljs-comment">// 向服务端发送请求报文。</span><br>        <span class="hljs-keyword">if</span> ((iret = <span class="hljs-built_in">send</span>(sockfd, buffer, <span class="hljs-built_in">strlen</span>(buffer), <span class="hljs-number">0</span>)) &lt;= <span class="hljs-number">0</span>)<br>        &#123;<br>            <span class="hljs-built_in">perror</span>(<span class="hljs-string">&quot;send&quot;</span>);<br>            <span class="hljs-keyword">break</span>;<br>        &#125;<br>        cout &lt;&lt; <span class="hljs-string">&quot;发送：&quot;</span> &lt;&lt; buffer &lt;&lt; endl;<br><br>        <span class="hljs-built_in">memset</span>(buffer, <span class="hljs-number">0</span>, <span class="hljs-built_in">sizeof</span>(buffer));<br>        <span class="hljs-comment">// 接收服务端的回应报文，如果服务端没有发送回应报文，recv()函数将阻塞等待。</span><br>        <span class="hljs-keyword">if</span> ((iret = <span class="hljs-built_in">recv</span>(sockfd, buffer, <span class="hljs-built_in">sizeof</span>(buffer), <span class="hljs-number">0</span>)) &lt;= <span class="hljs-number">0</span>)<br>        &#123;<br>            cout &lt;&lt; <span class="hljs-string">&quot;iret=&quot;</span> &lt;&lt; iret &lt;&lt; endl;<br>            <span class="hljs-keyword">break</span>;<br>        &#125;<br>        cout &lt;&lt; <span class="hljs-string">&quot;接收：&quot;</span> &lt;&lt; buffer &lt;&lt; endl;<br><br>        <span class="hljs-built_in">sleep</span>(<span class="hljs-number">1</span>);<br>    &#125;<br><br>    <span class="hljs-comment">// 第4步：关闭socket，释放资源。</span><br>    <span class="hljs-built_in">close</span>(sockfd);<br>&#125;<br><br></code></pre></td></tr></table></figure>
+</li>
+<li><p>服务端</p>
+</li>
+<li><p>demo2.cpp</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-comment">/*</span><br><span class="hljs-comment"> * 程序名：demo2.cpp，此程序用于演示socket通信的服务端</span><br><span class="hljs-comment"> */</span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;cstdio&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;cstring&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;cstdlib&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;unistd.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;netdb.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;sys/types.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;sys/socket.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;arpa/inet.h&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-type">int</span> argc, <span class="hljs-type">char</span> *argv[])</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">if</span> (argc != <span class="hljs-number">2</span>)<br>    &#123;<br>        cout &lt;&lt; <span class="hljs-string">&quot;Using:./demo2 通讯端口\nExample:./demo2 5005\n\n&quot;</span>; <span class="hljs-comment">// 端口大于1024，不与其它的重复。</span><br>        cout &lt;&lt; <span class="hljs-string">&quot;注意：运行服务端程序的Linux系统的防火墙必须要开通5005端口。\n&quot;</span>;<br>        cout &lt;&lt; <span class="hljs-string">&quot;      如果是云服务器，还要开通云平台的访问策略。\n\n&quot;</span>;<br>        <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;<br>    &#125;<br><br>    <span class="hljs-comment">// 第1步：创建服务端的socket。</span><br>    <span class="hljs-type">int</span> listenfd = <span class="hljs-built_in">socket</span>(AF_INET, SOCK_STREAM, <span class="hljs-number">0</span>);<br>    <span class="hljs-keyword">if</span> (listenfd == <span class="hljs-number">-1</span>)<br>    &#123;<br>        <span class="hljs-built_in">perror</span>(<span class="hljs-string">&quot;socket&quot;</span>);<br>        <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;<br>    &#125;<br><br>    <span class="hljs-comment">// 第2步：把服务端用于通信的IP和端口绑定到socket上。</span><br>    <span class="hljs-keyword">struct</span> <span class="hljs-title class_">sockaddr_in</span> servaddr; <span class="hljs-comment">// 用于存放服务端IP和端口的数据结构。</span><br>    <span class="hljs-built_in">memset</span>(&amp;servaddr, <span class="hljs-number">0</span>, <span class="hljs-built_in">sizeof</span>(servaddr));<br>    servaddr.sin_family = AF_INET;                <span class="hljs-comment">// 指定协议。</span><br>    servaddr.sin_addr.s_addr = <span class="hljs-built_in">htonl</span>(INADDR_ANY); <span class="hljs-comment">// 服务端任意网卡的IP都可以用于通讯。</span><br>    servaddr.sin_port = <span class="hljs-built_in">htons</span>(<span class="hljs-built_in">atoi</span>(argv[<span class="hljs-number">1</span>]));     <span class="hljs-comment">// 指定通信端口，普通用户只能用1024以上的端口。</span><br>    <span class="hljs-comment">// 绑定服务端的IP和端口。</span><br>    <span class="hljs-keyword">if</span> (<span class="hljs-built_in">bind</span>(listenfd, (<span class="hljs-keyword">struct</span> sockaddr *)&amp;servaddr, <span class="hljs-built_in">sizeof</span>(servaddr)) != <span class="hljs-number">0</span>)<br>    &#123;<br>        <span class="hljs-built_in">perror</span>(<span class="hljs-string">&quot;bind&quot;</span>);<br>        <span class="hljs-built_in">close</span>(listenfd);<br>        <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;<br>    &#125;<br><br>    <span class="hljs-comment">// 第3步：把socket设置为可连接（监听）的状态。</span><br>    <span class="hljs-keyword">if</span> (<span class="hljs-built_in">listen</span>(listenfd, <span class="hljs-number">5</span>) != <span class="hljs-number">0</span>)<br>    &#123;<br>        <span class="hljs-built_in">perror</span>(<span class="hljs-string">&quot;listen&quot;</span>);<br>        <span class="hljs-built_in">close</span>(listenfd);<br>        <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;<br>    &#125;<br><br>    <span class="hljs-comment">// 第4步：受理客户端的连接请求，如果没有客户端连上来，accept()函数将阻塞等待。</span><br>    <span class="hljs-type">int</span> clientfd = <span class="hljs-built_in">accept</span>(listenfd, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>);<br>    <span class="hljs-keyword">if</span> (clientfd == <span class="hljs-number">-1</span>)<br>    &#123;<br>        <span class="hljs-built_in">perror</span>(<span class="hljs-string">&quot;accept&quot;</span>);<br>        <span class="hljs-built_in">close</span>(listenfd);<br>        <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;<br>    &#125;<br><br>    cout &lt;&lt; <span class="hljs-string">&quot;客户端已连接。\n&quot;</span>;<br><br>    <span class="hljs-comment">// 第5步：与客户端通信，接收客户端发过来的报文后，回复ok。</span><br>    <span class="hljs-type">char</span> buffer[<span class="hljs-number">1024</span>];<br>    <span class="hljs-keyword">while</span> (<span class="hljs-literal">true</span>)<br>    &#123;<br>        <span class="hljs-type">int</span> iret;<br>        <span class="hljs-built_in">memset</span>(buffer, <span class="hljs-number">0</span>, <span class="hljs-built_in">sizeof</span>(buffer));<br>        <span class="hljs-comment">// 接收客户端的请求报文，如果客户端没有发送请求报文，recv()函数将阻塞等待。</span><br>        <span class="hljs-comment">// 如果客户端已断开连接，recv()函数将返回0,直接退出服务端</span><br>        <span class="hljs-comment">// 如果 iret &gt; 0，表示成功接收到数据，返回的是接收到的字节数。</span><br>        <span class="hljs-comment">// 如果 iret == 0，表示连接已关闭，数据传输结束。</span><br>        <span class="hljs-comment">// 如果 iret &lt; 0，则发生错误。常见错误可能是网络问题或对方异常断开连接。</span><br>        <span class="hljs-keyword">if</span> ((iret = <span class="hljs-built_in">recv</span>(clientfd, buffer, <span class="hljs-built_in">sizeof</span>(buffer), <span class="hljs-number">0</span>)) &lt;= <span class="hljs-number">0</span>)<br>        &#123;<br>            cout &lt;&lt; <span class="hljs-string">&quot;iret=&quot;</span> &lt;&lt; iret &lt;&lt; endl;<br>            <span class="hljs-keyword">break</span>;<br>        &#125;<br>        cout &lt;&lt; <span class="hljs-string">&quot;接收：&quot;</span> &lt;&lt; buffer &lt;&lt; endl;<br><br>        <span class="hljs-built_in">strcpy</span>(buffer, <span class="hljs-string">&quot;ok&quot;</span>); <span class="hljs-comment">// 生成回应报文内容。</span><br>        <span class="hljs-comment">// 向客户端发送回应报文。</span><br>        <span class="hljs-keyword">if</span> ((iret = <span class="hljs-built_in">send</span>(clientfd, buffer, <span class="hljs-built_in">strlen</span>(buffer), <span class="hljs-number">0</span>)) &lt;= <span class="hljs-number">0</span>)<br>        &#123;<br>            <span class="hljs-built_in">perror</span>(<span class="hljs-string">&quot;send&quot;</span>);<br>            <span class="hljs-keyword">break</span>;<br>        &#125;<br>        cout &lt;&lt; <span class="hljs-string">&quot;发送：&quot;</span> &lt;&lt; buffer &lt;&lt; endl;<br>    &#125;<br><br>    <span class="hljs-comment">// 第6步：关闭socket，释放资源。</span><br>    <span class="hljs-built_in">close</span>(listenfd); <span class="hljs-comment">// 关闭服务端用于监听的socket。</span><br>    <span class="hljs-built_in">close</span>(clientfd); <span class="hljs-comment">// 关闭客户端连上来的socket。</span><br>&#125;<br><br></code></pre></td></tr></table></figure></li>
+</ul>
+<h1 id="网络通讯的原理"><a href="#网络通讯的原理" class="headerlink" title="网络通讯的原理"></a>网络通讯的原理</h1><h1 id="I-O复用模型，selcet，poll，epoll，非阻塞的IO"><a href="#I-O复用模型，selcet，poll，epoll，非阻塞的IO" class="headerlink" title="I&#x2F;O复用模型，selcet，poll，epoll，非阻塞的IO"></a>I&#x2F;O复用模型，selcet，poll，epoll，非阻塞的IO</h1>
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>知识点三_网络编程相关知识(Cpp)</div>
+      <div>https://wing2791.github.io/2024/11/05/知识点三_网络编程相关知识(Cpp)/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>wing2791</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2024年11月5日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2024/11/02/%E7%9F%A5%E8%AF%86%E7%82%B9%E4%BA%8C_constexpr_RTTR%E5%AE%89%E8%A3%85_%E5%B1%80%E5%9F%9F%E7%BD%91%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BD%BF%E7%94%A8MAC%E5%9C%B0%E5%9D%80%E9%80%9A%E4%BF%A1_%E5%BC%B1%E7%B1%BB%E5%9E%8B%E6%9E%9A%E4%B8%BE%E5%92%8C%E5%BC%BA%E7%B1%BB%E5%9E%8B%E6%9E%9A%E4%B8%BE/" title="知识点二_constexpr_RTTR安装_局域网为什么使用MAC地址通信_弱类型枚举和强类型枚举">
+                        <span class="hidden-mobile">知识点二_constexpr_RTTR安装_局域网为什么使用MAC地址通信_弱类型枚举和强类型枚举</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <i class="iconfont icon-bilibili-fill"></i> <a href="https://space.bilibili.com/384847565" target="_blank" rel="nofollow noopener"><span>B站主页</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
