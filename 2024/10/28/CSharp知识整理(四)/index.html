@@ -27,7 +27,7 @@
 <meta property="og:description" content="一、 协变(out)和逆变(in)协变（covariance）和逆变（contravariance）是泛型类型参数的一种变换方式，主要用于解决泛型类型的继承关系，特别是在处理委托和接口时。这些概念在 C# 中尤其重要，因为它们帮助我们在类型安全的同时实现灵活的类型转换。  out一般指返回值 in一般指参数 都是里氏转换原则，out是使用父类接收子类，没问题 in是将参数为父类的赋值为参数为子类的">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-10-28T04:03:40.981Z">
-<meta property="article:modified_time" content="2024-11-10T10:55:01.346Z">
+<meta property="article:modified_time" content="2024-11-10T12:05:54.269Z">
 <meta property="article:author" content="wing2791">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -222,7 +222,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          12k 字
+          13k 字
         
       </span>
     
@@ -233,7 +233,7 @@
         
         
         
-          101 分钟
+          106 分钟
         
       </span>
     
@@ -465,27 +465,27 @@
 </ul>
 <h1 id="七、-预处理指令"><a href="#七、-预处理指令" class="headerlink" title="七、 预处理指令"></a>七、 预处理指令</h1><p>预处理器指令是编程语言中用于在编译期间进行条件编译、宏定义、文件包含等操作的特殊指令。在 C# 中，预处理器指令以 <code>#</code> 开头。以下是 C# 中一些常见的预处理器指令及其说明：</p>
 <h3 id="1-define-和-undef"><a href="#1-define-和-undef" class="headerlink" title="1. #define 和 #undef"></a>1. <code>#define</code> 和 <code>#undef</code></h3><ul>
-<li>**<code>#define</code>**：定义一个符号，之后可以在代码中通过条件编译使用。</li>
-<li>**<code>#undef</code>**：取消定义一个符号。<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-meta">#<span class="hljs-keyword">define</span> DEBUG</span><br><br><span class="hljs-meta">#<span class="hljs-keyword">if</span> DEBUG</span><br>    Console.WriteLine(<span class="hljs-string">&quot;Debugging mode&quot;</span>);<br><span class="hljs-meta">#<span class="hljs-keyword">endif</span></span><br><br><span class="hljs-meta">#<span class="hljs-keyword">undef</span> DEBUG</span><br></code></pre></td></tr></table></figure></li>
+<li><code>#define</code>：定义一个符号，之后可以在代码中通过条件编译使用。</li>
+<li><code>#undef</code>：取消定义一个符号。<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-meta">#<span class="hljs-keyword">define</span> DEBUG</span><br><br><span class="hljs-meta">#<span class="hljs-keyword">if</span> DEBUG</span><br>    Console.WriteLine(<span class="hljs-string">&quot;Debugging mode&quot;</span>);<br><span class="hljs-meta">#<span class="hljs-keyword">endif</span></span><br><br><span class="hljs-meta">#<span class="hljs-keyword">undef</span> DEBUG</span><br></code></pre></td></tr></table></figure></li>
 </ul>
 <h3 id="2-if-elif-else-endif"><a href="#2-if-elif-else-endif" class="headerlink" title="2. #if, #elif, #else, #endif"></a>2. <code>#if</code>, <code>#elif</code>, <code>#else</code>, <code>#endif</code></h3><ul>
-<li>**<code>#if</code>**：根据条件编译代码块。可以与 <code>#define</code> 结合使用。</li>
-<li><strong><code>#elif</code><strong>、</strong><code>#else</code></strong> 和 **<code>#endif</code>**：用于条件编译中的其他情况。<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-meta">#<span class="hljs-keyword">define</span> DEBUG</span><br><br><span class="hljs-meta">#<span class="hljs-keyword">if</span> DEBUG</span><br>    Console.WriteLine(<span class="hljs-string">&quot;Debugging mode&quot;</span>);<br><span class="hljs-meta">#<span class="hljs-keyword">elif</span> RELEASE</span><br>    Console.WriteLine(<span class="hljs-string">&quot;Release mode&quot;</span>);<br><span class="hljs-meta">#<span class="hljs-keyword">else</span></span><br>    Console.WriteLine(<span class="hljs-string">&quot;No mode defined&quot;</span>);<br><span class="hljs-meta">#<span class="hljs-keyword">endif</span></span><br></code></pre></td></tr></table></figure></li>
+<li><code>#if</code>：根据条件编译代码块。可以与 <code>#define</code> 结合使用。</li>
+<li><code>#elif</code>、<code>#else</code> 和 <code>#endif</code>：用于条件编译中的其他情况。<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-meta">#<span class="hljs-keyword">define</span> DEBUG</span><br><br><span class="hljs-meta">#<span class="hljs-keyword">if</span> DEBUG</span><br>    Console.WriteLine(<span class="hljs-string">&quot;Debugging mode&quot;</span>);<br><span class="hljs-meta">#<span class="hljs-keyword">elif</span> RELEASE</span><br>    Console.WriteLine(<span class="hljs-string">&quot;Release mode&quot;</span>);<br><span class="hljs-meta">#<span class="hljs-keyword">else</span></span><br>    Console.WriteLine(<span class="hljs-string">&quot;No mode defined&quot;</span>);<br><span class="hljs-meta">#<span class="hljs-keyword">endif</span></span><br></code></pre></td></tr></table></figure></li>
 </ul>
 <h3 id="3-region-和-endregion"><a href="#3-region-和-endregion" class="headerlink" title="3. #region 和 #endregion"></a>3. <code>#region</code> 和 <code>#endregion</code></h3><ul>
-<li>**<code>#region</code>**：用于定义一个代码区域，可以在代码编辑器中折叠和展开。</li>
-<li>**<code>#endregion</code>**：结束一个区域的定义。<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-meta">#<span class="hljs-keyword">region</span> MyRegion</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">MyMethod</span>()</span><br>&#123;<br>    <span class="hljs-comment">// Method implementation</span><br>&#125;<br><span class="hljs-meta">#<span class="hljs-keyword">endregion</span></span><br></code></pre></td></tr></table></figure></li>
+<li><code>#region</code>：用于定义一个代码区域，可以在代码编辑器中折叠和展开。</li>
+<li><code>#endregion</code>：结束一个区域的定义。<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-meta">#<span class="hljs-keyword">region</span> MyRegion</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">MyMethod</span>()</span><br>&#123;<br>    <span class="hljs-comment">// Method implementation</span><br>&#125;<br><span class="hljs-meta">#<span class="hljs-keyword">endregion</span></span><br></code></pre></td></tr></table></figure></li>
 </ul>
 <h3 id="4-error-和-warning"><a href="#4-error-和-warning" class="headerlink" title="4. #error 和 #warning"></a>4. <code>#error</code> 和 <code>#warning</code></h3><ul>
-<li>**<code>#error</code>**：强制编译错误并输出指定的消息。</li>
-<li>**<code>#warning</code>**：发出编译警告并输出指定的消息。<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-meta">#<span class="hljs-keyword">error</span> &quot;This code should not be compiled&quot;</span><br><span class="hljs-meta">#<span class="hljs-keyword">warning</span> &quot;This code should not be compiled&quot;</span><br></code></pre></td></tr></table></figure></li>
+<li><code>#error</code>：强制编译错误并输出指定的消息。</li>
+<li><code>#warning</code>：发出编译警告并输出指定的消息。<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-meta">#<span class="hljs-keyword">error</span> &quot;This code should not be compiled&quot;</span><br><span class="hljs-meta">#<span class="hljs-keyword">warning</span> &quot;This code should not be compiled&quot;</span><br></code></pre></td></tr></table></figure></li>
 </ul>
 <h3 id="5-line"><a href="#5-line" class="headerlink" title="5. #line"></a>5. <code>#line</code></h3><ul>
-<li>**<code>#line</code>**：用于设置行号和文件名。主要用于代码生成或预处理。<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-meta">#<span class="hljs-keyword">line</span> 100 &quot;MyFile.cs&quot;</span><br></code></pre></td></tr></table></figure>
+<li><code>#line</code>**：用于设置行号和文件名。主要用于代码生成或预处理。<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-meta">#<span class="hljs-keyword">line</span> 100 &quot;MyFile.cs&quot;</span><br></code></pre></td></tr></table></figure>
 使用 <code>#line 100 &quot;MyFile.cs&quot;</code> 将后续代码的行号视为 100，并且指定了文件名为 <code>&quot;MyFile.cs&quot;</code>。因此，如果在这个方法中发生编译错误，编译器会报告这个错误位于 <code>MyFile.cs</code> 的第 100 行，而不是实际源文件中的行号。这对于代码生成和预处理非常有用，尤其是在使用代码生成器或动态生成代码的情况下。</li>
 </ul>
 <h3 id="6-pragma"><a href="#6-pragma" class="headerlink" title="6. #pragma"></a>6. <code>#pragma</code></h3><ul>
-<li>**<code>#pragma</code>**：用于启用或禁用编译器特性，常用于控制警告的显示。<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-meta">#<span class="hljs-keyword">pragma</span> <span class="hljs-keyword">warning</span> disable 0168 // 忽略未使用的变量警告</span><br><span class="hljs-comment">// 0168是代码，具体可以参考编译器给的警告提示，或者文档说明</span><br></code></pre></td></tr></table></figure></li>
+<li><code>#pragma</code>：用于启用或禁用编译器特性，常用于控制警告的显示。<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-meta">#<span class="hljs-keyword">pragma</span> <span class="hljs-keyword">warning</span> disable 0168 // 忽略未使用的变量警告</span><br><span class="hljs-comment">// 0168是代码，具体可以参考编译器给的警告提示，或者文档说明</span><br></code></pre></td></tr></table></figure></li>
 </ul>
 <h1 id="八、-反射"><a href="#八、-反射" class="headerlink" title="八、 反射"></a>八、 反射</h1><p>反射是 .NET 提供的一种强大功能，允许程序在运行时检查和操作类型信息，包括类、结构、接口、方法、属性等。通过反射，开发者可以动态地创建对象、调用方法、访问字段和属性，甚至可以修改它们的值。这在许多情况下非常有用，例如在插件系统、序列化和调试工具中。</p>
 <ul>
@@ -550,7 +550,7 @@
 </ul>
 <h3 id="Activator"><a href="#Activator" class="headerlink" title="Activator"></a><code>Activator</code></h3><p><code>Activator</code> 是一个用于在运行时动态创建对象的类，通常用于反射或依赖注入的场景。<code>Activator.CreateInstance</code> 是其中一个常用的方法，用于创建一个指定类型的实例。下面是一些常见的使用方式和示例。</p>
 <h3 id="1-创建无参数构造函数的实例"><a href="#1-创建无参数构造函数的实例" class="headerlink" title="1. 创建无参数构造函数的实例"></a>1. 创建无参数构造函数的实例</h3><p>如果要创建一个使用无参数构造函数的类实例，可以这样做：</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">MyClass</span><br>&#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-built_in">int</span> Value &#123; <span class="hljs-keyword">get</span>; <span class="hljs-keyword">set</span>; &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">MyClass</span>()</span><br>    &#123;<br>        Value = <span class="hljs-number">42</span>;<br>    &#125;<br>&#125;<br><br><span class="hljs-keyword">class</span> <span class="hljs-title">Program</span><br>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Main</span>()</span><br>    &#123;<br>        <span class="hljs-comment">// 使用 Activator 创建无参数的实例</span><br>        MyClass myObject = (MyClass)Activator.CreateInstance(<span class="hljs-keyword">typeof</span>(MyClass));<br>        Console.WriteLine(myObject.Value); <span class="hljs-comment">// 输出 42</span><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-keyword">using</span> System;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">MyClass</span><br>&#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-built_in">int</span> Value &#123; <span class="hljs-keyword">get</span>; <span class="hljs-keyword">set</span>; &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">MyClass</span>()</span><br>    &#123;<br>        Value = <span class="hljs-number">42</span>;<br>    &#125;<br>&#125;<br><br><span class="hljs-keyword">class</span> <span class="hljs-title">Program</span><br>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Main</span>()</span><br>    &#123;<br>        <span class="hljs-comment">// 原始对象</span><br>        MyClass originalObject = <span class="hljs-keyword">new</span> MyClass();<br>        originalObject.Value = <span class="hljs-number">100</span>;<br>        Type targetType = originalObject.GetType();  <span class="hljs-comment">// 可以是运行时才确定的类型</span><br><br>        <span class="hljs-comment">// 动态创建实例</span><br>        <span class="hljs-built_in">object</span> newObject = Activator.CreateInstance(targetType);<br><br>        <span class="hljs-comment">// 将动态创建的实例转换为 MyClass 类型</span><br>        MyClass myClassInstance = newObject <span class="hljs-keyword">as</span> MyClass;<br><br>        <span class="hljs-keyword">if</span> (myClassInstance != <span class="hljs-literal">null</span>)<br>        &#123;<br>            Console.WriteLine(myClassInstance.Value); <span class="hljs-comment">// 输出 42</span><br>        &#125;<br>        <span class="hljs-keyword">else</span><br>        &#123;<br>            Console.WriteLine(<span class="hljs-string">&quot;创建实例失败&quot;</span>);<br>        &#125;<br>    &#125;<br>&#125;<br><br></code></pre></td></tr></table></figure>
 
 <p>在这个例子中，<code>Activator.CreateInstance</code> 创建了一个 <code>MyClass</code> 的实例，并调用了默认的无参数构造函数。</p>
 <h3 id="2-创建带参数的构造函数的实例"><a href="#2-创建带参数的构造函数的实例" class="headerlink" title="2. 创建带参数的构造函数的实例"></a>2. 创建带参数的构造函数的实例</h3><p>如果需要调用带参数的构造函数，可以在 <code>CreateInstance</code> 中传递参数值：</p>
@@ -680,7 +680,7 @@
 <li>可以通过继承IEnumerator，IEnumerable接口实现其中得方法</li>
 </ul>
 <h3 id="示例：自定义迭代器"><a href="#示例：自定义迭代器" class="headerlink" title="示例：自定义迭代器"></a>示例：自定义迭代器</h3><p>假设我们想要创建一个表示斐波那契数列的类，并提供一个迭代器来遍历该数列。</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-keyword">using</span> System;<br><span class="hljs-keyword">using</span> System.Collections;<br><span class="hljs-keyword">using</span> System.Collections.Generic;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">FibonacciSequence</span> : <span class="hljs-title">IEnumerable</span>&lt;<span class="hljs-title">int</span>&gt;<br>&#123;<br>    <span class="hljs-keyword">private</span> <span class="hljs-built_in">int</span> _count;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">FibonacciSequence</span>(<span class="hljs-params"><span class="hljs-built_in">int</span> count</span>)</span><br>    &#123;<br>        _count = count;<br>    &#125;<br><br>    <span class="hljs-comment">// 实现 IEnumerable&lt;int&gt; 接口</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> IEnumerator&lt;<span class="hljs-built_in">int</span>&gt; <span class="hljs-title">GetEnumerator</span>()</span><br>    &#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> FibonacciEnumerator(_count);<br>    &#125;<br><br>    <span class="hljs-comment">// 实现 IEnumerable 接口</span><br>    IEnumerator IEnumerable.GetEnumerator()<br>    &#123;<br>        <span class="hljs-keyword">return</span> GetEnumerator();<br>    &#125;<br><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">class</span> <span class="hljs-title">FibonacciEnumerator</span> : <span class="hljs-title">IEnumerator</span>&lt;<span class="hljs-title">int</span>&gt;<br>    &#123;<br>        <span class="hljs-keyword">private</span> <span class="hljs-built_in">int</span> _count;<br>        <span class="hljs-keyword">private</span> <span class="hljs-built_in">int</span> _currentIndex = <span class="hljs-number">-1</span>;<br>        <span class="hljs-keyword">private</span> <span class="hljs-built_in">int</span> _previous = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">private</span> <span class="hljs-built_in">int</span> _current = <span class="hljs-number">1</span>;<br><br>        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">FibonacciEnumerator</span>(<span class="hljs-params"><span class="hljs-built_in">int</span> count</span>)</span><br>        &#123;<br>            _count = count;<br>        &#125;<br><br><br>        <span class="hljs-comment">// 就是用来返回当前的值的，也就是迭代器的当前值</span><br>        <span class="hljs-comment">// 是一个属性</span><br>        <span class="hljs-keyword">public</span> <span class="hljs-built_in">int</span> Current =&gt; _current;<br>        <span class="hljs-comment">//public int Current</span><br>        <span class="hljs-comment">//&#123;</span><br>        <span class="hljs-comment">//    get</span><br>        <span class="hljs-comment">//    &#123;</span><br>        <span class="hljs-comment">//        Console.WriteLine(&quot;Current被调用&quot;);</span><br>        <span class="hljs-comment">//        return _current;</span><br>        <span class="hljs-comment">//    &#125;</span><br>        <span class="hljs-comment">//&#125;</span><br><br>        <span class="hljs-built_in">object</span> IEnumerator.Current =&gt; Current;<br><br>        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-built_in">bool</span> <span class="hljs-title">MoveNext</span>()</span><br>        &#123;<br>            <span class="hljs-keyword">if</span> (_currentIndex &gt;= _count - <span class="hljs-number">1</span>)<br>                <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br><br>            <span class="hljs-keyword">if</span> (_currentIndex == <span class="hljs-number">-1</span>)<br>            &#123;<br>                _currentIndex++;<br>                <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>            &#125;<br><br>            <span class="hljs-comment">// 这里实现了斐波拉且数列的相加</span><br>            <span class="hljs-built_in">int</span> next = _previous + _current;<br>            _previous = _current;<br>            _current = next;<br>            _currentIndex++;<br>            <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>        &#125;<br><br>        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Reset</span>()</span><br>        &#123;<br>            _currentIndex = <span class="hljs-number">-1</span>;<br>            _previous = <span class="hljs-number">0</span>;<br>            _current = <span class="hljs-number">1</span>;<br>        &#125;<br><br>        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Dispose</span>()</span> &#123; &#125;<br>    &#125;<br>&#125;<br><br><span class="hljs-keyword">class</span> <span class="hljs-title">Program</span><br>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Main</span>()</span><br>    &#123;<br>        <span class="hljs-keyword">var</span> fibonacci = <span class="hljs-keyword">new</span> FibonacciSequence(<span class="hljs-number">10</span>);<br><br>        <span class="hljs-keyword">foreach</span> (<span class="hljs-keyword">var</span> number <span class="hljs-keyword">in</span> fibonacci)<br>        &#123;<br>            Console.WriteLine(number);<br>        &#125;<br>    &#125;<br>&#125;<br><br></code></pre></td></tr></table></figure>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-keyword">using</span> System;<br><span class="hljs-keyword">using</span> System.Collections;<br><span class="hljs-keyword">using</span> System.Collections.Generic;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">FibonacciSequence</span> : <span class="hljs-title">IEnumerable</span>&lt;<span class="hljs-title">int</span>&gt;<br>&#123;<br>    <span class="hljs-keyword">private</span> <span class="hljs-built_in">int</span> _count;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">FibonacciSequence</span>(<span class="hljs-params"><span class="hljs-built_in">int</span> count</span>)</span><br>    &#123;<br>        _count = count;<br>    &#125;<br><br>    <span class="hljs-comment">// 实现 IEnumerable&lt;int&gt; 接口</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> IEnumerator&lt;<span class="hljs-built_in">int</span>&gt; <span class="hljs-title">GetEnumerator</span>()</span><br>    &#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> FibonacciEnumerator(_count);<br>    &#125;<br><br>    <span class="hljs-comment">// 实现 IEnumerable 接口</span><br>    IEnumerator IEnumerable.GetEnumerator()<br>    &#123;<br>        <span class="hljs-keyword">return</span> GetEnumerator();<br>    &#125;<br><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">class</span> <span class="hljs-title">FibonacciEnumerator</span> : <span class="hljs-title">IEnumerator</span>&lt;<span class="hljs-title">int</span>&gt;<br>    &#123;<br>        <span class="hljs-keyword">private</span> <span class="hljs-built_in">int</span> _count;<br>        <span class="hljs-keyword">private</span> <span class="hljs-built_in">int</span> _currentIndex = <span class="hljs-number">-1</span>;<br>        <span class="hljs-keyword">private</span> <span class="hljs-built_in">int</span> _previous = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">private</span> <span class="hljs-built_in">int</span> _current = <span class="hljs-number">1</span>;<br><br>        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">FibonacciEnumerator</span>(<span class="hljs-params"><span class="hljs-built_in">int</span> count</span>)</span><br>        &#123;<br>            _count = count;<br>        &#125;<br><br><br>        <span class="hljs-comment">// 就是用来返回当前的值的，也就是迭代器的当前值</span><br>        <span class="hljs-comment">// 是一个属性</span><br>        <span class="hljs-keyword">public</span> <span class="hljs-built_in">int</span> Current =&gt; _current;<br>        <span class="hljs-comment">//public int Current</span><br>        <span class="hljs-comment">//&#123;</span><br>        <span class="hljs-comment">//    get</span><br>        <span class="hljs-comment">//    &#123;</span><br>        <span class="hljs-comment">//        Console.WriteLine(&quot;Current被调用&quot;);</span><br>        <span class="hljs-comment">//        return _current;</span><br>        <span class="hljs-comment">//    &#125;</span><br>        <span class="hljs-comment">//&#125;</span><br><br>        <span class="hljs-built_in">object</span> IEnumerator.Current =&gt; Current;<br>        <span class="hljs-comment">// 等价于下main得代码，是属性</span><br>        <span class="hljs-comment">//object IEnumerator.Current</span><br>        <span class="hljs-comment">//&#123;</span><br>        <span class="hljs-comment">//    get &#123; return Current; &#125;</span><br>        <span class="hljs-comment">//&#125;</span><br><br>        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-built_in">bool</span> <span class="hljs-title">MoveNext</span>()</span><br>        &#123;<br>            <span class="hljs-keyword">if</span> (_currentIndex &gt;= _count - <span class="hljs-number">1</span>)<br>                <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br><br>            <span class="hljs-keyword">if</span> (_currentIndex == <span class="hljs-number">-1</span>)<br>            &#123;<br>                _currentIndex++;<br>                <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>            &#125;<br><br>            <span class="hljs-comment">// 这里实现了斐波拉且数列的相加</span><br>            <span class="hljs-built_in">int</span> next = _previous + _current;<br>            _previous = _current;<br>            _current = next;<br>            _currentIndex++;<br>            <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>        &#125;<br><br>        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Reset</span>()</span><br>        &#123;<br>            _currentIndex = <span class="hljs-number">-1</span>;<br>            _previous = <span class="hljs-number">0</span>;<br>            _current = <span class="hljs-number">1</span>;<br>        &#125;<br><br>        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Dispose</span>()</span> &#123; &#125;<br>    &#125;<br>&#125;<br><br><span class="hljs-keyword">class</span> <span class="hljs-title">Program</span><br>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Main</span>()</span><br>    &#123;<br>        <span class="hljs-keyword">var</span> fibonacci = <span class="hljs-keyword">new</span> FibonacciSequence(<span class="hljs-number">10</span>);<br><br>        <span class="hljs-keyword">foreach</span> (<span class="hljs-keyword">var</span> number <span class="hljs-keyword">in</span> fibonacci)<br>        &#123;<br>            Console.WriteLine(number);<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 <h4 id="代码说明"><a href="#代码说明" class="headerlink" title="代码说明"></a>代码说明</h4><ol>
 <li><strong>FibonacciSequence 类</strong>：<ul>
 <li>实现了 <code>IEnumerable&lt;int&gt;</code> 接口，表示可以迭代的集合。</li>
@@ -710,6 +710,120 @@
 </ul>
 </li>
 </ol>
+<blockquote>
+<p>这段代码定义了一个自定义的 <code>IEnumerable</code> 实现，用于生成指定数量的斐波那契数列。代码通过 <code>FibonacciSequence</code> 类生成数列，并通过嵌套的 <code>FibonacciEnumerator</code> 类逐步计算和返回斐波那契数。</p>
+</blockquote>
+<p>按调用流程逐步解析这段代码：</p>
+<ol>
+<li><strong>创建 <code>FibonacciSequence</code> 实例</strong>：<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-keyword">var</span> fibonacci = <span class="hljs-keyword">new</span> FibonacciSequence(<span class="hljs-number">10</span>);<br></code></pre></td></tr></table></figure>
+这行代码创建一个 <code>FibonacciSequence</code> 实例，用于生成前 10 个斐波那契数。</li>
+<li><strong>进入 <code>foreach</code> 循环</strong>：<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-keyword">foreach</span> (<span class="hljs-keyword">var</span> number <span class="hljs-keyword">in</span> fibonacci)<br>&#123;<br>    Console.WriteLine(number);<br>&#125;<br></code></pre></td></tr></table></figure>
+这个 <code>foreach</code> 循环会隐式调用 <code>fibonacci.GetEnumerator()</code> 方法，返回一个 <code>FibonacciEnumerator</code> 对象。<code>foreach</code> 会在每次迭代时调用 <code>MoveNext()</code> 和 <code>Current</code>，直到 <code>MoveNext()</code> 返回 <code>false</code>。</li>
+</ol>
+<h4 id="迭代器具体调用流程"><a href="#迭代器具体调用流程" class="headerlink" title="迭代器具体调用流程"></a>迭代器具体调用流程</h4><p>以下是每个方法的作用及调用顺序：</p>
+<ol>
+<li><p>**调用 <code>GetEnumerator</code>**：</p>
+<ul>
+<li><code>fibonacci.GetEnumerator()</code> 返回一个 <code>FibonacciEnumerator</code> 实例，它是实际负责生成斐波那契数的迭代器。</li>
+</ul>
+</li>
+<li><p>**进入迭代 (<code>MoveNext</code> and <code>Current</code>)**：</p>
+<ul>
+<li>**首次调用 <code>MoveNext()</code>**：<ul>
+<li><code>_currentIndex</code> 初始值为 <code>-1</code>，此时更新为 <code>0</code>，然后返回 <code>true</code>。</li>
+<li>此时 <code>Current</code> 的值为 <code>1</code>，它代表斐波那契数列的第一个值。</li>
+</ul>
+</li>
+<li><strong>获取 <code>Current</code> 的值</strong>：<ul>
+<li><code>foreach</code> 调用 <code>IEnumerator.Current</code>，返回当前的 <code>_current</code> 值（<code>1</code>），将其打印。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>后续迭代</strong>：</p>
+<ul>
+<li>每次调用 <code>MoveNext()</code> 依次计算下一个斐波那契数：<ul>
+<li><code>next = _previous + _current</code>：计算下一个斐波那契值。</li>
+<li>更新 <code>_previous</code> 和 <code>_current</code>，并递增 <code>_currentIndex</code>。</li>
+</ul>
+</li>
+<li>调用 <code>Current</code> 时返回最新的 <code>_current</code> 值，逐个输出到控制台。</li>
+</ul>
+</li>
+<li><p><strong>结束迭代</strong>：</p>
+<ul>
+<li>当 <code>_currentIndex &gt;= _count - 1</code> 时，<code>MoveNext()</code> 返回 <code>false</code>，<code>foreach</code> 循环结束。</li>
+</ul>
+</li>
+</ol>
+<h4 id="流程图示例"><a href="#流程图示例" class="headerlink" title="流程图示例"></a>流程图示例</h4><p>以下为每次调用的关键变量变化：</p>
+<table>
+<thead>
+<tr>
+<th>Step</th>
+<th><code>_currentIndex</code></th>
+<th><code>_previous</code></th>
+<th><code>_current</code></th>
+<th>Output</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Initial</td>
+<td>-1</td>
+<td>0</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>1st MoveNext</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>2nd MoveNext</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>3rd MoveNext</td>
+<td>2</td>
+<td>1</td>
+<td>2</td>
+<td>2</td>
+</tr>
+<tr>
+<td>4th MoveNext</td>
+<td>3</td>
+<td>2</td>
+<td>3</td>
+<td>3</td>
+</tr>
+<tr>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+</tr>
+<tr>
+<td>Final</td>
+<td>9</td>
+<td>…</td>
+<td>…</td>
+<td>34</td>
+</tr>
+</tbody></table>
+<p>当 <code>MoveNext()</code> 返回 <code>false</code>，表示序列结束。</p>
+<h3 id="IEnumerator-接口的实现细节"><a href="#IEnumerator-接口的实现细节" class="headerlink" title="IEnumerator 接口的实现细节"></a><code>IEnumerator</code> 接口的实现细节</h3><ul>
+<li>**<code>Current</code>**：始终返回 <code>_current</code> 值，表示当前斐波那契数。</li>
+<li>**<code>MoveNext</code>**：更新斐波那契值并判断是否继续。</li>
+<li>**<code>Reset</code>**：重置所有值，使迭代器可以重新开始（仅在手动调用时生效）。</li>
+</ul>
+<p>通过这个实现，每次调用 <code>MoveNext()</code> 都会生成新的斐波那契数，直到达到指定的数量。</p>
 <h3 id="yield-return实现迭代器"><a href="#yield-return实现迭代器" class="headerlink" title="yield return实现迭代器"></a>yield return实现迭代器</h3><p>使用 <code>yield return</code> 可以轻松地实现迭代器，提供一种简洁的方式来返回序列中的每个元素。下面是一个示例，演示如何使用 <code>yield return</code> 创建一个生成 Fibonacci 数列的迭代器。</p>
 <ul>
 <li>只需要继承IEnumerable接口</li>
