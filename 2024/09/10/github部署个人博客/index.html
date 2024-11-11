@@ -32,7 +32,7 @@
 <meta property="og:image" content="https://s21.ax1x.com/2024/09/10/pAm8FTe.png">
 <meta property="og:image" content="https://s21.ax1x.com/2024/09/10/pAm8AFH.png">
 <meta property="article:published_time" content="2024-09-09T17:20:03.886Z">
-<meta property="article:modified_time" content="2024-09-09T17:28:23.735Z">
+<meta property="article:modified_time" content="2024-11-11T11:41:57.727Z">
 <meta property="article:author" content="wing2791">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://s21.ax1x.com/2024/09/10/pAm8py6.png">
@@ -228,7 +228,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          646 字
+          660 字
         
       </span>
     
@@ -299,9 +299,9 @@
 <h4 id="安装-hexo"><a href="#安装-hexo" class="headerlink" title="安装 hexo"></a>安装 hexo</h4><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/zhujingxiu/articles/7462025.html" title="发布于 2017-09-01 10:34">Win10 任意目录下默认快速以管理员身份运行 CMD</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/clearloe/article/details/139879493">安装 hexo 参考博客链接</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_42786011/article/details/123895927">运行 npm install 不动时</a></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs shell">//  配置nmp代理来提高速度，如设置淘宝镜像<br>npm config set registry  https://registry.npmmirror.com/<br><br>// 查看配置是否成功<br>npm config get registry<br><br>// 成功后重新npm install安装<br>// npm install 。。。<br></code></pre></td></tr></table></figure>
 
-<h4 id="更新文章"><a href="#更新文章" class="headerlink" title="更新文章"></a>更新文章</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">hexo c &amp;&amp; hexo g &amp;&amp; hexo d<br></code></pre></td></tr></table></figure>
+<h4 id="更新文章"><a href="#更新文章" class="headerlink" title="更新文章"></a>更新文章</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">提交远程仓库更新</span><br>hexo c &amp;&amp; hexo g &amp;&amp; hexo d<br></code></pre></td></tr></table></figure>
 
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">hexo c &amp;&amp; hexo g &amp;&amp; hexo s<br></code></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">本地更新</span><br>hexo c &amp;&amp; hexo g &amp;&amp; hexo s<br></code></pre></td></tr></table></figure>
 
 <h4 id="遇上的错误，解决方法供参考"><a href="#遇上的错误，解决方法供参考" class="headerlink" title="遇上的错误，解决方法供参考"></a>遇上的错误，解决方法供参考</h4><h5 id="fatal-detected-dubious-ownership-in-repository"><a href="#fatal-detected-dubious-ownership-in-repository" class="headerlink" title="fatal: detected dubious ownership in repository"></a>fatal: detected dubious ownership in repository</h5><p><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/73408170/git-fatal-detected-dubious-ownership">参考博客</a></p>
 <p><img src="https://s21.ax1x.com/2024/09/10/pAm8py6.png" srcset="/img/loading.gif" lazyload alt="202407281829173"></p>
@@ -326,15 +326,13 @@
 <li><p>先进入自己 blog 的目录<br><img src="https://s21.ax1x.com/2024/09/10/pAm8PeO.png" srcset="/img/loading.gif" lazyload alt="image-20240728203701626"></p>
 </li>
 <li><p>用命令安装（如果第二次使用还是失效，重新运行下列命令，会重新安装一遍，再弄就是可以了，具体的解决方案没找到）</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># npm install https://github.com/7ym0n/hexo-asset-image --save # 已经失效，换一个</span><br>npm install hexo-asset-img --save<br></code></pre></td></tr></table></figure>
-</li>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># npm install https://github.com/7ym0n/hexo-asset-image --save # 已经失效，换一个</span><br>npm install hexo-asset-img --save<br></code></pre></td></tr></table></figure></li>
 <li><p>运行下列命令，提交本地查看结果</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">hexo clean &amp;&amp; hexo g &amp;&amp; hexo s # 本地查看<br>hexo clean &amp;&amp; hexo g &amp;&amp; hexo d # 上传到github<br></code></pre></td></tr></table></figure></li>
 </ul>
 </li>
 <li><p>修改 hexo 根目录下的_config.yml 文件</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash">post_asset_folder: <span class="hljs-literal">true</span><br><br><span class="hljs-comment"># URL</span><br><span class="hljs-comment">## If your site is put in a subdirectory, set url as &#x27;http://yoursite.com/child&#x27; and root as &#x27;/child/&#x27;</span><br>url: http://yourname.github.io<br></code></pre></td></tr></table></figure>
-</li>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash">post_asset_folder: <span class="hljs-literal">true</span><br><br><span class="hljs-comment"># URL</span><br><span class="hljs-comment">## If your site is put in a subdirectory, set url as &#x27;http://yoursite.com/child&#x27; and root as &#x27;/child/&#x27;</span><br>url: http://yourname.github.io<br></code></pre></td></tr></table></figure></li>
 <li><p>插入图片</p>
 <ul>
 <li>我用的是 typora，直接设置如下，然后复制图片，直接到文件中即可</li>
