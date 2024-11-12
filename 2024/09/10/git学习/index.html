@@ -55,7 +55,7 @@
 <meta property="og:image" content="https://s21.ax1x.com/2024/11/12/pAcGh9A.png">
 <meta property="og:image" content="https://s21.ax1x.com/2024/11/12/pAcG41I.png">
 <meta property="article:published_time" content="2024-09-09T17:20:03.889Z">
-<meta property="article:modified_time" content="2024-11-12T08:47:54.932Z">
+<meta property="article:modified_time" content="2024-11-12T08:55:32.398Z">
 <meta property="article:author" content="wing2791">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://s21.ax1x.com/2024/11/09/pA6aUaT.md.png">
@@ -431,7 +431,7 @@
 <li><p>因为我们已经进行了SSH设置，可以直接用SSH的链接进行克隆</p>
 </li>
 <li><p>如果代码库很大，只克隆前十次的提交结果</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs git">git clone git@github.com:xxx/xxx.git --depth 10<br>git submodule update --init --recursive # 对于一些久远的分支，需要用这个更新子模块<br>git status # 查看状态，确定是否有尚未track的子模块<br># 上面两个命令我也没用过，以后再说<br></code></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs git">git clone git@github.com:xxx/xxx.git --depth 10<br>git submodule update --init --recursive # 对于一些久远的分支，需要用这个更新子模块，暂时好像不能用，以后再说<br>git status # 查看状态，确定是否有尚未track的子模块<br># 上面两个命令我也没用过，以后再说<br></code></pre></td></tr></table></figure>
 <p><a target="_blank" rel="noopener" href="https://imgse.com/i/pAcuaHs"><img src="https://s21.ax1x.com/2024/11/11/pAcuaHs.png" srcset="/img/loading.gif" lazyload alt="SSH 方式克隆代码到本地仓库"></a></p>
 </li>
 <li><p>因为刚下载仓库，会自动生成一个文件夹，文件夹名称就是仓库名</p>
