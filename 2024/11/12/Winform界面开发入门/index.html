@@ -21,8 +21,8 @@
   
     <meta name="description" content="小总结   控件名称 作用描述    Button 按钮控件，触发事件或命令   Label 标签控件，显示文本或描述性信息   TextBox 文本框控件，允许用户输入或显示文本   RichTextBox 富文本框控件，支持格式化文本输入与显示   CheckBox 复选框控件，多选或布尔值选项   RadioButton 单选按钮控件，用于实现单选选项   ListBox 列表框控件，显示多">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Winform界面开发">
-<meta property="og:url" content="https://wing2791.github.io/2024/11/12/Winform%E7%95%8C%E9%9D%A2%E5%BC%80%E5%8F%91/index.html">
+<meta property="og:title" content="Winform界面开发入门">
+<meta property="og:url" content="https://wing2791.github.io/2024/11/12/Winform%E7%95%8C%E9%9D%A2%E5%BC%80%E5%8F%91%E5%85%A5%E9%97%A8/index.html">
 <meta property="og:site_name" content="Day Day Up!">
 <meta property="og:description" content="小总结   控件名称 作用描述    Button 按钮控件，触发事件或命令   Label 标签控件，显示文本或描述性信息   TextBox 文本框控件，允许用户输入或显示文本   RichTextBox 富文本框控件，支持格式化文本输入与显示   CheckBox 复选框控件，多选或布尔值选项   RadioButton 单选按钮控件，用于实现单选选项   ListBox 列表框控件，显示多">
 <meta property="og:locale" content="zh_CN">
@@ -50,14 +50,14 @@
 <meta property="og:image" content="https://s2.loli.net/2024/11/13/5QKcb9PMT71Z68l.png">
 <meta property="og:image" content="https://s2.loli.net/2024/11/13/hm7NPTSguWJO8CY.png">
 <meta property="article:published_time" content="2024-11-12T12:00:01.901Z">
-<meta property="article:modified_time" content="2024-11-13T06:22:15.310Z">
+<meta property="article:modified_time" content="2024-11-13T09:29:12.434Z">
 <meta property="article:author" content="wing2791">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://s2.loli.net/2024/11/13/WromYGP8XBRj9Mn.png">
   
   
   
-  <title>Winform界面开发 - Day Day Up!</title>
+  <title>Winform界面开发入门 - Day Day Up!</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -223,7 +223,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Winform界面开发"></span>
+            <span id="subtitle" data-typed-text="Winform界面开发入门"></span>
           
         </div>
 
@@ -246,7 +246,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.9k 字
+          2.1k 字
         
       </span>
     
@@ -257,7 +257,7 @@
         
         
         
-          16 分钟
+          18 分钟
         
       </span>
     
@@ -294,7 +294,7 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">Winform界面开发</h1>
+            <h1 id="seo-header">Winform界面开发入门</h1>
             
             
               <div class="markdown-body">
@@ -454,11 +454,19 @@
 </ul>
 <figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Index_FormClosed</span>(<span class="hljs-params"><span class="hljs-built_in">object</span> sender, FormClosedEventArgs e</span>)</span><br>&#123;<br>	<span class="hljs-comment">// 让整个程序全部退出</span><br>	Application.Exit();<br>&#125;<br></code></pre></td></tr></table></figure>
 
-
-
-
-
-<h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h1><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1JY4y1G7jo">【Winform入门教程 Visual Studio 2022】Winform界面开发入门</a></p>
+<h1 id="GDI"><a href="#GDI" class="headerlink" title="GDI"></a>GDI</h1><ul>
+<li>GDI绘图的基本步骤</li>
+</ul>
+<ol>
+<li>在窗体或者空间上创建画家（确定画在哪里，由谁来画）</li>
+<li>创建或使用已有的画笔或画刷、以及要画图像相关的坐标点</li>
+<li>使用画家对象的相关方法绘制图像</li>
+<li>销毁画家及画笔等</li>
+</ol>
+<ul>
+<li>需要放在From中的Paint事件中<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-keyword">using</span> System;<br><span class="hljs-keyword">using</span> System.Collections.Generic;<br><span class="hljs-keyword">using</span> System.ComponentModel;<br><span class="hljs-keyword">using</span> System.Data;<br><span class="hljs-keyword">using</span> System.Drawing;<br><span class="hljs-keyword">using</span> System.Linq;<br><span class="hljs-keyword">using</span> System.Text;<br><span class="hljs-keyword">using</span> System.Threading.Tasks;<br><span class="hljs-keyword">using</span> System.Windows.Forms;<br><br><span class="hljs-keyword">namespace</span> <span class="hljs-title">StudyWinform</span><br>&#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">partial</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Form1</span> : <span class="hljs-title">Form</span><br>    &#123;<br>        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Form1</span>()</span><br>        &#123;<br>            InitializeComponent();<br>            <span class="hljs-keyword">this</span>.Paint += Form1_Paint;<br>        &#125;<br><br>        <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Form1_Paint</span>(<span class="hljs-params"><span class="hljs-built_in">object</span> sender, PaintEventArgs e</span>)</span><br>        &#123;<br>            <span class="hljs-comment">// 使用Paint事件传递的Graphics对象，避免手动释放资源</span><br>            Graphics g = e.Graphics;<br>            <span class="hljs-comment">// 创建一个画笔</span><br>            <span class="hljs-keyword">using</span> (Pen pen = <span class="hljs-keyword">new</span> Pen(Color.Red, <span class="hljs-number">5</span>))<br>            &#123;<br>                <span class="hljs-comment">// 准备两个点</span><br>                Point p1 = <span class="hljs-keyword">new</span> Point(<span class="hljs-number">50</span>, <span class="hljs-number">80</span>);<br>                Point p2 = <span class="hljs-keyword">new</span> Point(<span class="hljs-number">250</span>, <span class="hljs-number">80</span>);<br><br>                <span class="hljs-comment">// 画直线</span><br>                g.DrawLine(pen, p1, p2);<br>            &#125;<br>        &#125;<br><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure></li>
+</ul>
+<h1 id="俄罗斯方块（联网）"><a href="#俄罗斯方块（联网）" class="headerlink" title="俄罗斯方块（联网）"></a>俄罗斯方块（联网）</h1><h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h1><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1JY4y1G7jo">【Winform入门教程 Visual Studio 2022】Winform界面开发入门</a><br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/483896504">中国象棋游戏开发实战（C#）</a></p>
 
                 
               </div>
@@ -476,8 +484,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Winform界面开发</div>
-      <div>https://wing2791.github.io/2024/11/12/Winform界面开发/</div>
+      <div>Winform界面开发入门</div>
+      <div>https://wing2791.github.io/2024/11/12/Winform界面开发入门/</div>
     </div>
     <div class="license-meta">
       
@@ -520,6 +528,12 @@
                 <div class="post-prevnext my-3">
                   <article class="post-prev col-6">
                     
+                    
+                      <a href="/2024/11/13/WPF%E7%95%8C%E9%9D%A2%E5%BC%80%E5%8F%91%E5%85%A5%E9%97%A8/" title="WPF界面开发入门">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">WPF界面开发入门</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
                     
                   </article>
                   <article class="post-next col-6">
