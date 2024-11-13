@@ -21,19 +21,19 @@
   
     <meta name="description" content="小总结   控件名称 作用描述    Button 按钮控件，触发事件或命令   Label 标签控件，显示文本或描述性信息   TextBox 文本框控件，允许用户输入或显示文本   RichTextBox 富文本框控件，支持格式化文本输入与显示   CheckBox 复选框控件，多选或布尔值选项   RadioButton 单选按钮控件，用于实现单选选项   ListBox 列表框控件，显示多">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Day Day Up!">
+<meta property="og:title" content="Winform界面开发">
 <meta property="og:url" content="https://wing2791.github.io/2024/11/12/Winform%E7%95%8C%E9%9D%A2%E5%BC%80%E5%8F%91/index.html">
 <meta property="og:site_name" content="Day Day Up!">
 <meta property="og:description" content="小总结   控件名称 作用描述    Button 按钮控件，触发事件或命令   Label 标签控件，显示文本或描述性信息   TextBox 文本框控件，允许用户输入或显示文本   RichTextBox 富文本框控件，支持格式化文本输入与显示   CheckBox 复选框控件，多选或布尔值选项   RadioButton 单选按钮控件，用于实现单选选项   ListBox 列表框控件，显示多">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-11-12T12:00:01.901Z">
-<meta property="article:modified_time" content="2024-11-12T15:43:07.351Z">
+<meta property="article:modified_time" content="2024-11-13T05:25:18.759Z">
 <meta property="article:author" content="wing2791">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>Day Day Up!</title>
+  <title>Winform界面开发 - Day Day Up!</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -199,7 +199,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text=""></span>
+            <span id="subtitle" data-typed-text="Winform界面开发"></span>
           
         </div>
 
@@ -270,7 +270,7 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header"></h1>
+            <h1 id="seo-header">Winform界面开发</h1>
             
             
               <div class="markdown-body">
@@ -452,7 +452,7 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div></div>
+      <div>Winform界面开发</div>
       <div>https://wing2791.github.io/2024/11/12/Winform界面开发/</div>
     </div>
     <div class="license-meta">
@@ -559,6 +559,12 @@
 
 
   
+
+
+  
+  
+
+
 
 
 
@@ -751,6 +757,49 @@
 
 
   <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
 
   <script  src="/js/local-search.js" ></script>
 
