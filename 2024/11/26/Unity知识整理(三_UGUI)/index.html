@@ -1,0 +1,2339 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="wing2791">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="NGUI全称下一代用户界面(Next-Gen UI)它是第三方提供的Unity付费插件专门用于制作Unity中游戏UI的第三方工具相对于GUI它更适用于制作游戏UI功能更方便使用，性能和效率更高Unity插件：是一种基于Unity规范编写出来的程序，主要用于拓展功能，简单理解就是别人基于Unity写好的某种功能代码，我们可以直接用来处理特定的游戏逻辑  UGUI导入 打开资源商店  搜索NGUI">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Day Day Up!">
+<meta property="og:url" content="https://wing2791.github.io/2024/11/26/Unity%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86(%E4%B8%89_UGUI)/index.html">
+<meta property="og:site_name" content="Day Day Up!">
+<meta property="og:description" content="NGUI全称下一代用户界面(Next-Gen UI)它是第三方提供的Unity付费插件专门用于制作Unity中游戏UI的第三方工具相对于GUI它更适用于制作游戏UI功能更方便使用，性能和效率更高Unity插件：是一种基于Unity规范编写出来的程序，主要用于拓展功能，简单理解就是别人基于Unity写好的某种功能代码，我们可以直接用来处理特定的游戏逻辑  UGUI导入 打开资源商店  搜索NGUI">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/VjU51TOEKnqoGNH.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/QLpyRGWAPH9FKjz.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/qiJn3wsXbrON6AS.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/mvx8n3hNIUFWfrB.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/ZFAp6CjQ8rxbygt.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/AI8OdcPezFvTVMN.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/6V9MuAfjZCNo5cL.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/J8eKsuX3qgM5nBP.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/ui4xV1S9X23AtNd.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/97KiC1UoGWgda3z.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/Lhse8CGqUz5j7Iv.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/OchYZAvETXzbiNr.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/MQI9gUeFqYXTrLk.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/dkX2Twsb7pKyWEJ.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/u6xYagU1Avc5psD.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/MRFHAI1JPoBUuDE.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/zO1489ZoIsXrmVN.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/BgzUijdC2kH5cSA.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/IjToOCir9YQ31VN.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/3KRMLVtnUJFdefl.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/VeJp4mKQjSOIzwZ.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/35vFa1Q4YcewAUL.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/8pxksJZHGwiVWOC.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/EDepYzNaHr92k85.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/demlM3NwcTiGYqQ.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/UiDxuLdM7beIJSK.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/aiFM7G26XIWsbK3.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/hoCbcT6sDMut318.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/41ECxoSjdsvpb6Z.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/KUM5lWtYOuh3wnG.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/yjZnpKwtbmfrxuH.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/QRKkvdcHTgqb4ta.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/6J1kqtMfHB74lTR.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/mz6o4XKYF1GwnMP.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/pZXcoL6NSKy1mli.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/XKNvHecLsA65m98.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/VrPFJvpybigO4R2.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/vYzILJPkxo98HfK.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/mCZXMDfYKGUd9tN.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/YNVM5bEsdXFouU4.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/EvZ5sDy4jUROJAd.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/A47BGrZ6bMF9Hix.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/yXLRjnmbsVodNZ2.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/QvSOui9PwjGz6Zs.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/5UV12zoAZu8S9K4.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/svQRYon7XyTDk18.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/Wbo2SAkvpNLt7UH.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/rWnpoIhLG1yc2ax.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/JMIHdwzheRtlrEa.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/g9I6iR5OqdUeQHL.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/XEqUhoOpjVAareb.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/AFK1lW3GEs5yw6R.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/bMndSasTrOvI9fF.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/aIhb7qAlFiOZMQ2.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/U9rpyc1Jzihld3C.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/qBSMYVOpAP1DIZ5.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/r1lnGX7fDP98JUI.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/16Cs5EqwgKjHf3b.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/SoKmBIxYiyCWGML.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/SAwfZJTmuxatOQo.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/segwvyktdCrVF7f.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/c5K7fQp1EW3NYew.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/G4BOAcM7jDlf596.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/RUm6PeXhWVg2sB9.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/ThvaPIXCuSYz5pB.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/AgQnNE1rToZx3DG.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/hSQVE2va8xOwdpW.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/LanmfdQZUqAyu9W.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/vHyzYkO1Z4mX3N7.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/KDm3ybs9WOxRLoA.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/pmWdnZ1JQNIrMO5.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/UYS1FhQdBVxIe3K.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/TZQU6YKCrGljVxR.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/UvWxKfuwgTJhO3Y.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/cs3KLb4HThD69WF.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/C7l2cdtSITEaODk.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/mG6H7tEI3aBUYfn.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/OVnsUmJlCp79PQK.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/uwFtcRb4DoT1ixf.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/waJirGL4bQ7MXUf.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/PJ63qxQRcVYaleX.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/aedbJqSOk1mxQsr.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/o8OpU1GlRXN4qjY.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/iAWZ9JUCvkTtpGY.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/NWXdlAj4qKmVrJp.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/c3RP7UyBZuIFdXw.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/bHGnIKW3jDUV1cm.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/W8UcetuLTbazQfZ.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/Lli8vGdBckJX1sh.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/lsMKpuxA7XTHUjb.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/ycfSoqX3uWwltZR.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/Wv1xMhgjaFV6ecC.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/YRDlGMwdQy8S3T4.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/8pzmGqVaNdIZCBi.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/xZSKqFRcrDoYNVC.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/PHdLwpjsecXWaIT.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/RwsEy4S5nND1z3T.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/kUJXTzcbqIj9ipy.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/apK1vrzlUscoAZ6.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/RA4TYraCbNL7vhW.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/Fa56kZ1q7jNzXHK.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/uPITABFdXv4tGRc.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/v51r2G9X7jHi6OQ.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/kBt5rx8pwb9XPDJ.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/2rDFgWBSUwX9vIO.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/tCkwXEWv1fRKFil.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/VQuXgjtapqUYPf1.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/7nRQfbNaBjGgSvy.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/8HYL9sPO6uTVCy2.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/NHgIA6tMpEChvxR.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/B2YI6sNXokiFyMZ.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/lnmyW9gcYET1oSA.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/ramjKoG7BktHNSQ.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/qEdlVCLvnwBMZ7g.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/XkRvxwzbhF2dLie.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/eHjQ5nf46s8Ki2F.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/HRLaNSTQYU6wKb1.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/tGQHxY8ZflKS2Pg.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/ngVY5A7yDe6ZU3m.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/zD19BokjPnRaJdU.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/uthZdGXCAsoFc6I.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/PLbKsq9Zjk8TAGC.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/WluQxzXq8mG9VUD.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/urToBsby2lCS9Av.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/oTpHAvRYeOBPjV2.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/R8DcvzwtUZ2g4FY.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/lHIP8bBXd9DViS7.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/dwV1LpqSkWmejvo.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/xVuHUw9ArMbkL8G.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/HzhyXdYm6uLDpM4.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/cp9GObg6FLZ3EY5.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/ZDLSya53eYb6nQH.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/ue8oCVFdswTnZjm.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/ZqMOSGniQNgBwJj.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/K8UEtMDcuhjwoxa.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/6DR7BeZWdMk1fQJ.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/bvtmaPqpURAJyui.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/Kj8HVyq29UnWISM.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/tpl5InaRfvgTWBV.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/Cr2LxgWzioQJ4ZD.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/rIkxMg4VPC6n8Nh.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/pEgviIrs27dotFC.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/xjg2XydAE5R9l7W.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/afz8oWbmtTjqJVy.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/1nrjMIfuV3HGtBR.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/blZIJVfXKgwtM5P.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/8qfhBbWcLaYldnP.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/74qDY9dCMNkotKz.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/JcFmYtoqv32Iu7n.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/64KbB2lZPcfYrNW.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/h9W8l2qNsSaPeuE.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/pNXaU7n6RsQjd4D.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/fSqVXb9coAUClLN.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/uIj1wP3KJACEHZ8.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/9uj4gPetBa2H81X.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/wxrjGetczCDyAsm.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/K5ouifPFLcgQpEs.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/GptVJS7gLsEZF8d.png">
+<meta property="og:image" content="https://s2.loli.net/2024/12/01/8b3KUg7dEOIyBnM.png">
+<meta property="article:published_time" content="2024-11-26T06:54:11.830Z">
+<meta property="article:modified_time" content="2024-12-01T08:14:13.280Z">
+<meta property="article:author" content="wing2791">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://s2.loli.net/2024/12/01/VjU51TOEKnqoGNH.png">
+  
+  
+  
+  <title>Day Day Up!</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"wing2791.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>wing2791的小窝</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text=""></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-11-26 14:54" pubdate>
+          2024年11月26日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          11k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          94 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header"></h1>
+            
+            
+              <div class="markdown-body">
+                
+                <blockquote>
+<p>NGUI全称下一代用户界面(Next-Gen UI)<br>它是第三方提供的Unity付费插件<br>专门用于制作Unity中游戏UI的第三方工具<br>相对于GUI它更适用于制作游戏UI功能<br>更方便使用，性能和效率更高<br>Unity插件：是一种基于Unity规范编写出来的程序，主要用于拓展功能，简单理解就是别人基于Unity写好的某种功能代码，我们可以直接用来处理特定的游戏逻辑</p>
+</blockquote>
+<h1 id="UGUI导入"><a href="#UGUI导入" class="headerlink" title="UGUI导入"></a>UGUI导入</h1><ul>
+<li><p>打开资源商店<br><img src="https://s2.loli.net/2024/12/01/VjU51TOEKnqoGNH.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20241126164355.png"></p>
+</li>
+<li><p>搜索NGUI<br><img src="https://s2.loli.net/2024/12/01/QLpyRGWAPH9FKjz.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20241126164726.png"></p>
+</li>
+<li><p>找到这个NGUI<br><img src="https://s2.loli.net/2024/12/01/qiJn3wsXbrON6AS.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20241126164740.png"></p>
+</li>
+<li><p>UI创建<br><img src="https://s2.loli.net/2024/12/01/mvx8n3hNIUFWfrB.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20241126164950.png"></p>
+</li>
+<li><p>另一种方式创建UI<br><img src="https://s2.loli.net/2024/12/01/ZFAp6CjQ8rxbygt.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20241126165232.png"></p>
+</li>
+</ul>
+<h1 id="ROOT组件"><a href="#ROOT组件" class="headerlink" title="ROOT组件"></a>ROOT组件</h1><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-keyword">using</span> System.Collections;<br><span class="hljs-keyword">using</span> System.Collections.Generic;<br><span class="hljs-keyword">using</span> UnityEngine;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Lesson1_Root</span> : <span class="hljs-title">MonoBehaviour</span><br>&#123;<br>    <span class="hljs-comment">// Start is called before the first frame update</span><br>    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Start</span>()</span><br>    &#123;<br>        <span class="hljs-meta">#<span class="hljs-keyword">region</span> 知识点一 必备知识——分辨率概念</span><br>        <span class="hljs-comment">//1.分辨率</span><br>        <span class="hljs-comment">//屏幕宽高两个方向的像素点</span><br>        <span class="hljs-comment">//比如1920 * 1080</span><br>        <span class="hljs-comment">//宽1920个像素</span><br>        <span class="hljs-comment">//高1080个像素</span><br><br>        <span class="hljs-comment">//2.像素</span><br>        <span class="hljs-comment">//像素</span><br>        <span class="hljs-comment">//像素即px</span><br>        <span class="hljs-comment">//是画面中最小的点(单位色块)</span><br><br>        <span class="hljs-comment">//3.屏幕尺寸</span><br>        <span class="hljs-comment">//屏幕对角线长度</span><br><br>        <span class="hljs-comment">//4.屏幕比例</span><br>        <span class="hljs-comment">//PC显示器</span><br>        <span class="hljs-comment">//1920:1080 = 16:9</span><br><br>        <span class="hljs-comment">//苹果手机</span><br>        <span class="hljs-comment">//iPhone7,8：1334 * 750 = 16:9</span><br>        <span class="hljs-comment">//iPhone 7,8 Plus：1920 * 1080 = 16:9</span><br>        <span class="hljs-comment">//iPhoneX：2436 * 1125 = 19.5:9</span><br>        <span class="hljs-comment">//iPhone12: 2532 * 1170 = 19.5:9</span><br><br>        <span class="hljs-comment">//目前市面上设备分辨率比例传统的有：</span><br>        <span class="hljs-comment">//4:3(ipad)</span><br>        <span class="hljs-comment">//16:10</span><br>        <span class="hljs-comment">//16:9(老手机 、电脑显示器)</span><br>        <span class="hljs-comment">//18:9（去掉留海屏幕）</span><br>        <span class="hljs-comment">//19.5:9（ 新款手机）</span><br>        <span class="hljs-comment">//19.9:9</span><br><br>        <span class="hljs-comment">//5.dpi</span><br>        <span class="hljs-comment">//像素密度</span><br>        <span class="hljs-comment">//单位面积上有多少个像素点</span><br>        <span class="hljs-comment">//一般指一英寸有多少个像素点</span><br>        <span class="hljs-meta">#<span class="hljs-keyword">endregion</span></span><br><br>        <span class="hljs-meta">#<span class="hljs-keyword">region</span> 知识点二 Root是用来干啥的</span><br>        <span class="hljs-comment">//Root是用于分辨率自适应的根对象</span><br>        <span class="hljs-comment">//可以设置基本分辨率,相当于设置UI显示区域</span><br>        <span class="hljs-comment">//并且管理所有UI控件的分辨率自适应</span><br><br>        <span class="hljs-comment">//可以简单理解 它管理一个 UI画布 所有的UI都是显示在这个画布上的</span><br>        <span class="hljs-comment">//它会管理 UI画布 和 不同屏幕分辨率的 适应关系</span><br>        <span class="hljs-meta">#<span class="hljs-keyword">endregion</span></span><br><br>        <span class="hljs-meta">#<span class="hljs-keyword">region</span> 知识点三 Root相关参数</span><br><br>        <span class="hljs-meta">#<span class="hljs-keyword">endregion</span></span><br><br>        <span class="hljs-meta">#<span class="hljs-keyword">region</span> 总结</span><br>        <span class="hljs-comment">//1.Flexible 适用于可以手动拖窗口改变分辨率的设备 比如pc端</span><br><br>        <span class="hljs-comment">//2.Constrained 适用于移动设备</span><br>        <span class="hljs-comment">//  因为移动设备都是全屏应用 不会频繁改变分辨率 只用适配不同分辨率的设备</span><br>        <span class="hljs-comment">//  横屏勾选 高 fit  竖屏 勾选 宽 fit 一般就可以比较好的进行分辨率适应了</span><br>        <span class="hljs-comment">//  需要注意的是 背景图 一定要考虑 极限 宽高比来出 最大宽高比  19.9:9</span><br><br>        <span class="hljs-comment">//3.Constrained On Mobiles 是上面两者的综合体 适用于多平台发布的游戏和应用</span><br>        <span class="hljs-meta">#<span class="hljs-keyword">endregion</span></span><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+<ul>
+<li><p>创建的2D UI</p>
+</li>
+<li><p>UI ROOT上有Root脚本和Panel脚本</p>
+</li>
+<li><p>Camera上有Event Systeam(UI Camera)脚本<br><img src="https://s2.loli.net/2024/12/01/AI8OdcPezFvTVMN.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20241126170036.png"><br><img src="https://s2.loli.net/2024/12/01/6V9MuAfjZCNo5cL.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20241126170217.png"></p>
+</li>
+<li><p>Flexible 适用于PC端</p>
+<ul>
+<li>灵活模式<ul>
+<li>在该模式下，U都是以像素为基础，100像素的物体无论在多少分辨率上都是100像素</li>
+<li>这就意味着，100像素在分辨率低的屏幕上可能显示正常，但是在高分辨率上就会显得很小</li>
+<li>Minimum Height 屏幕高小于该值时开始按比例缩放</li>
+<li>Maximum Height 屏幕高大于改值时开始按比例缩放</li>
+<li>Shrink Portrait UI  勾选时，竖屏时，按宽度来适配，就是上面的Min Height和Max Height改成了按照宽度适配</li>
+<li>Adjust by DPI 使用dpi做适配计算建议勾选</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Constrained 适用于手机端 </p>
+<ul>
+<li>约束模式</li>
+<li>该模式下，屏幕按尺寸比例来适配，不管实际屏幕有多大，NGUI都会通过合适的缩放来适配屏幕。</li>
+<li>这样在高分辨率上显示的UI就会被放大保持原有大小，但有可能会模糊，好处是各设备看到的UI和屏幕比例是一样的</li>
+<li>Content Width<ul>
+<li>按照该宽度值适配屏幕</li>
+<li>制作资源时的默认分辨率宽</li>
+</ul>
+</li>
+<li>Content Heigh<ul>
+<li>按照该高度值适配屏幕</li>
+<li>制作资源时的默认分辨率高</li>
+</ul>
+</li>
+<li>Fit表示以那个值做适配<ul>
+<li>勾选Width 屏幕比例变化时，按照宽度来适配 (宽度始终不变)<ul>
+<li>竖屏游戏</li>
+</ul>
+</li>
+<li>勾选Height 屏幕比例变化时，按照高度来适配 (高度始终不变)<ul>
+<li>横屏游戏</li>
+</ul>
+</li>
+<li>两个都勾选 <ul>
+<li>不会被裁剪，但是有黑边</li>
+<li>意思就是会把实际制作的图完全显示</li>
+<li>当适配宽高比大于实际宽高比时，就会按照宽度适配，反之按照高度适配</li>
+</ul>
+</li>
+<li>两个都不勾选<ul>
+<li>始终保证屏幕被UI填充满</li>
+<li>不会有黑边</li>
+<li>可能会被裁剪</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Constrained On Mobiles</p>
+<ul>
+<li>上面两种模式的综合体</li>
+<li>在PC和Mac等桌面设备上用Flexible模式</li>
+<li>在移动设备上用Constrained模式</li>
+</ul>
+</li>
+<li><p>选中UI Root，创建Sprite<br><img src="https://s2.loli.net/2024/12/01/J8eKsuX3qgM5nBP.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20241126170927.png"></p>
+</li>
+</ul>
+<p><img src="https://s2.loli.net/2024/12/01/ui4xV1S9X23AtNd.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20241126171119.png"></p>
+<ul>
+<li>红色的就是屏幕大小</li>
+<li>蓝色的是实际图片大小<br><img src="https://s2.loli.net/2024/12/01/97KiC1UoGWgda3z.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20241126173125.png"></li>
+</ul>
+<p><img src="https://s2.loli.net/2024/12/01/Lhse8CGqUz5j7Iv.png" srcset="/img/loading.gif" lazyload alt="缩放模式设置.png"></p>
+<h1 id="Panel"><a href="#Panel" class="headerlink" title="Panel"></a>Panel</h1><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-keyword">using</span> System.Collections;<br><span class="hljs-keyword">using</span> System.Collections.Generic;<br><span class="hljs-keyword">using</span> UnityEngine;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Lesson1_Panel</span> : <span class="hljs-title">MonoBehaviour</span><br>&#123;<br>    <span class="hljs-comment">// Start is called before the first frame update</span><br>    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Start</span>()</span><br>    &#123;<br>        <span class="hljs-meta">#<span class="hljs-keyword">region</span> 知识点一 Panel用来干啥</span><br>        <span class="hljs-comment">//1.管理一个UI面板的渲染顺序</span><br>        <span class="hljs-comment">//2.管理一个UI面板上的所有子控件</span><br>        <span class="hljs-comment">// 如果某个Sprite对象的父对象上没有Panel脚本，则Sprite精灵图则无法被渲染</span><br>        <span class="hljs-comment">// 所以必须要有一个Panel脚本，默认UI Root上有一个Panel脚本</span><br>        <span class="hljs-meta">#<span class="hljs-keyword">endregion</span></span><br><br>        <span class="hljs-meta">#<span class="hljs-keyword">region</span> 知识点二 Panel参数相关</span><br><br>        <span class="hljs-meta">#<span class="hljs-keyword">endregion</span></span><br><br>        <span class="hljs-meta">#<span class="hljs-keyword">region</span> 总结</span><br>        <span class="hljs-comment">//1.没有Panel父对象 UI控件看不到</span><br>        <span class="hljs-comment">//2.Panel一般用于管理面板 控制层级</span><br>        <span class="hljs-comment">//3.Panel可以有多个 一般一个Panel管理一个面板</span><br>        <span class="hljs-meta">#<span class="hljs-keyword">endregion</span></span><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>Alpha<ul>
+<li>控制所有子UI元素的透明度</li>
+</ul>
+</li>
+<li>Depth<ul>
+<li>控制该Panel的层级</li>
+<li>层级高的后渲染会把层级低的先渲染的遮挡住</li>
+</ul>
+</li>
+<li>Clipping 裁剪<ul>
+<li>None 不处理<ul>
+<li>正常</li>
+</ul>
+</li>
+<li>Texture Mask 根据图片信息进行遮罩<ul>
+<li>比如人物头像</li>
+</ul>
+</li>
+<li>Soft Clip 自己定范围裁剪 <ul>
+<li>比如拖动框</li>
+</ul>
+</li>
+<li>Constrain But Dont Clip 约束但不剪裁<ul>
+<li>不裁剪画面</li>
+<li>只限制响应范围</li>
+</ul>
+</li>
+<li>Sorting Layer 排序层</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://s2.loli.net/2024/12/01/OchYZAvETXzbiNr.png" srcset="/img/loading.gif" lazyload alt="重要参数.png"></p>
+<ul>
+<li><p>Advanced Options 渲染相关高级选项</p>
+<ul>
+<li>Render Q 渲染队列</li>
+<li>Sort Order 排序</li>
+<li>Normals 是否需要灯光着色器</li>
+<li>UV2 是否用于自定义着色器效果</li>
+<li>Shadow Mode 阴影模式<ul>
+<li>3DUI得时候用，2DUI不用</li>
+</ul>
+</li>
+<li>Cull 元素组件拖动时提出</li>
+<li>Visible 检查元素组件是否离开屏幕</li>
+<li>Padding 边界内容</li>
+<li>Offset 抵消偏移位置</li>
+<li>Static 检查子元素是否会移动</li>
+<li>Panel Tool 是否显示面板工具</li>
+</ul>
+</li>
+<li><p>Anchors  锚点设置</p>
+<ul>
+<li>用于分辨率自适应设置大小</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://s2.loli.net/2024/12/01/MQI9gUeFqYXTrLk.png" srcset="/img/loading.gif" lazyload alt="次要参数.png"></p>
+<h1 id="EventSystem组件（UIGamera）"><a href="#EventSystem组件（UIGamera）" class="headerlink" title="EventSystem组件（UIGamera）"></a>EventSystem组件（UIGamera）</h1><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-keyword">using</span> System.Collections;<br><span class="hljs-keyword">using</span> System.Collections.Generic;<br><span class="hljs-keyword">using</span> UnityEngine;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Lesson1_EventSystem</span> : <span class="hljs-title">MonoBehaviour</span><br>&#123;<br>    <span class="hljs-comment">// Start is called before the first frame update</span><br>    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Start</span>()</span><br>    &#123;<br>        <span class="hljs-meta">#<span class="hljs-keyword">region</span> 知识点一 EventSystem是用来干啥的</span><br>        <span class="hljs-comment">//主要作用是让摄像机渲染出来的物体</span><br>        <span class="hljs-comment">//能够接收到NGUI的输入事件</span><br>        <span class="hljs-comment">//大部分设置不需要我们去修改</span><br><br>        <span class="hljs-comment">//有了它我们通过鼠标 触碰 键盘 控制器 操作UI 响应玩家的输入</span><br>        <span class="hljs-meta">#<span class="hljs-keyword">endregion</span></span><br><br>        <span class="hljs-meta">#<span class="hljs-keyword">region</span> 知识点二 相关参数</span><br><br>        <span class="hljs-meta">#<span class="hljs-keyword">endregion</span></span><br><br>        <span class="hljs-meta">#<span class="hljs-keyword">region</span> 总结</span><br>        <span class="hljs-comment">//1.EventSystem很重要，如果没有它，我们没有办法监听玩家输入</span><br>        <span class="hljs-comment">//2.创建UI时的 2DUI 和3DUI 主要就是摄像机的模式不一样</span><br>        <span class="hljs-comment">//  EventSystem的2D和3D主要是 采用2D碰撞器 还是3D碰撞器 不能直接改变摄像机模式</span><br>        <span class="hljs-meta">#<span class="hljs-keyword">endregion</span></span><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>Event Type 事件类型<ul>
+<li>决定了脚本如何对鼠标和触屏事件进行响应</li>
+<li>UI模式，那么他们处理事件的方式是根据组件的深度,UI组件里面有脚本Sprite-Widget-Depth，这个Depth越大，表示深度越高，点击得时候处理Depth大的UI的事件</li>
+<li>world模式，那么则会根据距离离主摄像机的远近来进行响应排序，处理离摄像机近的的UI</li>
+<li>2D和3D的区别是，碰撞器是用3D碰撞器还是2D碰撞器2DUI</li>
+</ul>
+</li>
+<li>Events go to<ul>
+<li>事件通过刚体还是碰撞盒传递</li>
+</ul>
+</li>
+<li>Process Events In<ul>
+<li>事件更新进度在Update中还是LateUpdate中</li>
+<li>一般不改，默认在Update中</li>
+</ul>
+</li>
+<li>Event Mask<ul>
+<li>决定哪个游戏对象层级将会接受事件</li>
+</ul>
+</li>
+<li>Debug<ul>
+<li>是否开启调试模式</li>
+<li>如果开启，可以帮助你在点击时</li>
+<li>判断当前和鼠标事件交互的是什么对象</li>
+<li>能在Scene窗口看到信息</li>
+</ul>
+</li>
+<li>Command Click<ul>
+<li>苹果电脑上是否用Command按键模拟右键操作</li>
+</ul>
+</li>
+<li>Allow Multi Touch<ul>
+<li>是否支持多点触碰</li>
+</ul>
+</li>
+<li>Auto Hide Cursor<ul>
+<li>当游戏有控制器或者其他输入设备时</li>
+<li>是否自动隐藏光标</li>
+</ul>
+</li>
+<li>Sticky Tooltip<ul>
+<li>是否使用tooltip</li>
+</ul>
+</li>
+<li>Long Press Tooltip<ul>
+<li>是否长按出提示</li>
+</ul>
+</li>
+<li>Tooltip Delay<ul>
+<li>停留多久出现tip</li>
+</ul>
+</li>
+<li>Raycast Range<ul>
+<li>射线长度，一般不修改</li>
+</ul>
+</li>
+<li>EventSources 接收的事件来源<ul>
+<li>Mouse 鼠标</li>
+<li>Touch 触摸</li>
+<li>Keyboard 键盘</li>
+<li>Controller 控制器</li>
+</ul>
+</li>
+<li>Thresholds 调整鼠标事件的点击、拖、轻拍等行为<ul>
+<li>Mouse Drag</li>
+<li>Mouse Click</li>
+<li>Touch Drag</li>
+<li>Touch Tap</li>
+</ul>
+</li>
+<li>Axes and keys<ul>
+<li>热键关系</li>
+<li>一般不修改</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://s2.loli.net/2024/12/01/dkX2Twsb7pKyWEJ.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20241127105755.png"></p>
+<p><img src="https://s2.loli.net/2024/12/01/u6xYagU1Avc5psD.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20241127110751.png"><br><img src="https://s2.loli.net/2024/12/01/MRFHAI1JPoBUuDE.png" srcset="/img/loading.gif" lazyload alt="参数1.png"></p>
+<p><img src="https://s2.loli.net/2024/12/01/zO1489ZoIsXrmVN.png" srcset="/img/loading.gif" lazyload alt="参数2.png"></p>
+<h1 id="图集制作"><a href="#图集制作" class="headerlink" title="图集制作"></a>图集制作</h1><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-keyword">using</span> System.Collections;<br><span class="hljs-keyword">using</span> System.Collections.Generic;<br><span class="hljs-keyword">using</span> UnityEngine;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Lesson2</span> : <span class="hljs-title">MonoBehaviour</span><br>&#123;<br>    <span class="hljs-comment">// Start is called before the first frame update</span><br>    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Start</span>()</span><br>    &#123;<br>        <span class="hljs-meta">#<span class="hljs-keyword">region</span> 知识点一 图集用来干啥</span><br>        <span class="hljs-comment">//NGUI中的最小图片控件Sprite要使用图集中的图片进行显示</span><br>        <span class="hljs-comment">//图集 就是把很多单独的小图 合并为 一张大图 合并后的大图就是图集</span><br>        <span class="hljs-comment">//目的：提高渲染性能</span><br>        <span class="hljs-meta">#<span class="hljs-keyword">endregion</span></span><br><br>        <span class="hljs-meta">#<span class="hljs-keyword">region</span> 知识点二 打开图集制作工具</span><br>        <span class="hljs-comment">//方法一：Project右键打开</span><br>        <span class="hljs-comment">//方法二：上方工具栏NGUI——Open——Atlas Maker</span><br>        <span class="hljs-meta">#<span class="hljs-keyword">endregion</span></span><br><br>        <span class="hljs-meta">#<span class="hljs-keyword">region</span> 知识点三 新建图集</span><br>        <span class="hljs-comment">//在图集工具中创建</span><br><br>        <span class="hljs-comment">//图集关键文件有3</span><br>        <span class="hljs-comment">//1.图集文件</span><br>        <span class="hljs-comment">//2.图集材质</span><br>        <span class="hljs-comment">//3.图集图片</span><br>        <span class="hljs-meta">#<span class="hljs-keyword">endregion</span></span><br><br>        <span class="hljs-meta">#<span class="hljs-keyword">region</span> 知识点四 修改删除图集元素</span><br>        <span class="hljs-comment">//在图集工具中操作</span><br>        <span class="hljs-comment">//增删改</span><br>        <span class="hljs-meta">#<span class="hljs-keyword">endregion</span></span><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+<p><img src="https://s2.loli.net/2024/12/01/BgzUijdC2kH5cSA.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20241127114002.png"><br><img src="https://s2.loli.net/2024/12/01/IjToOCir9YQ31VN.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20241127114054.png"><br><img src="https://s2.loli.net/2024/12/01/3KRMLVtnUJFdefl.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20241127114020.png"></p>
+<ul>
+<li>创建图集<br><img src="https://s2.loli.net/2024/12/01/VeJp4mKQjSOIzwZ.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20241127114306.png"></li>
+</ul>
+<p><img src="https://s2.loli.net/2024/12/01/35vFa1Q4YcewAUL.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20241127114549.png"></p>
+<ul>
+<li><p>可以指定当前编辑的是哪个图集<br><img src="https://s2.loli.net/2024/12/01/8pxksJZHGwiVWOC.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20241127153648.png"></p>
+</li>
+<li><p>Material 可以快速选中当前图集对应的材质球</p>
+</li>
+<li><p>Texture 可以快速选中当前图集对应的图片<br><img src="https://s2.loli.net/2024/12/01/EDepYzNaHr92k85.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20241127153810.png"></p>
+</li>
+<li><p>Padding 图片间像素间隔</p>
+<ul>
+<li>也就是图集中图片之间的间隔</li>
+</ul>
+</li>
+<li><p>Trim Alpha 移除图片多余空白空间</p>
+<ul>
+<li>如果一个图片是png，有透明背景，会将透明背景剔除，不管透明背景</li>
+</ul>
+</li>
+<li><p>PMA Shader 预乘透明通道</p>
+</li>
+<li><p>Unity Packer 自定义打包器</p>
+</li>
+<li><p>Truecolor 强制ARGB32纹理</p>
+<ul>
+<li>A 透明度</li>
+<li>R 红色</li>
+<li>G 绿色</li>
+<li>B 蓝色</li>
+</ul>
+</li>
+<li><p>Auto-upgrade 自动更新，用精灵替换纹理</p>
+</li>
+<li><p>Force Square 如果启用，将强制方形图集纹理长宽都为2的n次方</p>
+<ul>
+<li>也就是图集的大小，为方形</li>
+<li>并且像素值为2的n次方</li>
+</ul>
+</li>
+<li><p>Pre-processor 预处理器</p>
+</li>
+<li><p>View Sprites</p>
+<ul>
+<li>更详细的查看图集中一个个的图片<br><img src="https://s2.loli.net/2024/12/01/demlM3NwcTiGYqQ.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20241127155932.png"></li>
+</ul>
+</li>
+<li><p>选中图片的时候会出现下面的情况</p>
+</li>
+<li><p>Update 表示图片名称一样，进行更新</p>
+</li>
+<li><p>Add 新图片，新添加</p>
+</li>
+<li><p>上方的Add &#x2F;Update就可以重新更新选中的图集了</p>
+</li>
+<li><p>添加完之后会有x，如上一张图片，就可以删除图集中添加的图片了<br><img src="https://s2.loli.net/2024/12/01/UiDxuLdM7beIJSK.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20241127160116.png"></p>
+</li>
+</ul>
+<p><img src="https://s2.loli.net/2024/12/01/aiFM7G26XIWsbK3.png" srcset="/img/loading.gif" lazyload alt="图集工具参数.png"></p>
+<h1 id="Sprite精灵图片"><a href="#Sprite精灵图片" class="headerlink" title="Sprite精灵图片"></a>Sprite精灵图片</h1><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-keyword">using</span> System.Collections;<br><span class="hljs-keyword">using</span> System.Collections.Generic;<br><span class="hljs-keyword">using</span> UnityEngine;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Lesson3</span> : <span class="hljs-title">MonoBehaviour</span><br>&#123;<br><br>	<span class="hljs-comment">// NGUI需要用UISprite</span><br>    <span class="hljs-keyword">public</span> UISprite sprite;<br><br>    <span class="hljs-comment">// Start is called before the first frame update</span><br>    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Start</span>()</span><br>    &#123;<br>        <span class="hljs-meta">#<span class="hljs-keyword">region</span> 知识点一 Sprite用来做啥</span><br>        <span class="hljs-comment">//NGUI中所有中小尺寸图片显示都用Sprite显示</span><br>        <span class="hljs-comment">//使用它来显示图集中的单个图片资源</span><br>        <span class="hljs-meta">#<span class="hljs-keyword">endregion</span></span><br><br>        <span class="hljs-meta">#<span class="hljs-keyword">region</span> 知识点二 创建Sprite</span><br><br>        <span class="hljs-meta">#<span class="hljs-keyword">endregion</span></span><br><br>        <span class="hljs-meta">#<span class="hljs-keyword">region</span> 知识点三 Sprite参数</span><br><br>        <span class="hljs-meta">#<span class="hljs-keyword">endregion</span></span><br><br>        <span class="hljs-meta">#<span class="hljs-keyword">region</span> 知识点四 代码设置图片</span><br>        <span class="hljs-comment">//sprite.width = 200;</span><br>        <span class="hljs-comment">//sprite.height = 300;</span><br>        <span class="hljs-comment">//1.改变为当前图集中选择的图片</span><br>		<span class="hljs-comment">// 在同一个图集中，直接改成对应图片的名字就可以了</span><br>        sprite.spriteName = <span class="hljs-string">&quot;bk&quot;</span>;<br><br>        <span class="hljs-comment">//2.改变为其它图集中的图片</span><br>        <span class="hljs-comment">//先加载图集，NGUIAtlas表示是图集，否则可能加载错误，因为还有其他同名的材质球和图片</span><br>        NGUIAtlas atlas = Resources.Load&lt;NGUIAtlas&gt;(<span class="hljs-string">&quot;Atlas/login&quot;</span>);<br>        sprite.atlas = atlas;<br>        <span class="hljs-comment">//再设置图片</span><br>        sprite.spriteName = <span class="hljs-string">&quot;ui_DL_anniuxiao_01&quot;</span>;<br>        <span class="hljs-meta">#<span class="hljs-keyword">endregion</span></span><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><p>创建Sprite<br><img src="https://s2.loli.net/2024/12/01/hoCbcT6sDMut318.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20241127165355.png"></p>
+</li>
+<li><p>Atlas 选择使用的图集</p>
+</li>
+<li><p>Sprite 选择使用图集中的精灵图片</p>
+</li>
+<li><p>Material 材质，一般不修改</p>
+</li>
+<li><p>Fixed Aspect  固定宽高比</p>
+<ul>
+<li>不管如何变化尺寸</li>
+<li>适中保持宽高比</li>
+</ul>
+</li>
+<li><p>Type 图片类型</p>
+<ul>
+<li>Simple 普通模式<ul>
+<li>缩放会拉伸</li>
+</ul>
+</li>
+<li>Sliced 切片模式<ul>
+<li>可九宫格缩放</li>
+</ul>
+</li>
+<li>Tiled 平铺模式<ul>
+<li>图片重复绘制</li>
+<li>Horizontal 水平</li>
+<li>Vertical 竖直</li>
+<li>Radial 90 90度</li>
+<li>Radial 180 180度</li>
+<li>Radial 360 360度</li>
+</ul>
+</li>
+<li>Filed 填充模式<ul>
+<li>可以做CD，进度条等。CD的意思就是技能那种时钟类型的等待</li>
+</ul>
+</li>
+<li>Advanced 高级模式<ul>
+<li>可以把图片分成5个部分分别设置模式</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Filp 翻转模式</p>
+<ul>
+<li>Nothing 不翻转</li>
+<li>Horizontally 水平翻转</li>
+<li>Vertically 竖直翻转</li>
+<li>Both 水平竖直都翻转</li>
+</ul>
+</li>
+<li><p>Gradient 渐变色</p>
+<ul>
+<li>勾选后上部颜色和下部颜色自动渐变</li>
+</ul>
+</li>
+<li><p>Color Tint</p>
+<ul>
+<li>颜色叠加</li>
+</ul>
+</li>
+<li><p>Pivot</p>
+<ul>
+<li>控制对象中心点，决定用于对齐的中心点</li>
+<li>Pivot左中右、上中下，每个里面选择一个</li>
+<li>对应的就是下面第二张图片的九个位置</li>
+<li><img src="https://s2.loli.net/2024/12/01/41ECxoSjdsvpb6Z.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20241128215009.png"></li>
+<li><img src="https://s2.loli.net/2024/12/01/KUM5lWtYOuh3wnG.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20241128215030.png"></li>
+</ul>
+</li>
+<li><p>Depth 深度层级</p>
+<ul>
+<li>用于决定渲染顺序，不过是用在同一个Panel中，表示的是控件之间的渲染顺序，Panel中有自己单独的Depth</li>
+<li>值越大越后渲染，显示在前方，深度值的意思是渲染的顺序，值越小，渲染的顺序越靠前，所以值越大，就能够覆盖之前渲染的</li>
+</ul>
+</li>
+<li><p>Size 尺寸</p>
+<ul>
+<li>Snap 原始尺寸显示，也就是图片原始是98x98的大小，把图片也调整为这么大显示在Game&#x2F;Scene中</li>
+</ul>
+</li>
+<li><p>Aspect 宽高比</p>
+<ul>
+<li>Free 随意缩放</li>
+<li>Based On Width  基于宽等比变化</li>
+<li>Based On Height 基于高等比变化</li>
+</ul>
+</li>
+<li><p>Sliced模式<br><img src="https://s2.loli.net/2024/12/01/yjZnpKwtbmfrxuH.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20241127170518.png"></p>
+</li>
+<li><p>下面两张图拉伸后的实例</p>
+</li>
+<li><p>设置Sprite Details 中的Border参数的效果</p>
+</li>
+<li><p>实际上就是这四个角不回被拉伸<br><img src="https://s2.loli.net/2024/12/01/QRKkvdcHTgqb4ta.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20241127170642.png"></p>
+</li>
+</ul>
+<p><img src="https://s2.loli.net/2024/12/01/6J1kqtMfHB74lTR.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20241127170717.png"></p>
+<p><img src="https://s2.loli.net/2024/12/01/mz6o4XKYF1GwnMP.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20241127170835.png"></p>
+<ul>
+<li><p>Tiled 平铺模式<br><img src="https://s2.loli.net/2024/12/01/pZXcoL6NSKy1mli.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20241127171039.png"></p>
+</li>
+<li><p>Filed</p>
+<ul>
+<li>Horizontal<br><img src="https://s2.loli.net/2024/12/01/XKNvHecLsA65m98.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20241127171239.png"></li>
+</ul>
+</li>
+<li><p>Vertical<br><img src="https://s2.loli.net/2024/12/01/VrPFJvpybigO4R2.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20241127171301.png"></p>
+</li>
+<li><p>Radial 90<br><img src="https://s2.loli.net/2024/12/01/vYzILJPkxo98HfK.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20241127171317.png"></p>
+</li>
+<li><p>Radial 180<br><img src="https://s2.loli.net/2024/12/01/mCZXMDfYKGUd9tN.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20241127171332.png"></p>
+</li>
+<li><p>Radial 360<br><img src="https://s2.loli.net/2024/12/01/YNVM5bEsdXFouU4.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20241127171406.png"></p>
+</li>
+</ul>
+<p><img src="https://s2.loli.net/2024/12/01/EvZ5sDy4jUROJAd.png" srcset="/img/loading.gif" lazyload alt="Sprite参数1.png"></p>
+<p><img src="https://s2.loli.net/2024/12/01/A47BGrZ6bMF9Hix.png" srcset="/img/loading.gif" lazyload alt="Sprite参数2.png"></p>
+<p><img src="https://s2.loli.net/2024/12/01/yXLRjnmbsVodNZ2.png" srcset="/img/loading.gif" lazyload alt="Sprite参数3.png"></p>
+<h1 id="Label-文本控件知识点"><a href="#Label-文本控件知识点" class="headerlink" title="Label 文本控件知识点"></a>Label 文本控件知识点</h1><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-keyword">using</span> System.Collections;<br><span class="hljs-keyword">using</span> System.Collections.Generic;<br><span class="hljs-keyword">using</span> UnityEngine;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Lesson4</span> : <span class="hljs-title">MonoBehaviour</span><br>&#123;<br>    <span class="hljs-keyword">public</span> UILabel label;<br><br>    <span class="hljs-comment">// Start is called before the first frame update</span><br>    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Start</span>()</span><br>    &#123;<br>        <span class="hljs-meta">#<span class="hljs-keyword">region</span> 知识点一 Label用来干啥</span><br>        <span class="hljs-comment">//NGUI中所有文本显示都使用Label来显示</span><br>        <span class="hljs-meta">#<span class="hljs-keyword">endregion</span></span><br><br>        <span class="hljs-meta">#<span class="hljs-keyword">region</span> 知识点二 创建Label</span><br><br>        <span class="hljs-meta">#<span class="hljs-keyword">endregion</span></span><br><br>        <span class="hljs-meta">#<span class="hljs-keyword">region</span> 知识点三 Label参数</span><br><br>        <span class="hljs-meta">#<span class="hljs-keyword">endregion</span></span><br><br>        <span class="hljs-meta">#<span class="hljs-keyword">region</span> 知识点四 富文本</span><br><br>        <span class="hljs-meta">#<span class="hljs-keyword">endregion</span></span><br><br>        <span class="hljs-meta">#<span class="hljs-keyword">region</span> 知识点五 代码设置Label</span><br>        label.text = <span class="hljs-string">&quot;123123123123&quot;</span>;<br>        <span class="hljs-meta">#<span class="hljs-keyword">endregion</span></span><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><p>Font</p>
+<ul>
+<li>使用Unity字体可以使用fft的字体文件（<code>C:\Windows\Fonts</code>）,可以拖到资源中，然后拖到Label脚本中</li>
+<li>也可以使用NGUI字体图集（之后专门讲解）</li>
+</ul>
+</li>
+<li><p>Material</p>
+<ul>
+<li>材质，一般不会修改</li>
+</ul>
+</li>
+<li><p>FontSize 字体大小</p>
+<ul>
+<li>这个如果Label很小的话，可能显示的大小比设置的要小，需要自己调整文字框的大小。（默认Modifier 为 Shrink Content模式）</li>
+<li>Normal 普通 </li>
+<li>Bold 加粗</li>
+<li>Italic 斜体</li>
+<li>Bold And Italic 加粗并斜体</li>
+</ul>
+</li>
+<li><p>Text 显示内容</p>
+</li>
+<li><p>Modifier 修饰方式，引强制大小写字母</p>
+<ul>
+<li>None 没有限制</li>
+<li>To Uppercase 大写字母</li>
+<li>To Lowercase 小写字母</li>
+<li>Custom 自定义</li>
+</ul>
+</li>
+<li><p>Overflow </p>
+<ul>
+<li>Shrink Content 收缩内容<ul>
+<li>文字显示的大小与Label的大小自动适应</li>
+<li>Label控件尺寸不足显示较大字体时</li>
+<li>字体的尺寸会自动适应Label控件的尺寸</li>
+</ul>
+</li>
+<li>Clamp Content 夹紧内容<ul>
+<li>裁减掉无法显示的字体内容</li>
+<li>字体会按照FontSize大小来显示</li>
+<li>如果Label控件大小不足以装下字体时</li>
+<li>对应内容被裁剪掉不会显示</li>
+</ul>
+</li>
+<li>Resize Freely 自动调整大小<ul>
+<li>Labe大小去适应字体内容的大小</li>
+</ul>
+</li>
+<li>Resize Height 自动调整高<ul>
+<li>Label控件高度无法手动调节</li>
+<li>会随着字体内容的大小需求去适配字体内容</li>
+<li>只能手动调节Label控件的宽度</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Alignment 对齐方式</p>
+<ul>
+<li>Automatic 自动对齐</li>
+<li>Left 居左</li>
+<li>Center 中心</li>
+<li>Right 居右</li>
+<li>Justified 调整会自动变化</li>
+</ul>
+</li>
+<li><p>Keep crispp 动态字体锐化</p>
+<ul>
+<li>这是一个动态字体功能，可以确保文本在收缩时清晰</li>
+<li>Never Never</li>
+<li>OnDesktop和Always区别不大都会开启</li>
+</ul>
+</li>
+<li><p>Gradient  渐变</p>
+</li>
+<li><p>Effect 特效</p>
+<ul>
+<li>None 没有</li>
+<li>Shadow 阴影效果</li>
+<li>OutLine和Outline8 边缘线，计算参数不同8粗一点</li>
+</ul>
+</li>
+<li><p>Float spacing 开启浮点数间隔调整</p>
+<ul>
+<li>默认整形，不勾选</li>
+</ul>
+</li>
+<li><p>Spacing 字符间隔</p>
+</li>
+<li><p>Max Lines 最大行数</p>
+<ul>
+<li>默认0，表示可以有很多行，不限制</li>
+</ul>
+</li>
+<li><p>BBCode 是否开启富文本</p>
+</li>
+<li><p>Color Tint 字体颜色</p>
+</li>
+<li><p>富文本</p>
+<ul>
+<li>$[ff0000]颜色[-]$</li>
+<li>$[b]加粗[&#x2F;b]$</li>
+<li>$[i]斜体[&#x2F;i]$</li>
+<li>$[u]下划线[&#x2F;u]$</li>
+<li>$[s]直线穿过文字[&#x2F;s]$</li>
+<li>$[sub]右下角显示[&#x2F;sub]$</li>
+<li>$[sup]右上角显示[&#x2F;sup]$</li>
+<li>$[url&#x3D;<a target="_blank" rel="noopener" href="http://www.baidu.com/][u]%E8%B6%85%E9%93%BE%E6%8E%A5[/u]/url]$">http://www.baidu.com/][u]超链接[/u]/url]$</a><ul>
+<li>希望点击超链接能打开页面</li>
+<li><ol>
+<li>添加碰撞器</li>
+</ol>
+<ul>
+<li><img src="https://s2.loli.net/2024/12/01/QvSOui9PwjGz6Zs.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20241128230831.png"></li>
+</ul>
+</li>
+<li><ol start="2">
+<li>添加脚本OpenURLOnClick</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>创建Label<br><img src="https://s2.loli.net/2024/12/01/5UV12zoAZu8S9K4.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20241128224814.png"><br><img src="https://s2.loli.net/2024/12/01/svQRYon7XyTDk18.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20241128224830.png"></p>
+</li>
+</ul>
+<p><img src="https://s2.loli.net/2024/12/01/Wbo2SAkvpNLt7UH.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20241128225252.png"></p>
+<p><img src="https://s2.loli.net/2024/12/01/rWnpoIhLG1yc2ax.png" srcset="/img/loading.gif" lazyload alt="label_parameters1.png"><br><img src="https://s2.loli.net/2024/12/01/JMIHdwzheRtlrEa.png" srcset="/img/loading.gif" lazyload alt="label_parameters2.png"><br><img src="https://s2.loli.net/2024/12/01/g9I6iR5OqdUeQHL.png" srcset="/img/loading.gif" lazyload alt="rich_text.png"></p>
+<h1 id="Texture大图控件"><a href="#Texture大图控件" class="headerlink" title="Texture大图控件"></a>Texture大图控件</h1><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-keyword">using</span> System.Collections;<br><span class="hljs-keyword">using</span> System.Collections.Generic;<br><span class="hljs-keyword">using</span> UnityEngine;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Lesson5</span> : <span class="hljs-title">MonoBehaviour</span><br>&#123;<br>    <span class="hljs-keyword">public</span> UITexture tex;<br><br>    <span class="hljs-comment">// Start is called before the first frame update</span><br>    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Start</span>()</span><br>    &#123;<br>        <span class="hljs-meta">#<span class="hljs-keyword">region</span> 知识点一 Texture用来干啥</span><br>        <span class="hljs-comment">//Sprite只能显示图集中图片 一般用于显示中小图片</span><br>        <span class="hljs-comment">//如果使用大尺寸图片 没有必要打图集</span><br>        <span class="hljs-comment">//直接使用Texture组件进行大图片显示</span><br>        <span class="hljs-meta">#<span class="hljs-keyword">endregion</span></span><br><br>        <span class="hljs-meta">#<span class="hljs-keyword">region</span> 知识点二 参数相关</span><br><br>        <span class="hljs-meta">#<span class="hljs-keyword">endregion</span></span><br><br>        <span class="hljs-meta">#<span class="hljs-keyword">region</span> 知识点三 代码设置</span><br>        <span class="hljs-comment">//加载图片</span><br>        Texture texture = Resources.Load&lt;Texture&gt;(<span class="hljs-string">&quot;BK&quot;</span>);<br>        <span class="hljs-comment">//改变图片</span><br>        <span class="hljs-keyword">if</span> (texture != <span class="hljs-literal">null</span>)<br>            tex.mainTexture = texture;<br>        <span class="hljs-meta">#<span class="hljs-keyword">endregion</span></span><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><p>Texture 图片资源</p>
+</li>
+<li><p>Material 材质 一般不改</p>
+</li>
+<li><p>Shader 着色器 一般不改</p>
+</li>
+<li><p>Type 图片类型 </p>
+<ul>
+<li>Simple 普通模式，缩放会拉伸</li>
+<li>Sliced 切片模式，可九宫格缩放</li>
+<li>Tiled 平铺模式<ul>
+<li>图片重复绘制</li>
+</ul>
+</li>
+<li>Filed 填充模式<ul>
+<li>可以做CD，进度条等</li>
+</ul>
+</li>
+<li>Advanced 高级模式<ul>
+<li>可以把图片分成5个部分分别设置模式</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Flip 翻转模式</p>
+<ul>
+<li>Nothing</li>
+<li>Horizontally 水平翻转</li>
+<li>Vertically 竖直翻转</li>
+<li>Both 水平竖直都翻转</li>
+</ul>
+</li>
+<li><p>Gradient 渐变色</p>
+<ul>
+<li>勾选后，上部颜色和下部颜色，自动渐变</li>
+</ul>
+</li>
+<li><p>Color Tint 颜色叠加</p>
+</li>
+<li><h2 id="创建Texture"><a href="#创建Texture" class="headerlink" title="创建Texture  - "></a>创建Texture<br>  - <img src="https://s2.loli.net/2024/12/01/XEqUhoOpjVAareb.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20241128231430.png"></h2></li>
+</ul>
+<p><img src="https://s2.loli.net/2024/12/01/AFK1lW3GEs5yw6R.png" srcset="/img/loading.gif" lazyload alt="Texture_parameters.png"></p>
+<h1 id="Button按钮组件知识点"><a href="#Button按钮组件知识点" class="headerlink" title="Button按钮组件知识点"></a>Button按钮组件知识点</h1><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-keyword">using</span> System.Collections;<br><span class="hljs-keyword">using</span> System.Collections.Generic;<br><span class="hljs-keyword">using</span> UnityEngine;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Lesson6</span> : <span class="hljs-title">MonoBehaviour</span><br>&#123;<br>    <span class="hljs-keyword">public</span> UIButton btn;<br><br>    <span class="hljs-comment">// Start is called before the first frame update</span><br>    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Start</span>()</span><br>    &#123;<br>        <span class="hljs-meta">#<span class="hljs-keyword">region</span> 知识点一 所有组合控件的共同特点</span><br>        <span class="hljs-comment">//1.在3个基础组件对象上添加对应组件</span><br>        <span class="hljs-comment">//2.如果希望响应点击等事件 需要添加碰撞器</span><br>        <span class="hljs-meta">#<span class="hljs-keyword">endregion</span></span><br><br>        <span class="hljs-meta">#<span class="hljs-keyword">region</span> 知识点二 Button是用来干嘛的</span><br>        <span class="hljs-comment">//UI界面中的按钮 当点击按钮后我们可以进行一些处理</span><br>        <span class="hljs-meta">#<span class="hljs-keyword">endregion</span></span><br><br>        <span class="hljs-meta">#<span class="hljs-keyword">region</span> 知识点三 制作Button</span><br>        <span class="hljs-comment">//1.一个Sprite（需要文字再加一个Label子对象）</span><br>        <span class="hljs-comment">//2.为Sprite添加Button脚本</span><br>        <span class="hljs-comment">//3.添加碰撞器</span><br>        <span class="hljs-meta">#<span class="hljs-keyword">endregion</span></span><br><br>        <span class="hljs-meta">#<span class="hljs-keyword">region</span> 知识点四 参数相关</span><br><br>        <span class="hljs-meta">#<span class="hljs-keyword">endregion</span></span><br><br>        <span class="hljs-meta">#<span class="hljs-keyword">region</span> 知识点五 监听事件的两种方式</span><br>        <span class="hljs-comment">//1.拖脚本</span><br>        <span class="hljs-comment">//2.代码获取按钮对象监听</span><br>        <span class="hljs-comment">// 这个EventDelegate是无参数，无返回值的</span><br>        <span class="hljs-comment">// 如果想要传入参数，可以封装一层</span><br>        <span class="hljs-comment">// 好像可以传入一个MonoBehaviour子类的类，然后写方法名</span><br>        btn.onClick.Add(<span class="hljs-keyword">new</span> EventDelegate(ClickDo2));<br><br>        btn.onClick.Add(<br>            <span class="hljs-keyword">new</span> EventDelegate(() =&gt;<br>            &#123;<br>                print(<span class="hljs-string">&quot;那么大表达式添加的 点击事件处理&quot;</span>);<br>            &#125;)<br>        );<br><br>        btn.onClick.Add(<span class="hljs-keyword">new</span> EventDelegate(() =&gt; ClickDo2(<span class="hljs-string">&quot;Hello, World!&quot;</span>)));<br>        <span class="hljs-meta">#<span class="hljs-keyword">endregion</span></span><br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">ClickDoSomthing</span>()</span><br>    &#123;<br>        print(<span class="hljs-string">&quot;按钮点击&quot;</span>);<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">ClickDo2</span>()</span><br>    &#123;<br>        print(<span class="hljs-string">&quot;按钮点击2&quot;</span>);<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">ClickDo2</span>(<span class="hljs-params"><span class="hljs-built_in">string</span> message</span>)</span><br>    &#123;<br>        Debug.Log(message);<br>    &#125;<br><br>    <span class="hljs-meta">#<span class="hljs-keyword">region</span> 总结</span><br>    <span class="hljs-comment">//1.button的制作流程</span><br>    <span class="hljs-comment">//  3个基础组件构成 任意一个基础组件 往上面添加Button脚本 再添加碰撞器 就可以让它变成一个按钮</span><br>    <span class="hljs-comment">//2.事件的监听</span><br>    <span class="hljs-comment">// 通过 拖曳 或者 代码的形式 可以进行按钮的 点击事件 监听</span><br>    <span class="hljs-meta">#<span class="hljs-keyword">endregion</span></span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>制作Button 步骤<ul>
+<li>1.一个Sprite（需要文字再加一个Label子对象）<ul>
+<li><img src="https://s2.loli.net/2024/12/01/bMndSasTrOvI9fF.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20241128234834.png"></li>
+</ul>
+</li>
+<li>2.为Sprite添加Button脚本<ul>
+<li><img src="https://s2.loli.net/2024/12/01/aIhb7qAlFiOZMQ2.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20241128235004.png"></li>
+<li><img src="https://s2.loli.net/2024/12/01/U9rpyc1Jzihld3C.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20241128235029.png"></li>
+</ul>
+</li>
+<li>3.添加碰撞器<ul>
+<li><img src="https://s2.loli.net/2024/12/01/qBSMYVOpAP1DIZ5.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20241128235051.png"></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Twen Target 按钮控制的目标<ul>
+<li>一般是3个基础控件之一</li>
+<li>会自动设置</li>
+</ul>
+</li>
+<li>Drag Over<ul>
+<li>拖动结束后做什么事件</li>
+</ul>
+</li>
+<li>Transition 过渡效果持续时间</li>
+<li>Colors 按钮各状态颜色设置<ul>
+<li>Normal 普通</li>
+<li>Hover 经过</li>
+<li>Pressed 按下</li>
+<li>Disabled 失活</li>
+<li>Default 默认</li>
+</ul>
+</li>
+<li>Sprites 按钮各状态图片设置<ul>
+<li>Normal 普通</li>
+<li>Hover 经过</li>
+<li>Pressed 按下</li>
+<li>Disabled 失活</li>
+<li>Pixel Snap 自动设置原始大小<ul>
+<li>勾选后，选择的图片是什么大小，按钮使用时就显示什么样大小的图片</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>OnCIick 点击按钮响应脚本<ul>
+<li><img src="https://s2.loli.net/2024/12/01/r1lnGX7fDP98JUI.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20241129001126.png"><br><img src="https://s2.loli.net/2024/12/01/16Cs5EqwgKjHf3b.png" srcset="/img/loading.gif" lazyload alt="Button_parameters.png"></li>
+</ul>
+</li>
+</ul>
+<h1 id="Toggle单选多选框组件知识点"><a href="#Toggle单选多选框组件知识点" class="headerlink" title="Toggle单选多选框组件知识点"></a>Toggle单选多选框组件知识点</h1><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-keyword">using</span> System.Collections;<br><span class="hljs-keyword">using</span> System.Collections.Generic;<br><span class="hljs-keyword">using</span> UnityEngine;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Lesson7</span> : <span class="hljs-title">MonoBehaviour</span><br>&#123;<br>    <span class="hljs-keyword">public</span> UIToggle tog1;<br>    <span class="hljs-keyword">public</span> UIToggle tog2;<br>    <span class="hljs-keyword">public</span> UIToggle tog3;<br><br>    <span class="hljs-comment">// Start is called before the first frame update</span><br>    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Start</span>()</span><br>    &#123;<br>        <span class="hljs-meta">#<span class="hljs-keyword">region</span> 知识点一 Toggle用来干啥</span><br>        <span class="hljs-comment">//单选框 多选框都可以使用它来制作</span><br>        <span class="hljs-meta">#<span class="hljs-keyword">endregion</span></span><br><br>        <span class="hljs-meta">#<span class="hljs-keyword">region</span> 知识点二 制作Toggle</span><br>        <span class="hljs-comment">//1.2个Sprite 1父1子</span><br>        <span class="hljs-comment">//2.为父对象添加Toggle脚本</span><br>        <span class="hljs-comment">//3.添加碰撞器</span><br>        <span class="hljs-meta">#<span class="hljs-keyword">endregion</span></span><br><br>        <span class="hljs-meta">#<span class="hljs-keyword">region</span> 知识点三 参数相关</span><br><br>        <span class="hljs-meta">#<span class="hljs-keyword">endregion</span></span><br><br>        <span class="hljs-meta">#<span class="hljs-keyword">region</span> 知识点四 监听事件的两种方式</span><br>        <span class="hljs-comment">//1.拖代码</span><br>        <span class="hljs-comment">//2.代码进行监听添加</span><br><br>        tog1.onChange.Add(<span class="hljs-keyword">new</span> EventDelegate(Change2));<br>        tog2.onChange.Add(<span class="hljs-keyword">new</span> EventDelegate(Change2));<br>        tog3.onChange.Add(<span class="hljs-keyword">new</span> EventDelegate(Change2));<br>        <span class="hljs-meta">#<span class="hljs-keyword">endregion</span></span><br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Change2</span>()</span><br>    &#123;<br>        print(<span class="hljs-string">&quot;代码监听&quot;</span>);<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Change</span>()</span><br>    &#123;<br>        print(<span class="hljs-string">&quot;Toggle变化执行的内容&quot;</span>);<br><br>        <span class="hljs-keyword">if</span> (tog1.<span class="hljs-keyword">value</span>)<br>        &#123;<br>            print(<span class="hljs-string">&quot;tog1选中&quot;</span>);<br>        &#125;<br>        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (tog2.<span class="hljs-keyword">value</span>)<br>        &#123;<br>            print(<span class="hljs-string">&quot;tog2选中&quot;</span>);<br>        &#125;<br>        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (tog3.<span class="hljs-keyword">value</span>)<br>        &#123;<br>            print(<span class="hljs-string">&quot;tog3选中&quot;</span>);<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><p>Group</p>
+<ul>
+<li>多选框分组</li>
+<li>多个多选框分为一组则变为单选框</li>
+<li>StateofNone 单选框状态时是否允许不选中</li>
+</ul>
+</li>
+<li><p>Starting State 开始默认状态，勾选Starting State为选中</p>
+</li>
+<li><p>Sprite 选中用图片</p>
+</li>
+<li><p>Invert State 反转状态</p>
+<ul>
+<li>如果选中不显示，不选中显示，就勾选它</li>
+</ul>
+</li>
+<li><p>Animator 状态变化时播放动画（新动画系统）</p>
+</li>
+<li><p>Animation 状态变化时播放动画（老动画系统）</p>
+</li>
+<li><p>Tween 状态变化时缓动</p>
+</li>
+<li><p>Transition 过渡模式</p>
+</li>
+<li><p>OnValueChange 状态变化时响应脚本</p>
+</li>
+<li><p>2个Sprite 1父1子</p>
+<ul>
+<li><img src="https://s2.loli.net/2024/12/01/SoKmBIxYiyCWGML.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20241129104052.png"></li>
+</ul>
+</li>
+<li><p>为父对象添加Toggle脚本</p>
+<ul>
+<li><img src="https://s2.loli.net/2024/12/01/SAwfZJTmuxatOQo.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20241129104013.png"></li>
+</ul>
+</li>
+<li><p>添加碰撞器</p>
+<ul>
+<li><img src="https://s2.loli.net/2024/12/01/segwvyktdCrVF7f.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20241129104210.png"></li>
+</ul>
+</li>
+<li><p>需要关联的这个对象拖到Toggle上</p>
+</li>
+<li><p>此时运行Unity，点击Game窗口就可以出现单选框的现象了<br><img src="https://s2.loli.net/2024/12/01/c5K7fQp1EW3NYew.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20241129104426.png"></p>
+</li>
+<li><p>如果是多选框，多个是互斥的，则把Toggle脚本上的Group变成一样的数字</p>
+</li>
+<li><p>数字0表示不分组，就是多选框</p>
+</li>
+<li><p>State of None表示勾选后是否可以多个都不选，否则至少选择一个<br><img src="https://s2.loli.net/2024/12/01/G4BOAcM7jDlf596.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20241129105459.png"></p>
+</li>
+<li><p>当指定多选框状态变化的时候，调用指定的方法<br><img src="https://s2.loli.net/2024/12/01/RUm6PeXhWVg2sB9.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20241129110052.png"></p>
+</li>
+</ul>
+<p><img src="https://s2.loli.net/2024/12/01/ThvaPIXCuSYz5pB.png" srcset="/img/loading.gif" lazyload alt="Toggle_parameters.png"></p>
+<h1 id="Input输入框组件知识点"><a href="#Input输入框组件知识点" class="headerlink" title="Input输入框组件知识点"></a>Input输入框组件知识点</h1><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-keyword">using</span> System.Collections;<br><span class="hljs-keyword">using</span> System.Collections.Generic;<br><span class="hljs-keyword">using</span> UnityEngine;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Lesson8</span> : <span class="hljs-title">MonoBehaviour</span><br>&#123;<br>    <span class="hljs-keyword">public</span> UIInput input;<br><br>    <span class="hljs-comment">// Start is called before the first frame update</span><br>    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Start</span>()</span><br>    &#123;<br>        <span class="hljs-meta">#<span class="hljs-keyword">region</span> 知识点一 Input是啥</span><br>        <span class="hljs-comment">//输入框</span><br>        <span class="hljs-comment">//可以用来制作账号密码聊天输入框</span><br>        <span class="hljs-meta">#<span class="hljs-keyword">endregion</span></span><br><br>        <span class="hljs-meta">#<span class="hljs-keyword">region</span> 知识点二 制作Input</span><br>        <span class="hljs-comment">//1.1个Sprite做背景 1个Label显示文字</span><br>        <span class="hljs-comment">//2.为Sprint添加Input脚本</span><br>        <span class="hljs-comment">//3.添加碰撞器</span><br>        <span class="hljs-meta">#<span class="hljs-keyword">endregion</span></span><br><br>        <span class="hljs-meta">#<span class="hljs-keyword">region</span> 知识点三 参数相关</span><br><br>        <span class="hljs-meta">#<span class="hljs-keyword">endregion</span></span><br><br>        <span class="hljs-meta">#<span class="hljs-keyword">region</span> 知识点四 监听事件的两种方式</span><br>        <span class="hljs-comment">//1.拖曳脚本</span><br>        <span class="hljs-comment">//2.通过代码关联</span><br><br>        input.onSubmit.Add(<span class="hljs-keyword">new</span> EventDelegate(() =&gt;<br>        &#123;<br>            print(<span class="hljs-string">&quot;完成输入 通关代码添加的监听函数&quot;</span>);<br>        &#125;));<br><br>        input.onChange.Add(<span class="hljs-keyword">new</span> EventDelegate(() =&gt;<br>        &#123;<br>            print(<span class="hljs-string">&quot;输入变化 通关代码添加的监听函数&quot;</span>);<br>        &#125;));<br>        <span class="hljs-meta">#<span class="hljs-keyword">endregion</span></span><br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">OnSubmit</span>()</span><br>    &#123;<br>        print(<span class="hljs-string">&quot;输入完成&quot;</span> + input.<span class="hljs-keyword">value</span>);<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">OnChange</span>()</span><br>    &#123;<br>        print(<span class="hljs-string">&quot;输入变化&quot;</span> + input.<span class="hljs-keyword">value</span>);<br>    &#125;  <br>&#125;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><p>1个Sprite做背景 1个Label显示文字</p>
+</li>
+<li><p>为Sprint添加Input脚本</p>
+<ul>
+<li><img src="https://s2.loli.net/2024/12/01/AgQnNE1rToZx3DG.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20241129113650.png"></li>
+</ul>
+</li>
+<li><p>添加碰撞器<br>  -<img src="https://s2.loli.net/2024/12/01/hSQVE2va8xOwdpW.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20241129113912.png"></p>
+</li>
+<li><p>Label  关联的文本组件</p>
+<ul>
+<li>需要将Label拖给脚本的这个参数</li>
+<li><img src="https://s2.loli.net/2024/12/01/LanmfdQZUqAyu9W.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20241129114454.png"></li>
+</ul>
+</li>
+<li><p>Starting Value 开始默认显示的内容</p>
+</li>
+<li><p>Saved As  </p>
+<ul>
+<li>若此处填写内容，会使用PlayerPrefs将输入内容作为此处填写的key，实际的内容作为值进行存储</li>
+<li>一般不使用</li>
+</ul>
+</li>
+<li><p>ActiveTextColor 选中激活时颜色</p>
+</li>
+<li><p>Inactive Color 未选中失活时颜色 </p>
+</li>
+<li><p>Caret Color 插入光标的颜色</p>
+</li>
+<li><p>Selection Color 选中文字的背景颜色</p>
+</li>
+<li><p>InputType 输入类型</p>
+<ul>
+<li>Standard 默认模式</li>
+<li>Auto Correct 自动更正</li>
+<li>Password 密码输入 (输入内容看不到）</li>
+</ul>
+</li>
+<li><p>Validation 输入限制</p>
+<ul>
+<li>None：无限制</li>
+<li>Integer：只能输入整形</li>
+<li>Float：可以输入浮点数</li>
+<li>Alphanumeric：只能是数字和字母</li>
+<li>Username：用户名，只能输入小写字母</li>
+<li>Name：姓名，大小写字母+空格</li>
+<li>Filename：文件名，只是多了一些特殊字符的输入</li>
+</ul>
+</li>
+<li><p>Mobile Keyboard 手机键盘模式</p>
+<ul>
+<li>Default </li>
+<li>ASCII Capable 英文</li>
+<li>Numbers And Punctuation 数字符号</li>
+<li>URL 链接</li>
+<li>Number Pad 数字</li>
+<li>Phone Pad 手机</li>
+<li>Name Phone Pad 名字</li>
+<li>Email Address 邮箱地址</li>
+</ul>
+</li>
+<li><p>Hide Input 键盘下隐藏输入框</p>
+<ul>
+<li>输入的内容可以在键盘上看见，如果勾选，只能通过游戏界面看见</li>
+<li>不勾选，键盘会自带输入内容的文本框</li>
+</ul>
+</li>
+<li><p>On Return Key 完成键（回车键）做什么操作</p>
+<ul>
+<li>Default 默认操作，根据系统的默认情况指定</li>
+<li>Submit 结束输入，回车键表示结束输入<ul>
+<li>一般选择这个</li>
+<li>如果想要调用OnSubmit方法，必须选择这个，不然可能无反应</li>
+</ul>
+</li>
+<li>New Line 换行</li>
+</ul>
+</li>
+<li><p>Character Limit 最大可输入字符数</p>
+<ul>
+<li>0表示无限制</li>
+</ul>
+</li>
+<li><p>OnSubmit 输入完成时响应脚本</p>
+<ul>
+<li>需要On Return Key中设置Submit</li>
+</ul>
+</li>
+<li><p>OnChange 输入变化时响应脚本</p>
+</li>
+</ul>
+<p><img src="https://s2.loli.net/2024/12/01/vHyzYkO1Z4mX3N7.png" srcset="/img/loading.gif" lazyload alt="Input_parameters1.png"><br><img src="https://s2.loli.net/2024/12/01/KDm3ybs9WOxRLoA.png" srcset="/img/loading.gif" lazyload alt="Input_parameter2.png"></p>
+<h1 id="PopupList下拉列表相关知识点"><a href="#PopupList下拉列表相关知识点" class="headerlink" title="PopupList下拉列表相关知识点"></a>PopupList下拉列表相关知识点</h1><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-keyword">using</span> System.Collections;<br><span class="hljs-keyword">using</span> System.Collections.Generic;<br><span class="hljs-keyword">using</span> UnityEngine;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Lesson9</span> : <span class="hljs-title">MonoBehaviour</span><br>&#123;<br>    <span class="hljs-keyword">public</span> UIPopupList list;<br><br>    <span class="hljs-comment">// Start is called before the first frame update</span><br>    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Start</span>()</span><br>    &#123;<br>        <span class="hljs-meta">#<span class="hljs-keyword">region</span> 知识点一 PopupList是啥？</span><br>        <span class="hljs-comment">//下拉列表</span><br>        <span class="hljs-meta">#<span class="hljs-keyword">endregion</span></span><br><br>        <span class="hljs-meta">#<span class="hljs-keyword">region</span> 知识点二 制作Popuplist</span><br>        <span class="hljs-comment">//1.一个sprite做背景 一个lable做显示内容</span><br>        <span class="hljs-comment">//2.添加PopupList脚本</span><br>        <span class="hljs-comment">//3.添加碰撞器</span><br>        <span class="hljs-comment">//4.关联lable做信息更新，选择Label中的SetCurrentSelection函数</span><br>        <span class="hljs-meta">#<span class="hljs-keyword">endregion</span></span><br><br>        <span class="hljs-meta">#<span class="hljs-keyword">region</span> 知识点三 参数相关</span><br><br>        <span class="hljs-meta">#<span class="hljs-keyword">endregion</span></span><br><br>        <span class="hljs-meta">#<span class="hljs-keyword">region</span> 知识点四 监听事件的两种方式</span><br>        <span class="hljs-comment">//1.拖曳代码</span><br>        <span class="hljs-comment">//2.代码关联</span><br>        <span class="hljs-comment">// 代码添加选项</span><br>        list.items.Add(<span class="hljs-string">&quot;新加 选项4&quot;</span>);<br><br>        <span class="hljs-comment">// 代码添加监听事件</span><br>        list.onChange.Add(<br>            <span class="hljs-keyword">new</span> EventDelegate(() =&gt;<br>            &#123;<br>                print(<span class="hljs-string">&quot;代码添加的监听&quot;</span> + list.<span class="hljs-keyword">value</span>);<br>            &#125;)<br>        );<br>        <span class="hljs-meta">#<span class="hljs-keyword">endregion</span></span><br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">OnChange</span>()</span><br>    &#123;<br>        print(<span class="hljs-string">&quot;选项变化&quot;</span> + list.<span class="hljs-keyword">value</span>);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<ul>
+<li>一个sprite做背景 一个label做显示内容</li>
+<li>添加PopupList脚本<ul>
+<li><img src="https://s2.loli.net/2024/12/01/pmWdnZ1JQNIrMO5.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20241129164013.png"></li>
+</ul>
+</li>
+<li>添加碰撞器<ul>
+<li><img src="https://s2.loli.net/2024/12/01/UYS1FhQdBVxIe3K.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20241129164034.png"></li>
+</ul>
+</li>
+<li>关联Label做信息更新，选择Label中的SetCurrentSelection函数<ul>
+<li><img src="https://s2.loli.net/2024/12/01/TZQU6YKCrGljVxR.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20241129170649.png"></li>
+</ul>
+</li>
+<li>Options <ul>
+<li>下拉列表显示内容（空一行表示加一个）</li>
+<li>按照下图的设置，就能run，有一个下拉列表的情况了，但是可能还是有范围的问题</li>
+<li><img src="https://s2.loli.net/2024/12/01/UvWxKfuwgTJhO3Y.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20241129164710.png"></li>
+<li><img src="https://s2.loli.net/2024/12/01/cs3KLb4HThD69WF.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20241129164808.png"></li>
+</ul>
+</li>
+<li>Position 下拉列表出现位置<ul>
+<li>Auto 自动（建议自动让其自动判断）</li>
+<li>Above 向上，如果会产生出屏幕了，会自己调整</li>
+<li>Below 向下，如果会产生出屏幕了，会自己调整</li>
+</ul>
+</li>
+<li>Selection 选中操作<ul>
+<li>On Press 按下选中（默认选这个）<ul>
+<li>按下的时候会触发Value的事件</li>
+<li><img src="https://s2.loli.net/2024/12/01/C7l2cdtSITEaODk.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20241129165727.png"></li>
+</ul>
+</li>
+<li>On Click 点击选中</li>
+</ul>
+</li>
+<li>Alignment 下拉列表的对齐方式<ul>
+<li>Automatic 自动对齐</li>
+<li>Left 左对齐</li>
+<li>Center 居中对齐</li>
+<li>Right 右对齐</li>
+<li>Justified 调整会自动变化</li>
+</ul>
+</li>
+<li>Font，设置的是下拉列表上字体的选项<ul>
+<li>Font 字体设置</li>
+<li>Font Size 字体大小</li>
+<li>TextColor 字体颜色</li>
+<li>Padding 偏移位置<ul>
+<li>X表示水平偏移，大于0表示右偏，小于0表示左偏</li>
+<li>Y表示垂直偏移，大于0表示远离Label框，小于0表示接近Label框</li>
+</ul>
+</li>
+<li>Modifier 修饰方式，强制大小写字母<ul>
+<li>None 没有限制</li>
+<li>To Uppercase 大写字母</li>
+<li>To Lowercase 小写字母</li>
+<li>Custom 自定义</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Open on 下拉列表打开方式<ul>
+<li>Click Or Tap 点击或者触碰</li>
+<li>Right Click 右键</li>
+<li>Double Click 双击</li>
+<li>Manual 手动（相当于关闭。自己代码处理，一般不选择）</li>
+</ul>
+</li>
+<li>On Top 始终显示在所有面板之前<ul>
+<li>默认选择</li>
+<li>不选择可能被其他的面板遮挡，导致无法选择下拉列表</li>
+</ul>
+</li>
+<li>Localized  是否将对弹出列表的值进行本地化</li>
+<li>Keep Value 始终保持有列表中的某个默认值<ul>
+<li>勾选后，会默认显示下拉列表中的某个值，具体由initial Value设置</li>
+</ul>
+</li>
+<li>initial Value<ul>
+<li>可以选择默认初始化选择的列表显示值，需要勾选Keep Value才能生效，这个只是提供给我们一个选择的选项，实际起作用的还是Keep Value</li>
+</ul>
+</li>
+<li>Atlas<ul>
+<li>Atlas 图集</li>
+<li>Background 下拉列表背景图</li>
+<li>Highlight 下拉列表选中图<ul>
+<li>也就是每个选项选中后，背景显示的图</li>
+</ul>
+</li>
+<li>Background 背景颜色叠加</li>
+<li>Highlight 选中高亮叠加家宴</li>
+<li>Overlap 弹出窗口边框与打开它的内容重叠的数量</li>
+<li>Animated 是否有默认的弹出动画，禁用可以节约性能</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://s2.loli.net/2024/12/01/mG6H7tEI3aBUYfn.png" srcset="/img/loading.gif" lazyload alt="PopupList_parameters1.png"><br><img src="https://s2.loli.net/2024/12/01/OVnsUmJlCp79PQK.png" srcset="/img/loading.gif" lazyload alt="PopupList_parameters2.png"><br><img src="https://s2.loli.net/2024/12/01/uwFtcRb4DoT1ixf.png" srcset="/img/loading.gif" lazyload alt="PopupList_parameters3.png"></p>
+<h1 id="Slider滑动条控件知识点"><a href="#Slider滑动条控件知识点" class="headerlink" title="Slider滑动条控件知识点"></a>Slider滑动条控件知识点</h1><blockquote>
+<p>图片的质量很重要，要对齐，不能上面1像素空白，下面3像素空白，不然对不齐</p>
+</blockquote>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-keyword">using</span> System.Collections;<br><span class="hljs-keyword">using</span> System.Collections.Generic;<br><span class="hljs-keyword">using</span> UnityEngine;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Lesson10</span> : <span class="hljs-title">MonoBehaviour</span><br>&#123;<br>    <span class="hljs-keyword">public</span> UISlider slider;<br>    <span class="hljs-comment">// Start is called before the first frame update</span><br>    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Start</span>()</span><br>    &#123;<br>        <span class="hljs-meta">#<span class="hljs-keyword">region</span> 知识点一 Slider是啥？</span><br>        <span class="hljs-comment">//滑动条控件</span><br>        <span class="hljs-comment">//主要用于设置音乐音效大小等</span><br>        <span class="hljs-meta">#<span class="hljs-keyword">endregion</span></span><br><br>        <span class="hljs-meta">#<span class="hljs-keyword">region</span> 知识点二 制作Slider</span><br>        <span class="hljs-comment">//1.3个sprite 1个做根对象为背景  2个子对象 1个进度 1个滑动块 </span><br>        <span class="hljs-comment">//2.设置层级</span><br>        <span class="hljs-comment">//3.为根背景添加Slider脚本</span><br>        <span class="hljs-comment">//4.添加碰撞器（父对象或者滑块）</span><br>        <span class="hljs-comment">//5.关联3个对象</span><br>        <span class="hljs-meta">#<span class="hljs-keyword">endregion</span></span><br><br>        <span class="hljs-meta">#<span class="hljs-keyword">region</span> 知识点三 参数相关</span><br><br>        <span class="hljs-meta">#<span class="hljs-keyword">endregion</span></span><br><br>        <span class="hljs-meta">#<span class="hljs-keyword">region</span> 知识点四 监听事件的两种方式</span><br>        <span class="hljs-comment">//1.拖曳脚本关联</span><br>        <span class="hljs-comment">//2.通过代码关联</span><br>        <span class="hljs-comment">// 拖曳中调用</span><br>        slider.onChange.Add(<span class="hljs-keyword">new</span> EventDelegate(() =&gt; &#123;<br><br>            print(<span class="hljs-string">&quot;通过代码监听&quot;</span> + slider.<span class="hljs-keyword">value</span>);<br>        &#125;));<br>		<span class="hljs-comment">// 拖曳结束时调用</span><br>        slider.onDragFinished += () =&gt; &#123;<br>            print(<span class="hljs-string">&quot;拖曳结束&quot;</span> + slider.<span class="hljs-keyword">value</span>);<br>        &#125;;<br>        <span class="hljs-meta">#<span class="hljs-keyword">endregion</span></span><br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">OnChange</span>()</span><br>    &#123;<br>        print(<span class="hljs-string">&quot;值变化&quot;</span> + slider.<span class="hljs-keyword">value</span>);<br>    &#125;<br><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><p>Value 当前值0~1</p>
+</li>
+<li><p>Steps 步数将1平分</p>
+</li>
+<li><p>Appearance 外观设置</p>
+<ul>
+<li>Foreground 前景 (用于缩放)</li>
+<li>Background 背景</li>
+<li>Thumb 拖动块</li>
+<li>Direction 拖动方向<ul>
+<li>Left To Right 从左到右</li>
+<li>Right To Left 从右到左</li>
+<li>Bottom To Top 从下到上</li>
+<li>Top To Bottom 从上到下</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>OnValueChange 值变化时监听脚本</p>
+</li>
+<li><p>3个sprite 1个做根对象为背景  2个子对象 1个进度 1个滑动块 </p>
+<ul>
+<li><img src="https://s2.loli.net/2024/12/01/waJirGL4bQ7MXUf.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20241130114237.png"></li>
+</ul>
+</li>
+<li><p>设置层级</p>
+<ul>
+<li>滑动块最前面 2</li>
+<li>进度条中间 1</li>
+<li>背景最后面 0</li>
+<li>调整的是Sprite脚本上的Depth</li>
+<li><img src="https://s2.loli.net/2024/12/01/PJ63qxQRcVYaleX.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20241130114446.png"></li>
+</ul>
+</li>
+<li><p>为根背景添加Slider脚本</p>
+<ul>
+<li><img src="https://s2.loli.net/2024/12/01/aedbJqSOk1mxQsr.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20241130114552.png"></li>
+</ul>
+</li>
+<li><p>添加碰撞器（父对象或者滑块）</p>
+<ul>
+<li><img src="https://s2.loli.net/2024/12/01/o8OpU1GlRXN4qjY.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20241130114646.png"></li>
+</ul>
+</li>
+<li><p>关联3个对象</p>
+<ul>
+<li><img src="https://s2.loli.net/2024/12/01/iAWZ9JUCvkTtpGY.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20241130114800.png"></li>
+</ul>
+</li>
+</ul>
+<p><img src="https://s2.loli.net/2024/12/01/NWXdlAj4qKmVrJp.png" srcset="/img/loading.gif" lazyload alt="Slider_parameters.png"></p>
+<h1 id="ScrollBar滚动条和ProgressBar进度条知识点"><a href="#ScrollBar滚动条和ProgressBar进度条知识点" class="headerlink" title="ScrollBar滚动条和ProgressBar进度条知识点"></a>ScrollBar滚动条和ProgressBar进度条知识点</h1><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-keyword">using</span> System.Collections;<br><span class="hljs-keyword">using</span> System.Collections.Generic;<br><span class="hljs-keyword">using</span> UnityEngine;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Lesson11</span> : <span class="hljs-title">MonoBehaviour</span><br>&#123;<br>    <span class="hljs-comment">// Start is called before the first frame update</span><br>    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Start</span>()</span><br>    &#123;<br>        <span class="hljs-meta">#<span class="hljs-keyword">region</span> 知识点一 ScrollBar和ProgressBar用来干啥</span><br>        <span class="hljs-comment">//1.ScrollBar滚动条一般不单独使用 都是配合滚动视图使用 类似VS右侧的滚动条</span><br>        <span class="hljs-comment">//2.ProgressBar进度条 一般不咋使用   一般直接用Sprite的Filed填充模式即可</span><br><br>        <span class="hljs-comment">//他们的参数和之前的知识很类似</span><br>        <span class="hljs-comment">//所以这两个知识点不是重点 了解如何制作他们即可</span><br>        <span class="hljs-meta">#<span class="hljs-keyword">endregion</span></span><br><br>        <span class="hljs-meta">#<span class="hljs-keyword">region</span> 知识点二 制作Scrollbar</span><br>        <span class="hljs-comment">//1.两个Sprite 1个背景 1个滚动条</span><br>        <span class="hljs-comment">//2.背景父对象添加脚本</span><br>        <span class="hljs-comment">//3.添加碰撞器</span><br>        <span class="hljs-comment">//4.关联对象</span><br>        <span class="hljs-meta">#<span class="hljs-keyword">endregion</span></span><br><br>        <span class="hljs-meta">#<span class="hljs-keyword">region</span> 知识点三 制作ProgressBar</span><br>        <span class="hljs-comment">//1.两个Sprite 1个背景 1个进度条</span><br>        <span class="hljs-comment">//2.背景父对象添加脚本</span><br>        <span class="hljs-comment">//3.关联对象</span><br>        <span class="hljs-meta">#<span class="hljs-keyword">endregion</span></span><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="ScrollBar滚动条"><a href="#ScrollBar滚动条" class="headerlink" title="ScrollBar滚动条"></a>ScrollBar滚动条</h2><ul>
+<li>两个Sprite 1个背景 1个滚动条</li>
+<li>背景父对象添加脚本<ul>
+<li>这里要求Scrollbar和Sprite一样长，是重叠的</li>
+<li><img src="https://s2.loli.net/2024/12/01/c3RP7UyBZuIFdXw.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20241130165310.png"></li>
+</ul>
+</li>
+<li>添加碰撞器<ul>
+<li><img src="https://s2.loli.net/2024/12/01/bHGnIKW3jDUV1cm.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20241130165358.png"></li>
+</ul>
+</li>
+<li>关联对象<ul>
+<li><img src="https://s2.loli.net/2024/12/01/W8UcetuLTbazQfZ.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20241130165437.png"></li>
+</ul>
+</li>
+<li>Steps<ul>
+<li>表示按分成几步来移动<br><img src="https://s2.loli.net/2024/12/01/Lli8vGdBckJX1sh.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20241130165706.png"></li>
+</ul>
+</li>
+</ul>
+<h2 id="ProgressBar进度条"><a href="#ProgressBar进度条" class="headerlink" title="ProgressBar进度条"></a>ProgressBar进度条</h2><ul>
+<li>填充如果是纯色，可以用Sprite脚本上的FIlled类型控制进度<ul>
+<li>如果不是纯色，更加细节，则需要用ProgressBar控制进度条</li>
+</ul>
+</li>
+<li>两个Sprite 1个背景 1个进度条</li>
+<li>背景父对象添加脚本<ul>
+<li><img src="https://s2.loli.net/2024/12/01/lsMKpuxA7XTHUjb.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20241130170511.png"></li>
+</ul>
+</li>
+<li>不需要添加碰撞器，因为不需要手动改变进度条，是代码控制</li>
+<li>关联对象<ul>
+<li><img src="https://s2.loli.net/2024/12/01/ycfSoqX3uWwltZR.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20241130170550.png"></li>
+</ul>
+</li>
+</ul>
+<h1 id="ScrollView-滚动视图知识点"><a href="#ScrollView-滚动视图知识点" class="headerlink" title="ScrollView 滚动视图知识点"></a>ScrollView 滚动视图知识点</h1><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-keyword">using</span> System.Collections;<br><span class="hljs-keyword">using</span> System.Collections.Generic;<br><span class="hljs-keyword">using</span> UnityEngine;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Lesson12</span> : <span class="hljs-title">MonoBehaviour</span><br>&#123;<br>    <span class="hljs-comment">// Start is called before the first frame update</span><br>    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Start</span>()</span><br>    &#123;<br>        <span class="hljs-meta">#<span class="hljs-keyword">region</span> 知识点一 ScrollView来干啥</span><br>        <span class="hljs-comment">//滚动视图</span><br>        <span class="hljs-comment">//我们现在用于编程的VS代码窗口就是典型的滚动视图</span><br>        <span class="hljs-comment">//游戏中主要用于 背包、商店、排行榜等等功能</span><br>        <span class="hljs-meta">#<span class="hljs-keyword">endregion</span></span><br><br>        <span class="hljs-meta">#<span class="hljs-keyword">region</span> 知识点二 制作ScrollView</span><br>        <span class="hljs-comment">//1.直接工具栏创建即可 NGUI——Create——ScrollView</span><br>        <span class="hljs-comment">//2.若需要ScrollBar 自行添加水平和竖直</span><br>        <span class="hljs-comment">//3.添加子对象 为子对象添加Drag Scroll View和碰撞器</span><br>        <span class="hljs-meta">#<span class="hljs-keyword">endregion</span></span><br><br>        <span class="hljs-meta">#<span class="hljs-keyword">region</span> 知识点三 参数相关</span><br><br>        <span class="hljs-meta">#<span class="hljs-keyword">endregion</span></span><br><br>        <span class="hljs-meta">#<span class="hljs-keyword">region</span> 知识点四 自动对齐脚本Grid 参数相关</span><br><br>        <span class="hljs-meta">#<span class="hljs-keyword">endregion</span></span><br>        <span class="hljs-comment">// 通过sv控制滚动条更新</span><br>        <span class="hljs-keyword">public</span> UIScrollView sv;<br>	    sv.UpdateScrollbars();<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><p>直接工具栏创建即可 NGUI——Create——ScrollView</p>
+<ul>
+<li>ScrollView不会创建UIRoot，所以需要先创建UIRoot</li>
+<li><img src="https://s2.loli.net/2024/12/01/Wv1xMhgjaFV6ecC.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20241130171629.png"></li>
+<li><img src="https://s2.loli.net/2024/12/01/YRDlGMwdQy8S3T4.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20241130171416.png"></li>
+</ul>
+</li>
+<li><p>若需要ScrollBar 自行添加水平和竖直</p>
+</li>
+<li><p>添加子对象 为子对象添加Drag Scroll View和碰撞器</p>
+<ul>
+<li><img src="https://s2.loli.net/2024/12/01/8pzmGqVaNdIZCBi.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20241130172617.png"></li>
+<li>添加碰撞器</li>
+<li><img src="https://s2.loli.net/2024/12/01/xZSKqFRcrDoYNVC.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20241130172704.png"></li>
+</ul>
+</li>
+<li><p>ScrollView使用Panel管理，Clipping是SoftClip</p>
+</li>
+<li><p>只有左边紫色的范围内才能够看到图像，其他的需要滚动显示，多余的会被裁剪掉<br><img src="https://s2.loli.net/2024/12/01/PHdLwpjsecXWaIT.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20241130171846.png"></p>
+</li>
+<li><p>Content Origin 内容子对象对其方式</p>
+</li>
+<li><p>Movement 拖曳的方向，指的是Sprite那个对象，可以在哪个方向可以拖动</p>
+<ul>
+<li>Horizontal 水平</li>
+<li>Vertical 垂直</li>
+<li>Unrestricted 自由</li>
+<li>Custom 自定义</li>
+</ul>
+</li>
+<li><p>Drag Effect 拖动特效</p>
+<ul>
+<li>None 不使用任何效果</li>
+<li>Momentum 动量 (惯性）效果 (差异不明显)</li>
+<li>Momentum And Spring 动量（惯性）和弹力效果</li>
+<li>一般选择<code>Momentum And Spring</code></li>
+</ul>
+</li>
+<li><p>Scroll Wheel Factor 滚动因子</p>
+<ul>
+<li>如果不为0，鼠标中间滚动可以滚动它,可以通过它控制速度和方向</li>
+<li>负数表示方向反向</li>
+</ul>
+</li>
+<li><p>Momentum Amount 动量</p>
+<ul>
+<li>拖曳一下鼠标，动的快慢</li>
+<li>可以理解成惯性大小</li>
+</ul>
+</li>
+<li><p>Spring Strength</p>
+<ul>
+<li>弹力大小</li>
+<li>移动到边缘时弹回时弹力大小</li>
+</ul>
+</li>
+<li><p>Dampen Strength</p>
+<ul>
+<li>如果比较大，会很难拖动</li>
+<li>阻尼强度</li>
+<li>影响回弹效果</li>
+</ul>
+</li>
+<li><p>Restrict Within Panel</p>
+<ul>
+<li>限制在Panel中</li>
+<li>不勾选，不会产生弹力效果，也就是不回弹回</li>
+</ul>
+</li>
+<li><p>Constrain OnDrag</p>
+<ul>
+<li>阻力约束，一般不修改</li>
+</ul>
+</li>
+<li><p>Cancel Drag if fits</p>
+<ul>
+<li>若勾选，滚动视图的内容是否应该是可拖动的，取决于它们当前子对象大小是否溢出</li>
+<li>勾选后，如果对象太小，没有占满屏幕，则不允许拖动</li>
+</ul>
+</li>
+<li><p>Smooth Drag Start</p>
+<ul>
+<li>平滑拖动，一般不修改</li>
+</ul>
+</li>
+<li><p>IOS Drag Emulation</p>
+<ul>
+<li>IOS阻力模拟，一般不修改</li>
+</ul>
+</li>
+<li><p>ScrollBars 滚动条关联</p>
+<ul>
+<li>Horizontal 水平滚动条</li>
+<li>Vertical 竖直滚动条</li>
+<li>ShowCondition 显示时机<ul>
+<li>Always 一直显示</li>
+<li>Only If Needed 需要时显示</li>
+<li>When Dragging 拖动时显示</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>自己手动制作一个ScrollBar</p>
+<ul>
+<li><img src="https://s2.loli.net/2024/12/01/RwsEy4S5nND1z3T.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20241130175950.png"></li>
+</ul>
+</li>
+<li><p>关联到ScrollView上</p>
+<ul>
+<li><img src="https://s2.loli.net/2024/12/01/kUJXTzcbqIj9ipy.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20241130180037.png"></li>
+</ul>
+</li>
+<li><p>Grid脚本</p>
+</li>
+<li><p><img src="https://s2.loli.net/2024/12/01/apK1vrzlUscoAZ6.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20241130180449.png"></p>
+</li>
+<li><p>Arrangement 排序对齐方式</p>
+<ul>
+<li>Horizontal 水平</li>
+<li>Vertical 竖直</li>
+<li>Cell Snap 元素大小</li>
+</ul>
+</li>
+<li><p>Cell width 元素宽</p>
+</li>
+<li><p>Cell Height 元素高</p>
+</li>
+<li><p>Row Limit 元素个数（只有水平或者竖直才有）</p>
+<ul>
+<li>会自动换行</li>
+<li>如果选择的是水平，表示列数Row Limit个</li>
+<li>如果选择的是竖直，表示行数为Row Limit个</li>
+</ul>
+</li>
+<li><p>Sorting 排序顺序</p>
+<ul>
+<li>None 没有排序</li>
+<li>Alphabetic 按字母排序</li>
+<li>Horizontal 水平放置顺序</li>
+<li>Vertical 垂直放置顺序</li>
+<li>Custom 自定义</li>
+</ul>
+</li>
+<li><p>Inverted 倒转</p>
+<ul>
+<li>若选择了排序方式</li>
+<li>勾选这里可以翻转排序规则</li>
+</ul>
+</li>
+<li><p>Pivot 锚点位置</p>
+<ul>
+<li>9宫格9个位置，一般选择左上角</li>
+</ul>
+</li>
+<li><p>Smooth Tween 平缓缓动动画</p>
+<ul>
+<li>是否会平滑地将其子对象设置为正确的位置</li>
+</ul>
+</li>
+<li><p>Hide Inactive  是否隐藏不活动组件</p>
+</li>
+<li><p>Constrain To panel 约束面板</p>
+<ul>
+<li>是否将网格子对象的更改通知父容器Panel，勾选后会通知</li>
+<li>会用于更新ScrollBar等显示信息<br><img src="https://s2.loli.net/2024/12/01/RA4TYraCbNL7vhW.png" srcset="/img/loading.gif" lazyload alt="ScrollView_parameters1.png"><br><img src="https://s2.loli.net/2024/12/01/Fa56kZ1q7jNzXHK.png" srcset="/img/loading.gif" lazyload alt="ScrollView_parameters2.png"></li>
+</ul>
+</li>
+</ul>
+<p><img src="https://s2.loli.net/2024/12/01/uPITABFdXv4tGRc.png" srcset="/img/loading.gif" lazyload alt="Grid_parameters.png"></p>
+<h1 id="Anchor锚点组件知识点"><a href="#Anchor锚点组件知识点" class="headerlink" title="Anchor锚点组件知识点"></a>Anchor锚点组件知识点</h1><h2 id="老版本的Anchor"><a href="#老版本的Anchor" class="headerlink" title="老版本的Anchor"></a>老版本的Anchor</h2><ul>
+<li>UICamera 关联UI摄像机</li>
+<li>Container 控制的容器对象</li>
+<li>Side 9宫格位置</li>
+<li>Run Only Once<ul>
+<li>是否只对齐一次</li>
+<li>一般情况下，设备分辨率都定死的，横屏竖屏也是定死的，所以勾选，除非分辨率要变化才取消勾选</li>
+</ul>
+</li>
+<li>Relative Offset 相对比例偏移位置（0~1）<ul>
+<li>一般建议用这个，不同设备像素密度不同，可能有差别</li>
+</ul>
+</li>
+<li>Pixel Offset 像素偏移位置</li>
+<li>Type 尺寸对齐方式<ul>
+<li>None 无</li>
+<li>Unified 统一模式</li>
+<li>Advanced 高级模式<ul>
+<li>每条边都有一个父对象</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Execute 什么时候执行更新 <ul>
+<li>On Enable 激活的时候更新</li>
+<li>On Update 每一帧更新</li>
+<li>On Start 在Update之前的Start()更新</li>
+</ul>
+</li>
+<li>Target 相对目标（默认选择的是第一个最近的含有Panel脚本的父对象，一般UI Root都有Panel脚本）<ul>
+<li>Left Sprite左边的蓝色线</li>
+<li>Right Sprite右边的蓝色线</li>
+<li>Bottom  Sprite下面的蓝色线</li>
+<li>Top 上面的蓝色线</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://s2.loli.net/2024/12/01/v51r2G9X7jHi6OQ.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20241130222925.png"></p>
+<ul>
+<li>如果不勾选Run Only Once，会在运行的时候重新计算分辨率变化</li>
+<li>勾选可以解决性能<br><img src="https://s2.loli.net/2024/12/01/kBt5rx8pwb9XPDJ.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20241130224129.png"></li>
+<li>Anchors中的参数</li>
+<li>Left蓝色的线，相对于中间竖直的黑色的线的距离是左偏50px</li>
+<li>Right蓝色的线，相对于中间竖着的黑色的线的距离是右偏50px</li>
+<li>Bottom蓝色的线，相对于中间横着的黑色的线的距离是下偏50px</li>
+<li>Top蓝色的线，相对于中间横着的黑色的线的距离是上偏50px</li>
+<li>最后实际的效果是，Sprite图案按照这个下面的标准进行位置确定，缩放的话是其他参数<br><img src="https://s2.loli.net/2024/12/01/2rDFgWBSUwX9vIO.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20241130224923.png"></li>
+<li>Anchors中的Left…和Target’s Center在哪里</li>
+<li>Left指的是蓝色的四条线，Target’s指的是红色的四条线加上两条黑色的线</li>
+<li><img src="https://s2.loli.net/2024/12/01/tCkwXEWv1fRKFil.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20241130225057.png"></li>
+</ul>
+<p><img src="https://s2.loli.net/2024/12/01/VQuXgjtapqUYPf1.png" srcset="/img/loading.gif" lazyload alt="Anchor_parameters.png"></p>
+<h1 id="EventListener和EventTrigger知识点"><a href="#EventListener和EventTrigger知识点" class="headerlink" title="EventListener和EventTrigger知识点"></a>EventListener和EventTrigger知识点</h1><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-keyword">using</span> System.Collections;<br><span class="hljs-keyword">using</span> System.Collections.Generic;<br><span class="hljs-keyword">using</span> UnityEngine;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Lesson14</span> : <span class="hljs-title">MonoBehaviour</span><br>&#123;<br>    <span class="hljs-keyword">public</span> UISprite A;<br>    <span class="hljs-keyword">public</span> UISprite B;<br><br>    <span class="hljs-comment">// Start is called before the first frame update</span><br>    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Start</span>()</span><br>    &#123;<br>        <span class="hljs-meta">#<span class="hljs-keyword">region</span> 知识点一 控件自带事件的局限性</span><br>        <span class="hljs-comment">//目前复合控件只提供了一些常用的事件监听方式</span><br>        <span class="hljs-comment">//比如</span><br>        <span class="hljs-comment">//Button —— 点击</span><br>        <span class="hljs-comment">//Toggle —— 值变化</span><br>        <span class="hljs-comment">//等等</span><br>        <span class="hljs-comment">//如果想要制作 按下 抬起 长按等功能 利用现在的知识是无法完成的</span><br>        <span class="hljs-meta">#<span class="hljs-keyword">endregion</span></span><br><br>        <span class="hljs-meta">#<span class="hljs-keyword">region</span> 知识点二 NGUI事件 响应函数</span><br>        <span class="hljs-comment">//添加了碰撞器的对象</span><br>        <span class="hljs-comment">//NGUI提供了一些利用反射调用的函数</span><br>        <span class="hljs-comment">//经过 OnHover(bool isOver)</span><br>        <span class="hljs-comment">//按下 OnPress(bool pressed)</span><br>        <span class="hljs-comment">//点击 OnClick()</span><br>        <span class="hljs-comment">//双击 OnDoubleClick()</span><br>        <span class="hljs-comment">//拖曳开始 OnDragStart()</span><br>        <span class="hljs-comment">//拖曳中  OnDrag(Vector2 delta)</span><br>        <span class="hljs-comment">//拖曳结束 OnDragEnd()</span><br>        <span class="hljs-comment">//拖曳经过某对象 OnDragOver(GameObject go)</span><br>        <span class="hljs-comment">//拖曳离开某对象 OnDragOut(GameObject go)</span><br>        <span class="hljs-comment">//等等等等</span><br>        <span class="hljs-meta">#<span class="hljs-keyword">endregion</span></span><br><br>        <span class="hljs-meta">#<span class="hljs-keyword">region</span> 知识点三 更加方便的UIEventListener和UIEventTrigger</span><br>        <span class="hljs-comment">//他们帮助我们封装了所有 特殊响应函数</span><br>        <span class="hljs-comment">//可以通过它进行管理添加</span><br>        <span class="hljs-comment">//1.UIEventListener 适合代码添加</span><br>        UIEventListener listener = UIEventListener.Get(A.gameObject);<br>        listener.onPress += (obj, isPress) =&gt;<br>        &#123;<br>            print(obj.name + <span class="hljs-string">&quot;被按下或者抬起了&quot;</span> + isPress);<br>        &#125;;<br><br>        listener.onDragStart += BeginDrag;<br><br>        <span class="hljs-comment">//2.UIEventTrigger 适合Inspector面板 关联脚本添加</span><br><br><br>        <span class="hljs-comment">//UIEventListener和UIEventTrigger区别</span><br>        <span class="hljs-comment">//1.Listener更适合，代码添加监听，Trigger适合拖曳对象添加监听</span><br>        <span class="hljs-comment">//2.Listener传入的参数更具体，Trigger就不会传入参数，我们需要在函数中去判断处理逻辑</span><br>        <span class="hljs-meta">#<span class="hljs-keyword">endregion</span></span><br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">BeginDrag</span>(<span class="hljs-params">GameObject obj</span>)</span><br>    &#123;<br>        print(obj.name + <span class="hljs-string">&quot;开始拖曳&quot;</span>);<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Press</span>()</span> &#123; &#125;<br><br>    <span class="hljs-comment">//void OnPress(bool pressed)</span><br>    <span class="hljs-comment">//&#123;</span><br>    <span class="hljs-comment">//    if( pressed )</span><br>    <span class="hljs-comment">//    &#123;</span><br>    <span class="hljs-comment">//        print(&quot;按下&quot;);</span><br>    <span class="hljs-comment">//    &#125;</span><br>    <span class="hljs-comment">//    else</span><br>    <span class="hljs-comment">//    &#123;</span><br>    <span class="hljs-comment">//        print(&quot;抬起&quot;);</span><br>    <span class="hljs-comment">//    &#125;</span><br>    <span class="hljs-comment">//&#125;</span><br><br>    <span class="hljs-comment">//void OnHover(bool isOver)</span><br>    <span class="hljs-comment">//&#123;</span><br>    <span class="hljs-comment">//    if( isOver )</span><br>    <span class="hljs-comment">//    &#123;</span><br>    <span class="hljs-comment">//        print(&quot;鼠标经过&quot;);</span><br>    <span class="hljs-comment">//    &#125;</span><br>    <span class="hljs-comment">//    else</span><br>    <span class="hljs-comment">//    &#123;</span><br>    <span class="hljs-comment">//        print(&quot;鼠标离开&quot;);</span><br>    <span class="hljs-comment">//    &#125;</span><br>    <span class="hljs-comment">//&#125;</span><br><br>    <span class="hljs-comment">//void OnClick()</span><br>    <span class="hljs-comment">//&#123;</span><br>    <span class="hljs-comment">//    print(&quot;点击相关&quot;);</span><br>    <span class="hljs-comment">//&#125;</span><br><br>    <span class="hljs-comment">//void OnDoubleClick()</span><br>    <span class="hljs-comment">//&#123;</span><br>    <span class="hljs-comment">//    print(&quot;双击相关&quot;);</span><br>    <span class="hljs-comment">//&#125;</span><br><br>    <span class="hljs-comment">//void OnDragStart()</span><br>    <span class="hljs-comment">//&#123;</span><br>    <span class="hljs-comment">//    print(&quot;开始拖曳&quot;);</span><br>    <span class="hljs-comment">//&#125;</span><br><br>    <span class="hljs-comment">//void OnDrag(Vector2 delta)</span><br>    <span class="hljs-comment">//&#123;</span><br>    <span class="hljs-comment">//    print(&quot;拖曳中&quot; + delta);</span><br>    <span class="hljs-comment">//&#125;</span><br><br>    <span class="hljs-comment">//void OnDragEnd()</span><br>    <span class="hljs-comment">//&#123;</span><br>    <span class="hljs-comment">//    print(&quot;拖曳结束&quot;);</span><br>    <span class="hljs-comment">//&#125;</span><br><br>    <span class="hljs-comment">// 这个obj记录的是拖曳的对象，不是经过的对象</span><br>    <span class="hljs-comment">//void OnDragOver(GameObject obj)</span><br>    <span class="hljs-comment">//&#123;</span><br>    <span class="hljs-comment">//    print(&quot;拖曳经过&quot; + obj.name);</span><br>    <span class="hljs-comment">//&#125;</span><br><br>    <span class="hljs-comment">// 这个obj记录的是拖曳的对象，不是经过的对象</span><br>    <span class="hljs-comment">//void OnDragOut(GameObject obj)</span><br>    <span class="hljs-comment">//&#123;</span><br>    <span class="hljs-comment">//    print(&quot;拖曳离开&quot; + obj.name);</span><br>    <span class="hljs-comment">//&#125;</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>UI Root中的Camera会自带Event System脚本，他检测鼠标点击到了哪些对象，找到点击的对象后，找到他身上挂载的脚本，执行其中能够符合自己要求的方法<br><img src="https://s2.loli.net/2024/12/01/7nRQfbNaBjGgSvy.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20241130232259.png"></li>
+</ul>
+<h1 id="DrawCall-知识点"><a href="#DrawCall-知识点" class="headerlink" title="DrawCall 知识点"></a>DrawCall 知识点</h1><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-keyword">using</span> System.Collections;<br><span class="hljs-keyword">using</span> System.Collections.Generic;<br><span class="hljs-keyword">using</span> UnityEngine;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Lesson15</span> : <span class="hljs-title">MonoBehaviour</span><br>&#123;<br>    <span class="hljs-comment">// Start is called before the first frame update</span><br>    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Start</span>()</span><br>    &#123;<br>        <span class="hljs-meta">#<span class="hljs-keyword">region</span> 知识点一 DrawCall的概念</span><br>        <span class="hljs-comment">//字面理解DrawCall  就是 绘制呼叫的意思  表示 CPU（中央处理器）通知GPU（图形处理器-显卡）</span><br><br>        <span class="hljs-comment">//DrawCall 概念</span><br>        <span class="hljs-comment">//就是CPU(处理器)准备好渲染数据（顶点，纹理，法线，Shader等等）后</span><br>        <span class="hljs-comment">//告知GPU(图形处理器-显卡)开始渲染（将命令放入命令缓冲区）的命令</span><br><br>        <span class="hljs-comment">//简单来说：一次DrawCall就是 CPU准备好渲染数据通知 GPU渲染的这个过程</span><br><br>        <span class="hljs-comment">//如果游戏中DrawCall数量较高会影响CPU的效率</span><br>        <span class="hljs-comment">//最直接的感受就是游戏会卡顿</span><br><br>        <span class="hljs-comment">//举例说明  以拷贝文件来进行类比</span><br>        <span class="hljs-comment">//假设我们创建10000个小文件，每个文件大小为1kb，然后把这些文件拷贝到另一个文件夹中</span><br>        <span class="hljs-comment">//你会发现，即使这些文件加起来不超过10MB，但是拷贝花费的时间是很长的</span><br>        <span class="hljs-comment">//如果我们单独创建1个10MB的文件拷贝到另一个文件夹，基本可以瞬间拷贝完毕</span><br>        <span class="hljs-comment">//为什么会这样呢？</span><br>        <span class="hljs-comment">//因为每一个文件赋值动作都需要很多额外的操作，比如分配内存，创建数据等等</span><br>        <span class="hljs-comment">//这些操作就会带来一些额外的性能开销</span><br>        <span class="hljs-comment">//简单理解 文件越多额外开销就越大</span><br><br>        <span class="hljs-comment">//渲染过程和上面的例子很类似，每次DrawCall，CPU都需要准备很多数据发送给GPU</span><br>        <span class="hljs-comment">//那么如果DrawCall越多那么额外开销就越大，其实GPU的渲染效率是很强大的，往往影响渲染效率的</span><br>        <span class="hljs-comment">//都是因为CPU提交命令的速度</span><br>        <span class="hljs-comment">//如果DrawCall 太多CPU就会把大量时间花在提交DrawCall上 造成CPU过载，游戏卡顿</span><br>        <span class="hljs-meta">#<span class="hljs-keyword">endregion</span></span><br><br>        <span class="hljs-meta">#<span class="hljs-keyword">region</span> 知识点二 如何降低DrawCall数量</span><br>        <span class="hljs-comment">//在UI层面上</span><br>        <span class="hljs-comment">//小图合大图——&gt;即多个小DrawCall变一次大DrawCall</span><br>        <span class="hljs-meta">#<span class="hljs-keyword">endregion</span></span><br><br>        <span class="hljs-meta">#<span class="hljs-keyword">region</span> 知识点三 制作UI时降低DrawCall的技巧</span><br>        <span class="hljs-comment">//1.通过NGUI Panel上提供的DrawCall查看工具</span><br>        <span class="hljs-comment">//2.注意不同图集之间的层级关系</span><br>        <span class="hljs-comment">// 如果三张图片来自两个图集，Depth分别为0，1，2</span><br>        <span class="hljs-comment">// 0，2是同一个图集，1是另一个图集，DrawCall是3</span><br>        <span class="hljs-comment">// 所以不要让不同图集的Depth插入在同一个图集的Depth中</span><br>        <span class="hljs-comment">//3.注意Label的层级关系</span><br>        <span class="hljs-comment">// 字体也算是一个图集，字体会被打包在同一个图集中</span><br>        <span class="hljs-comment">// 一般把文字Depth放在最上面</span><br>        <span class="hljs-meta">#<span class="hljs-keyword">endregion</span></span><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>查看DrawCall数量<br><img src="https://s2.loli.net/2024/12/01/8HYL9sPO6uTVCy2.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20241130235502.png"></li>
+<li><img src="https://s2.loli.net/2024/12/01/NHgIA6tMpEChvxR.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20241130235644.png"></li>
+</ul>
+<h1 id="NGUI字体知识点"><a href="#NGUI字体知识点" class="headerlink" title="NGUI字体知识点"></a>NGUI字体知识点</h1><ul>
+<li><p>打开NGUI字体制作<br><img src="https://s2.loli.net/2024/12/01/B2YI6sNXokiFyMZ.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20241201001346.png"></p>
+</li>
+<li><p>Generated Bitmap</p>
+<ul>
+<li>生成Bitmap</li>
+</ul>
+</li>
+<li><p>Imported Bitmap</p>
+<ul>
+<li>导入Bitmap</li>
+</ul>
+</li>
+<li><p>Dynamic</p>
+<ul>
+<li>动态字体，已经有Unity的了，不用管这个<br><img src="https://s2.loli.net/2024/12/01/lnmyW9gcYET1oSA.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20241201001424.png"></li>
+</ul>
+</li>
+<li><p>Font Maker的设置</p>
+</li>
+<li><p><code>Generated Bitmap</code></p>
+<ul>
+<li>Create Font会保存这个字体，有用到字体的地方可以拖入生成的文件<ul>
+<li>但是如果有文字不在图集中，就无法显示了</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://s2.loli.net/2024/12/01/ramjKoG7BktHNSQ.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20241201001819.png"></p>
+<ul>
+<li>使用Bitmap Font生成字体软件<br><img src="https://s2.loli.net/2024/12/01/qEdlVCLvnwBMZ7g.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20241201002108.png"></li>
+</ul>
+<p><img src="https://s2.loli.net/2024/12/01/XkRvxwzbhF2dLie.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20241201002241.png"></p>
+<p><img src="https://s2.loli.net/2024/12/01/eHjQ5nf46s8Ki2F.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20241201002256.png"></p>
+<p><img src="https://s2.loli.net/2024/12/01/HRLaNSTQYU6wKb1.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20241201002358.png"></p>
+<ul>
+<li>选择想要导出的文字<br><img src="https://s2.loli.net/2024/12/01/tGQHxY8ZflKS2Pg.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20241201002507.png"></li>
+<li>预览结果<br><img src="https://s2.loli.net/2024/12/01/ngVY5A7yDe6ZU3m.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20241201002438.png"></li>
+<li>可以选择文件中出现的文字来打图集</li>
+<li>文件必须是带有BOM的utf-8格式的txt文件<br><img src="https://s2.loli.net/2024/12/01/zD19BokjPnRaJdU.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20241201002552.png"></li>
+<li>导出图集<br><img src="https://s2.loli.net/2024/12/01/uthZdGXCAsoFc6I.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20241201002732.png"></li>
+</ul>
+<p><img src="https://s2.loli.net/2024/12/01/PLbKsq9Zjk8TAGC.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20241201002829.png"></p>
+<ul>
+<li>继续Create the Font，可以产生Unity中的其他图集合并</li>
+</ul>
+<h2 id="自定义美术字体"><a href="#自定义美术字体" class="headerlink" title="自定义美术字体"></a>自定义美术字体</h2><ul>
+<li>还是之前的Bitmap Font生成字体软件<br><img src="https://s2.loli.net/2024/12/01/WluQxzXq8mG9VUD.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20241201003020.png"></li>
+<li>插入美术字体<br><img src="https://s2.loli.net/2024/12/01/urToBsby2lCS9Av.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20241201003059.png"><br><img src="https://s2.loli.net/2024/12/01/oTpHAvRYeOBPjV2.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20241201003138.png"></li>
+</ul>
+<p><img src="https://s2.loli.net/2024/12/01/R8DcvzwtUZ2g4FY.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20241201003302.png"></p>
+<ul>
+<li>删除指定的美术字体<br><img src="https://s2.loli.net/2024/12/01/lHIP8bBXd9DViS7.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20241201003321.png"></li>
+</ul>
+<h1 id="NGUI缓动知识点"><a href="#NGUI缓动知识点" class="headerlink" title="NGUI缓动知识点"></a>NGUI缓动知识点</h1><blockquote>
+<p>该对象上也要加碰撞器</p>
+</blockquote>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-keyword">using</span> System.Collections;<br><span class="hljs-keyword">using</span> System.Collections.Generic;<br><span class="hljs-keyword">using</span> UnityEngine;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Lesson17</span> : <span class="hljs-title">MonoBehaviour</span><br>&#123;<br>    <span class="hljs-comment">// Start is called before the first frame update</span><br>    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Start</span>()</span><br>    &#123;<br>        <span class="hljs-meta">#<span class="hljs-keyword">region</span> 知识点一 什么是NGUI缓动</span><br>        <span class="hljs-comment">// NGUI缓动，就是让控件交互时，进行缩放变化，透明变化，位置变化，角度变化等等行为</span><br>        <span class="hljs-comment">// NGUI自带Tween功能来实现这些缓动效果</span><br>        <span class="hljs-meta">#<span class="hljs-keyword">endregion</span></span><br><br>        <span class="hljs-meta">#<span class="hljs-keyword">region</span> 知识点二 使用NGUI缓动</span><br>        <span class="hljs-comment">// 1. 关键组件 Tween缓动相关组件</span><br>        <span class="hljs-comment">// 2. 关键组件，Play Tween 可以通过它让该对象和输入事件关联</span><br>        <span class="hljs-meta">#<span class="hljs-keyword">endregion</span></span><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><p>Alpha 指从某个Alpha值变成另一个Alpha值</p>
+<ul>
+<li>是透明度的意思<br><img src="https://s2.loli.net/2024/12/01/dwV1LpqSkWmejvo.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20241201005139.png"></li>
+</ul>
+</li>
+<li><p>以Scale为例<br><img src="https://s2.loli.net/2024/12/01/xVuHUw9ArMbkL8G.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20241201005305.png"></p>
+</li>
+<li><p>From 开始状态</p>
+</li>
+<li><p>To 结束状态</p>
+</li>
+<li><p>PlayStyle 播放方式</p>
+<ul>
+<li>Once 一次</li>
+<li>Loop 循环</li>
+<li>Ping Pong 循环从头到尾从尾到头</li>
+</ul>
+</li>
+<li><p>Animation Curve 动画曲线</p>
+<ul>
+<li>可以调整两个值的变化曲线</li>
+</ul>
+</li>
+<li><p>Duration 持续时间</p>
+</li>
+<li><p>Start Delay 开始播放前的延迟时间</p>
+</li>
+<li><p>Delay Affects 延迟影响</p>
+<ul>
+<li>Forward 正向播放时才有延迟效果</li>
+<li>Reverse  反转播放时才有延迟效果</li>
+<li>Both 都有延迟效果<ul>
+<li>如果时Ping Pong的话，播放只有正向会延迟，反向不会延迟</li>
+<li>只有代码控制的时候，反转播放才会有延迟</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Tween Group 分组ID</p>
+<ul>
+<li>用于一个对象多个动画时分组</li>
+</ul>
+</li>
+<li><p>Ignore TimeScale 忽略时间暂停</p>
+<ul>
+<li>即使timescale变成了0，也不会停止缓动</li>
+</ul>
+</li>
+<li><p>Use Fixed Update 使用物理更新更新动画</p>
+<ul>
+<li>一般不勾选，物理时间可能会很长</li>
+</ul>
+</li>
+<li><p>On Finished</p>
+<ul>
+<li>只有选中Once的播放方式才调用这个，其他的播放方式不会停止<br><img src="https://s2.loli.net/2024/12/01/HzhyXdYm6uLDpM4.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20241201005346.png"></li>
+</ul>
+</li>
+</ul>
+<p><img src="https://s2.loli.net/2024/12/01/cp9GObg6FLZ3EY5.png" srcset="/img/loading.gif" lazyload alt="PlayTween_parameters.png"></p>
+<ul>
+<li>Play Tween脚本<br><img src="https://s2.loli.net/2024/12/01/ZDLSya53eYb6nQH.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20241201010424.png"></li>
+<li>Tween Target 控制对象<ul>
+<li>也就是控制哪个对象缓动</li>
+<li>这里一般默认是哪个对象加了这个脚本，就选择哪个对象</li>
+</ul>
+</li>
+<li>Include Children 是否带着子对象一起变化<ul>
+<li>可能有其他子对象，类似按钮有Label</li>
+</ul>
+</li>
+<li>Start State <ul>
+<li>如果为真，则在激活触发之前,PlayTween将在启动时将所有关联的Tween重置为其起始状态</li>
+<li>不要让缓动一走来自动播放，而是控制它什么时候播放</li>
+</ul>
+</li>
+<li>TweenGroup 控制的是哪一组缓动<ul>
+<li>和上面的Tween Group对应</li>
+</ul>
+</li>
+<li>Trigger condition 触发条件<ul>
+<li>也就是什么时候触发这个缓动，上面的Start State被设置为False，这里可以设置为True，开始缓动播放</li>
+<li>On Click</li>
+<li>On Hover</li>
+<li>On Press</li>
+<li>On Hover True</li>
+<li>On Hover False</li>
+<li>On Press True</li>
+<li>On Press False</li>
+<li>On Activate</li>
+<li>On Activate True</li>
+<li>On Activate False</li>
+<li>On Double Click</li>
+<li>On Select</li>
+<li>On Select True</li>
+<li>On Select False</li>
+<li>Manual</li>
+</ul>
+</li>
+<li>Play direction 触发的事件<ul>
+<li>Reverse 反转播放<ul>
+<li>一开始为结束状态，往开始状态转换</li>
+</ul>
+</li>
+<li>Toggle 正反状态转换<ul>
+<li>不断正反状态转换，从开始到结束，结束到开始</li>
+</ul>
+</li>
+<li>Forward 正向播放</li>
+</ul>
+</li>
+<li>If target is disabled 如果控制对象失活处理方式<ul>
+<li>Do Nothing 啥也不做，一般选择这个</li>
+<li>Enable Then Play 为了播放激活它</li>
+<li>Ignore Disabled State 忽略失活状态<ul>
+<li>不管你是不是激活的，继续缓动这个失活的对象</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>On activation 激活时<ul>
+<li>Continue From Current 继续当前，一般选这个</li>
+<li>Restart Tween 重新开始</li>
+<li>Restart If Not Playing 如果没有播放重新开始</li>
+</ul>
+</li>
+<li>When finished 播放完毕做啥<ul>
+<li>Disable After Reverse 执行完后隐藏</li>
+<li>Do Not Disable 什么也不做，一般选这个</li>
+<li>Disable After Forward 如果是倒着播，播放完后隐藏</li>
+</ul>
+</li>
+<li>On Finished<ul>
+<li>播放完做什么</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://s2.loli.net/2024/12/01/ue8oCVFdswTnZjm.png" srcset="/img/loading.gif" lazyload alt="PlayTween_key_parameters.png"></p>
+<p><img src="https://s2.loli.net/2024/12/01/ZqMOSGniQNgBwJj.png" srcset="/img/loading.gif" lazyload alt="PlayTween_parameters 1.png"></p>
+<h1 id="NGUI中显示3D模型和例子特效"><a href="#NGUI中显示3D模型和例子特效" class="headerlink" title="NGUI中显示3D模型和例子特效"></a>NGUI中显示3D模型和例子特效</h1><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-keyword">using</span> System.Collections;<br><span class="hljs-keyword">using</span> System.Collections.Generic;<br><span class="hljs-keyword">using</span> UnityEngine;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Lesson18</span> : <span class="hljs-title">MonoBehaviour</span><br>&#123;<br>    <span class="hljs-comment">// Start is called before the first frame update</span><br>    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Start</span>()</span><br>    &#123;<br>        <span class="hljs-meta">#<span class="hljs-keyword">region</span> 知识点一 NGUI中显示3D模型</span><br>        <span class="hljs-comment">//方法一：</span><br>        <span class="hljs-comment">//使用UI摄像机渲染3D模型</span><br>        <span class="hljs-comment">//1.改变NGUI的整体层级 为 UI层</span><br>        <span class="hljs-comment">//2.改变主摄像机和NGUI摄像机的 渲染层级</span><br>        <span class="hljs-comment">//3.将想要被UI摄像机渲染的对象层级改为 UI层</span><br>        <span class="hljs-comment">//4.调整模型和UI控件的Z轴距离</span><br><br>        <span class="hljs-comment">//方法二：</span><br>        <span class="hljs-comment">//使用多摄像机渲染 Render Texture</span><br>        <span class="hljs-meta">#<span class="hljs-keyword">endregion</span></span><br><br>        <span class="hljs-meta">#<span class="hljs-keyword">region</span> 知识点二 NGUI中显示粒子特效</span><br>        <span class="hljs-comment">//1.让Panel和粒子特效处于一个排序层</span><br>        <span class="hljs-comment">//2.在粒子特效的 Render参数中 设置自己的层级</span><br>        <span class="hljs-meta">#<span class="hljs-keyword">endregion</span></span><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="使用UI摄像机渲染3D模型"><a href="#使用UI摄像机渲染3D模型" class="headerlink" title="使用UI摄像机渲染3D模型"></a>使用UI摄像机渲染3D模型</h2><ul>
+<li>改变NGUI的整体层级 为 UI层<ul>
+<li><img src="https://s2.loli.net/2024/12/01/K8UEtMDcuhjwoxa.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20241201012411.png"></li>
+<li>3D模型也要改为UI层，如果模型不显示，可能是模型太小，改一下Scale<ul>
+<li><img src="https://s2.loli.net/2024/12/01/6DR7BeZWdMk1fQJ.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20241201012455.png"></li>
+<li><img src="https://s2.loli.net/2024/12/01/bvtmaPqpURAJyui.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20241201012533.png"></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>改变主摄像机和NGUI摄像机的 渲染层级<ul>
+<li>主摄像机不渲染UI层</li>
+<li>NGUI摄像机只渲染UI层</li>
+<li>另外3D模型的渲染不受Depth影响，之和Z轴的实际距离有关</li>
+</ul>
+</li>
+<li>将想要被UI摄像机渲染的对象层级改为 UI层<ul>
+<li>也就是Tank改成UI层</li>
+</ul>
+</li>
+<li>调整模型和UI控件的Z轴距离<ul>
+<li>就能看到不同层级叠加的情况</li>
+</ul>
+</li>
+</ul>
+<h2 id="使用多摄像机渲染-Render-Texture"><a href="#使用多摄像机渲染-Render-Texture" class="headerlink" title="使用多摄像机渲染 Render Texture"></a>使用多摄像机渲染 Render Texture</h2><blockquote>
+<p>这里可以使用3D摄像机，实现近大远小</p>
+</blockquote>
+<ul>
+<li><p>创建一个Render Texture<br><img src="https://s2.loli.net/2024/12/01/Kj8HVyq29UnWISM.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20241201012913.png"></p>
+</li>
+<li><p>将刚刚的Render Texture拖到想要渲染的摄像机那里</p>
+</li>
+<li><p>这里是将摄像机看到的内容都放在了Tank这个Render Texture里面</p>
+</li>
+<li><p>其中左边的Camera和Tank4都是一个Water的Layer层，其他的相机都不渲染这个层<br><img src="https://s2.loli.net/2024/12/01/tpl5InaRfvgTWBV.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20241201013039.png"></p>
+</li>
+<li><p>此时将Render Texture中的内容渲染到Texture上，类似小地图的功能<br><img src="https://s2.loli.net/2024/12/01/Cr2LxgWzioQJ4ZD.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20241201013233.png"></p>
+</li>
+</ul>
+<h2 id="NGUI中显示粒子特效"><a href="#NGUI中显示粒子特效" class="headerlink" title="NGUI中显示粒子特效"></a>NGUI中显示粒子特效</h2><ul>
+<li>创建例子特效<ul>
+<li><img src="https://s2.loli.net/2024/12/01/rIkxMg4VPC6n8Nh.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20241201013512.png"></li>
+</ul>
+</li>
+<li>让Panel和粒子特效处于一个排序层<ul>
+<li><img src="https://s2.loli.net/2024/12/01/pEgviIrs27dotFC.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20241201013641.png"></li>
+</ul>
+</li>
+<li>在粒子特效的 Render参数中 设置自己的层级<ul>
+<li>改层级或者同层中的优先度都可以改变显示顺序<br>  <img src="https://s2.loli.net/2024/12/01/xjg2XydAE5R9l7W.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20241201013621.png"></li>
+</ul>
+</li>
+</ul>
+<h1 id="事件触发播放音效、键盘绑定、语言本地化等知识点"><a href="#事件触发播放音效、键盘绑定、语言本地化等知识点" class="headerlink" title="事件触发播放音效、键盘绑定、语言本地化等知识点"></a>事件触发播放音效、键盘绑定、语言本地化等知识点</h1><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-keyword">using</span> System.Collections;<br><span class="hljs-keyword">using</span> System.Collections.Generic;<br><span class="hljs-keyword">using</span> UnityEngine;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Lesson19</span> : <span class="hljs-title">MonoBehaviour</span><br>&#123;<br>    <span class="hljs-comment">// Start is called before the first frame update</span><br>    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Start</span>()</span><br>    &#123;<br>        <span class="hljs-meta">#<span class="hljs-keyword">region</span> 知识点一 NGUI 事件响应 播放音效</span><br>        <span class="hljs-comment">//PlaySound 脚本</span><br>        <span class="hljs-meta">#<span class="hljs-keyword">endregion</span></span><br><br>        <span class="hljs-meta">#<span class="hljs-keyword">region</span> 知识点二 NGUI控件和键盘按键绑定</span><br>        <span class="hljs-comment">//KeyBinding 脚本</span><br>        <span class="hljs-meta">#<span class="hljs-keyword">endregion</span></span><br><br>        <span class="hljs-meta">#<span class="hljs-keyword">region</span> 知识点三 PC端 tab键快捷切换选中</span><br>        <span class="hljs-comment">//KeyNavigation 脚本</span><br>        <span class="hljs-meta">#<span class="hljs-keyword">endregion</span></span><br><br>        <span class="hljs-meta">#<span class="hljs-keyword">region</span> 知识点四 语言本地化</span><br>        <span class="hljs-comment">//Localization脚本</span><br>        <span class="hljs-comment">//1.在Resources下创建一个txt文件 命名必须为Localization</span><br>        <span class="hljs-comment">//2.配置文件</span><br>        <span class="hljs-comment">//3.给想要切换文字的Label对象下挂载Localize 关联Key</span><br>        <span class="hljs-comment">//4.给用于切换语言的下拉列表下添加脚本LanguageSelection</span><br>        <span class="hljs-meta">#<span class="hljs-keyword">endregion</span></span><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+<ul>
+<li><p>添加播放音效脚本</p>
+<ul>
+<li><img src="https://s2.loli.net/2024/12/01/afz8oWbmtTjqJVy.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20241201014032.png"><br><img src="https://s2.loli.net/2024/12/01/1nrjMIfuV3HGtBR.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20241201014151.png"></li>
+</ul>
+</li>
+<li><p>添加键盘绑定脚本</p>
+<ul>
+<li><img src="https://s2.loli.net/2024/12/01/blZIJVfXKgwtM5P.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20241201014239.png"></li>
+<li><img src="https://s2.loli.net/2024/12/01/8qfhBbWcLaYldnP.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20241201014504.png"></li>
+</ul>
+</li>
+<li><p>PC端 tab键快捷切换选中</p>
+<ul>
+<li><img src="https://s2.loli.net/2024/12/01/74qDY9dCMNkotKz.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20241201014610.png"></li>
+<li>Sprite这四个对象需要添加碰撞器</li>
+<li>按了Tab后，会到开始的右边的按钮，如果还需要按Tab切换，则需要这四个对象都添加Key Navigation脚本</li>
+<li><img src="https://s2.loli.net/2024/12/01/JcFmYtoqv32Iu7n.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20241201014701.png"></li>
+</ul>
+</li>
+<li><p>语言本地化</p>
+</li>
+<li><p>Localization脚本</p>
+</li>
+<li><p>在Resources下创建一个txt文件 命名必须为Localization</p>
+<ul>
+<li><img src="https://s2.loli.net/2024/12/01/64KbB2lZPcfYrNW.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20241201014952.png"></li>
+</ul>
+</li>
+<li><p>配置文件</p>
+<ul>
+<li>表示volume的关键字，对应的中文为音量，英文为volume</li>
+<li><img src="https://s2.loli.net/2024/12/01/h9W8l2qNsSaPeuE.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20241201015026.png"></li>
+</ul>
+</li>
+<li><p>给想要切换文字的Label对象下挂载Localize 关联Key</p>
+<ul>
+<li>对Label组件添加Localize脚本</li>
+<li>默认选择配置文件中的第一个</li>
+<li><img src="https://s2.loli.net/2024/12/01/pNXaU7n6RsQjd4D.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20241201015140.png"></li>
+<li><img src="https://s2.loli.net/2024/12/01/fSqVXb9coAUClLN.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20241201015213.png"></li>
+</ul>
+</li>
+<li><p>给用于切换语言的下拉列表下添加脚本LanguageSelection</p>
+<ul>
+<li>添加一个PopUpList下拉列表<ul>
+<li>添加PopupList脚本，以及碰撞器<ul>
+<li>记得设置字体为Unity字体&#x2F;其他的字体也行，不能为空，否则下拉列表不显示文字</li>
+<li>修改On Value Change的触发事件</li>
+<li><img src="https://s2.loli.net/2024/12/01/uIj1wP3KJACEHZ8.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20241201015400.png"></li>
+<li><img src="https://s2.loli.net/2024/12/01/9uj4gPetBa2H81X.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20241201015613.png"></li>
+</ul>
+</li>
+<li>添加Language Selection脚本<ul>
+<li><img src="https://s2.loli.net/2024/12/01/wxrjGetczCDyAsm.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20241201015453.png"></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><img src="https://s2.loli.net/2024/12/01/K5ouifPFLcgQpEs.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20241201015723.png"></p>
+</li>
+<li><p>也能改图片</p>
+</li>
+<li><p>原理应该是Label标签就改文字，Sprite组件就改图片，但是图集估计要在同一个上面</p>
+</li>
+<li><p><img src="https://s2.loli.net/2024/12/01/GptVJS7gLsEZF8d.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20241201015847.png"></p>
+</li>
+<li><p><img src="https://s2.loli.net/2024/12/01/8b3KUg7dEOIyBnM.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20241201015910.png"></p>
+</li>
+</ul>
+<h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h1><p><a target="_blank" rel="noopener" href="https://www.yxtown.com/">游习堂</a></p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div></div>
+      <div>https://wing2791.github.io/2024/11/26/Unity知识整理(三_UGUI)/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>wing2791</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2024年11月26日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2024/11/22/Unity%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86(%E4%BA%8C_%E5%9F%BA%E7%A1%80)/" title="Unity知识整理(二_基础)">
+                        <span class="hidden-mobile">Unity知识整理(二_基础)</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <i class="iconfont icon-bilibili-fill"></i> <a href="https://space.bilibili.com/384847565" target="_blank" rel="nofollow noopener"><span>B站主页</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
