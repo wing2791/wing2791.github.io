@@ -21,7 +21,7 @@
   
     <meta name="description" content="NGUI全称下一代用户界面(Next-Gen UI)它是第三方提供的Unity付费插件专门用于制作Unity中游戏UI的第三方工具相对于GUI它更适用于制作游戏UI功能更方便使用，性能和效率更高Unity插件：是一种基于Unity规范编写出来的程序，主要用于拓展功能，简单理解就是别人基于Unity写好的某种功能代码，我们可以直接用来处理特定的游戏逻辑  UGUI导入 打开资源商店  搜索NGUI">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Day Day Up!">
+<meta property="og:title" content="Unity知识整理(三_UGUI)">
 <meta property="og:url" content="https://wing2791.github.io/2024/11/26/Unity%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86(%E4%B8%89_UGUI)/index.html">
 <meta property="og:site_name" content="Day Day Up!">
 <meta property="og:description" content="NGUI全称下一代用户界面(Next-Gen UI)它是第三方提供的Unity付费插件专门用于制作Unity中游戏UI的第三方工具相对于GUI它更适用于制作游戏UI功能更方便使用，性能和效率更高Unity插件：是一种基于Unity规范编写出来的程序，主要用于拓展功能，简单理解就是别人基于Unity写好的某种功能代码，我们可以直接用来处理特定的游戏逻辑  UGUI导入 打开资源商店  搜索NGUI">
@@ -186,14 +186,14 @@
 <meta property="og:image" content="https://s2.loli.net/2024/12/01/GptVJS7gLsEZF8d.png">
 <meta property="og:image" content="https://s2.loli.net/2024/12/01/8b3KUg7dEOIyBnM.png">
 <meta property="article:published_time" content="2024-11-26T06:54:11.830Z">
-<meta property="article:modified_time" content="2024-12-01T08:14:13.280Z">
+<meta property="article:modified_time" content="2024-12-01T15:32:33.322Z">
 <meta property="article:author" content="wing2791">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://s2.loli.net/2024/12/01/VjU51TOEKnqoGNH.png">
   
   
   
-  <title>Day Day Up!</title>
+  <title>Unity知识整理(三_UGUI) - Day Day Up!</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -359,7 +359,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text=""></span>
+            <span id="subtitle" data-typed-text="Unity知识整理(三_UGUI)"></span>
           
         </div>
 
@@ -430,7 +430,7 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header"></h1>
+            <h1 id="seo-header">Unity知识整理(三_UGUI)</h1>
             
             
               <div class="markdown-body">
@@ -2019,7 +2019,7 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div></div>
+      <div>Unity知识整理(三_UGUI)</div>
       <div>https://wing2791.github.io/2024/11/26/Unity知识整理(三_UGUI)/</div>
     </div>
     <div class="license-meta">
@@ -2126,6 +2126,12 @@
 
 
   
+
+
+  
+  
+
+
 
 
 
@@ -2318,6 +2324,49 @@
 
 
   <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
 
   <script  src="/js/local-search.js" ></script>
 
