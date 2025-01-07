@@ -21,19 +21,19 @@
   
     <meta name="description" content="如何标记废弃方法Cpp在C++中，如果要标记某个方法已经废弃，可以使用 [[deprecated]] 属性（attribute）。这是一种现代、清晰的方法，用于提醒开发者某些函数或方法不推荐使用。编译器会在调用这些标记为废弃的方法时生成警告信息。 使用方式： 简单标记废弃  1234[[deprecated]]void oldFunction() &#123;    &#x2F;&#x2F; Implementati">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Day Day Up!">
+<meta property="og:title" content="知识点四_如何标记废弃方法">
 <meta property="og:url" content="https://wing2791.github.io/2024/12/03/%E7%9F%A5%E8%AF%86%E7%82%B9%E5%9B%9B_%E5%A6%82%E4%BD%95%E6%A0%87%E8%AE%B0%E5%BA%9F%E5%BC%83%E6%96%B9%E6%B3%95/index.html">
 <meta property="og:site_name" content="Day Day Up!">
 <meta property="og:description" content="如何标记废弃方法Cpp在C++中，如果要标记某个方法已经废弃，可以使用 [[deprecated]] 属性（attribute）。这是一种现代、清晰的方法，用于提醒开发者某些函数或方法不推荐使用。编译器会在调用这些标记为废弃的方法时生成警告信息。 使用方式： 简单标记废弃  1234[[deprecated]]void oldFunction() &#123;    &#x2F;&#x2F; Implementati">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-12-03T13:43:32.870Z">
-<meta property="article:modified_time" content="2024-12-03T13:52:29.527Z">
+<meta property="article:modified_time" content="2024-12-08T11:59:59.111Z">
 <meta property="article:author" content="wing2791">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>Day Day Up!</title>
+  <title>知识点四_如何标记废弃方法 - Day Day Up!</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -199,7 +199,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text=""></span>
+            <span id="subtitle" data-typed-text="知识点四_如何标记废弃方法"></span>
           
         </div>
 
@@ -270,7 +270,7 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header"></h1>
+            <h1 id="seo-header">知识点四_如何标记废弃方法</h1>
             
             
               <div class="markdown-body">
@@ -332,7 +332,7 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div></div>
+      <div>知识点四_如何标记废弃方法</div>
       <div>https://wing2791.github.io/2024/12/03/知识点四_如何标记废弃方法/</div>
     </div>
     <div class="license-meta">
@@ -376,6 +376,12 @@
                 <div class="post-prevnext my-3">
                   <article class="post-prev col-6">
                     
+                    
+                      <a href="/2024/12/08/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F(Cpp)/" title="设计模式(Cpp)">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">设计模式(Cpp)</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
                     
                   </article>
                   <article class="post-next col-6">
@@ -439,6 +445,12 @@
 
 
   
+
+
+  
+  
+
+
 
 
 
@@ -631,6 +643,49 @@
 
 
   <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
 
   <script  src="/js/local-search.js" ></script>
 
