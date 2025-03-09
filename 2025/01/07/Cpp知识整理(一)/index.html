@@ -19,15 +19,15 @@
   <meta name="author" content="wing2791">
   <meta name="keywords" content="">
   
-    <meta name="description" content="后记 和C++没有任何关系啦本科遇见ww，虽然联系甚少了，但感谢ww最后一路的支持，不会忘记，所以遇见yf后，更加珍惜了很开心遇见了yf，或许有一天总会分道扬镳，但是从我逐渐学习Cpp或者CSharp的时候，都认识了yf，是好朋友，有困难会两肋插刀如果哪天你们看到了，希望你两个能知道，不仅仅是，做兄弟在心中，也会付出行动">
+    <meta name="description" content="1. 初始化列表初始化列表博客具体参考上面的博客就好，值得注意的是()圆括号的方法是C++11之前就可以使用了，{}的才是C++11新增的 2. 安装boost下载可执行文件# win10下boost安装的三种方式，及cmake编译boost代码例子  下载地址 以boost_1_72_0-msvc-14.2-64.exe为例，下载后双击即可安装 配置环境变量 配置 BOOST_INCLUDEDI">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Cpp知识整理(一)">
 <meta property="og:url" content="https://wing2791.github.io/2025/01/07/Cpp%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86(%E4%B8%80)/index.html">
 <meta property="og:site_name" content="Day Day Up!">
-<meta property="og:description" content="后记 和C++没有任何关系啦本科遇见ww，虽然联系甚少了，但感谢ww最后一路的支持，不会忘记，所以遇见yf后，更加珍惜了很开心遇见了yf，或许有一天总会分道扬镳，但是从我逐渐学习Cpp或者CSharp的时候，都认识了yf，是好朋友，有困难会两肋插刀如果哪天你们看到了，希望你两个能知道，不仅仅是，做兄弟在心中，也会付出行动">
+<meta property="og:description" content="1. 初始化列表初始化列表博客具体参考上面的博客就好，值得注意的是()圆括号的方法是C++11之前就可以使用了，{}的才是C++11新增的 2. 安装boost下载可执行文件# win10下boost安装的三种方式，及cmake编译boost代码例子  下载地址 以boost_1_72_0-msvc-14.2-64.exe为例，下载后双击即可安装 配置环境变量 配置 BOOST_INCLUDEDI">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-01-07T03:32:49.414Z">
-<meta property="article:modified_time" content="2025-01-07T03:57:23.098Z">
+<meta property="article:modified_time" content="2025-02-11T14:07:16.209Z">
 <meta property="article:author" content="wing2791">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -222,7 +222,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          131 字
+          495 字
         
       </span>
     
@@ -233,7 +233,7 @@
         
         
         
-          2 分钟
+          5 分钟
         
       </span>
     
@@ -275,8 +275,44 @@
             
               <div class="markdown-body">
                 
-                <h1 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h1><blockquote>
-<p>和C++没有任何关系啦<br>本科遇见ww，虽然联系甚少了，但感谢ww最后一路的支持，不会忘记，所以遇见yf后，更加珍惜了<br>很开心遇见了yf，或许有一天总会分道扬镳，但是从我逐渐学习Cpp或者CSharp的时候，都认识了yf，是好朋友，有困难会两肋插刀<br>如果哪天你们看到了，希望你两个能知道，不仅仅是，做兄弟在心中，也会付出行动</p>
+                <h1 id="1-初始化列表"><a href="#1-初始化列表" class="headerlink" title="1. 初始化列表"></a>1. 初始化列表</h1><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/ArsenalfanInECNU/p/18080526">初始化列表博客</a><br>具体参考上面的博客就好，值得注意的是()圆括号的方法是C++11之前就可以使用了，{}的才是C++11新增的</p>
+<h1 id="2-安装boost"><a href="#2-安装boost" class="headerlink" title="2. 安装boost"></a>2. 安装boost</h1><h2 id="下载可执行文件"><a href="#下载可执行文件" class="headerlink" title="下载可执行文件"></a>下载可执行文件</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/luozhichengaichenlei/article/details/122490831"># win10下boost安装的三种方式，及cmake编译boost代码例子</a></p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://sourceforge.net/projects/boost/files/boost-binaries/">下载地址</a></li>
+<li>以boost_1_72_0-msvc-14.2-64.exe为例，下载后双击即可安装</li>
+<li>配置环境变量<ul>
+<li>配置 BOOST_INCLUDEDIR 和 BOOST_LIBRARYDIR和 PATH 中添加 D:\soft\boost\172\lib64-msvc-14.2<br>  ![[Pasted image 20250211220436.png]]<br>  ![[Pasted image 20250211220529.png]]</li>
+</ul>
+</li>
+</ul>
+<h2 id="配置-Include-目录"><a href="#配置-Include-目录" class="headerlink" title="配置 Include 目录"></a>配置 Include 目录</h2><ul>
+<li><strong>打开 Visual Studio</strong></li>
+<li><strong>进入</strong> <code>项目 -&gt; 属性 (Properties)</code></li>
+<li><strong>导航到</strong> <code>C/C++ -&gt; 常规 (General)</code></li>
+<li><strong>在 “附加包含目录 (Additional Include Directories)” 中添加：</strong><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs applescript">C:\<span class="hljs-keyword">local</span>\boost_1_72_0<br></code></pre></td></tr></table></figure></li>
+</ul>
+<p>![[Pasted image 20250211215321.png]]<br>![[Pasted image 20250211215142.png]]</p>
+<hr>
+<h2 id="配置-Library-目录"><a href="#配置-Library-目录" class="headerlink" title="配置 Library 目录"></a>配置 Library 目录</h2><ul>
+<li><strong>在项目属性中，导航到</strong> <code>链接器 (Linker) -&gt; 常规 (General)</code></li>
+<li><strong>在 “附加库目录 (Additional Library Directories)” 中添加：</strong><figure class="highlight gauss"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs gauss">C:\<span class="hljs-keyword">local</span>\boost_1_72_0\<span class="hljs-keyword">lib</span><br></code></pre></td></tr></table></figure>
+![[Pasted image 20250211215631.png]]</li>
+</ul>
+<hr>
+<h2 id="链接-Boost-库"><a href="#链接-Boost-库" class="headerlink" title="链接 Boost 库"></a>链接 Boost 库</h2><p>如果你使用的是 <strong>头文件库（如 <code>Boost.SmartPtr</code>、<code>Boost.Algorithm</code>）</strong>，那么 <strong>不需要额外链接库</strong>，直接包含头文件即可。</p>
+<p>但是，如果你使用的是 <strong>需要链接的 Boost 库</strong>（如 <code>Boost.Filesystem</code>、<code>Boost.Thread</code>），你还需要在 <strong>附加依赖项 (Additional Dependencies)</strong> 中添加对应的 <code>.lib</code> 文件，例如：</p>
+<h4 id="示例：使用-Boost-Filesystem"><a href="#示例：使用-Boost-Filesystem" class="headerlink" title="示例：使用 Boost.Filesystem"></a><strong>示例：使用 Boost.Filesystem</strong></h4><ul>
+<li>在项目属性中，进入<figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs coq">链接器 -&gt; 输入 -&gt; 附加依赖项 (Linker -&gt; Input -&gt; Additional <span class="hljs-keyword">Dependencies</span>)<br></code></pre></td></tr></table></figure></li>
+<li>添加对应的库文件（以 <code>Boost.Filesystem</code> 为例）：<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">boost_filesystem</span>-vc142-mt-x64-<span class="hljs-number">1</span>_72.lib boost_system-vc142-mt-x64-<span class="hljs-number">1</span>_72.lib<br></code></pre></td></tr></table></figure></li>
+</ul>
+<p>![[Pasted image 20250211220116.png]]</p>
+<h2 id="库引入"><a href="#库引入" class="headerlink" title="库引入"></a>库引入</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs Cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;boost/lexical_cast.hpp&gt;</span></span><br><span class="hljs-comment">//不用库不一样</span><br></code></pre></td></tr></table></figure>
+
+
+
+
+<h1 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h1><blockquote>
+<p>和C++没有任何关系啦<br>本科遇见ww，虽然联系甚少了，但感谢ww最后一路的支持，不会忘记，所以遇见yf后，更加珍惜了<br>很开心遇见了yf，或许有一天总会分道扬镳，但是从我逐渐学习Cpp或者CSharp的时候，就认识了yf，是好朋友，有困难会两肋插刀<br>如果哪天你们看到了，希望你两个能知道，不仅仅是，做兄弟在心中，也会付出行动</p>
 </blockquote>
 
                 
