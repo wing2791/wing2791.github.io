@@ -1,0 +1,222 @@
+{
+  "main": {
+    "id": "144f0adaafb41eec",
+    "type": "split",
+    "children": [
+      {
+        "id": "21a049f3afdd8d3c",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "10b3eff6f88b4397",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "New tab"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "fb2479b68fb488bc",
+    "type": "split",
+    "children": [
+      {
+        "id": "6a370c0b5ecd75e4",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "9ace8d003532fdb9",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "5852b51fe99a1def",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "8a4fc47dd4f854ee",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 349.5
+  },
+  "right": {
+    "id": "8dffce9affe11ea5",
+    "type": "split",
+    "children": [
+      {
+        "id": "1227aa48b378613b",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "0935228038688d5e",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "source/_posts/CSharp知识整理(一).md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for CSharp知识整理(一)"
+            }
+          },
+          {
+            "id": "f8842720db3bbd79",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "source/_posts/CSharp知识整理(一).md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from CSharp知识整理(一)"
+            }
+          },
+          {
+            "id": "a6197089879888cb",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "f135c68b260b1280",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "source/_posts/Unity知识整理(一_入门).md"
+              },
+              "icon": "lucide-list",
+              "title": "Outline of Unity知识整理(一_入门)"
+            }
+          },
+          {
+            "id": "2f2c9d9b2a6c5788",
+            "type": "leaf",
+            "state": {
+              "type": "quiet-outline",
+              "state": {},
+              "icon": "lines-of-text",
+              "title": "Quiet Outline"
+            }
+          }
+        ],
+        "currentTab": 4
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "bases:Create new base": false,
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
+    }
+  },
+  "active": "9ace8d003532fdb9",
+  "lastOpenFiles": [
+    "public/2025/09/01/一封长长的信/index.html",
+    "public/2025/09/01/一封长长的信",
+    "source/_posts/word的使用（毕设用）.md",
+    "source/_posts/VSCode基本使用和Emmet语法.md",
+    "source/_posts/一封长长的信.md",
+    "Pasted image 20250726230852.png",
+    "Pasted image 20250726183015.png",
+    "source/_posts/git学习.md",
+    "source/_posts/知识点四_如何标记废弃方法.md",
+    "source/_posts/本地双人塔防游戏Demo.md",
+    "source/_posts/Winform界面开发入门.md",
+    "source/_posts/VStudio等IDE的一些设置.md",
+    "source/_posts/CSharp知识整理(一).md",
+    "source/_posts/github部署个人博客.md",
+    "source/_posts/hello-world.md",
+    "source/_posts/MongoDB的简单使用.md",
+    "source/_posts/Unity知识整理(一_入门).md",
+    "Untitled 1.base",
+    "Untitled.base",
+    "Pasted image 20250918203108.png",
+    "Pasted image 20250720203504.png",
+    "Pasted image 20250720203736.png",
+    "Pasted image 20250619183930.png",
+    "Pasted image 20250619182219.png",
+    "Pasted image 20250619182148.png",
+    "Pasted image 20250619182058.png",
+    "Pasted image 20250619181651.png",
+    "source/_posts/LaTex表示数学符号.md",
+    "source/_posts/CSharp知识整理(四).md",
+    "source/_posts/Csharp知识整理(三).md",
+    "source/_posts/知识点三_网络编程相关知识(Cpp).md",
+    "source/_posts/知识点二_constexpr_RTTR安装_局域网为什么使用MAC地址通信_弱类型枚举和强类型枚举.md",
+    "source/_posts/杂谈-游戏（二）.md",
+    "source/_posts/设计模式(Cpp).md",
+    "source/_posts/各种功能测试.md",
+    "source/Untitled.md",
+    "public/2025/03/27/word的使用（毕设用）/index.html",
+    "public/2025/03/27/word的使用（毕设用）",
+    "source/Word的使用（毕设用）.md",
+    "source/_posts/杂谈-游戏（一）.md",
+    "source/_posts/WPF界面开发入门.md",
+    "public/2025/03/27/word的使用（引用参考文献，公式书写，快捷键）/index.html",
+    "public/2025/03/27/word的使用（引用参考文献，公式书写，快捷键）",
+    "public/2025/03/27",
+    "public/2025/03",
+    "public/archives/2025/03/index.html"
+  ]
+}
