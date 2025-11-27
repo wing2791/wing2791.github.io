@@ -4,6 +4,19 @@
   
   
   <entry>
+    <title></title>
+    <link href="/2025/11/27/%E4%BB%A3%E7%A0%81%E8%B0%83%E8%AF%95%EF%BC%88python%EF%BC%8Ccpp%EF%BC%89/"/>
+    <url>/2025/11/27/%E4%BB%A3%E7%A0%81%E8%B0%83%E8%AF%95%EF%BC%88python%EF%BC%8Ccpp%EF%BC%89/</url>
+    
+    <content type="html"><![CDATA[<h1 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h1><ol><li>安装debugpy<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">pip install debugpy<br></code></pre></td></tr></table></figure></li><li>修改bash脚本<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 原来脚本</span><br>python train.py <span class="hljs-variable">$&#123;args&#125;</span> <br></code></pre></td></tr></table></figure></li></ol><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 修改后脚本</span><br>python -m debugpy --listen 127.0.0.1:5678 --wait-for-client train.py <span class="hljs-variable">$&#123;args&#125;</span><br></code></pre></td></tr></table></figure><p>3. </p>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>word的使用（毕设用）</title>
     <link href="/2025/11/14/word%E7%9A%84%E4%BD%BF%E7%94%A8%EF%BC%88%E6%AF%95%E8%AE%BE%E7%94%A8%EF%BC%89/"/>
     <url>/2025/11/14/word%E7%9A%84%E4%BD%BF%E7%94%A8%EF%BC%88%E6%AF%95%E8%AE%BE%E7%94%A8%EF%BC%89/</url>
