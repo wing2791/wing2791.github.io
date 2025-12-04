@@ -19,17 +19,24 @@
   <meta name="author" content="wing2791">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Python 安装debugpy1pip install debugpy 修改bash脚本12# 原来脚本python train.py $&#123;args&#125;   12# 修改后脚本python -m debugpy --listen 127.0.0.1:5678 --wait-for-client train.py $&#123;args&#125;  3.">
+    <meta name="description" content="Pythondebugpy调试   安装debugpy1pip install debugpy 修改bash脚本12# 原来脚本python train.py $&#123;args&#125;   12# 修改后脚本python -m debugpy --listen 127.0.0.1:5678 --wait-for-client train.py $&#123;args&#125;   配置">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Day Day Up!">
 <meta property="og:url" content="https://wing2791.github.io/2025/11/27/%E4%BB%A3%E7%A0%81%E8%B0%83%E8%AF%95%EF%BC%88python%EF%BC%8Ccpp%EF%BC%89/index.html">
 <meta property="og:site_name" content="Day Day Up!">
-<meta property="og:description" content="Python 安装debugpy1pip install debugpy 修改bash脚本12# 原来脚本python train.py $&#123;args&#125;   12# 修改后脚本python -m debugpy --listen 127.0.0.1:5678 --wait-for-client train.py $&#123;args&#125;  3.">
+<meta property="og:description" content="Pythondebugpy调试   安装debugpy1pip install debugpy 修改bash脚本12# 原来脚本python train.py $&#123;args&#125;   12# 修改后脚本python -m debugpy --listen 127.0.0.1:5678 --wait-for-client train.py $&#123;args&#125;   配置">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s2.loli.net/2025/12/01/rxa8PAU35zKXDQs.png">
+<meta property="og:image" content="https://s2.loli.net/2025/12/01/kLyCxXQ1VUBITqj.png">
+<meta property="og:image" content="https://s2.loli.net/2025/12/01/D3XVJ6hnLrev1Hb.png">
+<meta property="og:image" content="https://s2.loli.net/2025/12/01/DEfcZ6HjBF3xuwI.png">
+<meta property="og:image" content="https://s2.loli.net/2025/12/01/gzBTG3ZWUfIJ5do.png">
+<meta property="og:image" content="https://s2.loli.net/2025/12/01/yiO8XusaUHq6hMJ.png">
 <meta property="article:published_time" content="2025-11-27T15:34:43.185Z">
-<meta property="article:modified_time" content="2025-11-27T15:39:38.508Z">
+<meta property="article:modified_time" content="2025-12-02T14:11:29.395Z">
 <meta property="article:author" content="wing2791">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://s2.loli.net/2025/12/01/rxa8PAU35zKXDQs.png">
   
   
   
@@ -222,7 +229,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          37 字
+          207 字
         
       </span>
     
@@ -233,7 +240,7 @@
         
         
         
-          1 分钟
+          2 分钟
         
       </span>
     
@@ -275,13 +282,36 @@
             
               <div class="markdown-body">
                 
-                <h1 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h1><ol>
+                <h1 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h1><h2 id="debugpy调试"><a href="#debugpy调试" class="headerlink" title="debugpy调试"></a>debugpy调试</h2><blockquote>
+</blockquote>
+<ol>
 <li>安装debugpy<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">pip install debugpy<br></code></pre></td></tr></table></figure></li>
 <li>修改bash脚本<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 原来脚本</span><br>python train.py <span class="hljs-variable">$&#123;args&#125;</span> <br></code></pre></td></tr></table></figure></li>
 </ol>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 修改后脚本</span><br>python -m debugpy --listen 127.0.0.1:5678 --wait-for-client train.py <span class="hljs-variable">$&#123;args&#125;</span><br></code></pre></td></tr></table></figure>
 
-<p>3. </p>
+<ol start="3">
+<li>配置vscode</li>
+</ol>
+<ul>
+<li>run-&gt;add configuration-&gt;python debugger-&gt;Remote Attach </li>
+<li>然后输入ip和端口号，需要和上面的<code>127.0.0.1:5678</code>对应<br><img src="https://s2.loli.net/2025/12/01/rxa8PAU35zKXDQs.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20251201233137.png"></li>
+</ul>
+<p><img src="https://s2.loli.net/2025/12/01/kLyCxXQ1VUBITqj.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20251201233215.png"></p>
+<p><img src="https://s2.loli.net/2025/12/01/D3XVJ6hnLrev1Hb.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20251201233230.png"></p>
+<ul>
+<li><p><code>.vscode</code>是vscode的配置文件，<code>launch.json</code>能够配置参数，name是自己后续调试的名称，connect是设置的ip和端口号，根据需要修改<br><img src="https://s2.loli.net/2025/12/01/DEfcZ6HjBF3xuwI.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20251201233628.png"></p>
+</li>
+<li><p>写一个bash脚本，在终端运行脚本，第三步需要这里运行完，不然需要等一会</p>
+</li>
+<li><p>debugpy会等待进行导入，可以在实际代码中加断点</p>
+</li>
+<li><p>第三步运行对应的调试按钮，其中上述的<code>name</code>就是这里调试的名称，需要ip和端口号对应</p>
+</li>
+<li><p>之后会暂停在加了断点的位置<br><img src="https://s2.loli.net/2025/12/01/gzBTG3ZWUfIJ5do.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20251201233932.png"></p>
+</li>
+</ul>
+<p><img src="https://s2.loli.net/2025/12/01/yiO8XusaUHq6hMJ.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20251201234135.png"></p>
 
                 
               </div>
